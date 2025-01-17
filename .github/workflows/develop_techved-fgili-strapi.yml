@@ -20,7 +20,25 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
-
+          
+      - name: Create .env file
+        run: |
+          echo "NODE_ENV=production" > .env
+          echo "HOST=0.0.0.0" >> .env
+          echo "PORT=1337" >> .env
+          echo "APP_KEYS=5AhZUchgY6qWDjv2OP3YdQ==,2JQVwwhGNHCWu3EM0QipTA==,wADZ/MJL3uBNKvBFc1n5yw==,eFckVigo8gO2Z5NCS6KyqQ==" >> .env
+          echo "API_TOKEN_SALT=XhSOI3B/O/l9HJFe0Ze+eg==" >> .env
+          echo "ADMIN_JWT_SECRET=fNDLRPOxKkPvKbn1XN5vmw==" >> .env
+          echo "TRANSFER_TOKEN_SALT=0l4wnN3wIzIb+ZDRrrWujg==" >> .env
+          echo "JWT_SECRET=eaDUX8mL0kn1iySxUSYTog==" >> .env
+          echo "DATABASE_CLIENT=mysql" >> .env
+          echo "DATABASE_HOST=techved-fgili.database.windows.net" >> .env
+          echo "DATABASE_PORT=1433" >> .env
+          echo "DATABASE_USERNAME=techved-admin" >> .env
+          echo "DATABASE_PASSWORD=zl9Hl6Z4yL]{YhyYI&b9" >> .env
+          echo "DATABASE_NAME=techved_fgili_DB" >> .env
+          echo "DATABASE_SSL=false" >> .env
+          
       - name: npm install, build, and test
         run: |
           npm install
@@ -51,6 +69,9 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
+
+      - name: Start the application
+        run: npm run start
       
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
