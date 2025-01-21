@@ -1,0 +1,55 @@
+/* Helvetica Thin (100) */
+@font-face {
+    font-family: 'Helvetica-100';
+    src: url('/fonts/Helvetica/Helvetica100.otf');
+    font-style: normal;
+}
+
+/* Helvetica Extra Light (200) */
+@font-face {
+    font-family: 'Helvetica-200';
+    src: url('/fonts/Helvetica/Helvetica200.otf');
+    font-style: normal;
+}
+
+/* Helvetica Light (300) */
+@font-face {
+    font-family: 'Helvetica-300';
+    src: url('/fonts/Helvetica/Helvetica300.otf');
+    font-style: normal;
+}
+
+/* Helvetica Regular (400) */
+@font-face {
+    font-family: 'Helvetica-400';
+    src: url('/fonts/Helvetica/Helvetica400.otf');
+    font-style: normal;
+}
+
+/* Helvetica Medium (500) */
+@font-face {
+    font-family: 'Helvetica-500';
+    src: url('/fonts/Helvetica/Helvetica500.otf');
+    font-style: normal;
+}
+
+/* Helvetica Bold (700) */
+@font-face {
+    font-family: 'Helvetica-700';
+    src: url('/fonts/Helvetica/Helvetica700.otf');
+    font-style: normal;
+}
+
+/* Helvetica Extra Bold (800) */
+@font-face {
+    font-family: 'Helvetica-800';
+    src: url('/fonts/Helvetica/Helvetica800.otf');
+    font-style: normal;
+}
+
+/* Helvetica Black (900) */
+@font-face {
+    font-family: 'Helvetica-900';
+    src: url('/fonts/Helvetica/Helvetica900.otf');
+    font-style: normal;
+}
