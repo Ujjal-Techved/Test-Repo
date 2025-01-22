@@ -1,0 +1,71 @@
+ /* left sidebar css */
+
+
+  .sidebar_menu_list{
+    border-bottom: 1px solid var(--fgi-bordergrey);
+    padding: 24px 0px;
+  }
+
+  .sidebar_menu_list.active{
+    padding-bottom: 0px;
+  }
+
+
+  .menu_list_title{
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--fgi-black);
+    text-decoration: none;
+  }
+
+  .combo_btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .arrow_icon{
+    position: relative;
+    min-height: 17px;
+    width: 20px;
+  }
+
+  .arrow_icon:before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    background: url('/images/header/dropdown-arrow.svg') 50% / contain no-repeat;
+    width: 12px;
+    height: 10px;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    transition: .2s;
+}
+
+.arrow_icon.active::before{
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.menu_list_subtitle{
+    padding-left: 12px;
+    padding-top: 12px;
+    /* margin-bottom: -24px; */
+}
+
+.menu_list_subtitle li{
+    padding: 12px;
+}
+
+.menu_list_subtitle li:not(:last-child){
+    border-bottom: 1px solid var(--fgi-borderlightgrey);
+}
+
+.menu_list_subtitle li a{
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--fgi-black);
+    text-decoration: none;
+
+}
