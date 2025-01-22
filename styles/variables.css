@@ -1,10 +1,6 @@
 /* Define CSS variables in a :root pseudo-class for global scope */
 :root {
-    --primary-color: #4caf50;
-    --secondary-color: #ff9800;
-    --text-color: #333;
-    --background-color: #f9f9f9;
-    --font-size-small: 14px;
-    --font-size-medium: 18px;
-    --font-size-large: 24px;
+    --fgi-red: #C21B17;
+    --text-grey: #666666;
+    --background-color: #FFFFFF;
 }
