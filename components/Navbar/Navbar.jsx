@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <Container className={styles.mainContainer}>
+      <Container className={styles.Container}>
         <div className={styles.main_header}>
           <button
             className={`${styles.user_btn} ${styles.hamburgbtn}`}
