@@ -7,4 +7,13 @@
     --font-size-small: 14px;
     --font-size-medium: 18px;
     --font-size-large: 24px;
+
+
+
+    --fgi-black:#20252B;
+    --fgi-lightblack1:#0000000F;
+    --fgi-lightblack2: #0000000A;
+    --fgi-red1: #AF2219;
+    --fgi-red2: #C21B17;
+    --fgi-white: #FFFFFF;
 }
