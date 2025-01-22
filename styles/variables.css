@@ -2,11 +2,11 @@
 :root {
     --fgi-red: #C21B17;
     --text-grey: #666666;
+    --text-grey2: #6F7072;
     --background-color: #FFFFFF;
-    --fgi-black:#20252B;
-    --fgi-lightblack1:#0000000F;
+    --fgi-black: #20252B;
+    --fgi-lightblack1: #0000000F;
     --fgi-lightblack2: #0000000A;
     --fgi-red1: #AF2219;
-    --fgi-red2: #C21B17;
     --fgi-white: #FFFFFF;
 }
