@@ -9,7 +9,9 @@
     --fgi-lightblack2: #0000000A;
     --fgi-red1: #AF2219;
     --fgi-white: #FFFFFF;
+    --fgi-redcard: #FF4E4E4D;
+
     --fgi-bordergrey: #CCCCCC;
     --fgi-borderlightgrey: #EBEBEB;
-    --fgi-redcard: #FF4E4E4D;
+    --fgi-borderdarkgrey: #16014333;
 }

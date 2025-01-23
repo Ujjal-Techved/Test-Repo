@@ -1,10 +1,12 @@
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
 import LandingLayout from '@/components/Layouts/LandingLayout';
 import TitleSubtitle from '@/components/TitleSubtitle/TitleSubtitle';
+import InfoCard from "@/components/InfoCard/InfoCard";
 import React, { useState } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import Select from 'react-select';
 import styles from './Branch.module.css';
+import ReachUsDigital from '@/components/ReachUsDigital/ReachUsDigital';
 
 const BranchLocator = () => {
     const [breacrumbValues] = useState([
@@ -127,12 +129,13 @@ const BranchLocator = () => {
                         </Row>
                     </div>
                 </div>
-
+                <InfoCard/>
                 <TitleSubtitle
                     title={"Reach Us Digitally"}
                     subtitle={"We help you build a worry free future with easy processes and expert guidance at every step"}
                     titleTag="h3"
                 />
+                <ReachUsDigital/>
             </Container>
         </LandingLayout>
     );
