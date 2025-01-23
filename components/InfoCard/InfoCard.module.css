@@ -1,12 +1,57 @@
-.info_cards{
+.info_cards_row{
+    padding: 48px 0px;
+    margin-bottom: 48px;
+}
+
+.info_cards_section {
+    display: flex !important;
+}
+
+.info_cards {
     border: 1px solid var(--fgi-redcard);
     background-color: #ffcaca4d;
     padding: 20px;
     border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 26px;
 }
 
-.info_cards h3{
+.info_cards_title {
     font-size: 24px;
     line-height: 36px;
     font-family: 'Helvetica-800';
+}
+
+.info_cards_subtitle {
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--fgi-black);
+}
+
+@media screen and (max-width: 992px) and (min-width: 320px) {
+    .info_cards_row{
+        padding: 16px 0px;
+        margin-bottom: 0px;
+    }
+    .info_cards_section {
+        flex: auto;
+    }
+    .info_cards{
+        min-height: 221px;
+        margin-bottom: 16px;
+    }
+
+    .info_cards_section:last-child .info_cards{
+        margin-bottom: 0px;
+    }
+
+    .info_cards_title {
+        font-size: 18px;
+        line-height: 27px;
+    }
+
 }
