@@ -55,7 +55,7 @@
     line-height: 24px;
     font-family: 'Helvetica-700';
     background: linear-gradient(180deg, #AF2219 0%, #C21B17 100%);
-    color: var(--fgi-white);
+    color: var(--background-color);
     text-decoration: none;
     padding: 12px 24px;
     border-radius: 42px;

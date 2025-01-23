@@ -8,10 +8,11 @@
     --fgi-lightblack1: #0000000F;
     --fgi-lightblack2: #0000000A;
     --fgi-red1: #AF2219;
-    --fgi-white: #FFFFFF;
     --fgi-bordergrey: #CCCCCC;
     --fgi-borderlightgrey: #EBEBEB;
     --fgi-redcard: #FF4E4E4D;
     --border-grey: #D8D8D8;
     --fgi-borderdarkgrey: #16014333;
+    --fgi-grey: #CAC7C7;
+    --fgi-boxshadowgrey: #0000001A;
 }

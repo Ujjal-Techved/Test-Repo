@@ -111,9 +111,10 @@ const BranchLocator = () => {
                                     className="react-select-container"
                                     classNamePrefix="react-select"
                                     components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
+                                    
                                 />
                             </Col>
-                            <Col lg="4" className={styles.col}>
+                            <Col lg="4" className={styles.col + ' dropdown-arrow'}>
                                 <Select
                                     options={branchList.map((data) => ({ value: data.state, label: data.state }))}
                                     value={selectedState}
@@ -123,6 +124,7 @@ const BranchLocator = () => {
                                     classNamePrefix="react-select"
                                     isSearchable={false}
                                     components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
+                                    menuIsOpen={true} 
                                 />
                             </Col>
                             <Col lg="3" className={styles.col}>
