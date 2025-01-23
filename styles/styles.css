@@ -6,6 +6,12 @@ body{
     background: var(--background-color);
 }
 
+.container {
+    max-width: 1222px !important;
+    width: 100%;
+    margin: 0 auto;
+}
+
 .redBtn{
     font-size: 16px;
     line-height: 24px;
