@@ -7,6 +7,7 @@ import { Col, Container, Row } from 'reactstrap';
 import Select from 'react-select';
 import styles from './Branch.module.css';
 import ReachUsDigital from '@/components/ReachUsDigital/ReachUsDigital';
+import BranchList from '@/components/BranchLocator/BranchList/BranchList';
 
 const BranchLocator = () => {
     const [breacrumbValues] = useState([
@@ -132,6 +133,8 @@ const BranchLocator = () => {
                             </Col>
                         </Row>
                     </div>
+
+                    <BranchList list={branchList} />
                 </div>
                 <InfoCard/>
                 <TitleSubtitle
