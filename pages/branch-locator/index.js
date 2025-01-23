@@ -85,7 +85,8 @@ const BranchLocator = () => {
         }
     ];
 
-    const [selectedCity, setSelectedCity] = useState(null);;
+    const [selectedCity, setSelectedCity] = useState(null);
+    const [selectedState, setSelectedState] = useState(null);
 
     return (
         <LandingLayout>
@@ -107,20 +108,23 @@ const BranchLocator = () => {
                                     placeholder="Select a city"
                                     className="react-select-container"
                                     classNamePrefix="react-select"
+                                    components={{ IndicatorSeparator: () => null }} // Removes the arrow and separator
                                 />
                             </Col>
-                            <Col lg="5">
+                            <Col lg="4">
                                 <Select
-                                    options={branchList.map((data) => ({ value: data.city, label: data.city }))}
-                                    value={selectedCity}
-                                    onChange={(option) => { setSelectedCity(option.city) }}
-                                    placeholder="Select a city"
+                                    options={branchList.map((data) => ({ value: data.state, label: data.state }))}
+                                    value={selectedState}
+                                    onChange={(option) => { setSelectedState(option.state) }}
+                                    placeholder="Select State Name"
                                     className="react-select-container"
                                     classNamePrefix="react-select"
+                                    isSearchable={false}
+                                    components={{ IndicatorSeparator: () => null }} // Removes the arrow and separator
                                 />
                             </Col>
-                            <Col lg="2">
-                                <button className="redBtn" onClick={() => console.log(selectedCity?.value || "No city selected")}>
+                            <Col lg="3">
+                                <button className="redBtn">
                                     Search
                                 </button>
                             </Col>
