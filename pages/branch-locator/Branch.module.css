@@ -1,3 +1,7 @@
 .filterComponent {
     box-shadow: 0px 4px 48px 0px var(--fgi-lightblack2);
+    max-width: 598px;
+    padding: 12px;
+    border-radius: 60px;
+    margin: 0 auto;
 }
