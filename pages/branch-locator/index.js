@@ -99,19 +99,19 @@ const BranchLocator = () => {
 
                 <div className={styles.listContainer}>
                     <div className={styles.filterComponent}>
-                        <Row>
-                            <Col lg="5">
+                        <Row className={styles.row}>
+                            <Col lg="5" className={styles.col}>
                                 <Select
                                     options={branchList.map((data) => ({ value: data.city, label: data.city }))}
                                     value={selectedCity}
                                     onChange={(option) => { setSelectedCity(option.city) }}
-                                    placeholder="Select a city"
+                                    placeholder="Select a City"
                                     className="react-select-container"
                                     classNamePrefix="react-select"
-                                    components={{ IndicatorSeparator: () => null }} // Removes the arrow and separator
+                                    components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
                                 />
                             </Col>
-                            <Col lg="4">
+                            <Col lg="4" className={styles.col}>
                                 <Select
                                     options={branchList.map((data) => ({ value: data.state, label: data.state }))}
                                     value={selectedState}
@@ -120,11 +120,11 @@ const BranchLocator = () => {
                                     className="react-select-container"
                                     classNamePrefix="react-select"
                                     isSearchable={false}
-                                    components={{ IndicatorSeparator: () => null }} // Removes the arrow and separator
+                                    components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
                                 />
                             </Col>
-                            <Col lg="3">
-                                <button className="redBtn">
+                            <Col lg="3" className={styles.col}>
+                                <button className="redBtn w-100">
                                     Search
                                 </button>
                             </Col>
