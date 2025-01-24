@@ -2,18 +2,14 @@ import Breadcrumbs from '@/components/Common/Breadcrumbs/Breadcrumbs';
 import LandingLayout from '@/components/Layouts/LandingLayout';
 import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
 import InfoCard from "@/components/BranchLocator/InfoCard/InfoCard";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import Select from 'react-select';
 import styles from './Branch.module.css';
 import ReachUsDigital from '@/components/BranchLocator/ReachUsDigital/ReachUsDigital';
 import BranchList from '@/components/BranchLocator/BranchList/BranchList';
 
-const BranchLocator = () => {
-    const [breacrumbValues] = useState([
-        { name: "Test Data", url: "/branch-locator", active: false },
-        { name: "Branch Locator", url: "/branch-locator", active: true },
-    ]);
+const BranchLocator = (props) => {
 
     const branchList = [
         {
@@ -88,13 +84,34 @@ const BranchLocator = () => {
         }
     ];
 
-    const [selectedCity, setSelectedCity] = useState(null);
-    const [selectedState, setSelectedState] = useState(null);
+    const [cityList, setCityList] = useState([]);
+    const [stateList, setStateList] = useState([]);
+
+    const [selectedCity, setSelectedCity] = useState("");
+    const [selectedState, setSelectedState] = useState("");
+
+    useEffect(() => {
+        setCityList([...branchList.map((data) => ({ value: data.city, label: data.city, state: data.state }))]);
+        setStateList([...branchList.map((data) => ({ value: data.state, label: data.state }))]);
+    }, [])
+
+    const handleSubmit = () => {
+        if (!selectedCity) {
+            alert("Please select a city!"); // City is required
+            return;
+        }
+
+        const cityValue = selectedCity.value.toLowerCase().replace(/\s+/g, "-");
+        const stateValue = selectedState.value.toLowerCase().replace(/\s+/g, "-");
+
+        // Redirect to the branch locator
+        window.location.href = `/branch-locator/${stateValue}/${cityValue}`;
+    };
 
     return (
         <LandingLayout>
             <Container>
-                <Breadcrumbs values={breacrumbValues} />
+                <Breadcrumbs values={props?.breadcrumbs} />
                 <TitleSubtitle
                     title={"Locate Near Branches"}
                     subtitle={"Easy and hassle-free way to locate our branches in PAN India!"}
@@ -105,31 +122,32 @@ const BranchLocator = () => {
                         <Row className={styles.row}>
                             <Col lg="5" className={styles.col}>
                                 <Select
-                                    options={branchList.map((data) => ({ value: data.city, label: data.city }))}
+                                    options={cityList}
                                     value={selectedCity}
-                                    onChange={(option) => { setSelectedCity(option.city) }}
+                                    onChange={(option) => {
+                                        setSelectedCity(option);
+                                        setSelectedState({ value: option.state, label: option.state });
+                                    }}
                                     placeholder="Select a City"
                                     className="react-select-container"
                                     classNamePrefix="react-select"
                                     components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
-                                    
                                 />
                             </Col>
                             <Col lg="4" className={styles.col + ' dropdown-arrow'}>
                                 <Select
-                                    options={branchList.map((data) => ({ value: data.state, label: data.state }))}
+                                    options={stateList}
                                     value={selectedState}
-                                    onChange={(option) => { setSelectedState(option.state) }}
+                                    onChange={(option) => { setSelectedState(option); setSelectedCity("") }}
                                     placeholder="Select State Name"
                                     className="react-select-container"
                                     classNamePrefix="react-select"
                                     isSearchable={false}
                                     components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
-
                                 />
                             </Col>
                             <Col lg="3" className={styles.col}>
-                                <button className="redBtn w-100">
+                                <button className="redBtn w-100" onClick={handleSubmit}>
                                     Search
                                 </button>
                             </Col>
@@ -138,16 +156,61 @@ const BranchLocator = () => {
 
                     <BranchList list={branchList} />
                 </div>
-                <InfoCard/>
+                <InfoCard />
                 <TitleSubtitle
                     title={"Reach Us Digitally"}
                     subtitle={"We help you build a worry free future with easy processes and expert guidance at every step"}
                     titleTag="h3"
                 />
-                <ReachUsDigital/>
+                <ReachUsDigital />
             </Container>
         </LandingLayout>
     );
 };
+
+export async function getServerSideProps(context) {
+    const { location } = context.params;
+
+    // Initialize state and city as empty strings if not provided
+    let state = "";
+    let city = "";
+
+    if (location) {
+        // Assign state and city from the location array, if available
+        state = location[0] || "";  // Default to empty string if state is not provided
+        city = location[1] || "";   // Default to empty string if city is not provided
+    }
+
+    // Convert state and city back to normal form, if they exist
+    const toNormalForm = (str) => {
+        if (!str) return ""; // Return an empty string if there's no value
+        return str
+            .split("-") // Split by hyphen
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+            .join(" "); // Join with a space
+    };
+
+    const normalizedState = toNormalForm(state);
+    const normalizedCity = toNormalForm(city);
+
+    // Create the breadcrumbs array based on state and city
+    const breadcrumbs = [
+        { name: "Test Data", url: "/branch-locator", active: false },
+        { name: "Branch Locator", url: "/branch-locator", active: true },
+        state ? { name: normalizedState, url: `/branch-locator/${state}`, active: true } : null,
+        city ? { name: normalizedCity, url: `/branch-locator/${state}/${city}`, active: true } : null,
+    ].filter(Boolean); // Filter out null values (for missing state or city)
+
+    return {
+        props: {
+            state: normalizedState,
+            city: normalizedCity,
+            stateUrl: state, // Keep original state for URL
+            cityUrl: city,   // Keep original city for URL
+            breadcrumbs: breadcrumbs,
+        },
+    };
+}
+
 
 export default BranchLocator;
