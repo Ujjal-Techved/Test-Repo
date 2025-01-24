@@ -21,7 +21,7 @@ const InfoCard = () => {
     return (
         <Row className={styles.info_cards_row}>
             {infoCardDetails.map((item, index) => (
-                <Col className={styles.info_cards_section} xs="12" sm="6" md="4" lg="4" key={index}>
+                <Col className={styles.info_cards_section} xs="12" lg="4" key={index}>
                     <div className={styles.info_cards}>
                         <h3 className={styles.info_cards_title}>{item.title}</h3>
                         <p className={styles.info_cards_subtitle}>{item.description}</p>

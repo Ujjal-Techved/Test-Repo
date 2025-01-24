@@ -1,0 +1,32 @@
+.footer{
+    background-color: var(--fgi-red);
+}
+
+.footer_wrapper{
+    color: var(--background-color);
+    padding: 48px 0px;
+}
+
+.footer_links_container{
+    padding-bottom: 40px;
+}
+
+.footer_links_title{
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica-700';
+}
+
+.footer_links_list li a {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: 'Helvetica-400';
+    color: var(--background-color);
+    padding-top: 12px;
+    display: inline-block;
+}
+
+.footer_main{
+    border-bottom: 1px solid var(--background-color);
+}
