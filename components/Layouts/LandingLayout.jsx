@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from '../Navbar/Navbar'
-import Footer from '../Footer/Footer'
+import Navbar from '../Common/Navbar/Navbar'
+import Footer from '../Common/Footer/Footer'
 
 const LandingLayout = (props) => {
     return (

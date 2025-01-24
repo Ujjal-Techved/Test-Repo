@@ -1,12 +1,12 @@
-import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
+import Breadcrumbs from '@/components/Common/Breadcrumbs/Breadcrumbs';
 import LandingLayout from '@/components/Layouts/LandingLayout';
-import TitleSubtitle from '@/components/TitleSubtitle/TitleSubtitle';
-import InfoCard from "@/components/InfoCard/InfoCard";
+import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
+import InfoCard from "@/components/BranchLocator/InfoCard/InfoCard";
 import React, { useState } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import Select from 'react-select';
 import styles from './Branch.module.css';
-import ReachUsDigital from '@/components/ReachUsDigital/ReachUsDigital';
+import ReachUsDigital from '@/components/BranchLocator/ReachUsDigital/ReachUsDigital';
 import BranchList from '@/components/BranchLocator/BranchList/BranchList';
 
 const BranchLocator = () => {
@@ -125,7 +125,7 @@ const BranchLocator = () => {
                                     classNamePrefix="react-select"
                                     isSearchable={false}
                                     components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
-                                    menuIsOpen={true} 
+
                                 />
                             </Col>
                             <Col lg="3" className={styles.col}>
