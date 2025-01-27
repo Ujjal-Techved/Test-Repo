@@ -32,6 +32,7 @@ const Navbar = () => {
   ];
 
   const [activeIndex, setActiveIndex] = useState(null);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
   const toggleCollapse = (index) => {
@@ -62,13 +63,36 @@ const Navbar = () => {
           </a>
 
           <div className={styles.header_menu}>
-            <a href='/term-insurance'>Term Insurance</a>
-            <a href='/investment-plans'>Investment Plans</a>
-            <a href='/learn'>Learn</a>
-            <a href='/support'>Support</a>
+            {menuItems.map((menuItem, index) => (
+              <div
+                key={index}
+                className={styles.dropdown_container}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                <a href={menuItem.title.href} className={styles.nav_link}>
+                  {menuItem.title.name}
+                </a>
+                {hoveredIndex === index && menuItem.subItems.length > 0 && (
+                  <div className={styles.dropdown_menu}>
+                    {menuItem.subItems.map((subItem, subIndex) => (
+                      <a
+                        key={subIndex}
+                        href={subItem.href}
+                        className={styles.dropdown_item}
+                      >
+                        {subItem.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
           <div className={styles.header_userdetail}>
-            <a href='/' className={styles.commonlink_btn}>Pay Premium</a>
+            <a href='/' className={styles.commonlink_btn}>
+              Pay Premium
+            </a>
             <button className={styles.user_btn}>
               <img src='/images/header/user-icon.svg' alt='User' />
             </button>
@@ -76,6 +100,7 @@ const Navbar = () => {
         </div>
       </Container>
 
+      {/* Mobile Sidebar */}
       <aside
         className={`${styles.left_Navsidebar} ${isSidebarVisible ? styles.show : ''}`}
       >

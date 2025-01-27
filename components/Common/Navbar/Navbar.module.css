@@ -15,6 +15,7 @@
     box-shadow: 0px 4px 32px 0px var(--fgi-lightblack2);
     backdrop-filter: blur(13.699999809265137px);
     border-radius: 75px;
+    position: relative;
 
 }
 
@@ -100,6 +101,81 @@
     height: 100%;
     z-index: 100;
 }
+
+
+.fgli_logo img {
+  max-height: 50px;
+}
+
+
+.nav_link {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  padding: 10px 15px;
+  position: relative;
+  transition: color 0.3s;
+}
+
+/* .nav_link:hover {
+  color: #007bff;
+} */
+
+.dropdown_container {
+  position: relative;
+}
+
+.dropdown_menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  min-width: 200px;
+  z-index: 10;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+}
+
+.dropdown_menu a{
+    padding: 12px 0px;
+}
+
+.dropdown_item {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  padding: 10px 15px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown_item:hover {
+  background-color: #f1f1f1;
+  /* color: #007bff; */
+}
+
+.header_userdetail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.commonlink_btn:hover {
+  background-color: #0056b3;
+}
+
+.user_btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
 
 
 @media screen and (max-width: 992px) and (min-width: 320px) {
