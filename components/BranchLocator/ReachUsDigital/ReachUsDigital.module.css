@@ -24,6 +24,7 @@
     padding: 24px;
     margin-bottom: 24px;
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -33,6 +34,9 @@
     line-height: 32px;
     font-family: 'Helvetica-800';
     color: var(--fig-black);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .reach_us_desc{
@@ -44,7 +48,7 @@
 }
 
 .reach_us_contact{
-    font-family: 'Helvetica-500';
+    font-family: 'Helvetica-400';
     color: var(--fgi-red);
 }
 
@@ -59,7 +63,7 @@
 }
 
 .reach_us_img{
-    margin-top: -70px;
+    margin-top: -44px;
 }
 
 @media screen and (max-width: 992px) and (min-width: 320px) {
@@ -69,7 +73,18 @@
 
     .reach_cards{
         width: 100%;
-        min-height: 193px;
+        min-height: 140px;
+        padding: 16px;
+    }
+
+    .reach_us_title{
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .reach_us_img{
+        margin-top: -34px;
+        width: 64px;
     }
 
 }
