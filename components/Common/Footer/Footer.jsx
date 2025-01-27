@@ -95,7 +95,7 @@ const Footer = () => {
       ],
     },
   ];
-  
+
 
   return (
     <footer className={styles.footer}>
@@ -131,8 +131,90 @@ const Footer = () => {
             ))}
           </Row>
         </div>
-        <div className="footer_address container">
-          Your Address or Additional Info Here
+        <div className={styles.container}>
+          <Row className={styles.footer_address_main}>
+            <Col xs="12" lg="3">
+              <div className={styles.footer_address_wrapper}>
+                <div className={styles.footer_links_title} role="button">
+                  Correspondence Address
+                </div>
+                <ul className={styles.footer_links_list}>
+                  <li>
+                    <p className={styles.footer_link} >
+                      Future Generali India Life Insurance Co Ltd., Unit 801 and 802,
+                      8th floor, Tower C, Embassy 247 Park, L.B.S. Marg, Vikhroli (W),
+                      Mumbai- 400 083
+
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </Col>
+            <Col xs="12" lg="3">
+              <div className={styles.footer_address_wrapper}>
+                <div className={styles.footer_links_title} role="button"></div>
+                <ul className={styles.footer_links_list}>
+                  <li>
+                    <p className={styles.footer_link} >
+                      IRDAI Registration No: 133 (Validity 31st March 2025) License Category: Life
+                      CIN:- U66010MH2006PLC165288
+                      Underwriting Philosophy
+
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </Col>
+            <Col xs="12" lg="3">
+              <div className={styles.footer_links_container + 'pb-0'}>
+                <div className={styles.footer_links_title} role="button">
+                  Follow us on
+                </div>
+                <div className={styles.social_icon_list}>
+                    <a href="/"> <img src="/images/footer/linkedin.svg"></img> </a>
+                    <a href="/"> <img src="/images/footer/youtube.svg"></img> </a>
+                    <a href="/"> <img src="/images/footer/twitter.svg"></img> </a>
+                    <a href="/"> <img src="/images/footer/facebook.svg"></img> </a>
+                    <a href="/"> <img src="/images/footer/instagram.svg"></img> </a>
+                </div>
+                <div className={styles.footer_links_title} role="button">
+                Download our app now
+                </div>
+                <div className={styles.social_icon_list}>
+                    <a href="/"> <img src="/images/footer/appstore.svg"></img> </a>
+                    <a href="/"> <img src="/images/footer/andriodstore.svg"></img> </a>
+                </div>
+              </div>
+            </Col>
+            <Col xs="12" lg="3">
+              <div className={styles.footer_links_container + 'pb-0'}>
+                <div className={styles.footer_links_title} role="button">
+                  Connect with us
+                </div>
+                <ul className={styles.footer_links_list}>
+                  <li>
+                    <a href="tel:18001022355" target="_self" className={styles.footer_link}>
+                      <img src="/images/footer/phone.svg" alt="phone" />
+                      1800 102 2355
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://life.futuregenerali.in" target="_self" className={styles.footer_link}>
+                      <img src="/images/footer/global.svg" alt="global" />
+                      life.futuregenerali.in
+                    </a>
+                  </li>
+                  <li>
+                    <a href="mailto:care@futuregenerali.in" target="_self" className={styles.footer_link}>
+                      <img src="/images/footer/mail.svg" alt="mail" />
+                      care@futuregenerali.in
+                    </a>
+                  </li>
+
+                </ul>
+              </div>
+            </Col>
+          </Row>
         </div>
       </div>
       <div className="footer_bottom_bar container"></div>
