@@ -53,3 +53,15 @@
     color: var(--fgi-red);
     padding: 16px 16px 0px 16px;
 }
+
+
+@media screen and (max-width: 992px) and (min-width: 320px) {
+
+    .BranchList_section{
+        margin-right: 0px;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin: 0px 16px;
+    }
+
+}
