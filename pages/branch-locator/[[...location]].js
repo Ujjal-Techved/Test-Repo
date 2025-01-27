@@ -36,7 +36,7 @@ const BranchLocator = (props) => {
                     subtitle={"Easy and hassle-free way to locate our branches in PAN India!"}
                 />
 
-                <div className={styles.listContainer}>
+                <div className={`${styles.listContainer} ${props.city && props.state ? (styles.active) : "" }`}>
                     <div className={styles.filterComponent}>
                         <Row className={styles.row}>
                             <Col lg="5" className={styles.col + ' dropdown-arrow'}>
@@ -72,8 +72,11 @@ const BranchLocator = (props) => {
                             </Col>
                         </Row>
                     </div>
-
-                    <BranchList list={props.branchList} />
+                    {
+                        props.city && props.state ? (
+                            <BranchList list={props.branchList} />
+                        ) : null
+                    }
                 </div>
                 <InfoCard />
                 <TitleSubtitle
