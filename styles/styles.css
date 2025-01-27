@@ -52,13 +52,13 @@ body {
 
 .react-select-container .react-select__menu{
     border-radius: 16px;
-    padding: 16px 12px 16px 16px;
+    padding: 16px 6px 16px 16px;
 }
 
 .react-select-container .react-select__menu-list{
     max-height: 205px;
     overflow-x: hidden;
-    /* margin-right: 6px; */
+    padding-right: 6px;
 }
 
 .react-select-container .react-select__menu .react-select__option{
@@ -71,9 +71,13 @@ body {
   
 }
 
-.react-select-container .react-select__menu .react-select__option--is-focused,
-    .react-select-container .react-select__menu .react-select__option--is-selected{
-    background-color: var(--fgi-grey);
+.react-select-container .react-select__menu .react-select__option--is-focused{
+    background-color: var(--fgi-redcard);
+}
+.react-select-container .react-select__menu .react-select__option--is-selected{
+    background-color: transparent;
+    color: var(--fgi-red);
+    font-family: "Helvetica-500";
 }
 
 /* .react-select-container .react-select__menu .react-select__option:hover{
