@@ -15,18 +15,32 @@
     font-size: 16px;
     line-height: 24px;
     font-family: 'Helvetica-700';
+    min-height: 24px;
 }
 
-.footer_links_list li a {
+.footer_links_list li .footer_link {
     text-decoration: none;
     font-size: 14px;
     line-height: 20px;
     font-family: 'Helvetica-400';
     color: var(--background-color);
-    padding-top: 12px;
-    display: inline-block;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .footer_main{
     border-bottom: 1px solid var(--background-color);
+}
+
+.footer_address_main{
+    padding-top: 32px;
+}
+
+.social_icon_list{
+    display: flex;
+    align-items: center;
+    gap:16px;
+    padding-top: 12px;
 }
