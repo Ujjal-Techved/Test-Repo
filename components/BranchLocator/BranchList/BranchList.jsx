@@ -8,15 +8,17 @@ const BranchList = ({ list }) => {
 
             {list.length > 0 ? (
                 list.map((data, index) => (
-                    <div className={styles.BranchList_section} key={index}>
-                        <div className={styles.BranchList_wrap}>
-                            <p>{data.branchName}</p>
-                            <span>{data.branchAddress}</span>
+                    <>
+                        <div className={styles.BranchList_section} key={index}>
+                            <div className={styles.BranchList_wrap}>
+                                <p>{data.branchName}</p>
+                                <span>{data.branchAddress}</span>
+                            </div>
+                            <div className={styles.BranchList_phone}>
+                                <img src='/images/branch-locator/call-icon.svg' alt='call' /> {data.phone}
+                            </div>
                         </div>
-                        <div className={styles.BranchList_phone}>
-                            <img src='/images/branch-locator/call-icon.svg' alt='call' /> {data.phone}
-                        </div>
-                    </div>
+                    </>
                 ))
             ) : (
                 <div className='d-flex align-items-center justify-content-center'>
