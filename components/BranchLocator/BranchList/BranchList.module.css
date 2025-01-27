@@ -1,6 +1,6 @@
 .BranchListMain{
    max-height: 310px;
-   overflow-y: scroll;
+   overflow-y: auto;
    overflow-x: hidden;
 }
 

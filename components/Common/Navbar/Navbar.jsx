@@ -70,7 +70,7 @@ const Navbar = () => {
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                <a href={menuItem.title.href} className={styles.nav_link}>
+                <a href={menuItem.title.href} className={`${styles.nav_link} ${menuItem.subItems.length > 0 && (styles.dropdown)}  ${hoveredIndex === index && (styles.active)}`}>
                   {menuItem.title.name}
                 </a>
                 {hoveredIndex === index && menuItem.subItems.length > 0 && (

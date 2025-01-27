@@ -23,12 +23,14 @@
 
     .titleContainer {
         margin-bottom: 12px;
+        padding: 0px 32px;
     }
 
     .titleContainer .maintitle {
         font-size: 32px;
         line-height: 42px;
         margin-bottom: 12px;
+        font-family: "Helvetica-700";
     }
 
     .titleContainer .subtitle {

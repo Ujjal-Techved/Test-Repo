@@ -24,6 +24,10 @@ body {
     border: none;
 }
 
+.redBtn:disabled{
+    background: linear-gradient(180deg, #ffbfba 0%, #ff8280 100%);
+}
+
 .react-select-container .react-select__control {
     border-radius: 42px;
     border: 1px solid var(--border-grey);
@@ -64,6 +68,12 @@ body {
     color: var(--text-grey2);
     font-size: 14px;
     line-height: 19px;
+  
+}
+
+.react-select-container .react-select__menu .react-select__option--is-focused,
+    .react-select-container .react-select__menu .react-select__option--is-selected{
+    background-color: var(--fgi-grey);
 }
 
 /* .react-select-container .react-select__menu .react-select__option:hover{
