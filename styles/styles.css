@@ -28,6 +28,19 @@ body {
     background: linear-gradient(180deg, #ffbfba 0%, #ff8280 100%);
 }
 
+.whiteBtn{
+    font-size: 16px;
+    line-height: 16px;
+    font-family: 'Helvetica-500';
+    background: var(--background-color);
+    color: var(--fgi-red);
+    text-decoration: none;
+    padding: 16px 18px;
+    border-radius: 42px;
+    display: inline-block;
+    border: none;
+}
+
 .react-select-container .react-select__control {
     border-radius: 42px;
     border: 1px solid var(--border-grey);

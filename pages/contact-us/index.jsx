@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Common/Breadcrumbs/Breadcrumbs';
 import ReachUsDigital from '@/components/BranchLocator/ReachUsDigital/ReachUsDigital';
 import CustomerService from '@/components/ContactUs/CustomerService/CustomerService';
 import Faqs from '@/components/Common/Faqs/Faqs';
+import InvestPlan from '@/components/ContactUs/InvestPlan/InvestPlan';
 
 const ContactUs = (props) => {
 
@@ -73,6 +74,7 @@ const ContactUs = (props) => {
         />
           <ReachUsDigital reachUsCard={reachUsCard} AIcontactUs/>
           <CustomerService/>
+          <InvestPlan/>
       </Container>
       <Faqs faqItems={faqData} />
     </LandingLayout>

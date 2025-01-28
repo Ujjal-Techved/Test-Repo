@@ -1,0 +1,40 @@
+.investPlan_bg{
+    background: url(/images/contact-us/bg-invest.png), var(--fgi-red);
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 484px;
+    border-radius: 30px;
+}
+
+.investPlan_main{
+    padding: 37.5px 0px 37.5px 64px;
+}
+
+.investPlan_main h3{
+    font-family: "Helvetica-900";
+    font-size: 51px;
+    line-height: 66px;
+    color: var(--background-color);
+}
+
+.form_applink{
+    max-width: 396px;
+    width: 100%;
+}
+
+.form_applink label{
+    font-family: "Helvetica-400";
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--background-color);
+}
+
+.applink_main{
+    border: 1px solid var(--border-grey);
+    border-radius: 32px;
+    background: var(--fgi-whitegray);
+    padding: 4px 4px 4px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
