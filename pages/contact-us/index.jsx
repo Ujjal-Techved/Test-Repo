@@ -8,6 +8,7 @@ import ReachUsDigital from '@/components/BranchLocator/ReachUsDigital/ReachUsDig
 import CustomerService from '@/components/ContactUs/CustomerService/CustomerService';
 import Faqs from '@/components/Common/Faqs/Faqs';
 import InvestPlan from '@/components/ContactUs/InvestPlan/InvestPlan';
+import VisitUs from '@/components/ContactUs/VisitUs/VisitUs';
 
 const ContactUs = (props) => {
 
@@ -85,10 +86,12 @@ const ContactUs = (props) => {
           title={"Need Assistance?"}
           subtitle={"Reach out through the channel that suits you best—we’re just a chat, call, or email away!"}
         />
+          </Container>
           <ReachUsDigital reachUsCard={reachUsCard} AIcontactUs/>
+          <VisitUs/>
           <CustomerService/>
           <InvestPlan/>
-      </Container>
+    
       <Faqs faqItems={faqData} />
     </LandingLayout>
   )

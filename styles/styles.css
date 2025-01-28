@@ -151,5 +151,10 @@ body {
     .divider{
         margin: 0px 15px;
       }
+      .whiteBtn{
+        font-size: 14px;
+        line-height: 14px;
+        padding: 12px 18px;
+      }
 
   }

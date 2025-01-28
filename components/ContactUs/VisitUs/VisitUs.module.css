@@ -1,0 +1,7 @@
+.visitUs_wrapper{
+    background: url(/images/faqs/bg-right.svg),url(/images/faqs/bg-left.svg),  var(--background-color);
+    background-position: right 90px, left 330px, center;
+    background-repeat: no-repeat;
+    min-height: 605px;
+    padding: 48px 0;
+}
