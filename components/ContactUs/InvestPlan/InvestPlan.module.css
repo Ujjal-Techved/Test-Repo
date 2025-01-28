@@ -1,13 +1,26 @@
 .investPlan_bg{
-    background: url(/images/contact-us/bg-invest.png), var(--fgi-red);
+    background: url('/images/contact-us/bg-invest.png'), var(--fgi-red);
     background-position: center;
     background-repeat: no-repeat;
     min-height: 484px;
     border-radius: 30px;
+    position: relative;
+    margin-top: 62px;
+    margin-bottom: 80px;
 }
+
+.investPlan_bg::after{
+    position: absolute;
+    content:  url('/images/contact-us/bg-phone.png');
+    top: -62px;
+    right: 132px;
+}
+
 
 .investPlan_main{
     padding: 37.5px 0px 37.5px 64px;
+    max-width: 645px;
+    width: 100%;
 }
 
 .investPlan_main h3{
@@ -20,6 +33,7 @@
 .form_applink{
     max-width: 396px;
     width: 100%;
+    padding: 40px 0px 32px 0px;
 }
 
 .form_applink label{
@@ -27,6 +41,7 @@
     font-size: 16px;
     line-height: 24px;
     color: var(--background-color);
+    margin-bottom: 12px;
 }
 
 .applink_main{
@@ -37,4 +52,83 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.form_control{
+    background: transparent;
+    border: none;
+    font-family: "Helvetica-400";
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--background-color);
+  }
+
+  .form_control:focus-visible{
+    border: none;
+    outline: none; 
+  }
+
+  .form_control::placeholder {
+    font-family: "Helvetica-400";
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--background-color); /* Optional: Set a placeholder color */
+}
+
+.scanner_links{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.links_wrapper{
+    border-left: 1px solid var(--border-grey);
+}
+
+.links_btn{
+    background: transparent;
+    border: none;
+    margin-left: 24px;
+}
+
+.links_wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+@media screen and (max-width: 992px) and (min-width: 320px) {
+
+    .investPlan_bg{
+        background: url('/images/contact-us/bg-invest-mob.png'), var(--fgi-red);
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-top: 0px;
+        margin-bottom: 80px;
+    }
+
+    .investPlan_main{
+        padding: 20px 16px 0px 16px;
+        max-width: unset;
+        width: 100%;
+    }
+
+    .investPlan_main h3{
+        font-family: "Helvetica-800";
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .form_applink{
+        max-width: unset;
+        width: 100%;
+        padding: 12px 0px 32px 0px;
+    }
+
+    .scanner_links{
+        flex-direction: column;
+        max-width: 105px;
+    }
+
 }
