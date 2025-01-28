@@ -1,0 +1,7 @@
+.faqContainer {
+    background: url('/images/faqs/bg-left.svg'), url('/images/faqs/bg-right.svg'), var(--background-color);
+    background-position: left 90px, right 330px, center;
+    background-repeat: no-repeat;
+    min-height: 605px;
+    padding: 48px 0;
+}

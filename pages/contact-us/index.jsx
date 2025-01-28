@@ -6,6 +6,7 @@ import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
 import Breadcrumbs from '@/components/Common/Breadcrumbs/Breadcrumbs';
 import ReachUsDigital from '@/components/BranchLocator/ReachUsDigital/ReachUsDigital';
 import CustomerService from '@/components/ContactUs/CustomerService/CustomerService';
+import Faqs from '@/components/Common/Faqs/Faqs';
 
 const ContactUs = (props) => {
 
@@ -55,10 +56,17 @@ const ContactUs = (props) => {
 
   ];
 
+  const faqData = [
+    { question: 'What is React?', answer: 'React is a JavaScript library for building user interfaces.' },
+    { question: 'What is Reactstrap?', answer: 'Reactstrap is a library for using Bootstrap components in React.' },
+    { question: 'How does state work in React?', answer: 'State in React is an object that determines how a component renders and behaves.' },
+  ];
+
+
   return (
     <LandingLayout>
       <Container>
-        <Breadcrumbs values={breadcrumbs} />
+       <Breadcrumbs values={breadcrumbs} />
         <TitleSubtitle
           title={"Need Assistance?"}
           subtitle={"Reach out through the channel that suits you best—we’re just a chat, call, or email away!"}
@@ -66,6 +74,7 @@ const ContactUs = (props) => {
           <ReachUsDigital reachUsCard={reachUsCard} AIcontactUs/>
           <CustomerService/>
       </Container>
+      <Faqs faqItems={faqData} />
     </LandingLayout>
   )
 }
