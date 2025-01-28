@@ -120,13 +120,13 @@ export async function getServerSideProps(context) {
     const normalizedCity = toNormalForm(city);
 
     const branchList = [
-        {
-            state: "Maharashtra",
-            city: "Mumbai",
-            branchName: "Mumbai Branch",
-            branchAddress: "MG Road, Opposite CST Station, Mumbai, Maharashtra, 400001",
-            phone: "+912212345678"
-        },
+        // {
+        //     state: "Maharashtra",
+        //     city: "Mumbai",
+        //     branchName: "Mumbai Branch",
+        //     branchAddress: "MG Road, Opposite CST Station, Mumbai, Maharashtra, 400001",
+        //     phone: "+912212345678"
+        // },
         {
             state: "Delhi",
             city: "Delhi",
