@@ -2,6 +2,24 @@
     padding-top: 40px;
 }
 
+.reach_cards_row.ai_contactUs > div:first-child .reach_cards{
+    position: relative;
+}
+
+.reach_cards_row.ai_contactUs > div:first-child .reach_cards::before {
+    position: absolute;
+    content: '';
+    background-image: url('/images/contact-us/ai-avtarcontact.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 163px;
+    height: 131px;
+    top: calc(100% - 329px);
+    right: 30%;
+}
+
+
 /* .reach_us_text, .reach_us_link{
     display: flex;
     align-items: center;
@@ -67,6 +85,9 @@
     margin-right: -16px;
 }
 
+
+
+
 @media screen and (max-width: 992px) and (min-width: 320px) {
     .reach_cards_row{
         padding-top: 24px;
@@ -92,6 +113,8 @@
     .reach_us_desc{
         padding-right: 36px;
     }
+
+ 
 
 }
 

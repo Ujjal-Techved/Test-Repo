@@ -1,0 +1,23 @@
+.service_cards_main{
+    border: 1px solid var(--fgi-bordergrey);
+    box-shadow: 0px 14px 30px 0px #1822BD59;
+    border-radius: 24px;
+    padding: 24px;
+}
+
+.service_cards_title{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.service_cards_title h4{
+    font-family: "Helvetica-800";
+    font-size: 24px;
+    line-height: 36px;
+    color: var(--fgi-black);
+}
+
+.service_card_list{
+    padding-top: 24px;
+}
