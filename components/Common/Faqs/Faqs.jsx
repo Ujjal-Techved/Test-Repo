@@ -15,17 +15,20 @@ const Faqs = ({faqItems}) => {
         <section className={styles.faqContainer}>
             <Container>
                 <TitleSubtitle
-                    title={"Frequently asked questions"}
+                    title={"Frequently Asked Questions"}
                     subtitle={"See some of the most common questions below. If you have a question we haven’t included then please <a href='/'>Get in touch.</a>"}
                     titleTag='h3'
                 />
-                <Accordion open={openIndex} toggle={toggleFaq}>
+                <Accordion open={openIndex} toggle={toggleFaq} className={styles.faqListContainer}>
                     {faqItems.map((item, index) => (
-                        <AccordionItem key={index}>
-                            <AccordionHeader targetId={index.toString()} onClick={() => toggleFaq(index)}>
+                        <AccordionItem key={index} className={styles.faqItem}>
+                            <AccordionHeader tag={"div"} 
+                            className={styles.faqHead}
+                            targetId={index.toString()} 
+                            onClick={() => toggleFaq(index.toString())}>
                                 {item.question}
                             </AccordionHeader>
-                            <AccordionBody accordionId={index.toString()}>{item.answer}</AccordionBody>
+                            <AccordionBody className={styles.faqBody} accordionId={index.toString()}>{item.answer}</AccordionBody>
                         </AccordionItem>
                     ))}                                                                     
                 </Accordion>
