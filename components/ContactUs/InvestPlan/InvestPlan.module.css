@@ -96,3 +96,39 @@
     flex-direction: column;
     gap: 16px;
 }
+
+
+@media screen and (max-width: 992px) and (min-width: 320px) {
+
+    .investPlan_bg{
+        background: url('/images/contact-us/bg-invest-mob.png'), var(--fgi-red);
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-top: 0px;
+        margin-bottom: 80px;
+    }
+
+    .investPlan_main{
+        padding: 20px 16px 0px 16px;
+        max-width: unset;
+        width: 100%;
+    }
+
+    .investPlan_main h3{
+        font-family: "Helvetica-800";
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .form_applink{
+        max-width: unset;
+        width: 100%;
+        padding: 12px 0px 32px 0px;
+    }
+
+    .scanner_links{
+        flex-direction: column;
+        max-width: 105px;
+    }
+
+}
