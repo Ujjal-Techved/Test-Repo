@@ -1,0 +1,236 @@
+
+
+.main_header {
+    padding: 32px 0px 8px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_menu {
+    padding: 4px;
+    display: flex;
+    gap: 8px;
+    border: 1px solid var(--fgi-lightblack1);
+    box-shadow: 0px 4px 32px 0px var(--fgi-lightblack2);
+    backdrop-filter: blur(13.699999809265137px);
+    border-radius: 75px;
+    position: relative;
+
+}
+
+.header_menu a {
+    font-size: 16px;
+    line-height: 20px;
+    padding: 12px 16px;
+    display: inline-block;
+    color: var(--fgi-black);
+    text-decoration: none;
+}
+
+.header_userdetail {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.user_btn {
+    background: transparent;
+    padding: 0px;
+    border: none;
+    font-size: 0px;
+    line-height: 0px;
+}
+
+.user_btn:hover {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.hamburgbtn {
+    display: none;
+}
+
+.commonlink_btn {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica-700';
+    background: linear-gradient(180deg, #AF2219 0%, #C21B17 100%);
+    color: var(--background-color);
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 42px;
+    display: inline-block;
+}
+
+.left_Navsidebar {
+    left: -308px;
+    width: 308px;
+    transition: left .2s;
+    background: url('/images/header/sidebar-bg.svg') 0 100% no-repeat #fff;
+    background-position: left calc(50% + 200px);
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    z-index: 101;
+    /* padding: 24px 16px; */
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.left_Navsidebar.show{
+    left: 0px;
+}
+
+.left_sidebar {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.backdrop.show {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(51, 51, 51, .6);
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+
+.fgli_logo img {
+  max-height: 50px;
+}
+
+
+.nav_link {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  padding: 10px 15px;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav_link.dropdown{
+    position: relative;
+}
+
+.nav_link.dropdown::after{
+    position: absolute;
+    content: '';
+    border: solid var(--text-grey2);
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 2px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    top: 18px;
+    right: 2px;
+    transition: 0.2s;
+}
+
+.nav_link.dropdown.active::after{
+    transform: rotate(220deg);
+    -webkit-transform: rotate(220deg);
+    top: 20px;
+}
+
+/* .nav_link:hover {
+  color: #007bff;
+} */
+
+.dropdown_container {
+  position: relative;
+}
+
+.dropdown_menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  min-width: 200px;
+  z-index: 10;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+}
+
+.dropdown_menu a{
+    padding: 10px 0px;
+}
+
+.dropdown_item {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  padding: 10px 15px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown_item:hover {
+  background-color: #f1f1f1;
+  /* color: #007bff; */
+}
+
+.header_userdetail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.commonlink_btn:hover {
+  background-color: #0056b3;
+}
+
+.user_btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+
+@media screen and (max-width: 992px) and (min-width: 320px) {
+
+    .header_menu,
+    .header_userdetail .commonlink_btn {
+        display: none;
+    }
+
+    .main_header {
+        padding: 12px 0px;
+    }
+
+    .fgli_logo img {
+        width: 98px;
+    }
+
+    .user_btn img {
+        width: 32px;
+    }
+
+    .hamburgbtn {
+        display: block;
+    }
+
+    .left_sidebar{
+        overflow-y: auto;
+    }
+
+    .left_Navsidebar.show .fgli_logo img{
+        width: 122px;
+    }
+
+}

@@ -1,0 +1,67 @@
+.BranchListMain{
+   max-height: 310px;
+   overflow-y: auto;
+   overflow-x: hidden;
+}
+
+.BranchListMain.overflow_y{
+    overflow-y: hidden;
+}
+
+.BranchList_section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--fgi-borderlightgrey);
+    padding: 16px;
+    margin-right: 20px;
+}
+
+.BranchList_section:last-child{
+    border-bottom: 0px;
+}
+
+.BranchList_wrap p{
+    font-family: 'Helvetica-500';
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--fgi-darkblack);
+}
+
+.BranchList_wrap span{
+    color: var(--text-grey);
+    font-family: 'Helvetica-400';
+    font-size: 12px;
+    line-height: 15px;
+    padding-top: 4px;
+}
+
+.BranchList_phone{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--fgi-black);
+    font-family: 'Helvetica-500';
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.listCount{
+    font-family: 'Helvetica-700';
+    font-size: 16px;
+    line-height: 21px;
+    color: var(--fgi-red);
+    padding: 16px 16px 0px 16px;
+}
+
+
+@media screen and (max-width: 992px) and (min-width: 320px) {
+
+    .BranchList_section{
+        margin-right: 0px;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin: 0px 16px;
+    }
+
+}

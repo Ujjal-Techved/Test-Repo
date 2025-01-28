@@ -1,0 +1,97 @@
+.reach_cards_row{
+    padding-top: 40px;
+}
+
+/* .reach_us_text, .reach_us_link{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+} */
+
+.reach_us_link{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.reach_us_link{
+    padding-top: 32px;
+}
+
+.reach_cards{
+    border: 1px solid var(--fgi-borderdarkgrey);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.reach_us_title{
+    font-size: 24px;
+    line-height: 32px;
+    font-family: 'Helvetica-800';
+    color: var(--fig-black);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.reach_us_desc{
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica-400';
+    color: var(--text-grey);
+    padding-top: 8px;
+}
+
+.reach_us_contact{
+    font-family: 'Helvetica-400';
+    color: var(--fgi-red);
+}
+
+.reach_us_linktext{
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica-500';
+    color: var(--fgi-black);
+    text-decoration: none;
+    display: flex;
+    gap: 4px;
+}
+
+.reach_us_img{
+    margin-top: -44px;
+    margin-right: -16px;
+}
+
+@media screen and (max-width: 992px) and (min-width: 320px) {
+    .reach_cards_row{
+        padding-top: 24px;
+    }
+
+    .reach_cards{
+        width: 100%;
+        min-height: 140px;
+        padding: 16px;
+    }
+
+    .reach_us_title{
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .reach_us_img{
+        margin-top: -34px;
+        width: 64px;
+        margin-right: 0px;
+    }
+
+    .reach_us_desc{
+        padding-right: 36px;
+    }
+
+}
+
