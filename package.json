@@ -1,5 +1,5 @@
 {
-  "name": "my-strapi-project",
+  "name": "fgili-cms",
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
@@ -7,17 +7,14 @@
     "build": "strapi build",
     "deploy": "strapi deploy",
     "develop": "strapi develop",
-    "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-cloud": "5.7.0",
-    "@strapi/plugin-users-permissions": "5.7.0",
-    "@strapi/strapi": "5.7.0",
-    "fs-extra": "^10.0.0",
-    "mime-types": "^2.1.27",
-    "mysql2": "3.9.8",
+    "@strapi/plugin-cloud": "5.8.1",
+    "@strapi/plugin-users-permissions": "5.8.1",
+    "@strapi/strapi": "5.8.1",
+    "pg": "8.8.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
@@ -29,6 +26,6 @@
     "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "cb99bef6-97e6-40ce-8987-c787abcb1005"
+    "uuid": "4e1f6bb4-9844-4043-80b4-27b4aa1d7e85"
   }
 }

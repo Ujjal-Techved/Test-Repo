@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * article service.
+ * branch-list service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::article.article');
+module.exports = createCoreService('api::branch-list.branch-list');

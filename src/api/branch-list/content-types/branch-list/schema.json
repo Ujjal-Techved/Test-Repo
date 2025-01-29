@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "branch_lists",
+  "info": {
+    "singularName": "branch-list",
+    "pluralName": "branch-lists",
+    "displayName": "BranchList"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Branch_Name": {
+      "type": "string"
+    },
+    "Branch_Address": {
+      "type": "string"
+    },
+    "Phone_Number": {
+      "type": "integer"
+    },
+    "City": {
+      "type": "string"
+    },
+    "State": {
+      "type": "string"
+    }
+  }
+}
