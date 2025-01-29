@@ -9,6 +9,7 @@ import CustomerService from '@/components/ContactUs/CustomerService/CustomerServ
 import Faqs from '@/components/Common/Faqs/Faqs';
 import InvestPlan from '@/components/ContactUs/InvestPlan/InvestPlan';
 import VisitUs from '@/components/ContactUs/VisitUs/VisitUs';
+import IrdaSection from '@/components/ContactUs/IrdaSection/IrdaSection';
 
 const ContactUs = (props) => {
 
@@ -80,20 +81,24 @@ const ContactUs = (props) => {
 
   return (
     <LandingLayout>
-      <Container>
-       <Breadcrumbs values={breadcrumbs} />
-        <TitleSubtitle
-          title={"Need Assistance?"}
-          subtitle={"Reach out through the channel that suits you best—we’re just a chat, call, or email away!"}
-          extraClass="desc-max-60"
-        />
-          </Container>
-          <ReachUsDigital reachUsCard={reachUsCard} AIcontactUs/>
-          <VisitUs/>
-          <CustomerService/>
-          <InvestPlan/>
-    
+      <div className={styles.contactWrapper}>
+        <Container>
+          <Breadcrumbs values={breadcrumbs} />
+          <TitleSubtitle
+            title={"Need Assistance?"}
+            subtitle={"Reach out through the channel that suits you best—we’re just a chat, call, or email away!"}
+            extraClass="desc-max-60"
+          />
+        </Container>
+      
+      <ReachUsDigital reachUsCard={reachUsCard} AIcontactUs />
+      <VisitUs />
+      <CustomerService />
+      <InvestPlan />
+
       <Faqs faqItems={faqData} />
+      <IrdaSection />
+      </div>
     </LandingLayout>
   )
 }
