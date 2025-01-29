@@ -53,29 +53,31 @@ const serviceData = [
 
 const CustomerService = () => {
     return (
-        <Container>
-            <div>
-                <TitleSubtitle
-                    title={"Customer Service"}
-                    subtitle={"Find what you need with our easy-to-access resources and support"}
-                />
-                {serviceData.map((service, index) => (
-                    <div key={index} className={styles.service_cards_main}>
-                        <div className={styles.service_cards_title}>
-                            <img src={service.icon} alt={service.title} />
-                            <h4>{service.title}</h4>
+        <div className={styles.Customer_wrapper}>
+            <Container className='mt-negative'>
+                <div>
+                    <TitleSubtitle
+                        title={"Customer Service"}
+                        subtitle={"Find what you need with our easy-to-access resources and support"}
+                    />
+                    {serviceData.map((service, index) => (
+                        <div key={index} className={styles.service_cards_main}>
+                            <div className={styles.service_cards_title}>
+                                <img src={service.icon} alt={service.title} />
+                                <h4>{service.title}</h4>
+                            </div>
+                            <Row className={styles.service_card_list}>
+                                {service.links.map((link, idx) => (
+                                    <Col key={idx} lg='4' xs='12'>
+                                        <a href={link.href}>{link.text} <img src='/images/reach-us/arrow-right.svg' alt='arrow' /></a>
+                                    </Col>
+                                ))}
+                            </Row>
                         </div>
-                        <Row className={styles.service_card_list}>
-                            {service.links.map((link, idx) => (
-                                <Col key={idx} lg='4' xs='12'>
-                                    <a href={link.href}>{link.text} <img src='/images/reach-us/arrow-right.svg' alt='arrow' /></a>
-                                </Col>
-                            ))}
-                        </Row>
-                    </div>
-                ))}
-            </div>
-        </Container>
+                    ))}
+                </div>
+            </Container>
+        </div>
     );
 }
 

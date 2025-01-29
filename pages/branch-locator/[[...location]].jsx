@@ -75,6 +75,7 @@ const BranchLocator = (props) => {
                 <TitleSubtitle
                     title={"Locate Near Branches"}
                     subtitle={"Easy and hassle-free way to locate our branches in PAN India!"}
+                     extraClass="pageTitle"
                 />
 
                 <div className={`${styles.listContainer} ${props.city && props.state ? (styles.active) : ""}`}>
@@ -128,6 +129,7 @@ const BranchLocator = (props) => {
                     title={"Reach Us Digitally"}
                     subtitle={"We help you build a worry free future with easy processes and expert guidance at every step"}
                     titleTag="h3"
+                   
                 />
                 <ReachUsDigital reachUsCard={reachUsCard}/>
             </Container>

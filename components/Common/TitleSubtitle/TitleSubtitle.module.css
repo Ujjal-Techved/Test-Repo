@@ -57,11 +57,21 @@
     }    
 
     .titleContainer .maintitle {
+        font-size: 28px;
+        line-height: 36px;
+        margin-bottom: 12px;
+        font-family: "Helvetica-700";
+    }
+
+    
+    .titleContainer.pageTitle .maintitle {
         font-size: 32px;
         line-height: 42px;
         margin-bottom: 12px;
         font-family: "Helvetica-700";
     }
+
+    
 
     .titleContainer .subtitle {
         font-size: 16px;
