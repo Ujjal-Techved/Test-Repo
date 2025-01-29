@@ -1,0 +1,46 @@
+.joinculture_wrapper {
+    display: flex;
+    gap: 26px;
+    padding: 32px 0px 56px;
+    justify-content: center;
+}
+
+.joinculture_cards {
+    text-align: center;
+    max-width: 223px;
+    width: 100%;
+}
+
+.joinculture_cards span {
+    font-family: "Helvetica-500";
+    font-size: 20px;
+    line-height: 28px;
+    color: var(--fgi-black);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: center;
+}
+
+.joinculture_cards p {
+    font-family: "Helvetica-400";
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--text-grey2);
+    padding: 8px 28px 0px 28px;
+}
+
+
+/* ---------- media query starts ---------- */
+
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+    .joinculture_wrapper {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 991.2px) and (min-width: 320px) {
+    .joinculture_wrapper {
+        flex-wrap: wrap;
+    }
+}
