@@ -4,6 +4,7 @@ import LandingLayout from '@/components/Layouts/LandingLayout'
 import { Container } from 'reactstrap'
 import Breadcrumbs from '@/components/Common/Breadcrumbs/Breadcrumbs'
 import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle'
+import Benefits from '@/components/Careers/Benefits/Benefits'
 
 const career = () => {
 
@@ -16,8 +17,8 @@ const career = () => {
     <LandingLayout>
       <Container>
         <Breadcrumbs values={breadcrumbs} />
-
       </Container>
+      <Benefits/>
     </LandingLayout>
   )
 }
