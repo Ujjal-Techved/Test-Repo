@@ -53,7 +53,7 @@ const serviceData = [
 
 const CustomerService = () => {
     return (
-        <Container>
+        <Container className='mt-negative'>
             <div>
                 <TitleSubtitle
                     title={"Customer Service"}

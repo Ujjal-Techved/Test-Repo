@@ -85,7 +85,7 @@ const ContactUs = (props) => {
         <TitleSubtitle
           title={"Need Assistance?"}
           subtitle={"Reach out through the channel that suits you best—we’re just a chat, call, or email away!"}
-          extraClass="desc-max-60"
+          extraClass="desc-max-60 pageTitle"
         />
           </Container>
           <ReachUsDigital reachUsCard={reachUsCard} AIcontactUs/>

@@ -11,6 +11,8 @@ body {
     margin: 0 auto;
 }
 
+/* Common Buttons */
+
 .redBtn {
     font-size: 16px;
     line-height: 24px;
@@ -39,6 +41,27 @@ body {
     border-radius: 42px;
     display: inline-block;
     border: none;
+}
+
+.redArrowBtn{
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica-500';
+    background: var(--fgi-red);
+    color: var(--background-color);
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 42px;
+    display: inline-block;
+    border: none;
+}
+
+.redArrowBtn span{
+    margin-left: 4px;
+}
+
+.mt-negative{
+    margin-top: -75px;
 }
 
 .react-select-container .react-select__control {
@@ -155,6 +178,10 @@ body {
         font-size: 14px;
         line-height: 14px;
         padding: 12px 18px;
+      }
+
+      .w-sm-100{
+        width: 100%;
       }
 
   }
