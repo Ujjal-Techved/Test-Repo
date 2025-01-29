@@ -2,5 +2,6 @@
 @import './reset.css'; /* reset css */
 @import './typography.css'; /* typography css */  
 @import './variables.css'; /* css global variables */
+@import './cms-style.css'; /* cms style */
 
 
