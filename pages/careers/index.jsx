@@ -5,6 +5,7 @@ import { Container } from 'reactstrap'
 import Breadcrumbs from '@/components/Common/Breadcrumbs/Breadcrumbs'
 import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle'
 import Benefits from '@/components/Careers/Benefits/Benefits'
+import CareerBanner from '@/components/Careers/CareerBanner/CareerBanner'
 
 const career = () => {
 
@@ -18,6 +19,7 @@ const career = () => {
       <Container>
         <Breadcrumbs values={breadcrumbs} />
       </Container>
+      <CareerBanner/>
       <Benefits/>
     </LandingLayout>
   )
