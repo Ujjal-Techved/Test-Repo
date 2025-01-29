@@ -1,0 +1,12 @@
+.contactWrapper {
+    background: url('/images/faqs/bg-left.svg');
+    background-position: left 80px;
+    background-repeat: no-repeat;
+}
+
+
+@media screen and (max-width: 991.2px) and (min-width: 320px) {
+    .contactWrapper {
+        background: none;
+    }
+}

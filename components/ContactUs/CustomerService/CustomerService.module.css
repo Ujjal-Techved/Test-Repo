@@ -1,0 +1,65 @@
+.Customer_wrapper{
+    background: url(/images/faqs/bg-right.svg), var(--background-color);
+    background-position: right 100%;
+    background-repeat: no-repeat;
+    /* min-height: 605px; */
+    padding: 48px 0px;
+}
+
+.service_cards_main{
+    border: 1px solid var(--fgi-bordergrey);
+    border-radius: 24px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.service_cards_title{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.service_cards_title h4{
+    font-family: "Helvetica-800";
+    font-size: 24px;
+    line-height: 36px;
+    color: var(--fgi-black);
+}
+
+
+.service_card_list a{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: "Helvetica-400";
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--fgi-black);
+    margin-top: 24px;
+    text-decoration: none;
+}
+
+
+@media screen and (max-width: 991.2px) and (min-width: 320px) {
+
+    .Customer_wrapper{
+        background:none;
+        padding-bottom: 0px;
+    }
+
+    .service_cards_title img{
+        width: 40px;
+    }
+
+    .service_cards_title h4{
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    .service_card_list a{
+        font-size: 14px;
+        line-height: 18px;
+
+    }
+
+}
