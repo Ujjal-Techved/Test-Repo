@@ -5,6 +5,7 @@ import { Container } from 'reactstrap'
 import Breadcrumbs from '@/components/Common/Breadcrumbs/Breadcrumbs'
 import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle'
 import Benefits from '@/components/Careers/Benefits/Benefits'
+import CareerBanner from '@/components/Careers/CareerBanner/CareerBanner'
 import Promises from '@/components/Careers/Promises/Promises'
 import SendApplication from '@/components/Careers/SendApplication/SendApplication'
 import Joinculture from '@/components/Careers/Joinculture/Joinculture'
@@ -57,6 +58,7 @@ const career = () => {
       <Container>
         <Breadcrumbs values={breadcrumbs} />
       </Container>
+      <CareerBanner/>
       <Joinculture/>
       <Promises promisesData={promisesData}/>
       <SendApplication/>

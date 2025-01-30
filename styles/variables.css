@@ -19,4 +19,6 @@
     --fgi-whitegray:#FFFFFF33;
     --fgi-faqShadow:#1822BD26;
     --fgi-faqTitle:#282D48;
+    --fgi-stats-bg:rgba(255, 255, 255, 0.5);
+    --fgi-stats-bg-pink: rgba(247, 179, 179, 0.3);
 }

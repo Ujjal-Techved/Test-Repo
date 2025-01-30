@@ -13,7 +13,7 @@ const SendApplication = () => {
                     subtitle={"Let us work together today to build you a career you’ll be proud of tomorrow."}
                     extraClass="whiteColor"
                 />
-                <button class="whiteBtn w-sm-100">Send Your Application</button>
+                <button className="whiteBtn w-sm-100">Send Your Application</button>
             </div>
         </Container>
     </div>
