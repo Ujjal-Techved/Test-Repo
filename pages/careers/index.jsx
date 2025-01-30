@@ -9,6 +9,7 @@ import CareerBanner from '@/components/Careers/CareerBanner/CareerBanner'
 import Promises from '@/components/Careers/Promises/Promises'
 import SendApplication from '@/components/Careers/SendApplication/SendApplication'
 import Joinculture from '@/components/Careers/Joinculture/Joinculture'
+import Ourteam from '@/components/Careers/Ourteam/Ourteam'
 
 const career = () => {
 
@@ -51,6 +52,31 @@ const career = () => {
     }
 ];
 
+// Our Teammember array data
+
+const teamMembers = [
+  {
+      id: 1,
+      name: "Harshvardhan Upadhaya",
+      image: "/images/careers/person.png",
+      feedback: "The team at FGILI took the time to carefully explain the options available to me and helped me make informed decisions.",
+      rating: 2.5
+  },
+  {
+      id: 2,
+      name: "Ananya Sharma",
+      image: "/images/careers/person.png",
+      feedback: "Working at FGILI has been a great experience. The support and opportunities for growth are fantastic!",
+      rating: 4.5
+  },
+  {
+      id: 3,
+      name: "Rohan Mehta",
+      image: "/images/careers/person.png",
+      feedback: "Future Generali provides an amazing work culture that fosters innovation and collaboration.",
+      rating: 5
+  }
+];
 
 
   return (
@@ -63,6 +89,7 @@ const career = () => {
       <Promises promisesData={promisesData}/>
       <SendApplication/>
       <Benefits/>
+      <Ourteam teamMembers={teamMembers}/>
     </LandingLayout>
   )
 }

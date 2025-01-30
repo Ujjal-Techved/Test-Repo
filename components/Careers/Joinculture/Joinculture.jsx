@@ -82,10 +82,8 @@ const settings = {
     ]
 };
 
-
-
-
 const Joinculture = () => {
+    
     const [hoveredIndex, setHoveredIndex] = useState(null);
 
     return (
