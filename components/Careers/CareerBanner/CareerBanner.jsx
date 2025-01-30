@@ -6,9 +6,9 @@ import Select from 'react-select';
 const CareerBanner = () => {
 
     const statsItems = [
-        { img: "/images/career/stats-icon-1.svg", title: "100+ Offices Worldwide" },
-        { img: "/images/career/stats-icon-2.svg", title: "1000+ Employees" },
-        { img: "/images/career/stats-icon-3.svg", title: "Average Age: 29" },
+        { img: "/images/career/stats-icon-1.webp", title: "100+ Offices Worldwide" },
+        { img: "/images/career/stats-icon-2.webp", title: "1000+ Employees" },
+        { img: "/images/career/stats-icon-3.webp", title: "Average Age: 29" },
       ];
 
     const [selectedOption, setSelectedOption] = useState("");
