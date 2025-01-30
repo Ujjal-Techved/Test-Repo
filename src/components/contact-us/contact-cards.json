@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_contact_us_contact_cards",
+  "info": {
+    "displayName": "ContactCards"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Description_Contact": {
+      "type": "string"
+    },
+    "LinkUrl": {
+      "type": "string"
+    },
+    "LinkText": {
+      "type": "string"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

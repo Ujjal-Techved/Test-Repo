@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact_uses",
+  "info": {
+    "singularName": "contact-us",
+    "pluralName": "contact-uses",
+    "displayName": "ContactUs",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PageTitle": {
+      "type": "string"
+    },
+    "PageDesc": {
+      "type": "text"
+    },
+    "Contact_Details_Cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "contact-us.contact-cards"
+    },
+    "VisitUs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "contact-us.visit-us"
+    }
+  }
+}
