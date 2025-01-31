@@ -5,6 +5,10 @@ body {
     background: var(--background-color);
 }
 
+body.over-hide{
+    overflow-y: hidden;
+}
+
 .container {
     max-width: 1222px !important;
     width: 100%;
