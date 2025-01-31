@@ -7,7 +7,7 @@
 module.exports = (config, { strapi }) => {
   return async (ctx, next) => {
     if (config.type === "find" || config.type === "findOne") {
-      // Default fields for the main schema
+      // Default fields for the main schema 
       if (!ctx.query.fields) {
         ctx.query.fields = [
           "id",
