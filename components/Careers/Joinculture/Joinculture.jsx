@@ -56,15 +56,15 @@ const Joinculture = () => {
 
     const settings = {
         infinite: true,         // Enable infinite loop
-        speed: 5000,            // Slide transition speed
+        speed: 1000,             // Slide transition speed (reduce for quicker transitions)
         slidesToShow: 5,        // Number of slides visible at a time
-        slidesToScroll: 5,      // Number of slides to scroll
+        slidesToScroll: 1,      // Number of slides to scroll
         autoplay: true,         // Enable autoplay
-        autoplaySpeed: 0,    // Time interval for autoplay
-        cssEase: "linear",      // Smooth transition effect
-        pauseOnHover: true,     // Stops autoplay when hovered
+        autoplaySpeed: 1000,    // Set a reasonable speed for autoplay (1 second)
+        cssEase: "ease",      // Smooth transition effect
+        pauseOnHover: true,     // Stop autoplay when hovered
         centerMode: false,      // Disable center mode
-        variableWidth: false,    // Disable variable width
+        variableWidth: false,   // Disable variable width
         responsive: [
             {
                 breakpoint: 1024,
@@ -86,9 +86,9 @@ const Joinculture = () => {
             }
         ]
     };
-
+    
     return (
-        <div>
+        <div className={styles.Joinculture_pt}>
             <Container>
                 <TitleSubtitle
                     title={"Join a Culture of Growth"}
