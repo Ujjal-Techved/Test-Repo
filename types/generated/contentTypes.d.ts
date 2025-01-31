@@ -373,6 +373,7 @@ export interface ApiBranchListBannerBranchListBanner
   extends Struct.CollectionTypeSchema {
   collectionName: 'branch_list_banners';
   info: {
+    description: '';
     displayName: 'BranchListBanner';
     pluralName: 'branch-list-banners';
     singularName: 'branch-list-banner';
@@ -392,6 +393,12 @@ export interface ApiBranchListBannerBranchListBanner
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    ReachUsCards: Schema.Attribute.Component<
+      'branchcards.reach-us-cards',
+      true
+    >;
+    ReachUsSubTitle: Schema.Attribute.Text;
+    ReachUsTitle: Schema.Attribute.String;
     SubTitle: Schema.Attribute.String;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -412,7 +419,7 @@ export interface ApiBranchListBranchList extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Branch_Address: Schema.Attribute.String;
+    Branch_Address: Schema.Attribute.Text;
     Branch_Name: Schema.Attribute.String;
     City: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;

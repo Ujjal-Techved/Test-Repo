@@ -1,12 +1,13 @@
 {
   "collectionName": "components_branchcards_pointer_lists",
   "info": {
-    "displayName": "PointerList"
+    "displayName": "PointerList",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Text": {
-      "type": "string"
+      "type": "blocks"
     }
   }
 }

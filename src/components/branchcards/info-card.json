@@ -1,7 +1,8 @@
 {
   "collectionName": "components_branchcards_info_cards",
   "info": {
-    "displayName": "InfoCard"
+    "displayName": "InfoCard",
+    "description": ""
   },
   "options": {},
   "attributes": {

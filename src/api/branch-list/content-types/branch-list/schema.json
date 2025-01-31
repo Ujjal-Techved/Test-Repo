@@ -16,7 +16,7 @@
       "type": "string"
     },
     "Branch_Address": {
-      "type": "string"
+      "type": "text"
     },
     "Phone_Number": {
       "type": "biginteger"

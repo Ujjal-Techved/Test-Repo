@@ -4,7 +4,8 @@
   "info": {
     "singularName": "branch-list-banner",
     "pluralName": "branch-list-banners",
-    "displayName": "BranchListBanner"
+    "displayName": "BranchListBanner",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,18 @@
       "type": "component",
       "repeatable": true,
       "component": "branchcards.info-card"
+    },
+    "ReachUsTitle": {
+      "type": "string"
+    },
+    "ReachUsSubTitle": {
+      "type": "text"
+    },
+    "ReachUsCards": {
+      "displayName": "ReachUsCards",
+      "type": "component",
+      "repeatable": true,
+      "component": "branchcards.reach-us-cards"
     }
   }
 }
