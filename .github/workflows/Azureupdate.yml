@@ -1,6 +1,12 @@
  
 name: Update Azure DevOps Task from GitHub Comment
 on:
+  push:
+    branches:
+      - develop
+      - uat
+      - production
+      - 'feature-*'
   issue_comment:
     types: [created]
   pull_request:
