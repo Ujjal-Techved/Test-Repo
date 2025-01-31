@@ -19,7 +19,7 @@ module.exports = (config, { strapi }) => {
         ];
       }
 
-      // Populate all nested components
+      // Populate all nested components 
       if (!ctx.query.populate) {
         ctx.query.populate = {
             InfoCards :{
