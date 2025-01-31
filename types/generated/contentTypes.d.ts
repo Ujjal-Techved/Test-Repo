@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiBranchListBranchList extends Struct.CollectionTypeSchema {
   collectionName: 'branch_lists';
   info: {
+    description: '';
     displayName: 'BranchList';
     pluralName: 'branch-lists';
     singularName: 'branch-list';
@@ -392,7 +393,7 @@ export interface ApiBranchListBranchList extends Struct.CollectionTypeSchema {
       'api::branch-list.branch-list'
     > &
       Schema.Attribute.Private;
-    Phone_Number: Schema.Attribute.Integer;
+    Phone_Number: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
     State: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;

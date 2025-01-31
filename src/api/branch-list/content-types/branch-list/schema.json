@@ -4,7 +4,8 @@
   "info": {
     "singularName": "branch-list",
     "pluralName": "branch-lists",
-    "displayName": "BranchList"
+    "displayName": "BranchList",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,7 +19,7 @@
       "type": "string"
     },
     "Phone_Number": {
-      "type": "integer"
+      "type": "biginteger"
     },
     "City": {
       "type": "string"
