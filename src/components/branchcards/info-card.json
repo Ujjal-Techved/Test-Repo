@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_branchcards_info_cards",
+  "info": {
+    "displayName": "InfoCard"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "PointerList": {
+      "displayName": "PointerList",
+      "type": "component",
+      "repeatable": true,
+      "component": "branchcards.pointer-list"
+    }
+  }
+}

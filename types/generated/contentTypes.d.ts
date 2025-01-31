@@ -369,6 +369,37 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBranchListBannerBranchListBanner
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'branch_list_banners';
+  info: {
+    displayName: 'BranchListBanner';
+    pluralName: 'branch-list-banners';
+    singularName: 'branch-list-banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    InfoCards: Schema.Attribute.Component<'branchcards.info-card', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::branch-list-banner.branch-list-banner'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SubTitle: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBranchListBranchList extends Struct.CollectionTypeSchema {
   collectionName: 'branch_lists';
   info: {
@@ -911,6 +942,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::branch-list-banner.branch-list-banner': ApiBranchListBannerBranchListBanner;
       'api::branch-list.branch-list': ApiBranchListBranchList;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
