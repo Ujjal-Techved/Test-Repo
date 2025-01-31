@@ -1,0 +1,58 @@
+ 
+name: Update Azure DevOps Task from GitHub Comment
+on:
+  issue_comment:
+    types: [created]
+  pull_request:
+    types: [opened, synchronize]
+jobs:
+  update_azure_devops:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract Task ID and Message from Comment
+        id: extract_comment
+        if: github.event_name == 'issue_comment'
+        run: |
+          COMMENT="${{ github.event.comment.body }}"
+          echo "Full Comment: $COMMENT"
+          TASK_ID=$(echo "$COMMENT" | awk -F': ' '{print $1}')
+          MESSAGE=$(echo "$COMMENT" | awk -F': ' '{print $2}')
+          if [[ ! "$TASK_ID" =~ ^[0-9]+$ ]]; then
+            echo "Invalid task ID format. Exiting."
+            exit 1
+          fi
+          echo "TASK_ID=$TASK_ID" >> $GITHUB_ENV
+          echo "MESSAGE=$MESSAGE" >> $GITHUB_ENV
+      - name: Extract Branch and PR Details
+        id: extract_branch_pr
+        if: github.event_name == 'pull_request'
+        run: |
+          BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+          PR_URL="${{ github.event.pull_request.html_url }}"
+          echo "Branch: $BRANCH_NAME"
+          echo "Pull Request: $PR_URL"
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+          echo "PR_URL=$PR_URL" >> $GITHUB_ENV
+      - name: Update Azure DevOps Task
+        run: |
+          UPDATE_MESSAGE=""
+          if [[ -n "${{ env.MESSAGE }}" ]]; then
+            UPDATE_MESSAGE="${{ env.MESSAGE }}"
+          fi
+          if [[ -n "${{ env.BRANCH_NAME }}" ]]; then
+            UPDATE_MESSAGE+="\n\n**Branch:** ${{ env.BRANCH_NAME }}"
+          fi
+          if [[ -n "${{ env.PR_URL }}" ]]; then
+            UPDATE_MESSAGE+="\n\n**Pull Request:** [PR Link](${{ env.PR_URL }})"
+          fi
+          echo "Updating Azure DevOps Task ID: ${{ env.TASK_ID }} with the following details:"
+          echo "$UPDATE_MESSAGE"
+          curl -X PATCH -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${{ secrets.AZURE_DEVOPS_PAT }}" \
+          -d '{
+            "fields": {
+              "System.History": "'"$UPDATE_MESSAGE"'"
+            }
+          }' \
+          "https://dev.azure.com/${{ secrets.AZURE_ORG }}/${{ secrets.AZURE_PROJECT }}/_apis/wit/workitems/${{ env.TASK_ID }}?api-version=6.0" 
+ 
