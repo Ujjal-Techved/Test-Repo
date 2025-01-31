@@ -1,17 +1,17 @@
 'use strict';
 
 /**
- * branch-list router
+ * branch-list-banner router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::branch-list.branch-list', {
+module.exports = createCoreRouter('api::branch-list-banner.branch-list-banner', {
     config: {
         find: {
             middlewares: [
                 {
-                    name: "api::branch-list.branch-list-default-populate",
+                    name: "api::branch-list-banner.branch-list-banner-default-populate",
                     config: { type: "find" },
                 },
             ],
@@ -19,10 +19,11 @@ module.exports = createCoreRouter('api::branch-list.branch-list', {
         findOne: {
             middlewares: [
                 {
-                    name: "api::branch-list.branch-list-default-populate",
+                    name: "api::branch-list-banner.branch-list-banner-default-populate",
                     config: { type: "findOne" },
                 },
             ],
         },
     },
 });
+

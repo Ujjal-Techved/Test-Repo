@@ -369,9 +369,48 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBranchListBannerBranchListBanner
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'branch_list_banners';
+  info: {
+    description: '';
+    displayName: 'BranchListBanner';
+    pluralName: 'branch-list-banners';
+    singularName: 'branch-list-banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    InfoCards: Schema.Attribute.Component<'branchcards.info-card', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::branch-list-banner.branch-list-banner'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    ReachUsCards: Schema.Attribute.Component<
+      'branchcards.reach-us-cards',
+      true
+    >;
+    ReachUsSubTitle: Schema.Attribute.Text;
+    ReachUsTitle: Schema.Attribute.String;
+    SubTitle: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBranchListBranchList extends Struct.CollectionTypeSchema {
   collectionName: 'branch_lists';
   info: {
+    description: '';
     displayName: 'BranchList';
     pluralName: 'branch-lists';
     singularName: 'branch-list';
@@ -380,7 +419,7 @@ export interface ApiBranchListBranchList extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Branch_Address: Schema.Attribute.String;
+    Branch_Address: Schema.Attribute.Text;
     Branch_Name: Schema.Attribute.String;
     City: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
@@ -392,7 +431,7 @@ export interface ApiBranchListBranchList extends Struct.CollectionTypeSchema {
       'api::branch-list.branch-list'
     > &
       Schema.Attribute.Private;
-    Phone_Number: Schema.Attribute.Integer;
+    Phone_Number: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
     State: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -910,6 +949,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::branch-list-banner.branch-list-banner': ApiBranchListBannerBranchListBanner;
       'api::branch-list.branch-list': ApiBranchListBranchList;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

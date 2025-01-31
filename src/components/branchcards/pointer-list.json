@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_branchcards_pointer_lists",
+  "info": {
+    "displayName": "PointerList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "blocks"
+    }
+  }
+}
