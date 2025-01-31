@@ -64,7 +64,7 @@ const Joinculture = () => {
         cssEase: "linear",      // Smooth transition effect
         pauseOnHover: true,     // Stops autoplay when hovered
         centerMode: false,      // Disable center mode
-        variableWidth: false,   // Disable variable width
+        variableWidth: false,    // Disable variable width
         responsive: [
             {
                 breakpoint: 1024,
