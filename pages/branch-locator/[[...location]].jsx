@@ -8,8 +8,14 @@ import Select from 'react-select';
 import styles from './Branch.module.css';
 import ReachUsDigital from '@/components/BranchLocator/ReachUsDigital/ReachUsDigital';
 import BranchList from '@/components/BranchLocator/BranchList/BranchList';
+import LocationPopup from '@/components/BranchLocator/LocationPopup/LocationPopup';
+import CommonPopup from '@/components/Common/CommonPopup/CommonPopup';
 
 const BranchLocator = (props) => {
+
+    //location popup
+    const [locationPopup, setLocationPopup] = useState(false);
+    const toggleLocationPopup = () => { setLocationPopup(!locationPopup) }
 
     const [selectedCity, setSelectedCity] = useState(props.city ? { value: props.city, label: props.city, state: props.state } : "");
     const [selectedState, setSelectedState] = useState(props.state ? { value: props.state, label: props.state } : "");
@@ -25,10 +31,11 @@ const BranchLocator = (props) => {
 
         // Redirect to the branch locator
         window.location.href = `/branch-locator/${stateValue}/${cityValue}`;
+        
     };
 
-     // Reach us or contact us card data
-     const reachUsCard = [
+    // Reach us or contact us card data
+    const reachUsCard = [
         {
             title: 'WhatsApp Support',
             desc: 'Message us anytime at your convenience.',
@@ -63,10 +70,19 @@ const BranchLocator = (props) => {
         //     linktext:'Locate Us',
         //     link: '/',
         //     arrow: '/images/reach-us/arrow-right.svg',
-  
+
         // },
-  
+
     ];
+
+    useEffect(() => {
+        toggleLocationPopup();
+    
+      return () => {
+        toggleLocationPopup();
+      }
+    }, [])
+    
 
     return (
         <LandingLayout>
@@ -75,7 +91,7 @@ const BranchLocator = (props) => {
                 <TitleSubtitle
                     title={"Locate Near Branches"}
                     subtitle={"Easy and hassle-free way to locate our branches in PAN India!"}
-                     extraClass="pageTitle"
+                    extraClass="pageTitle"
                 />
 
                 <div className={`${styles.listContainer} ${props.city && props.state ? (styles.active) : ""}`}>
@@ -129,12 +145,17 @@ const BranchLocator = (props) => {
                     title={"Reach Us Digitally"}
                     subtitle={"We help you build a worry free future with easy processes and expert guidance at every step"}
                     titleTag="h3"
-                   
+
                 />
-                <ReachUsDigital reachUsCard={reachUsCard}/>
+                <ReachUsDigital reachUsCard={reachUsCard} />
             </Container>
+            <CommonPopup isOpen={locationPopup} toggle={toggleLocationPopup}>
+                <LocationPopup toggle={toggleLocationPopup} />
+            </CommonPopup>
         </LandingLayout>
+
     );
+    
 };
 
 export async function getServerSideProps(context) {
