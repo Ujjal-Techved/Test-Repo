@@ -7,7 +7,7 @@
 module.exports = (config, { strapi }) => {
   return async (ctx, next) => {
     if (config.type === "find" || config.type === "findOne") {
-      // Default fields for the main schema (content cta)
+      // Default fields for the main schema
       if (!ctx.query.fields) {
         ctx.query.fields = [
           "id",
@@ -19,7 +19,7 @@ module.exports = (config, { strapi }) => {
         ];
       }
 
-      // Populate all nested components
+      // Populate all nested components 
       if (!ctx.query.populate) {
         ctx.query.populate = {
             InfoCards :{
