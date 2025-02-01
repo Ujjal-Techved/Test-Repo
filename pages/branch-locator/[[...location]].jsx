@@ -274,7 +274,7 @@ export async function getServerSideProps(context) {
     // Create the breadcrumbs array based on state and city
     const breadcrumbs = [
         { name: "Branch Locator", url: "/branch-locator", active: true },
-        state ? { name: normalizedState, url: `/branch-locator/${state}`, active: true } : null,
+        state ? { name: normalizedState, url: `/branch-locator/${state}/${city}`, active: true } : null,
         city ? { name: normalizedCity, url: `/branch-locator/${state}/${city}`, active: true } : null,
     ].filter(Boolean); // Filter out null values (for missing state or city)
 
