@@ -10,6 +10,7 @@ import Promises from '@/components/Careers/Promises/Promises'
 import SendApplication from '@/components/Careers/SendApplication/SendApplication'
 import Joinculture from '@/components/Careers/Joinculture/Joinculture'
 import Ourteam from '@/components/Careers/Ourteam/Ourteam'
+import CoverageOption from '@/components/CoverageOption/CoverageOption'
 
 const career = () => {
 
@@ -90,6 +91,9 @@ const teamMembers = [
       <SendApplication/>
       <Benefits/>
       <Ourteam teamMembers={teamMembers}/>
+
+      {/* Home page extra */}
+      {/* <CoverageOption/> */}
     </LandingLayout>
   )
 }
