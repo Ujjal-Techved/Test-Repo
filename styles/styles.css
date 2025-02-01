@@ -11,6 +11,27 @@ body {
     margin: 0 auto;
 }
 
+/* Common Popup css */
+
+
+.common_popup_wrapper.modal-dialog{
+    width: auto;
+    max-width: unset;
+    justify-content: center;
+    border: none ;
+}
+
+.common_popup_wrapper .modal-content{
+    width: auto !important;
+    height: unset !important;
+    border: none !important;
+}
+
+.common_popup_wrapper{
+    --bs-modal-bg:transparent;
+    border: none;
+}
+
 /* Common Buttons */
 
 .redBtn {
@@ -41,6 +62,10 @@ body {
     border-radius: 42px;
     display: inline-block;
     border: none;
+}
+
+.whiteBtn.redborder{
+    border: 2px solid var(--fgi-red)
 }
 
 .redArrowBtn{
