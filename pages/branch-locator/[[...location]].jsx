@@ -12,23 +12,23 @@ import { apiClient } from '../../utils/apiClient';  // Ensure correct path
 import { useRouter } from 'next/router';
 
 const BranchLocator = (props) => {
-    const router = useRouter();  // Initialize router
+    const router = useRouter();  // Initialize Next.js router for page navigation
 
-     // State for selected city and state
-     const [selectedCity, setSelectedCity] = useState(props.city ? { value: props.city, label: props.city, state: props.state } : "");
-     const [selectedState, setSelectedState] = useState(props.state ? { value: props.state, label: props.state } : "");
+    // State for selected city and state (from props or default values)
+    const [selectedCity, setSelectedCity] = useState(props.city ? { value: props.city, label: props.city, state: props.state } : "");
+    const [selectedState, setSelectedState] = useState(props.state ? { value: props.state, label: props.state } : "");
 
-   
-    // Handle Search Click
+    // Handle the "Search" button click, redirecting to the selected city/state page
     const handleSubmit = () => {
+        // Convert selected values to lowercase and replace spaces with hyphens
         const cityValue = selectedCity?.value?.toLowerCase().replace(/\s+/g, "-");
         const stateValue = selectedState?.value?.toLowerCase().replace(/\s+/g, "-");
 
-        // Redirect to the branch locator
+        // Redirect to the branch locator page for the selected city and state
         window.location.href = `/branch-locator/${stateValue}/${cityValue}`;
     };
 
-    // Reach us or contact us card data
+    // Data for contact options ("WhatsApp", "Customer Support", etc.)
     const reachUsCard = [
         {
             title: 'WhatsApp Support',
@@ -57,29 +57,22 @@ const BranchLocator = (props) => {
             arrow: '/images/reach-us/arrow-right.svg',
             img: '/images/reach-us/email.svg',
         },
-        // {
-        //     title: 'Visit Us',
-        //     desc: 'Monday to Friday 9:30 am to 5:30 pm',
-        //     contact: '',
-        //     linktext:'Locate Us',
-        //     link: '/',
-        //     arrow: '/images/reach-us/arrow-right.svg',
-
-        // },
-
     ];
 
     return (
         <LandingLayout>
             <Container>
+                {/* Breadcrumb navigation */}
                 <Breadcrumbs values={props?.breadcrumbs} />
+                
                 <TitleSubtitle
                     title={"Locate Near Branches"}
                     subtitle={"Easy and hassle-free way to locate our branches in PAN India!"}
                     extraClass="pageTitle"
                 />
 
-                <div className={`${styles.listContainer} ${props.city && props.state ? (styles.active) : ""}`}>
+                {/* Branch search filter section */}
+                <div className={`${styles.listContainer} ${props.city && props.state ? styles.active : ""}`}>
                     <div className={styles.filterComponent}>
                         <Row className={styles.row}>
                             <Col lg="5" className={styles.col + ' dropdown-arrow'}>
@@ -87,25 +80,28 @@ const BranchLocator = (props) => {
                                     options={props.cityList}
                                     value={selectedCity}
                                     onChange={(option) => {
-                                        setSelectedCity(option);
-                                        setSelectedState({ value: option.state, label: option.state });
+                                        setSelectedCity(option);  // Update selected city
+                                        setSelectedState({ value: option.state, label: option.state }); // Automatically set state
                                     }}
                                     placeholder="Select a City"
                                     className="react-select-container"
                                     classNamePrefix="react-select"
-                                    components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
+                                    components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Remove arrow and separator
                                 />
                             </Col>
                             <Col lg="4" className={styles.col + ' dropdown-arrow'}>
                                 <Select
                                     options={props.stateList}
                                     value={selectedState}
-                                    onChange={(option) => { setSelectedState(option); setSelectedCity("") }}
+                                    onChange={(option) => { 
+                                        setSelectedState(option);  // Update selected state
+                                        setSelectedCity(""); // Clear selected city
+                                    }}
                                     placeholder="Select State Name"
                                     className="react-select-container"
                                     classNamePrefix="react-select"
                                     isSearchable={false}
-                                    components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
+                                    components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Remove arrow and separator
                                 />
                             </Col>
                             <Col lg="3" className={styles.col}>
@@ -115,24 +111,27 @@ const BranchLocator = (props) => {
                             </Col>
                         </Row>
                     </div>
+
+                    {/* Conditionally render the Branch List or an image if no city/state */}
                     {
                         props.city && props.state ? (
-                            <BranchList list={props.branchList} />
+                            <BranchList list={props.branchList} />  // Display the list of branches
                         ) : (
                             <div className='d-flex align-items-center justify-content-center'>
                                 <img className={styles.branch_img} src='/images/branch-locator/branch.webp' alt='branch' />
                             </div>
                         )
-}
+                    }
                 </div>
+
+                {/* Display additional contact options */}
                 <InfoCard />
                 <TitleSubtitle
                     title={"Reach Us Digitally"}
                     subtitle={"We help you build a worry free future with easy processes and expert guidance at every step"}
                     titleTag="h3"
-                   
                 />
-                <ReachUsDigital reachUsCard={reachUsCard}/>
+                <ReachUsDigital reachUsCard={reachUsCard} />
             </Container>
         </LandingLayout>
     );
@@ -144,6 +143,7 @@ export async function getServerSideProps(context) {
     let state = location?.[0] || "";
     let city = location?.[1] || "";
 
+    // Convert state and city to proper format (capitalize first letters)
     const toNormalForm = (str) => str 
         ? str.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ") 
         : "";
@@ -152,20 +152,24 @@ export async function getServerSideProps(context) {
     const normalizedCity = toNormalForm(city);
 
     try {
+        // Fetch the list of branches (cities and states)
         const branchList = await apiClient('/api/branch-lists?fields[0]=State&fields[1]=City');
-
-        // ✅ Fetch branch data on the server
+        
+        // Fetch the filtered branch list based on state and city
         const filterBranchList = await apiClient(
             `/api/branch-lists?filters[State][$eqi]=${normalizedState}&filters[City][$eqi]=${normalizedCity}`
         );
+
+        // Create dropdown options for cities and states
         const cityList = branchList.data.map(data => ({ value: data.City, label: data.City, state: data.State }));
         const stateList = branchList.data.map(data => ({ value: data.State, label: data.State }));
-// Create the breadcrumbs array based on state and city
-const breadcrumbs = [
-    { name: "Branch Locator", url: "/branch-locator", active: true },
-    state ? { name: normalizedState, url: `/branch-locator/${state}`, active: true } : null,
-    city ? { name: normalizedCity, url: `/branch-locator/${state}/${city}`, active: true } : null,
-].filter(Boolean); // Filter out null values (for missing state or city)
+
+        // Generate breadcrumbs dynamically based on state and city
+        const breadcrumbs = [
+            { name: "Branch Locator", url: "/branch-locator", active: true },
+            state ? { name: normalizedState, url: `/branch-locator/${state}`, active: true } : null,
+            city ? { name: normalizedCity, url: `/branch-locator/${state}/${city}`, active: true } : null,
+        ].filter(Boolean); // Remove null values
 
         return { 
             props: { 
@@ -174,8 +178,9 @@ const breadcrumbs = [
                 stateUrl: state, // Keep original state for URL
                 cityUrl: city,   // Keep original city for URL 
                 breadcrumbs: breadcrumbs,
-                branchList: filterBranchList?.data ?? [], // Ensure default value
-                cityList, stateList} 
+                branchList: filterBranchList?.data ?? [], // Default value if no branches found
+                cityList, stateList
+            } 
         };
     } catch (error) {
         console.error("Error fetching branch data:", error);
@@ -188,7 +193,5 @@ const breadcrumbs = [
         };
     }
 }
-
-
 
 export default BranchLocator;
