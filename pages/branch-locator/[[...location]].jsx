@@ -33,8 +33,8 @@ const BranchLocator = (props) => {
         window.location.href = `/branch-locator/${stateValue}/${cityValue}`;
     };
 
-     // Reach us or contact us card data
-     const reachUsCard = [
+    // Reach us or contact us card data
+    const reachUsCard = [
         {
             title: 'WhatsApp Support',
             desc: 'Message us anytime at your convenience.',
@@ -69,17 +69,18 @@ const BranchLocator = (props) => {
         //     linktext:'Locate Us',
         //     link: '/',
         //     arrow: '/images/reach-us/arrow-right.svg',
-  
+
         // },
-  
+
     ];
 
     useEffect(() => {
-        toggleLocationPopup();
-    
-      return () => {
-        toggleLocationPopup();
-      }
+        if (!props.city || !props.state) {
+            toggleLocationPopup();
+        }
+        return () => {
+            toggleLocationPopup();
+        }
     }, [])
 
     return (
@@ -89,7 +90,7 @@ const BranchLocator = (props) => {
                 <TitleSubtitle
                     title={"Locate Near Branches"}
                     subtitle={"Easy and hassle-free way to locate our branches in PAN India!"}
-                     extraClass="pageTitle"
+                    extraClass="pageTitle"
                 />
 
                 <div className={`${styles.listContainer} ${props.city && props.state ? (styles.active) : ""}`}>
@@ -103,21 +104,29 @@ const BranchLocator = (props) => {
                                         setSelectedCity(option);
                                         setSelectedState({ value: option.state, label: option.state });
                                     }}
+                                    onInputChange={(inputValue, { action }) => {
+                                        if (action === "input-change") {
+                                            // Allow only alphabetic characters and spaces, with a max length of 50
+                                            const sanitizedInput = inputValue.replace(/[^a-zA-Z\s]/g, "").slice(0, 50);
+                                            return sanitizedInput;
+                                        }
+                                    }}
                                     placeholder="Select a City"
                                     className="react-select-container"
                                     classNamePrefix="react-select"
                                     components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
                                 />
                             </Col>
-                            <Col lg="4" className={styles.col + ' dropdown-arrow'}>
+                            <Col lg="4" className={styles.col}>
                                 <Select
                                     options={props.stateList}
                                     value={selectedState}
-                                    onChange={(option) => { setSelectedState(option); setSelectedCity("") }}
-                                    placeholder="Select State Name"
+                                    // onChange={(option) => { setSelectedState(option); setSelectedCity("") }}
+                                    placeholder="State Name"
                                     className="react-select-container"
                                     classNamePrefix="react-select"
                                     isSearchable={false}
+                                    menuIsOpen={false}
                                     components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
                                 />
                             </Col>
@@ -143,9 +152,9 @@ const BranchLocator = (props) => {
                     title={"Reach Us Digitally"}
                     subtitle={"We help you build a worry free future with easy processes and expert guidance at every step"}
                     titleTag="h3"
-                   
+
                 />
-                <ReachUsDigital reachUsCard={reachUsCard}/>
+                <ReachUsDigital reachUsCard={reachUsCard} />
             </Container>
             <CommonPopup isOpen={locationPopup} toggle={toggleLocationPopup}>
                 <LocationPopup toggle={toggleLocationPopup} />
