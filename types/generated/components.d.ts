@@ -39,6 +39,50 @@ export interface BranchcardsReachUsCards extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonFaqItems extends Struct.ComponentSchema {
+  collectionName: 'components_common_faq_items';
+  info: {
+    displayName: 'FAQ_Items';
+  };
+  attributes: {
+    Answer: Schema.Attribute.Text;
+    Question: Schema.Attribute.String;
+  };
+}
+
+export interface CommonFaqSection extends Struct.ComponentSchema {
+  collectionName: 'components_common_faq_sections';
+  info: {
+    description: '';
+    displayName: 'FAQ_Section';
+  };
+  attributes: {
+    Description: Schema.Attribute.String;
+    FaqList: Schema.Attribute.Component<'common.faq-items', true>;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface ContactUsAppLink extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_app_links';
+  info: {
+    displayName: 'AppLink';
+  };
+  attributes: {
+    AppStore_Image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    Description: Schema.Attribute.String;
+    PlayStore_Image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    QR_Code_Image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    Title: Schema.Attribute.String;
+  };
+}
+
 export interface ContactUsContactCards extends Struct.ComponentSchema {
   collectionName: 'components_contact_us_contact_cards';
   info: {
@@ -50,6 +94,43 @@ export interface ContactUsContactCards extends Struct.ComponentSchema {
     Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     LinkText: Schema.Attribute.String;
     LinkUrl: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface ContactUsCsCategory extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_cs_categories';
+  info: {
+    description: '';
+    displayName: 'CS_Category';
+  };
+  attributes: {
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    ListItem: Schema.Attribute.Component<'contact-us.cs-item', true>;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface ContactUsCsItem extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_cs_items';
+  info: {
+    displayName: 'CS_Item';
+  };
+  attributes: {
+    LinkText: Schema.Attribute.String;
+    LinkUrl: Schema.Attribute.String;
+  };
+}
+
+export interface ContactUsCustomerService extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_customer_services';
+  info: {
+    description: '';
+    displayName: 'CustomerService';
+  };
+  attributes: {
+    CategoryList: Schema.Attribute.Component<'contact-us.cs-category', true>;
+    Description: Schema.Attribute.Text;
     Title: Schema.Attribute.String;
   };
 }
@@ -74,7 +155,13 @@ declare module '@strapi/strapi' {
       'branchcards.info-card': BranchcardsInfoCard;
       'branchcards.pointer-list': BranchcardsPointerList;
       'branchcards.reach-us-cards': BranchcardsReachUsCards;
+      'common.faq-items': CommonFaqItems;
+      'common.faq-section': CommonFaqSection;
+      'contact-us.app-link': ContactUsAppLink;
       'contact-us.contact-cards': ContactUsContactCards;
+      'contact-us.cs-category': ContactUsCsCategory;
+      'contact-us.cs-item': ContactUsCsItem;
+      'contact-us.customer-service': ContactUsCustomerService;
       'contact-us.visit-us': ContactUsVisitUs;
     }
   }

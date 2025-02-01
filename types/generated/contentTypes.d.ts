@@ -452,6 +452,7 @@ export interface ApiContactUsContactUs extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    AppLink: Schema.Attribute.Component<'contact-us.app-link', false>;
     Contact_Details_Cards: Schema.Attribute.Component<
       'contact-us.contact-cards',
       true
@@ -459,6 +460,11 @@ export interface ApiContactUsContactUs extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    CustomerService: Schema.Attribute.Component<
+      'contact-us.customer-service',
+      false
+    >;
+    Faqs: Schema.Attribute.Component<'common.faq-section', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -467,6 +473,7 @@ export interface ApiContactUsContactUs extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     PageDesc: Schema.Attribute.Text;
     PageTitle: Schema.Attribute.String;
+    PageUrl: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
