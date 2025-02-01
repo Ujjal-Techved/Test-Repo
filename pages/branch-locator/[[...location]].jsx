@@ -8,8 +8,14 @@ import Select from 'react-select';
 import styles from './Branch.module.css';
 import ReachUsDigital from '@/components/BranchLocator/ReachUsDigital/ReachUsDigital';
 import BranchList from '@/components/BranchLocator/BranchList/BranchList';
+import LocationPopup from '@/components/BranchLocator/LocationPopup/LocationPopup';
+import CommonPopup from '@/components/Common/CommonPopup/CommonPopup';
 
 const BranchLocator = (props) => {
+
+    //location popup
+    const [locationPopup, setLocationPopup] = useState(false);
+    const toggleLocationPopup = () => { setLocationPopup(!locationPopup) }
 
     const [selectedCity, setSelectedCity] = useState(props.city ? { value: props.city, label: props.city, state: props.state } : "");
     const [selectedState, setSelectedState] = useState(props.state ? { value: props.state, label: props.state } : "");
@@ -67,6 +73,14 @@ const BranchLocator = (props) => {
         // },
   
     ];
+
+    useEffect(() => {
+        toggleLocationPopup();
+    
+      return () => {
+        toggleLocationPopup();
+      }
+    }, [])
 
     return (
         <LandingLayout>
@@ -133,6 +147,9 @@ const BranchLocator = (props) => {
                 />
                 <ReachUsDigital reachUsCard={reachUsCard}/>
             </Container>
+            <CommonPopup isOpen={locationPopup} toggle={toggleLocationPopup}>
+                <LocationPopup toggle={toggleLocationPopup} />
+            </CommonPopup>
         </LandingLayout>
     );
 };
