@@ -440,6 +440,41 @@ export interface ApiBranchListBranchList extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiContactUsContactUs extends Struct.CollectionTypeSchema {
+  collectionName: 'contact_uses';
+  info: {
+    description: '';
+    displayName: 'ContactUs';
+    pluralName: 'contact-uses';
+    singularName: 'contact-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Contact_Details_Cards: Schema.Attribute.Component<
+      'contact-us.contact-cards',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact-us.contact-us'
+    > &
+      Schema.Attribute.Private;
+    PageDesc: Schema.Attribute.Text;
+    PageTitle: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    VisitUs: Schema.Attribute.Component<'contact-us.visit-us', false>;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -951,6 +986,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::branch-list-banner.branch-list-banner': ApiBranchListBannerBranchListBanner;
       'api::branch-list.branch-list': ApiBranchListBranchList;
+      'api::contact-us.contact-us': ApiContactUsContactUs;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
