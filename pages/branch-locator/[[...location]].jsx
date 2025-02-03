@@ -2,7 +2,7 @@ import Breadcrumbs from '@/components/Common/Breadcrumbs/Breadcrumbs';
 import LandingLayout from '@/components/Layouts/LandingLayout';
 import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
 import InfoCard from "@/components/BranchLocator/InfoCard/InfoCard";
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import Select from 'react-select';
 import styles from './Branch.module.css';
@@ -33,46 +33,6 @@ const BranchLocator = (props) => {
         window.location.href = `/branch-locator/${stateValue}/${cityValue}`;
     };
 
-    // Reach us or contact us card data
-    const reachUsCard = [
-        {
-            title: 'WhatsApp Support',
-            desc: 'Message us anytime at your convenience.',
-            contact: '',
-            linktext: 'Chat with Us',
-            link: '/',
-            arrow: '/images/reach-us/arrow-right.svg',
-            img: '/images/reach-us/whatsapp.svg',
-        },
-        {
-            title: 'Customer Support',
-            desc: 'Available 24*7 at',
-            contact: ' 1800 102 2355',
-            linktext: 'Call Us',
-            link: '/',
-            arrow: '/images/reach-us/arrow-right.svg',
-            img: '/images/reach-us/headphone.svg',
-        },
-        {
-            title: 'Drop Us an Email',
-            desc: 'Send your queries to: ',
-            contact: 'care@futuregenerali.in',
-            linktext: 'Email Us',
-            link: 'care@futuregenerali.in',
-            arrow: '/images/reach-us/arrow-right.svg',
-            img: '/images/reach-us/email.svg',
-        },
-        // {
-        //     title: 'Visit Us',
-        //     desc: 'Monday to Friday 9:30 am to 5:30 pm',
-        //     contact: '',
-        //     linktext:'Locate Us',
-        //     link: '/',
-        //     arrow: '/images/reach-us/arrow-right.svg',
-
-        // },
-
-    ];
 
     useEffect(() => {
         if (!props.city || !props.state) {
@@ -90,8 +50,8 @@ const BranchLocator = (props) => {
                 <Breadcrumbs values={props?.breadcrumbs} />
 
                 <TitleSubtitle
-                    title={"Locate Near Branches"}
-                    subtitle={"Easy and hassle-free way to locate our branches in PAN India!"}
+                    title={props?.pageData?.Title}
+                    subtitle={props?.pageData?.SubTitle}
                     extraClass="pageTitle"
                 />
 
@@ -154,16 +114,16 @@ const BranchLocator = (props) => {
                 </div>
 
                 {/* Display additional contact options */}
-                <InfoCard />
+                <InfoCard infoCardDetails={props?.pageData?.InfoCards} />
                 <TitleSubtitle
-                    title={"Reach Us Digitally"}
-                    subtitle={"We help you build a worry free future with easy processes and expert guidance at every step"}
+                    title={props?.pageData?.ReachUsTitle}
+                    subtitle={props?.pageData?.ReachUsSubTitle}
                     titleTag="h3"
                 />
-                <ReachUsDigital reachUsCard={reachUsCard} />
+                <ReachUsDigital reachUsCard={props?.pageData?.ReachUsCards} />
             </Container>
             <CommonPopup isOpen={locationPopup} toggle={toggleLocationPopup}>
-                <LocationPopup toggle={toggleLocationPopup} />
+                <LocationPopup toggle={toggleLocationPopup} pageUrl="/branch-locator/" />
             </CommonPopup>
         </LandingLayout>
     );
@@ -183,6 +143,14 @@ export async function getServerSideProps(context) {
     const normalizedState = toNormalForm(state);
     const normalizedCity = toNormalForm(city);
 
+    // Generate breadcrumbs dynamically based on state and city
+    const breadcrumbs = [
+        { name: "Branch Locator", url: "/branch-locator", active: true },
+        state ? { name: normalizedState, url: `/branch-locator/${state}/${city}`, active: true } : null,
+        city ? { name: normalizedCity, url: `/branch-locator/${state}/${city}`, active: true } : null,
+    ].filter(Boolean); // Remove null values
+
+
     try {
         // Fetch the list of branches (cities and states)
         const branchList = await apiClient('/api/branch-lists?fields[0]=State&fields[1]=City');
@@ -196,12 +164,7 @@ export async function getServerSideProps(context) {
         const cityList = branchList.data.map(data => ({ value: data.City, label: data.City, state: data.State }));
         const stateList = branchList.data.map(data => ({ value: data.State, label: data.State }));
 
-        // Generate breadcrumbs dynamically based on state and city
-        const breadcrumbs = [
-            { name: "Branch Locator", url: "/branch-locator", active: true },
-            state ? { name: normalizedState, url: `/branch-locator/${state}`, active: true } : null,
-            city ? { name: normalizedCity, url: `/branch-locator/${state}/${city}`, active: true } : null,
-        ].filter(Boolean); // Remove null values
+        const pageData = await apiClient('/api/branch-list-banners');
 
         return {
             props: {
@@ -211,7 +174,8 @@ export async function getServerSideProps(context) {
                 cityUrl: city,   // Keep original city for URL 
                 breadcrumbs: breadcrumbs,
                 branchList: filterBranchList?.data ?? [], // Default value if no branches found
-                cityList, stateList
+                cityList, stateList,
+                pageData: pageData?.data[0],
             }
         };
     } catch (error) {
@@ -220,7 +184,11 @@ export async function getServerSideProps(context) {
             props: {
                 state: normalizedState,
                 city: normalizedCity,
-                branchList: []
+                stateUrl: state, // Keep original state for URL
+                cityUrl: city,   // Keep original city for URL 
+                breadcrumbs: breadcrumbs,
+                branchList: [],
+                pageData: {}
             }
         };
     }
