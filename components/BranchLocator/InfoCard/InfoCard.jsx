@@ -11,7 +11,7 @@ const InfoCard = ({infoCardDetails}) => {
                 <Col className={styles.info_cards_section} xs="12" lg="4" key={index}>
                     <div className={styles.info_cards}>
                         <h3 className={styles.info_cards_title}>{item?.Title}</h3>
-                        <div className={styles.info_cards_subtitle + "cms-text"}>{richTextToHtml(item?.Description)}</div>
+                        <div className={styles.info_cards_subtitle + " cms-data"}>{richTextToHtml(item?.Description)}</div>
                     </div>
                 </Col>
             ))}

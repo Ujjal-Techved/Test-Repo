@@ -20,6 +20,7 @@ const BranchLocator = (props) => {
     const [locationPopup, setLocationPopup] = useState(false);
     const toggleLocationPopup = () => { setLocationPopup(!locationPopup) }
     // State for selected city and state (from props or default values)
+
     const [selectedCity, setSelectedCity] = useState(props.city ? { value: props.city, label: props.city, state: props.state } : "");
     const [selectedState, setSelectedState] = useState(props.state ? { value: props.state, label: props.state } : "");
 
@@ -31,8 +32,8 @@ const BranchLocator = (props) => {
 
         // Redirect to the branch locator page for the selected city and state
         window.location.href = `/branch-locator/${stateValue}/${cityValue}`;
+        
     };
-
 
     useEffect(() => {
         if (!props.city || !props.state) {
@@ -126,7 +127,9 @@ const BranchLocator = (props) => {
                 <LocationPopup toggle={toggleLocationPopup} pageUrl="/branch-locator/" />
             </CommonPopup>
         </LandingLayout>
+
     );
+    
 };
 
 // **Server-side Props for SEO**

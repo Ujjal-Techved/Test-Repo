@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 import { Container } from 'reactstrap';
 import NavDropList from '../NavDropList/NavDropList';
@@ -46,6 +46,14 @@ const Navbar = () => {
   const closeSidebar = () => {
     setIsSidebarVisible(false);
   };
+
+  useEffect(() => {
+    if (isSidebarVisible) {
+      document.body.classList.add('over-hide');
+    } else {
+      document.body.classList.remove('over-hide');
+    }
+  }, [isSidebarVisible]); // Effect runs when isSidebarVisible changes
 
   return (
     <div>

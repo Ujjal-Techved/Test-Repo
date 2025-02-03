@@ -17,6 +17,9 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-select": "^5.9.0",
-    "reactstrap": "^9.2.3"
+    "react-simple-star-rating": "^5.1.7",
+    "react-slick": "^0.30.3",
+    "reactstrap": "^9.2.3",
+    "slick-carousel": "^1.8.1"
   }
 }

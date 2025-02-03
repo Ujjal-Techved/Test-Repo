@@ -5,8 +5,10 @@
     --text-grey2: #6F7072;
     --background-color: #FFFFFF;
     --fgi-black: #20252B;
+    --fgi-black2:#353535;
     --fgi-lightblack1: #0000000F;
     --fgi-lightblack2: #0000000A;
+    --fgi-lightblack3: #000000DE;
     --fgi-red1: #AF2219;
     --fgi-bordergrey: #CCCCCC;
     --fgi-borderlightgrey: #EBEBEB;
@@ -19,4 +21,11 @@
     --fgi-whitegray:#FFFFFF33;
     --fgi-faqShadow:#1822BD26;
     --fgi-faqTitle:#282D48;
+    --fgi-stats-bg:rgba(255, 255, 255, 0.5);
+    --fgi-stats-bg-pink: rgba(247, 179, 179, 0.3);
+    --fgi-popuptext:#7E7D7D;
+    --fgi-green:#34C7594D;
+    --fgi-darkgreen:#34C759;
+    --fgi-lightgreen: #cbffd84d;
+    --fgi-lightpink: #FFCEC61A;
 }
