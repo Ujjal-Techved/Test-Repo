@@ -66,19 +66,14 @@ export interface CommonFaqSection extends Struct.ComponentSchema {
 export interface ContactUsAppLink extends Struct.ComponentSchema {
   collectionName: 'components_contact_us_app_links';
   info: {
+    description: '';
     displayName: 'AppLink';
   };
   attributes: {
-    AppStore_Image: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
+    AppStore_Image: Schema.Attribute.Media<'images'>;
     Description: Schema.Attribute.String;
-    PlayStore_Image: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    QR_Code_Image: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
+    PlayStore_Image: Schema.Attribute.Media<'images'>;
+    QR_Code_Image: Schema.Attribute.Media<'images'>;
     Title: Schema.Attribute.String;
   };
 }
@@ -86,12 +81,13 @@ export interface ContactUsAppLink extends Struct.ComponentSchema {
 export interface ContactUsContactCards extends Struct.ComponentSchema {
   collectionName: 'components_contact_us_contact_cards';
   info: {
+    description: '';
     displayName: 'ContactCards';
   };
   attributes: {
     Description: Schema.Attribute.Text;
     Description_Contact: Schema.Attribute.String;
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Image: Schema.Attribute.Media<'images'>;
     LinkText: Schema.Attribute.String;
     LinkUrl: Schema.Attribute.String;
     Title: Schema.Attribute.String;
@@ -105,7 +101,7 @@ export interface ContactUsCsCategory extends Struct.ComponentSchema {
     displayName: 'CS_Category';
   };
   attributes: {
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Image: Schema.Attribute.Media<'images'>;
     ListItem: Schema.Attribute.Component<'contact-us.cs-item', true>;
     Title: Schema.Attribute.String;
   };
@@ -138,11 +134,12 @@ export interface ContactUsCustomerService extends Struct.ComponentSchema {
 export interface ContactUsVisitUs extends Struct.ComponentSchema {
   collectionName: 'components_contact_us_visituses';
   info: {
+    description: '';
     displayName: 'VisitUs';
   };
   attributes: {
     Description: Schema.Attribute.Text;
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Image: Schema.Attribute.Media<'images'>;
     LinkText: Schema.Attribute.String;
     LinkUrl: Schema.Attribute.String;
     Title: Schema.Attribute.String;
