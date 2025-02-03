@@ -2,34 +2,34 @@ import Breadcrumbs from '@/components/Common/Breadcrumbs/Breadcrumbs';
 import LandingLayout from '@/components/Layouts/LandingLayout';
 import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
 import InfoCard from "@/components/BranchLocator/InfoCard/InfoCard";
-import React, { useEffect, useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import Select from 'react-select';
 import styles from './Branch.module.css';
 import ReachUsDigital from '@/components/BranchLocator/ReachUsDigital/ReachUsDigital';
 import BranchList from '@/components/BranchLocator/BranchList/BranchList';
+import { apiClient } from '../../utils/apiClient';  // Ensure correct path
+import { useRouter } from 'next/router';
 import LocationPopup from '@/components/BranchLocator/LocationPopup/LocationPopup';
 import CommonPopup from '@/components/Common/CommonPopup/CommonPopup';
 
 const BranchLocator = (props) => {
+    const router = useRouter();  // Initialize Next.js router for page navigation
 
     //location popup
     const [locationPopup, setLocationPopup] = useState(false);
     const toggleLocationPopup = () => { setLocationPopup(!locationPopup) }
-
+    // State for selected city and state (from props or default values)
     const [selectedCity, setSelectedCity] = useState(props.city ? { value: props.city, label: props.city, state: props.state } : "");
     const [selectedState, setSelectedState] = useState(props.state ? { value: props.state, label: props.state } : "");
 
+    // Handle the "Search" button click, redirecting to the selected city/state page
     const handleSubmit = () => {
-        if (!selectedCity) {
-            alert("Please select a city!"); // City is required
-            return;
-        }
+        // Convert selected values to lowercase and replace spaces with hyphens
+        const cityValue = selectedCity?.value?.toLowerCase().replace(/\s+/g, "-");
+        const stateValue = selectedState?.value?.toLowerCase().replace(/\s+/g, "-");
 
-        const cityValue = selectedCity.value.toLowerCase().replace(/\s+/g, "-");
-        const stateValue = selectedState.value.toLowerCase().replace(/\s+/g, "-");
-
-        // Redirect to the branch locator
+        // Redirect to the branch locator page for the selected city and state
         window.location.href = `/branch-locator/${stateValue}/${cityValue}`;
         
     };
@@ -76,25 +76,28 @@ const BranchLocator = (props) => {
     ];
 
     useEffect(() => {
-        toggleLocationPopup();
-    
-      return () => {
-        toggleLocationPopup();
-      }
+        if (!props.city || !props.state) {
+            toggleLocationPopup();
+        }
+        return () => {
+            toggleLocationPopup();
+        }
     }, [])
-    
 
     return (
         <LandingLayout>
             <Container>
+                {/* Breadcrumb navigation */}
                 <Breadcrumbs values={props?.breadcrumbs} />
+
                 <TitleSubtitle
                     title={"Locate Near Branches"}
                     subtitle={"Easy and hassle-free way to locate our branches in PAN India!"}
                     extraClass="pageTitle"
                 />
 
-                <div className={`${styles.listContainer} ${props.city && props.state ? (styles.active) : ""}`}>
+                {/* Branch search filter section */}
+                <div className={`${styles.listContainer} ${props.city && props.state ? styles.active : ""}`}>
                     <div className={styles.filterComponent}>
                         <Row className={styles.row}>
                             <Col lg="5" className={styles.col + ' dropdown-arrow'}>
@@ -102,24 +105,32 @@ const BranchLocator = (props) => {
                                     options={props.cityList}
                                     value={selectedCity}
                                     onChange={(option) => {
-                                        setSelectedCity(option);
-                                        setSelectedState({ value: option.state, label: option.state });
+                                        setSelectedCity(option);  // Update selected city
+                                        setSelectedState({ value: option.state, label: option.state }); // Automatically set state
+                                    }}
+                                    onInputChange={(inputValue, { action }) => {
+                                        if (action === "input-change") {
+                                            // Allow only alphabetic characters and spaces, with a max length of 50
+                                            const sanitizedInput = inputValue.replace(/[^a-zA-Z\s]/g, "").slice(0, 50);
+                                            return sanitizedInput;
+                                        }
                                     }}
                                     placeholder="Select a City"
                                     className="react-select-container"
                                     classNamePrefix="react-select"
-                                    components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
+                                    components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Remove arrow and separator
                                 />
                             </Col>
-                            <Col lg="4" className={styles.col + ' dropdown-arrow'}>
+                            <Col lg="4" className={styles.col}>
                                 <Select
                                     options={props.stateList}
                                     value={selectedState}
-                                    onChange={(option) => { setSelectedState(option); setSelectedCity("") }}
-                                    placeholder="Select State Name"
+                                    // onChange={(option) => { setSelectedState(option); setSelectedCity("") }}
+                                    placeholder="State Name"
                                     className="react-select-container"
                                     classNamePrefix="react-select"
                                     isSearchable={false}
+                                    menuIsOpen={false}
                                     components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
                                 />
                             </Col>
@@ -130,9 +141,11 @@ const BranchLocator = (props) => {
                             </Col>
                         </Row>
                     </div>
+
+                    {/* Conditionally render the Branch List or an image if no city/state */}
                     {
                         props.city && props.state ? (
-                            <BranchList list={props.branchList} />
+                            <BranchList list={props.branchList} />  // Display the list of branches
                         ) : (
                             <div className='d-flex align-items-center justify-content-center'>
                                 <img className={styles.branch_img} src='/images/branch-locator/branch.webp' alt='branch' />
@@ -140,12 +153,13 @@ const BranchLocator = (props) => {
                         )
                     }
                 </div>
+
+                {/* Display additional contact options */}
                 <InfoCard />
                 <TitleSubtitle
                     title={"Reach Us Digitally"}
                     subtitle={"We help you build a worry free future with easy processes and expert guidance at every step"}
                     titleTag="h3"
-
                 />
                 <ReachUsDigital reachUsCard={reachUsCard} />
             </Container>
@@ -158,134 +172,61 @@ const BranchLocator = (props) => {
     
 };
 
+// **Server-side Props for SEO**
 export async function getServerSideProps(context) {
     const { location } = context.params;
+    let state = location?.[0] || "";
+    let city = location?.[1] || "";
 
-    // Initialize state and city as empty strings if not provided
-    let state = "";
-    let city = "";
-
-    if (location) {
-        // Assign state and city from the location array, if available
-        state = location[0] || "";  // Default to empty string if state is not provided
-        city = location[1] || "";   // Default to empty string if city is not provided
-    }
-
-    // Convert state and city back to normal form, if they exist
-    const toNormalForm = (str) => {
-        if (!str) return ""; // Return an empty string if there's no value
-        return str
-            .split("-") // Split by hyphen
-            .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
-            .join(" "); // Join with a space
-    };
+    // Convert state and city to proper format (capitalize first letters)
+    const toNormalForm = (str) => str
+        ? str.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
+        : "";
 
     const normalizedState = toNormalForm(state);
     const normalizedCity = toNormalForm(city);
 
-    const branchList = [
-        // {
-        //     state: "Maharashtra",
-        //     city: "Mumbai",
-        //     branchName: "Mumbai Branch",
-        //     branchAddress: "MG Road, Opposite CST Station, Mumbai, Maharashtra, 400001",
-        //     phone: "+912212345678"
-        // },
-        {
-            state: "Delhi",
-            city: "Delhi",
-            branchName: "Delhi Branch",
-            branchAddress: "Connaught Place, Near Metro Station, Central Delhi, 110001",
-            phone: "+911123456789"
-        },
-        {
-            state: "Karnataka",
-            city: "Bengaluru",
-            branchName: "Bengaluru Branch",
-            branchAddress: "MG Road, Landmark Near Brigade Road, Bengaluru, Karnataka, 560001",
-            phone: "+918034567890"
-        },
-        {
-            state: "Telangana",
-            city: "Hyderabad",
-            branchName: "Hyderabad Branch",
-            branchAddress: "Banjara Hills, Opposite KBR Park, Hyderabad, Telangana, 500034",
-            phone: "+914045678901"
-        },
-        {
-            state: "Tamil Nadu",
-            city: "Chennai",
-            branchName: "Chennai Branch",
-            branchAddress: "Nungambakkam, Near US Consulate, Chennai, Tamil Nadu, 600034",
-            phone: "+914456789012"
-        },
-        {
-            state: "West Bengal",
-            city: "Kolkata",
-            branchName: "Kolkata Branch",
-            branchAddress: "Park Street, Near New Market, Kolkata, West Bengal, 700017",
-            phone: "+913367890123"
-        },
-        {
-            state: "Maharashtra",
-            city: "Pune",
-            branchName: "Pune Branch",
-            branchAddress: "FC Road, Opposite Fergusson College, Pune, Maharashtra, 411004",
-            phone: "+912078901234"
-        },
-        {
-            state: "Rajasthan",
-            city: "Jaipur",
-            branchName: "Jaipur Branch",
-            branchAddress: "MI Road, Near Ajmeri Gate, Jaipur, Rajasthan, 302001",
-            phone: "+9114189012345"
-        },
-        {
-            state: "Gujarat",
-            city: "Ahmedabad",
-            branchName: "Ahmedabad Branch",
-            branchAddress: "CG Road, Near Law Garden, Ahmedabad, Gujarat, 380009",
-            phone: "+917990123456"
-        },
-        {
-            state: "Uttar Pradesh",
-            city: "Lucknow",
-            branchName: "Lucknow Branch",
-            branchAddress: "Hazratganj, Near Tundla Crossing, Lucknow, Uttar Pradesh, 226001",
-            phone: "+9152212345678"
-        }
-    ];
+    try {
+        // Fetch the list of branches (cities and states)
+        const branchList = await apiClient('/api/branch-lists?fields[0]=State&fields[1]=City');
 
-    // Filter branchList based on normalizedState and normalizedCity
-    const filteredBranchList = branchList.filter((branch) => {
-        const matchesState = normalizedState ? branch.state === normalizedState : true;
-        const matchesCity = normalizedCity ? branch.city === normalizedCity : true;
-        return matchesState && matchesCity;
-    });
+        // Fetch the filtered branch list based on state and city
+        const filterBranchList = await apiClient(
+            `/api/branch-lists?filters[State][$eqi]=${normalizedState}&filters[City][$eqi]=${normalizedCity}`
+        );
 
-    const cityList = [...branchList.map((data) => ({ value: data.city, label: data.city, state: data.state }))];
-    const stateList = [...branchList.map((data) => ({ value: data.state, label: data.state }))];
+        // Create dropdown options for cities and states
+        const cityList = branchList.data.map(data => ({ value: data.City, label: data.City, state: data.State }));
+        const stateList = branchList.data.map(data => ({ value: data.State, label: data.State }));
 
-    // Create the breadcrumbs array based on state and city
-    const breadcrumbs = [
-        { name: "Branch Locator", url: "/branch-locator", active: true },
-        state ? { name: normalizedState, url: `/branch-locator/${state}`, active: true } : null,
-        city ? { name: normalizedCity, url: `/branch-locator/${state}/${city}`, active: true } : null,
-    ].filter(Boolean); // Filter out null values (for missing state or city)
+        // Generate breadcrumbs dynamically based on state and city
+        const breadcrumbs = [
+            { name: "Branch Locator", url: "/branch-locator", active: true },
+            state ? { name: normalizedState, url: `/branch-locator/${state}`, active: true } : null,
+            city ? { name: normalizedCity, url: `/branch-locator/${state}/${city}`, active: true } : null,
+        ].filter(Boolean); // Remove null values
 
-    return {
-        props: {
-            state: normalizedState,
-            city: normalizedCity,
-            stateUrl: state, // Keep original state for URL
-            cityUrl: city,   // Keep original city for URL
-            breadcrumbs: breadcrumbs,
-            branchList: filteredBranchList, // Include filtered branch list in props
-            cityList: cityList, // filtered cities
-            stateList: stateList, // filtered states
-        },
-    };
+        return {
+            props: {
+                state: normalizedState,
+                city: normalizedCity,
+                stateUrl: state, // Keep original state for URL
+                cityUrl: city,   // Keep original city for URL 
+                breadcrumbs: breadcrumbs,
+                branchList: filterBranchList?.data ?? [], // Default value if no branches found
+                cityList, stateList
+            }
+        };
+    } catch (error) {
+        console.error("Error fetching branch data:", error);
+        return {
+            props: {
+                state: normalizedState,
+                city: normalizedCity,
+                branchList: []
+            }
+        };
+    }
 }
-
 
 export default BranchLocator;
