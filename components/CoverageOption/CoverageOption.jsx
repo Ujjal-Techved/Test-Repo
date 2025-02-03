@@ -1,14 +1,92 @@
-import React, { useState } from 'react'
-import styles from './CoverageOption.module.css'
-import { Container, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap'
+import React, { useState, useEffect } from 'react';
+import styles from './CoverageOption.module.css';
+import { Col, Container, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Nav, NavItem, NavLink, Row, TabContent, TabPane } from 'reactstrap';
 
 const CoverageOption = () => {
-
     const [activeTab, setActiveTab] = useState("1");
+    const [isMobile, setIsMobile] = useState(false);  // To manage mobile screen state
 
     const toggleTab = (tab) => {
         if (activeTab !== tab) setActiveTab(tab);
     };
+
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
+
+    // Array of tabs data
+    const tabs = [
+        { id: "1", title: "Featured" },
+        { id: "2", title: "Term" },
+        { id: "3", title: "Saving" },
+        { id: "4", title: "ULIP" },
+        { id: "5", title: "Group" },
+        { id: "6", title: "Retirement" },
+    ];
+
+    // Plan data
+    const plansData = [
+        {
+            id: 1,
+            title: "Long Term Income Plan",
+            subtitle: "Future Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "",
+            knowMore: "https:/long-term-income-plan"
+        },
+        {
+            id: 2,
+            title: "Money Back Super Plan",
+            subtitle: "Future Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "Most Popular",
+            knowMore: "https:/money-back-super-plan"
+        },
+        {
+            id: 3,
+            title: "New Assured Wealth Plan",
+            subtitle: "Future Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "",
+            knowMore: "https:/new-assured-wealth-plan"
+        }
+    ];
+
+    // Detect if the screen width is below 992px
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 992) {
+                setIsMobile(true);
+            } else {
+                setIsMobile(false);
+            }
+        };
+
+        handleResize();  // Check the screen size on initial render
+        window.addEventListener("resize", handleResize); // Add event listener for resizing
+
+        return () => {
+            window.removeEventListener("resize", handleResize); // Cleanup on component unmount
+        };
+    }, []);
 
     return (
         <div>
@@ -16,33 +94,88 @@ const CoverageOption = () => {
                 <div className={styles.CoverageOption_section}>
                     {/* Tabs Section */}
                     <div className='common-tabs-wrapper'>
-                        <Nav tabs>
-                            <NavItem className={activeTab === "1" ? "active" : ""}
-                                onClick={() => toggleTab("1")}>
-                                <NavLink>
-                                    Featured
-                                </NavLink>
-                            </NavItem>
-                            <NavItem className={activeTab === "2" ? "active" : ""}
-                                onClick={() => toggleTab("2")}>
-                                <NavLink>
-                                    Term
-                                </NavLink>
-                            </NavItem>
-                        </Nav>
+                        {/* for desktop view tabs */}
+                        {!isMobile ? (
+                            <Nav tabs>
+                                {tabs.map(({ id, title }) => (
+                                    <NavItem key={id} className={activeTab === id ? "active" : ""} onClick={() => toggleTab(id)}>
+                                        <NavLink>{title}</NavLink>
+                                    </NavItem>
+                                ))}
+                            </Nav>
+                        ) : (
+                            // for mobile view tabs in dropdown
+                            <Dropdown className='common-dropdown' isOpen={dropdownOpen} toggle={toggleDropdown}>
+                                <DropdownToggle caret>
+                                    {tabs.find(tab => tab.id === activeTab)?.title}
+                                </DropdownToggle>
+                                <DropdownMenu>
+                                    {tabs.map(({ id, title }) => (
+                                        <DropdownItem key={id} onClick={() => { setActiveTab(id); toggleDropdown(); }}>
+                                            {title}
+                                        </DropdownItem>
+                                    ))}
+                                </DropdownMenu>
+                            </Dropdown>
+                        )}
                         <TabContent activeTab={activeTab}>
+                            {/* Featured Tabcontent */}
                             <TabPane tabId="1">
-                                asasasasas
+                                <div className={styles.tab_content_wrapper}>
+                                    <Row>
+                                        {plansData.map((plan) => (
+                                            <Col lg="4" key={plan.id}>
+                                                <div className={styles.tab_content_cards}>
+                                                    <div className={styles.fgli_plans_title}>
+                                                        <p className={styles.most_popular}>
+                                                            {plan.subtitle}
+                                                            {/* Show span only if popularity is not empty */}
+                                                            {plan.popularity && <span>{plan.popularity}</span>}
+                                                        </p>
+                                                        <h4>{plan.title}</h4>
+                                                        <h5>{plan.description}</h5>
+                                                    </div>
+                                                    <div className={`${styles.promise_text} cms-data`}>
+                                                        <ul>
+                                                            {plan.benefits.map((benefit, index) => (
+                                                                <li key={index}>{benefit}</li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+                                                    <div className={styles.btn_popups}>
+                                                        <a href={plan.knowMore} target="_blank" className='redhref'>Know More</a>
+                                                        <button className='redArrowBtn'>Talk to Advisor <span>&#10095;</span></button>
+                                                    </div>
+                                                </div>
+                                            </Col>
+                                        ))}
+                                    </Row>
+                                </div>
                             </TabPane>
+
                             <TabPane tabId="2">
-                                1231231231
+                                Term Content
+                            </TabPane>
+                            <TabPane tabId="3">
+                                Saving Content
+                            </TabPane>
+                            <TabPane tabId="4">
+                                ULIP Content
+                            </TabPane>
+                            <TabPane tabId="5">
+                                Group Content
+                            </TabPane>
+                            <TabPane tabId="6">
+                                Retirement Content
                             </TabPane>
                         </TabContent>
                     </div>
+
+
                 </div>
             </Container>
         </div>
-    )
-}
+    );
+};
 
-export default CoverageOption
+export default CoverageOption;
