@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './CoverageOption.module.css';
 import { Col, Container, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Nav, NavItem, NavLink, Row, TabContent, TabPane } from 'reactstrap';
+import Slider from 'react-slick';
 
 const CoverageOption = () => {
     const [activeTab, setActiveTab] = useState("1");
@@ -88,6 +89,48 @@ const CoverageOption = () => {
         };
     }, []);
 
+
+    const sliderSettings = {
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: false,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 630,
+                settings: {
+                    slidesToShow: 1.2,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 520,
+                settings: {
+                    slidesToShow: 1.1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
+    };
+
+
+
     return (
         <div>
             <Container>
@@ -122,14 +165,13 @@ const CoverageOption = () => {
                             {/* Featured Tabcontent */}
                             <TabPane tabId="1">
                                 <div className={styles.tab_content_wrapper}>
-                                    <Row>
-                                        {plansData.map((plan) => (
-                                            <Col lg="4" key={plan.id}>
+                                    <Slider {...sliderSettings}>
+                                        {plansData.map((plan, index) => (
+                                            <div key={index}  className={styles.tab_main_cards}>
                                                 <div className={styles.tab_content_cards}>
                                                     <div className={styles.fgli_plans_title}>
                                                         <p className={styles.most_popular}>
                                                             {plan.subtitle}
-                                                            {/* Show span only if popularity is not empty */}
                                                             {plan.popularity && <span>{plan.popularity}</span>}
                                                         </p>
                                                         <h4>{plan.title}</h4>
@@ -137,19 +179,19 @@ const CoverageOption = () => {
                                                     </div>
                                                     <div className={`${styles.promise_text} cms-data`}>
                                                         <ul>
-                                                            {plan.benefits.map((benefit, index) => (
-                                                                <li key={index}>{benefit}</li>
+                                                            {plan.benefits.map((benefit, idx) => (
+                                                                <li key={idx}>{benefit}</li>
                                                             ))}
                                                         </ul>
                                                     </div>
                                                     <div className={styles.btn_popups}>
-                                                        <a href={plan.knowMore} target="_blank" className='redhref'>Know More</a>
-                                                        <button className='redArrowBtn'>Talk to Advisor <span>&#10095;</span></button>
+                                                        <a href={plan.knowMore} target="_blank" className='redhref mob-redhref'>Know More</a>
+                                                        <button className='redArrowBtn mob-redArrowBtn' >Talk to Advisor <span>&#10095;</span></button>
                                                     </div>
                                                 </div>
-                                            </Col>
+                                            </div>
                                         ))}
-                                    </Row>
+                                    </Slider>
                                 </div>
                             </TabPane>
 

@@ -93,7 +93,7 @@ const teamMembers = [
       <Ourteam teamMembers={teamMembers}/>
 
       {/* Home page extra */}
-      {/* <CoverageOption/> */}
+      <CoverageOption/>
     </LandingLayout>
   )
 }
