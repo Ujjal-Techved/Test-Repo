@@ -18,21 +18,21 @@ body.over-hide {
 /* Common Popup css */
 
 
-.common_popup_wrapper.modal-dialog{
+.common_popup_wrapper.modal-dialog {
     width: auto;
     max-width: unset;
     justify-content: center;
-    border: none ;
+    border: none;
 }
 
-.common_popup_wrapper .modal-content{
+.common_popup_wrapper .modal-content {
     width: auto !important;
     height: unset !important;
     border: none !important;
 }
 
-.common_popup_wrapper{
-    --bs-modal-bg:transparent;
+.common_popup_wrapper {
+    --bs-modal-bg: transparent;
     border: none;
 }
 
@@ -72,11 +72,11 @@ body.over-hide {
     border: none;
 }
 
-.whiteBtn.redborder{
+.whiteBtn.redborder {
     border: 2px solid var(--fgi-red)
 }
 
-.redArrowBtn{
+.redArrowBtn {
     font-size: 16px;
     line-height: 24px;
     font-family: 'Helvetica-500';

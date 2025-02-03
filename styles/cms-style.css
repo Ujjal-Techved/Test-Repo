@@ -6,6 +6,19 @@
     color: var(--text-grey2);
 }
 
+.cms-data p,
+.cms-data div,
+.cms-data h1,
+.cms-data h2,
+.cms-data h3,
+.cms-data h4,
+.cms-data h5,
+.cms-data h6,
+.cms-data ul,
+.cms-data ol{
+    margin-bottom: 10px;
+}
+
 .cms-data span{
     padding :12px 0px;
     display: inline-block;
@@ -18,6 +31,11 @@
 
 .cms-data ul{
     padding-left: 24px;
+}
+
+.cms-data ol{
+    padding-left: 20px;
+    list-style-type: decimal;
 }
 
 .cms-data ul li{
@@ -42,6 +60,7 @@
 .cms-data a {
     color: var(--fgi-red);
     text-decoration: underline;
+    font-family: "Helvetica-700";
 }
 
 @media screen and (max-width: 991.2px) and (min-width: 320px) {
@@ -60,4 +79,5 @@
         padding-left: 16px;
     }
     
+  
 }

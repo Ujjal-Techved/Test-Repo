@@ -1,5 +1,6 @@
 .reach_cards_row{
     padding-top: 40px;
+    padding-bottom: 30px;
 }
 
 .reach_cards_row.ai_contactUs > div:first-child .reach_cards{
