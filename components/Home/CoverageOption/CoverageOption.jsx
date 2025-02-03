@@ -2,8 +2,15 @@ import React, { useState, useEffect } from 'react';
 import styles from './CoverageOption.module.css';
 import { Col, Container, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Nav, NavItem, NavLink, Row, TabContent, TabPane } from 'reactstrap';
 import Slider from 'react-slick';
+import TitleSubtitle from '../../Common/TitleSubtitle/TitleSubtitle';
 
 const CoverageOption = () => {
+
+    // Create the breadcrumbs array based on state and city
+    const breadcrumbs = [
+        { name: "Contact Us", url: "/contact-us", active: true },
+    ]
+
     const [activeTab, setActiveTab] = useState("1");
     const [isMobile, setIsMobile] = useState(false);  // To manage mobile screen state
 
@@ -134,6 +141,10 @@ const CoverageOption = () => {
     return (
         <div>
             <Container>
+                <TitleSubtitle
+                    title={"Our Awesome Coverage Options"}
+                  
+                />
                 <div className={styles.CoverageOption_section}>
                     {/* Tabs Section */}
                     <div className='common-tabs-wrapper'>
@@ -167,7 +178,7 @@ const CoverageOption = () => {
                                 <div className={styles.tab_content_wrapper}>
                                     <Slider {...sliderSettings}>
                                         {plansData.map((plan, index) => (
-                                            <div key={index}  className={styles.tab_main_cards}>
+                                            <div key={index} className={styles.tab_main_cards}>
                                                 <div className={styles.tab_content_cards}>
                                                     <div className={styles.fgli_plans_title}>
                                                         <p className={styles.most_popular}>

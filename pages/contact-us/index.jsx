@@ -95,7 +95,9 @@ const ContactUs = (props) => {
         <CustomerService />
         <InvestPlan />
 
-        <Faqs faqItems={faqData} />
+        <Faqs faqItems={faqData} 
+        title={"Frequently Asked Questions"}
+        subtitle={"See some of the most common questions below. If you have a question we haven’t included then please <a href='/'>Get in touch.</a>"} />
         <IrdaSection />
       </div>
     </LandingLayout>

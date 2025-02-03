@@ -3,7 +3,7 @@ import TitleSubtitle from '../TitleSubtitle/TitleSubtitle';
 import { Accordion, AccordionBody, AccordionHeader, AccordionItem, Container } from 'reactstrap';
 import styles from './Faqs.module.css'
 
-const Faqs = ({faqItems}) => {
+const Faqs = ({faqItems, title, subtitle}) => {
 
     const [openIndex, setOpenIndex] = useState("");
 
@@ -15,8 +15,8 @@ const Faqs = ({faqItems}) => {
         <section className={styles.faqContainer}>
             <Container>
                 <TitleSubtitle
-                    title={"Frequently Asked Questions"}
-                    subtitle={"See some of the most common questions below. If you have a question we haven’t included then please <a href='/'>Get in touch.</a>"}
+                    title={title}
+                    subtitle={subtitle}
                     titleTag='h3'
                 />
                 <Accordion open={openIndex} toggle={toggleFaq} className={styles.faqListContainer}>
