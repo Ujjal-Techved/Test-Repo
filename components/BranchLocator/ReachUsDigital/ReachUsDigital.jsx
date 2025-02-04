@@ -7,7 +7,7 @@ const ReachUsDigital = ({ reachUsCard, AIcontactUs }) => {
     return (
         <Container>
             <Row className={`${styles.reach_cards_row} ${AIcontactUs && styles.ai_contactUs}`}>
-                {reachUsCard.map((item, index) => (
+                {reachUsCard?.map((item, index) => (
                     <Col className={" d-flex"} xs="12" lg="4" key={index}>
                         <div className={styles.reach_cards}>
                             <div className={styles.reach_us_text}>
