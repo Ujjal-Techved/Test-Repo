@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_careers_slider_sections",
+  "info": {
+    "displayName": "SliderSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

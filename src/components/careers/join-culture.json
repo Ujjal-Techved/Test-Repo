@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_careers_join_cultures",
+  "info": {
+    "displayName": "JoinCulture",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "FeatureList": {
+      "type": "component",
+      "repeatable": true,
+      "component": "careers.feature-list-item"
+    },
+    "SliderSection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "careers.slider-section"
+    }
+  }
+}

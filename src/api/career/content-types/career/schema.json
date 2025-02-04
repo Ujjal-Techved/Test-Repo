@@ -4,7 +4,8 @@
   "info": {
     "singularName": "career",
     "pluralName": "careers",
-    "displayName": "Career"
+    "displayName": "Career",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,6 +20,41 @@
     },
     "Description": {
       "type": "text"
+    },
+    "JobRoleList": {
+      "type": "component",
+      "repeatable": true,
+      "component": "careers.job-role-list"
+    },
+    "BannerStats": {
+      "type": "component",
+      "repeatable": true,
+      "component": "careers.banner-stats"
+    },
+    "JoinCulture": {
+      "type": "component",
+      "repeatable": false,
+      "component": "careers.join-culture"
+    },
+    "ValueSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "careers.values-section"
+    },
+    "SendApplication": {
+      "type": "component",
+      "repeatable": false,
+      "component": "careers.send-application"
+    },
+    "Benefits": {
+      "type": "component",
+      "repeatable": false,
+      "component": "careers.benefits"
+    },
+    "ReviewSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.review-section"
     }
   }
 }

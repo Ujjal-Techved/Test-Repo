@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_careers_job_role_lists",
+  "info": {
+    "displayName": "JobRoleList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Role": {
+      "type": "string"
+    }
+  }
+}
