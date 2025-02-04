@@ -6,9 +6,9 @@ import Select from 'react-select';
 const CareerBanner = () => {
 
     const statsItems = [
-        { img: "/images/career/stats-icon-1.webp", title: "100+ Offices Worldwide" },
-        { img: "/images/career/stats-icon-2.webp", title: "1000+ Employees" },
-        { img: "/images/career/stats-icon-3.webp", title: "Average Age: 29" },
+        { img: "/images/careers/stats-icon-1.webp", title: "100+ Offices Worldwide" },
+        { img: "/images/careers/stats-icon-2.webp", title: "1000+ Employees" },
+        { img: "/images/careers/stats-icon-3.webp", title: "Average Age: 29" },
       ];
 
     const [selectedOption, setSelectedOption] = useState("");
@@ -55,7 +55,7 @@ const CareerBanner = () => {
                     </Col>
                     <Col lg="6">
                         <div className={styles.statsContainer}>
-                            <img src='/images/career/banner-fg.png' alt='banner' className={styles.bannerImg} />
+                            <img src='/images/careers/banner-fg.png' alt='banner' className={styles.bannerImg} />
                             <>
                             {
                                 statsItems.slice(0,3).map((data,index)=>(

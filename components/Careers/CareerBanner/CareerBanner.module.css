@@ -1,5 +1,5 @@
 .bannerMain {
-    background: url('/images/faqs/bg-left.svg'), url('/images/career/banner-bg.svg');
+    background: url('/images/faqs/bg-left.svg'), url('/images/careers/banner-bg.svg');
     background-position: left calc(100% - 24px), right top;
     background-size: auto 95px, auto 430px;
     background-repeat: no-repeat;
@@ -134,7 +134,7 @@
 
     .bannerMain {
         padding: 0 20px;
-        background: url('/images/career/banner-bg.svg');
+        background: url('/images/careers/banner-bg.svg');
         background-position: right calc(100% - 30px);
         background-size: auto 244px;
         background-repeat: no-repeat;
