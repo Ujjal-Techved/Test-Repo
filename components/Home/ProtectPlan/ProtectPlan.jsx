@@ -10,7 +10,7 @@ const ProtectPlan = () => {
         {
             title: 'Explore Plans',
             subtitle: 'Browse our wide range of insurance options.',
-            imgSrc: 'images/header/branches.png',
+            imgSrc: 'images/home/branches.png',
             LinkText: 'Explore Plans',
             Link: '/',
 
@@ -18,7 +18,7 @@ const ProtectPlan = () => {
         {
             title: 'Consult an Advisor',
             subtitle: 'Speak to our expert advisors for guidance.',
-            imgSrc: 'images/header/branches.png',
+            imgSrc: 'images/home/branches.png',
             LinkText: 'Talk to an Advisor',
             Link: '/',
 
@@ -26,7 +26,7 @@ const ProtectPlan = () => {
         {
             title: 'Secure your policy',
             subtitle: 'Complete your application and relax with peace of mind.',
-            imgSrc: 'images/header/branches.png',
+            imgSrc: 'images/home/branches.png',
             LinkText: 'Calculate Premium',
             Link: '/',
 

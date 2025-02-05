@@ -284,6 +284,12 @@ body.over-hide {
         padding: 12px 18px;
     }
 
+    .redBtn {
+        font-size: 14px;
+        line-height: 14px;
+        padding: 12px 18px;
+    }
+
     .mob-redhref{
         font-size: 14px;
         line-height: 21px;

@@ -3,6 +3,8 @@ import IrdaSection from "@/components/ContactUs/IrdaSection/IrdaSection";
 import CoverageOption from "@/components/Home/CoverageOption/CoverageOption";
 import LifeInsurance from "@/components/Home/LifeInsurance/LifeInsurance";
 import ProtectPlan from "@/components/Home/ProtectPlan/ProtectPlan";
+import WhatisGenrali from "@/components/Home/WhatisGenrali/WhatisGenrali";
+import WhylifeInsurance from "@/components/Home/WhylifeInsurance/WhylifeInsurance";
 import LandingLayout from "@/components/Layouts/LandingLayout";
 
 export default function Home() {
@@ -33,6 +35,8 @@ export default function Home() {
     return (
         <LandingLayout>
             <LifeInsurance />
+            <WhatisGenrali/>
+            <WhylifeInsurance/>
             <CoverageOption />
             <ProtectPlan />
             <Faqs faqItems={faqData}

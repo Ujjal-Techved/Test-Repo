@@ -7,22 +7,22 @@ const LifeInsurance = () => {
     // Array containing data for all cards
     const insuranceData = [
         {
-            imgSrc: 'images/header/branches.png',
+            imgSrc: 'images/home/branches.png',
             value: '1366',
             text: 'Self & Partner Branches',
         },
         {
-            imgSrc: 'images/header/livecovered.png',
+            imgSrc: 'images/home/livecovered.png',
             value: '1.6 Mn+',
             text: 'Lives Covered Since Inception',
         },
         {
-            imgSrc: 'images/header/asset.png',
+            imgSrc: 'images/home/asset.png',
             value: '₹79.58 Bn',
             text: 'Worth of Asset Under Management',
         },
         {
-            imgSrc: 'images/header/claims.png',
+            imgSrc: 'images/home/claims.png',
             value: '96.08%',
             text: 'Claims Settlement Ratio',
         }
