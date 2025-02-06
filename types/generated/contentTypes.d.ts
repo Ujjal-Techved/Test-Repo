@@ -440,6 +440,47 @@ export interface ApiBranchListBranchList extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCareerCareer extends Struct.CollectionTypeSchema {
+  collectionName: 'careers';
+  info: {
+    description: '';
+    displayName: 'Career';
+    pluralName: 'careers';
+    singularName: 'career';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BannerStats: Schema.Attribute.Component<'careers.banner-stats', true>;
+    Benefits: Schema.Attribute.Component<'careers.benefits', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Text;
+    JobRoleList: Schema.Attribute.Component<'careers.job-role-list', true>;
+    JoinCulture: Schema.Attribute.Component<'careers.join-culture', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::career.career'
+    > &
+      Schema.Attribute.Private;
+    PageUrl: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    ReviewSection: Schema.Attribute.Component<'common.review-section', false>;
+    SendApplication: Schema.Attribute.Component<
+      'careers.send-application',
+      false
+    >;
+    Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ValueSection: Schema.Attribute.Component<'careers.values-section', false>;
+  };
+}
+
 export interface ApiContactUsContactUs extends Struct.CollectionTypeSchema {
   collectionName: 'contact_uses';
   info: {
@@ -993,6 +1034,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::branch-list-banner.branch-list-banner': ApiBranchListBannerBranchListBanner;
       'api::branch-list.branch-list': ApiBranchListBranchList;
+      'api::career.career': ApiCareerCareer;
       'api::contact-us.contact-us': ApiContactUsContactUs;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

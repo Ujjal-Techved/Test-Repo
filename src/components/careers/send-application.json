@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_careers_send_applications",
+  "info": {
+    "displayName": "SendApplication"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "LinkText": {
+      "type": "string"
+    },
+    "LinkUrl": {
+      "type": "string"
+    }
+  }
+}
