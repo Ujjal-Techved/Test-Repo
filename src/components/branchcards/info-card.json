@@ -11,12 +11,6 @@
     },
     "Description": {
       "type": "blocks"
-    },
-    "PointerList": {
-      "displayName": "PointerList",
-      "type": "component",
-      "repeatable": true,
-      "component": "branchcards.pointer-list"
     }
   }
 }

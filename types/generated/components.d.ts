@@ -8,7 +8,6 @@ export interface BranchcardsInfoCard extends Struct.ComponentSchema {
   };
   attributes: {
     Description: Schema.Attribute.Blocks;
-    PointerList: Schema.Attribute.Component<'branchcards.pointer-list', true>;
     Title: Schema.Attribute.String;
   };
 }
