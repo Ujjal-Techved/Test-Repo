@@ -3,6 +3,7 @@ import IrdaSection from "@/components/ContactUs/IrdaSection/IrdaSection";
 import BeststageOption from "@/components/Home/BeststageOption/BeststageOption";
 import CoverageOption from "@/components/Home/CoverageOption/CoverageOption";
 import LifeInsurance from "@/components/Home/LifeInsurance/LifeInsurance";
+import OurCustomer from "@/components/Home/OurCustomer/OurCustomer";
 import ProtectPlan from "@/components/Home/ProtectPlan/ProtectPlan";
 import RequestCallback from "@/components/Home/RequestCallback/RequestCallback";
 import TypesofInsurance from "@/components/Home/TypesofInsurance/TypesofInsurance";
@@ -12,7 +13,7 @@ import LandingLayout from "@/components/Layouts/LandingLayout";
 
 export default function Home() {
 
-    // Array for FAQ Data
+    // Array for Our Customer Data
 
 
     // Array for FAQ Data
@@ -45,6 +46,7 @@ export default function Home() {
             <RequestCallback/>
             <CoverageOption />
             <ProtectPlan />
+            <OurCustomer/>
             <Faqs faqItems={faqData}
                 title={"Frequently Asked Questions"}
                 subtitle={"See some of the most common questions below."} />

@@ -11,33 +11,32 @@ const CoverageOption = () => {
         { name: "Contact Us", url: "/contact-us", active: true },
     ]
 
-    const [activeTab, setActiveTab] = useState("1");
+    // Array of coverage tabs data
+    const coveragetabs = [
+        { id: "1", tabtitle: "Featured" },
+        { id: "2", tabtitle: "Term" },
+        { id: "3", tabtitle: "Saving" },
+    ];
+
+    const [coverageactiveTab, setCoverageActiveTab] = useState(coveragetabs[0].tabtitle);
     const [isMobile, setIsMobile] = useState(false);  // To manage mobile screen state
 
-    const toggleTab = (tab) => {
-        if (activeTab !== tab) setActiveTab(tab);
+    const toggleTab = (coveragetab) => {
+        if (coverageactiveTab !== coveragetab) setCoverageActiveTab(coveragetab);
     };
 
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
-    // Array of tabs data
-    const tabs = [
-        { id: "1", title: "Featured" },
-        { id: "2", title: "Term" },
-        { id: "3", title: "Saving" },
-        { id: "4", title: "ULIP" },
-        { id: "5", title: "Group" },
-        { id: "6", title: "Retirement" },
-    ];
+    
 
-    // Plan data
-    const plansData = [
+    // Array of coverage Plan data 
+    const coverageplansData = [
         {
             id: 1,
             title: "Long Term Income Plan",
-            subtitle: "Future Generali",
+            subtitle: "Featured Future Generali",
             description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
             benefits: [
                 "Regular payouts with Guaranteed Money Back",
@@ -46,12 +45,13 @@ const CoverageOption = () => {
                 "Tax Benefits under section 80C and 10(10D)"
             ],
             popularity: "",
-            knowMore: "https:/long-term-income-plan"
+            knowMore: "https:/long-term-income-plan",
+            category: "Featured"
         },
         {
             id: 2,
             title: "Money Back Super Plan",
-            subtitle: "Future Generali",
+            subtitle: "Featured Future Generali",
             description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
             benefits: [
                 "Regular payouts with Guaranteed Money Back",
@@ -60,12 +60,13 @@ const CoverageOption = () => {
                 "Tax Benefits under section 80C and 10(10D)"
             ],
             popularity: "Most Popular",
-            knowMore: "https:/money-back-super-plan"
+            knowMore: "https:/money-back-super-plan",
+            category: "Featured"
         },
         {
             id: 3,
             title: "New Assured Wealth Plan",
-            subtitle: "Future Generali",
+            subtitle: "Featured Future Generali",
             description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
             benefits: [
                 "Regular payouts with Guaranteed Money Back",
@@ -74,9 +75,105 @@ const CoverageOption = () => {
                 "Tax Benefits under section 80C and 10(10D)"
             ],
             popularity: "",
-            knowMore: "https:/new-assured-wealth-plan"
+            knowMore: "https:/new-assured-wealth-plan",
+            category: "Featured"
+        },
+        {
+            id: 4,
+            title: "Long Term Income Plan",
+            subtitle: "Term Future Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "",
+            knowMore: "https:/long-term-income-plan",
+            category: "Term"
+        },
+        {
+            id:5,
+            title: "Money Back Super Plan",
+            subtitle: "Term Future Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "Most Popular",
+            knowMore: "https:/money-back-super-plan",
+            category: "Term"
+        },
+        {
+            id: 6,
+            title: "New Assured Wealth Plan",
+            subtitle: "Term Future Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "",
+            knowMore: "https:/new-assured-wealth-plan",
+            category: "Term"
+        },
+        {
+            id: 7,
+            title: "Long Term Income Plan",
+            subtitle: "Saving Future Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "",
+            knowMore: "https:/long-term-income-plan",
+            category: "Saving"
+        },
+        {
+            id:8,
+            title: "Money Back Super Plan",
+            subtitle: "Saving Future Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "Most Popular",
+            knowMore: "https:/money-back-super-plan",
+            category: "Saving"
+        },
+        {
+            id: 9,
+            title: "New Assured Wealth Plan",
+            subtitle: "Saving Future Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "",
+            knowMore: "https:/new-assured-wealth-plan",
+            category: "Saving"
         }
     ];
+
+    // const filteredPlans = coverageplansData.filter(plan => {
+    //     const activeTabCategory = coveragetabs.find(tab => tab.category === coverageactiveTab)?.tabtitle;
+    //     return plan.category === activeTabCategory;
+    // });
 
     // Detect if the screen width is below 992px
     useEffect(() => {
@@ -136,7 +233,7 @@ const CoverageOption = () => {
         ]
     };
 
-
+console.log(coverageplansData.filter((plan)=>(plan.category == coverageactiveTab)))
 
     return (
         <div>
@@ -151,9 +248,9 @@ const CoverageOption = () => {
                         {/* for desktop view tabs */}
                         {!isMobile ? (
                             <Nav tabs>
-                                {tabs.map(({ id, title }) => (
-                                    <NavItem key={id} className={activeTab === id ? "active" : ""} onClick={() => toggleTab(id)}>
-                                        <NavLink>{title}</NavLink>
+                                {coveragetabs.map(({ id, tabtitle }) => (
+                                    <NavItem key={id} className={coverageactiveTab === tabtitle ? "active" : ""} onClick={() => setCoverageActiveTab(tabtitle)}>
+                                        <NavLink>{tabtitle}</NavLink>
                                     </NavItem>
                                 ))}
                             </Nav>
@@ -161,23 +258,23 @@ const CoverageOption = () => {
                             // for mobile view tabs in dropdown
                             <Dropdown className='common-dropdown' isOpen={dropdownOpen} toggle={toggleDropdown}>
                                 <DropdownToggle caret>
-                                    {tabs.find(tab => tab.id === activeTab)?.title}
+                                {coveragetabs.find(tab => tab.id === coverageactiveTab)?.tabtitle || "Select"}
                                 </DropdownToggle>
                                 <DropdownMenu>
-                                    {tabs.map(({ id, title }) => (
-                                        <DropdownItem key={id} onClick={() => { setActiveTab(id); toggleDropdown(); }}>
-                                            {title}
+                                    {coveragetabs.map(({ id, tabtitle }) => (
+                                        <DropdownItem key={id} onClick={() => { setCoverageActiveTab(tabtitle); toggleDropdown(); }}>
+                                            {tabtitle}
                                         </DropdownItem>
                                     ))}
                                 </DropdownMenu>
                             </Dropdown>
                         )}
-                        <TabContent activeTab={activeTab}>
+                        <TabContent activeTab={coverageactiveTab}>
                             {/* Featured Tabcontent */}
                             <TabPane tabId="1">
                                 <div className={styles.tab_content_wrapper}>
                                     <Slider {...sliderSettings}>
-                                        {plansData.map((plan, index) => (
+                                        {coverageplansData.filter((plan)=>(plan.category == coverageactiveTab)).map((plan, index) => (
                                             <div key={index} className={styles.tab_main_cards}>
                                                 <div className={styles.tab_content_cards}>
                                                     <div className={styles.fgli_plans_title}>
@@ -206,21 +303,12 @@ const CoverageOption = () => {
                                 </div>
                             </TabPane>
 
-                            <TabPane tabId="2">
+                            {/* <TabPane tabId="2">
                                 Term Content
                             </TabPane>
                             <TabPane tabId="3">
                                 Saving Content
-                            </TabPane>
-                            <TabPane tabId="4">
-                                ULIP Content
-                            </TabPane>
-                            <TabPane tabId="5">
-                                Group Content
-                            </TabPane>
-                            <TabPane tabId="6">
-                                Retirement Content
-                            </TabPane>
+                            </TabPane> */}
                         </TabContent>
                     </div>
 
