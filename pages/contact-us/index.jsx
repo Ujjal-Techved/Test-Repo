@@ -10,6 +10,7 @@ import Faqs from '@/components/Common/Faqs/Faqs';
 import InvestPlan from '@/components/ContactUs/InvestPlan/InvestPlan';
 import VisitUs from '@/components/ContactUs/VisitUs/VisitUs';
 import IrdaSection from '@/components/ContactUs/IrdaSection/IrdaSection';
+import { apiClient } from '../../utils/apiClient';  // Ensure correct path
 
 const ContactUs = (props) => {
 
@@ -18,35 +19,7 @@ const ContactUs = (props) => {
     { name: "Contact Us", url: "/contact-us", active: true },
   ]
 
-  // Reach us or contact us card data
-  const reachUsCard = [
-    {
-      Title: 'WhatsApp Support',
-      Description: 'Message us anytime at your convenience.',
-      Contact: '',
-      LinkText: 'Chat with Us',
-      Link: '/',
-      Image: '/images/reach-us/whatsapp.svg',
-    },
-    {
-      Title: 'Customer Support',
-      Description: 'Available 24*7 at',
-      Contact: ' 1800 102 2355',
-      LinkText: 'Call Us',
-      Link: '/',
-      Image: '/images/reach-us/headphone.svg',
-    },
-    {
-      Title: 'Drop Us an Email',
-      Description: 'Send your queries to: ',
-      Contact: 'care@futuregenerali.in',
-      LinkText: 'Email Us',
-      Link: 'care@futuregenerali.in',
-      Image: '/images/reach-us/email.svg',
-    },
-
-  ];
-
+ 
   const faqData = [
     {
       question: 'What is Life Insurance?',
@@ -66,20 +39,19 @@ const ContactUs = (props) => {
     },
   ];
 
-
   return (
     <LandingLayout>
       <div className={styles.contactWrapper}>
         <Container>
           <Breadcrumbs values={breadcrumbs} />
           <TitleSubtitle
-            title={"Need Assistance?"}
-            subtitle={"Reach out through the channel that suits you best—we’re just a chat, call, or email away!"}
+            title={props?.pageData?.PageTitle}
+            subtitle={props?.pageData?.PageDesc}
             extraClass="desc-max-60 pageTitle"
           />
         </Container>
-        <ReachUsDigital reachUsCard={reachUsCard} AIcontactUs />
-        <VisitUs />
+        <ReachUsDigital reachUsCard={props?.contactData} AIcontactUs />
+        <VisitUs visitUsCard={props?.visitUsData}/>
         <CustomerService />
         <InvestPlan />
 
@@ -88,6 +60,52 @@ const ContactUs = (props) => {
       </div>
     </LandingLayout>
   )
+}
+
+
+export async function getServerSideProps(context) {
+
+
+    // // Generate breadcrumbs dynamically based on state and city
+    // const breadcrumbs = [
+    //     { name: "Branch Locator", url: "/branch-locator", active: true },
+    //     state ? { name: normalizedState, url: `/branch-locator/${state}/${city}`, active: true } : null,
+    //     city ? { name: normalizedCity, url: `/branch-locator/${state}/${city}`, active: true } : null,
+    // ].filter(Boolean); // Remove null values
+
+
+    try {
+        // Fetch the list of branches (cities and states)
+        const contactUsData = await apiClient('/api/contact-uses?filters[PageUrl][$eq]=/contact-us');
+
+       console.log(contactUsData?.data[0]?.Contact_Details_Cards)
+        return {
+            props: {
+                contactData: contactUsData?.data[0]?.Contact_Details_Cards,
+                visitUsData: contactUsData?.data[0]?.VisitUs,
+                pageData: contactUsData?.data[0],
+                // emailData: contactUsData?.data[0]?.Contact_Details_Cards[2], // Keep original state for URL
+                // cityUrl: city,   // Keep original city for URL 
+                // breadcrumbs: breadcrumbs,
+                // branchList: filterBranchList?.data ?? [], // Default value if no branches found
+                // cityList, stateList,
+                // pageData: pageData?.data[0],
+            }
+        };
+    } catch (error) {
+        console.error("Error fetching branch data:", error);
+        return {
+            props: {
+                // state: normalizedState,
+                // city: normalizedCity,
+                // stateUrl: state, // Keep original state for URL
+                // cityUrl: city,   // Keep original city for URL 
+                // breadcrumbs: breadcrumbs,
+                // branchList: [],
+                // pageData: {}
+            }
+        };
+    }
 }
 
 export default ContactUs
