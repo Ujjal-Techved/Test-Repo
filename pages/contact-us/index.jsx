@@ -1,3 +1,4 @@
+// Importing required components and modules
 import LandingLayout from '@/components/Layouts/LandingLayout';
 import React from 'react';
 import styles from './Contact.module.css';
@@ -13,68 +14,70 @@ import IrdaSection from '@/components/ContactUs/IrdaSection/IrdaSection';
 import { apiClient } from '../../utils/apiClient';  // Ensure correct path
 
 const ContactUs = (props) => {
-
-  // Create the breadcrumbs array based on state and city
+  
+  // Define breadcrumbs for navigation
   const breadcrumbs = [
     { name: "Contact Us", url: "/contact-us", active: true },
-  ]
-
-
-  const faqData = [
-    {
-      question: 'What is Life Insurance?',
-      answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    },
-    {
-      question: 'What are riders in life insurance plans?',
-      answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    },
-    {
-      question: 'How Much Life Insurance Cover Do You Need?',
-      answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    },
-    {
-      question: 'What do you mean by the term “MLC Copy”?',
-      answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    },
   ];
 
   return (
     <LandingLayout>
       <div className={styles.contactWrapper}>
         <Container>
+          {/* Breadcrumb Navigation */}
           <Breadcrumbs values={breadcrumbs} />
+
+          {/* Page Title and Description */}
           <TitleSubtitle
             title={props?.pageData?.PageTitle}
             subtitle={props?.pageData?.PageDesc}
             extraClass="desc-max-60 pageTitle"
           />
         </Container>
+
+        {/* Digital Contact Section */}
         <ReachUsDigitalContact reachUsCard={props?.pageData?.Contact_Details_Cards} AIcontactUs />
+
+        {/* Visit Us Section */}
         <VisitUs visitUsCard={props?.pageData?.VisitUs} />
+
+        {/* Customer Service Section */}
         <CustomerService csData={props?.pageData?.CustomerService} />
+
+        {/* Investment Plan Section */}
         <InvestPlan appLink={props?.pageData?.AppLink} />
+
+        {/* Frequently Asked Questions (FAQs) Section */}
         <Faqs faqData={props?.pageData?.Faqs} />
+
+        {/* IRDA (Insurance Regulatory and Development Authority) Section */}
         <IrdaSection />
       </div>
     </LandingLayout>
-  )
-}
+  );
+};
 
-
+// Fetching data from API on the server side
 export async function getServerSideProps(context) {
-
   try {
-    // Fetch the list of branches (cities and states)
+    // Fetch Contact Us page data from API based on Page URL filter
     const contactUsData = await apiClient('/api/contact-uses?filters[PageUrl][$eq]=/contact-us');
+
     return {
       props: {
-        pageData: contactUsData?.data[0],
-      }
+        pageData: contactUsData?.data[0], // Passing API data to props
+      },
     };
   } catch (error) {
     console.error("Error fetching contact us data:", error);
+    
+    // Return empty props in case of an error to prevent page crash
+    return {
+      props: {
+        pageData: {},
+      },
+    };
   }
 }
 
-export default ContactUs
+export default ContactUs;
