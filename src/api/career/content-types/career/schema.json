@@ -15,10 +15,10 @@
     "PageUrl": {
       "type": "string"
     },
-    "Title": {
+    "PageTitle": {
       "type": "string"
     },
-    "Description": {
+    "PageDesc": {
       "type": "text"
     },
     "JobRoleList": {
