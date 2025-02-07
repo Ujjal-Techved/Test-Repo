@@ -3,7 +3,7 @@ import TitleSubtitle from '../TitleSubtitle/TitleSubtitle';
 import { Accordion, AccordionBody, AccordionHeader, AccordionItem, Container } from 'reactstrap';
 import styles from './Faqs.module.css'
 
-const Faqs = ({faqItems}) => {
+const Faqs = ({faqData}) => {
 
     const [openIndex, setOpenIndex] = useState("");
 
@@ -15,20 +15,20 @@ const Faqs = ({faqItems}) => {
         <section className={styles.faqContainer}>
             <Container>
                 <TitleSubtitle
-                    title={"Frequently Asked Questions"}
-                    subtitle={"See some of the most common questions below. If you have a question we haven’t included then please <a href='/'>Get in touch.</a>"}
+                    title={faqData.Title}
+                    subtitle={faqData.Description}
                     titleTag='h3'
                 />
                 <Accordion open={openIndex} toggle={toggleFaq} className={styles.faqListContainer}>
-                    {faqItems.map((item, index) => (
+                    {faqData?.FaqList?.map((item, index) => (
                         <AccordionItem key={index} className={styles.faqItem}>
                             <AccordionHeader tag={"div"} 
                             className={styles.faqHead}
                             targetId={index.toString()} 
                             onClick={() => toggleFaq(index.toString())}>
-                                {item.question}
+                                {item?.Question}
                             </AccordionHeader>
-                            <AccordionBody className={styles.faqBody} accordionId={index.toString()}>{item.answer}</AccordionBody>
+                            <AccordionBody className={styles.faqBody} accordionId={index.toString()}>{item?.Answer}</AccordionBody>
                         </AccordionItem>
                     ))}                                                                     
                 </Accordion>

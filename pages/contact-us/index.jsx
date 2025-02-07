@@ -4,7 +4,7 @@ import styles from './Contact.module.css';
 import { Container } from 'reactstrap';
 import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
 import Breadcrumbs from '@/components/Common/Breadcrumbs/Breadcrumbs';
-import ReachUsDigital from '@/components/BranchLocator/ReachUsDigital/ReachUsDigital';
+import ReachUsDigitalContact from '@/components/BranchLocator/ReachUsDigital/ReachUsDigitalContact';
 import CustomerService from '@/components/ContactUs/CustomerService/CustomerService';
 import Faqs from '@/components/Common/Faqs/Faqs';
 import InvestPlan from '@/components/ContactUs/InvestPlan/InvestPlan';
@@ -19,7 +19,7 @@ const ContactUs = (props) => {
     { name: "Contact Us", url: "/contact-us", active: true },
   ]
 
- 
+
   const faqData = [
     {
       question: 'What is Life Insurance?',
@@ -50,12 +50,11 @@ const ContactUs = (props) => {
             extraClass="desc-max-60 pageTitle"
           />
         </Container>
-        <ReachUsDigital reachUsCard={props?.contactData} AIcontactUs />
-        <VisitUs visitUsCard={props?.visitUsData}/>
-        <CustomerService />
-        <InvestPlan />
-
-        <Faqs faqItems={faqData} />
+        <ReachUsDigitalContact reachUsCard={props?.pageData?.Contact_Details_Cards} AIcontactUs />
+        <VisitUs visitUsCard={props?.pageData?.VisitUs} />
+        <CustomerService csData={props?.pageData?.CustomerService} />
+        <InvestPlan appLink={props?.pageData?.AppLink} />
+        <Faqs faqData={props?.pageData?.Faqs} />
         <IrdaSection />
       </div>
     </LandingLayout>
@@ -65,47 +64,17 @@ const ContactUs = (props) => {
 
 export async function getServerSideProps(context) {
 
-
-    // // Generate breadcrumbs dynamically based on state and city
-    // const breadcrumbs = [
-    //     { name: "Branch Locator", url: "/branch-locator", active: true },
-    //     state ? { name: normalizedState, url: `/branch-locator/${state}/${city}`, active: true } : null,
-    //     city ? { name: normalizedCity, url: `/branch-locator/${state}/${city}`, active: true } : null,
-    // ].filter(Boolean); // Remove null values
-
-
-    try {
-        // Fetch the list of branches (cities and states)
-        const contactUsData = await apiClient('/api/contact-uses?filters[PageUrl][$eq]=/contact-us');
-
-       console.log(contactUsData?.data[0]?.Contact_Details_Cards)
-        return {
-            props: {
-                contactData: contactUsData?.data[0]?.Contact_Details_Cards,
-                visitUsData: contactUsData?.data[0]?.VisitUs,
-                pageData: contactUsData?.data[0],
-                // emailData: contactUsData?.data[0]?.Contact_Details_Cards[2], // Keep original state for URL
-                // cityUrl: city,   // Keep original city for URL 
-                // breadcrumbs: breadcrumbs,
-                // branchList: filterBranchList?.data ?? [], // Default value if no branches found
-                // cityList, stateList,
-                // pageData: pageData?.data[0],
-            }
-        };
-    } catch (error) {
-        console.error("Error fetching branch data:", error);
-        return {
-            props: {
-                // state: normalizedState,
-                // city: normalizedCity,
-                // stateUrl: state, // Keep original state for URL
-                // cityUrl: city,   // Keep original city for URL 
-                // breadcrumbs: breadcrumbs,
-                // branchList: [],
-                // pageData: {}
-            }
-        };
-    }
+  try {
+    // Fetch the list of branches (cities and states)
+    const contactUsData = await apiClient('/api/contact-uses?filters[PageUrl][$eq]=/contact-us');
+    return {
+      props: {
+        pageData: contactUsData?.data[0],
+      }
+    };
+  } catch (error) {
+    console.error("Error fetching contact us data:", error);
+  }
 }
 
 export default ContactUs
