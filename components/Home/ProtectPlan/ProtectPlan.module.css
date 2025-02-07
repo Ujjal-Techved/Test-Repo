@@ -50,9 +50,14 @@
 
 
 @media screen and (max-width: 520px) and (min-width: 320px) {
+    .protect_plan_row{
+        gap: 32px;
+        padding-bottom: 0px;
+    }
     .protect_plan_Card{
         max-width: 248px;
         padding: 10px;
+        
     }
     .protect_plan_col{
         justify-content: center;
@@ -66,5 +71,9 @@
     .protect_plan_Card p{
         font-size: 14px;
         line-height: 24px;
+    }
+
+    .plan_img{
+        width: 76px;
     }
 }

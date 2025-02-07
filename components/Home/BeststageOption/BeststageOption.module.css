@@ -1,0 +1,47 @@
+.stage_option_wrapper{
+    padding-top: 56px;
+}
+
+.stage_option_card{
+    border: 1px solid #1601431A;
+    border-radius: 20px;
+    max-width: 182px;
+}
+
+.stage_option_member img{
+    width: 100%;
+    margin-top: -40px;
+}
+
+.protect_plan_linktext{
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica-500';
+    color: var(--fgi-black);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stage_option_detail{
+    padding: 20px 9px;
+    text-align: center;
+    background-color: red;
+    position: relative;
+}
+
+.stage_option_detail::after{
+    position: absolute;
+    content: '';
+    
+}
+
+.stage_option_detail p{
+    font-size: 14px;
+    line-height: 16px;
+    font-family: 'Helvetica-400';
+    color: var(--text-grey2);
+    padding-top: 10px;
+
+}

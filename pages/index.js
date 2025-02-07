@@ -1,8 +1,11 @@
 import Faqs from "@/components/Common/Faqs/Faqs";
 import IrdaSection from "@/components/ContactUs/IrdaSection/IrdaSection";
+import BeststageOption from "@/components/Home/BeststageOption/BeststageOption";
 import CoverageOption from "@/components/Home/CoverageOption/CoverageOption";
 import LifeInsurance from "@/components/Home/LifeInsurance/LifeInsurance";
 import ProtectPlan from "@/components/Home/ProtectPlan/ProtectPlan";
+import RequestCallback from "@/components/Home/RequestCallback/RequestCallback";
+import TypesofInsurance from "@/components/Home/TypesofInsurance/TypesofInsurance";
 import WhatisGenrali from "@/components/Home/WhatisGenrali/WhatisGenrali";
 import WhylifeInsurance from "@/components/Home/WhylifeInsurance/WhylifeInsurance";
 import LandingLayout from "@/components/Layouts/LandingLayout";
@@ -34,9 +37,12 @@ export default function Home() {
 
     return (
         <LandingLayout>
+            {/* <BeststageOption/> */}
             <LifeInsurance />
             <WhatisGenrali/>
             <WhylifeInsurance/>
+            <TypesofInsurance/>
+            <RequestCallback/>
             <CoverageOption />
             <ProtectPlan />
             <Faqs faqItems={faqData}

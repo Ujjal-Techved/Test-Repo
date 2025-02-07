@@ -97,6 +97,30 @@ body.over-hide {
     margin-top: -75px;
 }
 
+/* Common Input fields */
+
+.fgi-common-input{
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica-400';
+    color: var(--background-color);
+    background: #ffffff45;
+    border: 1px solid var(--border-grey);
+    border-radius:24px;
+    padding: 12px 16px;
+}
+
+
+.fgi-common-input:focus{
+    border: 1px solid var(--border-grey);
+    outline: none; 
+  }
+
+  .fgi-common-input::placeholder {
+    font-size: 16px;
+    color: var(--background-color);
+}
+
 /* Common links style css */
 
 .redhref {
@@ -260,18 +284,34 @@ body.over-hide {
     padding-bottom: 40px;
 }
 
-.common-tabs-wrapper .slick-track{
-    display: flex;
+
+.common-tabs-wrapper .slick-track, .types-insurance-wrapper .slick-track{
+    display: flex !important;
 }
   
-.common-tabs-wrapper .slick-track .slick-slide{
+.common-tabs-wrapper .slick-track .slick-slide, .types-insurance-wrapper .slick-track .slick-slide{
     height: unset;
 }
 
-.common-tabs-wrapper .slick-track .slick-slide > div{
+.common-tabs-wrapper .slick-track .slick-slide > div , .types-insurance-wrapper .slick-track .slick-slide > div{
     height: 100%;
 }
 
+.types-insurance-wrapper .slick-track .slick-slide{
+    padding: 10px;
+}
+
+.types-insurance-wrapper .slick-track .slick-slide img{
+    width: 100%;
+}
+
+.types-insurance-wrapper {
+    overflow: hidden;
+}
+
+.types-insurance-wrapper .slick-slider {
+    margin: 0 auto;
+}
 
 @media screen and (max-width: 991.2px) and (min-width: 320px) {
     .divider {
@@ -304,6 +344,13 @@ body.over-hide {
 
     .w-sm-100 {
         width: 100%;
+    }
+
+    /* Common Input Field */
+    .fgi-common-input{
+        font-size: 12px;
+        line-height: 16px;
+        padding: 12px 16px;
     }
 
     /* common dropdown css */
@@ -364,6 +411,8 @@ body.over-hide {
         padding: 0px;
     }
 
-    
+    .types-insurance-wrapper .slick-track .slick-slide{
+        padding: 14px;
+    }
 
 }
