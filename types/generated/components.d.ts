@@ -226,8 +226,10 @@ export interface ContactUsAppLink extends Struct.ComponentSchema {
   };
   attributes: {
     AppStore_Image: Schema.Attribute.Media<'images'>;
+    AppStore_Link: Schema.Attribute.String;
     Description: Schema.Attribute.String;
     PlayStore_Image: Schema.Attribute.Media<'images'>;
+    PlayStore_Link: Schema.Attribute.String;
     QR_Code_Image: Schema.Attribute.Media<'images'>;
     Title: Schema.Attribute.String;
   };

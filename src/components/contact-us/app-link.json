@@ -35,6 +35,12 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "PlayStore_Link": {
+      "type": "string"
+    },
+    "AppStore_Link": {
+      "type": "string"
     }
   }
 }
