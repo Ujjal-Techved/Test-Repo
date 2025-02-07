@@ -457,7 +457,6 @@ export interface ApiCareerCareer extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Description: Schema.Attribute.Text;
     JobRoleList: Schema.Attribute.Component<'careers.job-role-list', true>;
     JoinCulture: Schema.Attribute.Component<'careers.join-culture', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -466,6 +465,8 @@ export interface ApiCareerCareer extends Struct.CollectionTypeSchema {
       'api::career.career'
     > &
       Schema.Attribute.Private;
+    PageDesc: Schema.Attribute.Text;
+    PageTitle: Schema.Attribute.String;
     PageUrl: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     ReviewSection: Schema.Attribute.Component<'common.review-section', false>;
@@ -473,7 +474,6 @@ export interface ApiCareerCareer extends Struct.CollectionTypeSchema {
       'careers.send-application',
       false
     >;
-    Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
