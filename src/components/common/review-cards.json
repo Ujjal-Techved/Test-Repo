@@ -1,7 +1,8 @@
 {
   "collectionName": "components_common_review_cards",
   "info": {
-    "displayName": "ReviewCards"
+    "displayName": "ReviewCards",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -17,11 +18,21 @@
       "max": 5
     },
     "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "General",
+        "Investment",
+        "Claims",
+        "Returns"
+      ]
     }
   }
 }

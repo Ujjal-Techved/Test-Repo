@@ -535,11 +535,19 @@ export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    AppLink: Schema.Attribute.Component<'contact-us.app-link', false>;
+    CallBack: Schema.Attribute.Component<'home-page.call-back', false>;
     ChooseGoal: Schema.Attribute.Component<'home-page.choose-goal', false>;
+    CoverageOptions: Schema.Attribute.Component<
+      'home-page.coverage-options',
+      false
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Description: Schema.Attribute.String;
+    Faq_Section: Schema.Attribute.Component<'common.faq-section', false>;
+    IrdaSection: Schema.Attribute.Component<'common.irda-section', false>;
     LifeInsurance: Schema.Attribute.Component<
       'home-page.life-insurance',
       false
@@ -552,6 +560,11 @@ export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     PageUrl: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    ReviewSection: Schema.Attribute.Component<'common.review-section', false>;
+    StartProtecting: Schema.Attribute.Component<
+      'home-page.start-protecting',
+      false
+    >;
     Title: Schema.Attribute.Text;
     TypeInsurance: Schema.Attribute.Component<
       'home-page.type-insurance',
