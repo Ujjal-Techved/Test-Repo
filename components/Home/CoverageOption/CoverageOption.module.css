@@ -39,19 +39,19 @@
     position: relative;
 }
 
-.fgli_plans_title p span {
+.fgli_plans_title span {
     font-size: 12px;
     line-height: 18px;
     font-family: 'Helvetica-500';
     border: 1px solid var(--text-grey2);
-    padding: 3px 12px;
+    padding: 2px 8px;
     border-radius: 26px;
     display: none;
     position: absolute;
-    right: 0px;
+    right: -6px;
 }
 
-.fgli_plans_title p.most_popular span {
+.fgli_plans_title  span {
     border: 1px solid var(--fgi-green);
     color: var(--fgi-darkgreen);
     border-color: var(--fgi-green);

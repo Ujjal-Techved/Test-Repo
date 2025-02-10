@@ -1,6 +1,8 @@
 import Faqs from "@/components/Common/Faqs/Faqs";
+import InvestPlan from "@/components/ContactUs/InvestPlan/InvestPlan";
 import IrdaSection from "@/components/ContactUs/IrdaSection/IrdaSection";
 import BeststageOption from "@/components/Home/BeststageOption/BeststageOption";
+import ChooseGoal from "@/components/Home/ChooseGoal/ChooseGoal";
 import CoverageOption from "@/components/Home/CoverageOption/CoverageOption";
 import LifeInsurance from "@/components/Home/LifeInsurance/LifeInsurance";
 import OurCustomer from "@/components/Home/OurCustomer/OurCustomer";
@@ -13,7 +15,432 @@ import LandingLayout from "@/components/Layouts/LandingLayout";
 
 export default function Home() {
 
-    // Array for Our Customer Data
+    // Array of coverage tabs data
+    const coveragetabs = [
+        { id: "1", tabtitle: "Featured" },
+        { id: "2", tabtitle: "Term" },
+        { id: "3", tabtitle: "Saving" },
+        { id: "4", tabtitle: "ULIP" },
+        { id: "5", tabtitle: "Group" },
+        { id: "6", tabtitle: "Retirement" },
+    ];
+
+
+    // Array of coverage Plan data 
+    const coverageplansData = [
+        {
+            id: 1,
+            title: "Long Term Income Plan",
+            subtitle: "Future Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "",
+            knowMore: "https:/long-term-income-plan",
+            category: "Featured"
+        },
+        {
+            id: 2,
+            title: "Money Back Super Plan",
+            subtitle: "Future Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "Most Popular",
+            knowMore: "https:/money-back-super-plan",
+            category: "Featured"
+        },
+        {
+            id: 3,
+            title: "New Assured Wealth Plan",
+            subtitle: "Future Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "",
+            knowMore: "https:/new-assured-wealth-plan",
+            category: "Featured"
+        },
+        {
+            id: 4,
+            title: "Long Term Income Plan",
+            subtitle: "Term Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "",
+            knowMore: "https:/long-term-income-plan",
+            category: "Term"
+        },
+        {
+            id: 5,
+            title: "Money Back Super Plan",
+            subtitle: "Term Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "Most Popular",
+            knowMore: "https:/money-back-super-plan",
+            category: "Term"
+        },
+        {
+            id: 6,
+            title: "New Assured Wealth Plan",
+            subtitle: "Term Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "",
+            knowMore: "https:/new-assured-wealth-plan",
+            category: "Term"
+        },
+        {
+            id: 7,
+            title: "Long Term Income Plan",
+            subtitle: "Saving Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "",
+            knowMore: "https:/long-term-income-plan",
+            category: "Saving"
+        },
+        {
+            id: 8,
+            title: "Money Back Super Plan",
+            subtitle: "Saving Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "Most Popular",
+            knowMore: "https:/money-back-super-plan",
+            category: "Saving"
+        },
+        {
+            id: 9,
+            title: "New Assured Wealth Plan",
+            subtitle: "Saving Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "",
+            knowMore: "https:/new-assured-wealth-plan",
+            category: "Saving"
+        },
+        {
+            id: 10,
+            title: "Long Term Income Plan",
+            subtitle: "ULIP Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "",
+            knowMore: "https:/long-term-income-plan",
+            category: "ULIP"
+        },
+        {
+            id: 11,
+            title: "Money Back Super Plan",
+            subtitle: "ULIP Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "Most Popular",
+            knowMore: "https:/money-back-super-plan",
+            category: "ULIP"
+        },
+        {
+            id: 12,
+            title: "New Assured Wealth Plan",
+            subtitle: "ULIP Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "",
+            knowMore: "https:/new-assured-wealth-plan",
+            category: "ULIP"
+        },
+        {
+            id: 13,
+            title: "Long Term Income Plan",
+            subtitle: "Group Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "",
+            knowMore: "https:/long-term-income-plan",
+            category: "Group"
+        },
+        {
+            id: 14,
+            title: "Money Back Super Plan",
+            subtitle: "Group Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "Most Popular",
+            knowMore: "https:/money-back-super-plan",
+            category: "Group"
+        },
+        {
+            id: 15,
+            title: "New Assured Wealth Plan",
+            subtitle: "Group Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "",
+            knowMore: "https:/new-assured-wealth-plan",
+            category: "Group"
+        },
+        {
+            id: 16,
+            title: "Long Term Income Plan",
+            subtitle: "Retirement Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "",
+            knowMore: "https:/long-term-income-plan",
+            category: "Retirement"
+        },
+        {
+            id: 17,
+            title: "Money Back Super Plan",
+            subtitle: "Retirement Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "Most Popular",
+            knowMore: "https:/money-back-super-plan",
+            category: "Retirement"
+        },
+        {
+            id: 18,
+            title: "New Assured Wealth Plan",
+            subtitle: "Retirement Generali",
+            description: "A life insurance plan that helps you reach financial goals with life cover and guaranteed growth.",
+            benefits: [
+                "Regular payouts with Guaranteed Money Back",
+                "Guaranteed Additions",
+                "Regular payouts with Guaranteed Money Back",
+                "Tax Benefits under section 80C and 10(10D)"
+            ],
+            popularity: "",
+            knowMore: "https:/new-assured-wealth-plan",
+            category: "Retirement"
+        },
+    ];
+
+    // Our Teammember Tabs array data
+
+    const teamMemberstabs = [
+        { id: "1", tabtitle: "General" },
+        { id: "2", tabtitle: "Investment" },
+        { id: "3", tabtitle: "Claims" },
+        { id: "4", tabtitle: "Returns" },
+    ];
+
+    // Our Teammember array data
+
+    const teamMemberData = [
+        {
+            id: 1,
+            name: "Harshvardhan Upadhaya",
+            image: "/images/careers/person.png",
+            feedback: "General The team at FGILI took the time to carefully explain the options available to me and helped me make informed decisions.",
+            rating: 2.5,
+            category: "General"
+        },
+        {
+            id: 2,
+            name: "Ananya Sharma",
+            image: "/images/careers/person.png",
+            feedback: "General Working at FGILI has been a great experience. The support and opportunities for growth are fantastic!",
+            rating: 4.5,
+            category: "General"
+        },
+        {
+            id: 3,
+            name: "Rohan Mehta",
+            image: "/images/careers/person.png",
+            feedback: "General Future Generali provides an amazing work culture that fosters innovation and collaboration.",
+            rating: 5,
+            category: "General"
+        },
+        {
+            id: 4,
+            name: "Harshvardhan Upadhaya",
+            image: "/images/careers/person.png",
+            feedback: "General The team at FGILI took the time to carefully explain the options available to me and helped me make informed decisions.",
+            rating: 2.5,
+            category: "General"
+        },
+        {
+            id: 5,
+            name: "Ananya Sharma",
+            image: "/images/careers/person.png",
+            feedback: "General Working at FGILI has been a great experience. The support and opportunities for growth are fantastic!",
+            rating: 4.5,
+            category: "General"
+        },
+        {
+            id: 6,
+            name: "Rohan Mehta",
+            image: "/images/careers/person.png",
+            feedback: "Investment Future Generali provides an amazing work culture that fosters innovation and collaboration.",
+            rating: 5,
+            category: "Investment"
+        },
+        {
+            id: 7,
+            name: "Rohan Mehta",
+            image: "/images/careers/person.png",
+            feedback: "Investment Future Generali provides an amazing work culture that fosters innovation and collaboration.",
+            rating: 5,
+            category: "Investment"
+        },
+        {
+            id: 8,
+            name: "Rohan Mehta",
+            image: "/images/careers/person.png",
+            feedback: "Investment Future Generali provides an amazing work culture that fosters innovation and collaboration.",
+            rating: 5,
+            category: "Investment"
+        },
+        {
+            id: 9,
+            name: "Rohan Mehta",
+            image: "/images/careers/person.png",
+            feedback: "Claims Future Generali provides an amazing work culture that fosters innovation and collaboration.",
+            rating: 5,
+            category: "Claims"
+        },
+        {
+            id: 10,
+            name: "Rohan Mehta",
+            image: "/images/careers/person.png",
+            feedback: "Claims Future Generali provides an amazing work culture that fosters innovation and collaboration.",
+            rating: 5,
+            category: "Claims"
+        },
+        {
+            id: 11,
+            name: "Rohan Mehta",
+            image: "/images/careers/person.png",
+            feedback: "Claims Future Generali provides an amazing work culture that fosters innovation and collaboration.",
+            rating: 5,
+            category: "Claims"
+        },
+        {
+            id: 12,
+            name: "Rohan Mehta",
+            image: "/images/careers/person.png",
+            feedback: "Claims Future Generali provides an amazing work culture that fosters innovation and collaboration.",
+            rating: 5,
+            category: "Claims"
+        },
+        {
+            id: 13,
+            name: "Rohan Mehta",
+            image: "/images/careers/person.png",
+            feedback: "Claims Future Generali provides an amazing work culture that fosters innovation and collaboration.",
+            rating: 5,
+            category: "Claims"
+        },
+        {
+            id: 14,
+            name: "Rohan Mehta",
+            image: "/images/careers/person.png",
+            feedback: "Returns Future Generali provides an amazing work culture that fosters innovation and collaboration.",
+            rating: 5,
+            category: "Returns"
+        },
+        {
+            id: 15,
+            name: "Rohan Mehta",
+            image: "/images/careers/person.png",
+            feedback: "Returns Future Generali provides an amazing work culture that fosters innovation and collaboration.",
+            rating: 5,
+            category: "Returns"
+        },
+        {
+            id: 16,
+            name: "Rohan Mehta",
+            image: "/images/careers/person.png",
+            feedback: "Returns Future Generali provides an amazing work culture that fosters innovation and collaboration.",
+            rating: 5,
+            category: "Returns"
+        }
+    ];
 
 
     // Array for FAQ Data
@@ -38,19 +465,21 @@ export default function Home() {
 
     return (
         <LandingLayout>
-            {/* <BeststageOption/> */}
+            <BeststageOption/>
             <LifeInsurance />
-            <WhatisGenrali/>
-            <WhylifeInsurance/>
-            <TypesofInsurance/>
-            <RequestCallback/>
-            <CoverageOption />
+            <WhatisGenrali />
+            <WhylifeInsurance />
+            <ChooseGoal/>
+            <TypesofInsurance />
+            <RequestCallback />
+            <CoverageOption coveragetabs={coveragetabs} coverageplansData={coverageplansData} />
             <ProtectPlan />
-            <OurCustomer/>
+            <OurCustomer teamMemberstabs={teamMemberstabs} teamMemberData={teamMemberData}/>
+            <InvestPlan/>
             <Faqs faqItems={faqData}
                 title={"Frequently Asked Questions"}
                 subtitle={"See some of the most common questions below."} />
-           
+
             <IrdaSection />
         </LandingLayout>
     );
