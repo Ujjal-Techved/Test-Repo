@@ -523,6 +523,49 @@ export interface ApiContactUsContactUs extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
+  collectionName: 'home_pages';
+  info: {
+    description: '';
+    displayName: 'HomePage';
+    pluralName: 'home-pages';
+    singularName: 'home-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ChooseGoal: Schema.Attribute.Component<'home-page.choose-goal', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.String;
+    LifeInsurance: Schema.Attribute.Component<
+      'home-page.life-insurance',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-page.home-page'
+    > &
+      Schema.Attribute.Private;
+    PageUrl: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.Text;
+    TypeInsurance: Schema.Attribute.Component<
+      'home-page.type-insurance',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    WhatIs: Schema.Attribute.Component<'home-page.what-is', false>;
+    WhatStage: Schema.Attribute.Component<'home-page.what-stage', false>;
+    WhyLife: Schema.Attribute.Component<'home-page.why-life', false>;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1036,6 +1079,7 @@ declare module '@strapi/strapi' {
       'api::branch-list.branch-list': ApiBranchListBranchList;
       'api::career.career': ApiCareerCareer;
       'api::contact-us.contact-us': ApiContactUsContactUs;
+      'api::home-page.home-page': ApiHomePageHomePage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

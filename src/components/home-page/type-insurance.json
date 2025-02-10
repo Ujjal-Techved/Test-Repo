@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_home_page_type_insurances",
+  "info": {
+    "displayName": "TypeInsurance"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "CardList": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home-page.card-list"
+    }
+  }
+}

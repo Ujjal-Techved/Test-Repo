@@ -301,6 +301,107 @@ export interface ContactUsVisitUs extends Struct.ComponentSchema {
   };
 }
 
+export interface HomePageCardList extends Struct.ComponentSchema {
+  collectionName: 'components_home_page_card_lists';
+  info: {
+    description: '';
+    displayName: 'CardList';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images'>;
+    Text: Schema.Attribute.String;
+    Url: Schema.Attribute.String;
+  };
+}
+
+export interface HomePageChooseGoal extends Struct.ComponentSchema {
+  collectionName: 'components_home_page_choose_goals';
+  info: {
+    displayName: 'ChooseGoal';
+  };
+  attributes: {
+    CardList: Schema.Attribute.Component<'home-page.card-list', true>;
+    Description: Schema.Attribute.Text;
+    Title: Schema.Attribute.Text;
+  };
+}
+
+export interface HomePageFeatureList extends Struct.ComponentSchema {
+  collectionName: 'components_home_page_feature_lists';
+  info: {
+    displayName: 'FeatureList';
+  };
+  attributes: {
+    Description: Schema.Attribute.String;
+    Image: Schema.Attribute.Media<'images'>;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface HomePageLifeInsurance extends Struct.ComponentSchema {
+  collectionName: 'components_home_page_life_insurances';
+  info: {
+    displayName: 'LifeInsurance';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    FeatureList: Schema.Attribute.Component<'home-page.feature-list', true>;
+    Title: Schema.Attribute.Text;
+  };
+}
+
+export interface HomePageTypeInsurance extends Struct.ComponentSchema {
+  collectionName: 'components_home_page_type_insurances';
+  info: {
+    displayName: 'TypeInsurance';
+  };
+  attributes: {
+    CardList: Schema.Attribute.Component<'home-page.card-list', true>;
+    Description: Schema.Attribute.Text;
+    Title: Schema.Attribute.Text;
+  };
+}
+
+export interface HomePageWhatIs extends Struct.ComponentSchema {
+  collectionName: 'components_home_page_what_is';
+  info: {
+    displayName: 'WhatIs';
+  };
+  attributes: {
+    Description: Schema.Attribute.Blocks;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface HomePageWhatStage extends Struct.ComponentSchema {
+  collectionName: 'components_home_page_what_stages';
+  info: {
+    description: '';
+    displayName: 'WhatStage';
+  };
+  attributes: {
+    CardList: Schema.Attribute.Component<'home-page.card-list', true>;
+    Title: Schema.Attribute.Text;
+  };
+}
+
+export interface HomePageWhyLife extends Struct.ComponentSchema {
+  collectionName: 'components_home_page_why_lives';
+  info: {
+    displayName: 'WhyLife';
+  };
+  attributes: {
+    ButtonLink1: Schema.Attribute.String;
+    ButtonLink2: Schema.Attribute.String;
+    ButtonText1: Schema.Attribute.String;
+    ButtonText2: Schema.Attribute.String;
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images'>;
+    Title: Schema.Attribute.Text;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -327,6 +428,14 @@ declare module '@strapi/strapi' {
       'contact-us.cs-item': ContactUsCsItem;
       'contact-us.customer-service': ContactUsCustomerService;
       'contact-us.visit-us': ContactUsVisitUs;
+      'home-page.card-list': HomePageCardList;
+      'home-page.choose-goal': HomePageChooseGoal;
+      'home-page.feature-list': HomePageFeatureList;
+      'home-page.life-insurance': HomePageLifeInsurance;
+      'home-page.type-insurance': HomePageTypeInsurance;
+      'home-page.what-is': HomePageWhatIs;
+      'home-page.what-stage': HomePageWhatStage;
+      'home-page.why-life': HomePageWhyLife;
     }
   }
 }

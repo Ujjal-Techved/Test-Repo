@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_home_page_life_insurances",
+  "info": {
+    "displayName": "LifeInsurance"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "FeatureList": {
+      "displayName": "FeatureList",
+      "type": "component",
+      "repeatable": true,
+      "component": "home-page.feature-list"
+    }
+  }
+}
