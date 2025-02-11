@@ -2,31 +2,11 @@ import React, { useState, useEffect } from "react";
 import styles from "./CommonChatbot.module.css";
 import { Container } from "reactstrap";
 
-const CommonChatbot = ({ targetId }) => {
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        const targetElement = document.getElementById(targetId);
-
-        if (!targetElement) return;
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const entry = entries[0];
-                setIsVisible(entry.isIntersecting);
-            },
-            { threshold: 0.5 } // Trigger when 50% of the element is visible
-        );
-
-        observer.observe(targetElement);
-
-        return () => {
-            observer.disconnect();
-        };
-    }, [targetId]);
+const CommonChatbot = () => {
+ 
 
     return (
-        <Container className={`${styles.chatboat_cotainer} ${isVisible ? styles.visible : ""}`}>
+        <Container className={styles.chatboat_cotainer}>
             <div className={styles.main_chatbot}>
                 <div className={styles.Home_banner_chatbot}>
                     <div className={styles.Home_banner_innerbot}>

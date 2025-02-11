@@ -6,9 +6,6 @@
     z-index: 9999;
     display: flex;
     justify-content: flex-end;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
 .Home_banner_chatbot{
@@ -17,10 +14,6 @@
     padding: 4px;
 }
 
-.chatboat_cotainer.visible {
-    opacity: 1;
-    visibility: visible;
-}
 
 .Home_banner_innerbot{
     background-color: var(--background-color);

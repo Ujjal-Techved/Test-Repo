@@ -1,8 +1,19 @@
 
+.best_stageoption_parent{
+    padding: 24px 0px 60px 0px;
+}
+
+.stageOption_title{
+    font-size: 14px;
+    line-height: 18px;
+    font-family: 'Helvetica-400';
+    color: var(--fgi-black);
+    text-align: center;
+}
+
 .best_stageoption_section{
     padding: 13px;
 }
-
 
 .best_stageoption_card {
     display: flex !important;

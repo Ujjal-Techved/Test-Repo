@@ -17,6 +17,53 @@ import LandingLayout from "@/components/Layouts/LandingLayout";
 
 export default function Home() {
 
+    // Array for Stageoption data
+    const stageOptionsData = [
+
+        {
+            id: 1,
+            name: 'Young Professional',
+            imgSrc: 'images/home/youngprofessional.png',
+            description: 'Just starting their career and exploring financial independence',
+            linkhref: '/'
+        },
+        {
+            id: 2,
+            name: 'Expert Professional',
+            imgSrc: 'images/home/expertprofessional.png',
+            description: 'Just starting their career and exploring financial independence',
+            linkhref: '/'
+        },
+        {
+            id: 3,
+            name: 'Young Parent',
+            imgSrc: 'images/home/youngparent.png',
+            description: 'Just starting their career and exploring financial independence',
+            linkhref: '/'
+        },
+        {
+            id: 4,
+            name: 'Teen Parent',
+            imgSrc: 'images/home/teenparent.png',
+            description: 'Just starting their career and exploring financial independence',
+            linkhref: '/'
+        },
+        {
+            id: 5,
+            name: 'Retirement',
+            imgSrc: 'images/home/retirementold.png',
+            description: 'Just starting their career and exploring financial independence',
+            linkhref: '/'
+        },
+        {
+            id: 6,
+            name: 'Help Me Choose',
+            imgSrc: 'images/home/helpmechoose.png',
+            description: 'Just starting their career and exploring financial independence',
+            linkhref: '/'
+        }
+    ];
+
     // Array of coverage tabs data
     const coveragetabs = [
         { id: "1", tabtitle: "Featured" },
@@ -467,13 +514,13 @@ export default function Home() {
 
     return (
         <LandingLayout>
-            <CommonChatbot targetId="lifeInsuranceSection" />  {/* Pass the ID */}
+            <CommonChatbot />
             <HomeBanner />
-            <BeststageOption />
-            <LifeInsurance id="lifeInsuranceSection" />  {/* Assign ID here */}
+            <BeststageOption stageOptionsData={stageOptionsData} />
+            <LifeInsurance />
             <WhatisGenrali />
             <WhylifeInsurance />
-            <ChooseGoal />
+            <ChooseGoal stageOptionsData={stageOptionsData} />
             <TypesofInsurance />
             <RequestCallback />
             <CoverageOption coveragetabs={coveragetabs} coverageplansData={coverageplansData} />

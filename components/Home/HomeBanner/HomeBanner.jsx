@@ -6,6 +6,8 @@ const HomeBanner = () => {
 
     const [activeIndex, setActiveIndex] = useState('');
 
+    // Guidelist array data
+    
     const guideListData = [
         "Learn about life insurance",
         "Calculate my premium",
@@ -15,7 +17,7 @@ const HomeBanner = () => {
     ];
 
     return (
-        <div>
+        <div className={styles.Home_banner}> 
             <Container>
                 <div className={styles.Home_banner_wrapper}>
                     <Row>
