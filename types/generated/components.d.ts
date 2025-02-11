@@ -1,5 +1,44 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AboutUsInfoStrip extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_info_strips';
+  info: {
+    description: '';
+    displayName: 'InfoStrip';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface AboutUsPartners extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_partners';
+  info: {
+    description: '';
+    displayName: 'Partners';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images'>;
+    PartnerCard1: Schema.Attribute.Component<'about-us.partners-card', false>;
+    PartnersCard2: Schema.Attribute.Component<'about-us.partners-card', false>;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsPartnersCard extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_partners_cards';
+  info: {
+    displayName: 'PartnersCard';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images'>;
+    LinkUrl: Schema.Attribute.String;
+  };
+}
+
 export interface BranchcardsInfoCard extends Struct.ComponentSchema {
   collectionName: 'components_branchcards_info_cards';
   info: {
@@ -401,6 +440,7 @@ export interface HomePageFeatureList extends Struct.ComponentSchema {
 export interface HomePageLifeInsurance extends Struct.ComponentSchema {
   collectionName: 'components_home_page_life_insurances';
   info: {
+    description: '';
     displayName: 'LifeInsurance';
   };
   attributes: {
@@ -493,6 +533,9 @@ export interface HomePageWhyLife extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'about-us.info-strip': AboutUsInfoStrip;
+      'about-us.partners': AboutUsPartners;
+      'about-us.partners-card': AboutUsPartnersCard;
       'branchcards.info-card': BranchcardsInfoCard;
       'branchcards.pointer-list': BranchcardsPointerList;
       'branchcards.reach-us-cards': BranchcardsReachUsCards;

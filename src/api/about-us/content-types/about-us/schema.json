@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "about_uses",
+  "info": {
+    "singularName": "about-us",
+    "pluralName": "about-uses",
+    "displayName": "AboutUs",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PageUrl": {
+      "type": "string"
+    },
+    "PageTitle": {
+      "type": "string"
+    },
+    "PageDesc": {
+      "type": "string"
+    },
+    "PageDesc2": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "InfoStrip": {
+      "displayName": "InfoStrip",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.info-strip"
+    },
+    "OurJourney": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.life-insurance"
+    },
+    "Partners": {
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.partners"
+    }
+  }
+}

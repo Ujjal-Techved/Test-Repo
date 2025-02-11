@@ -369,6 +369,42 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
+  collectionName: 'about_uses';
+  info: {
+    description: '';
+    displayName: 'AboutUs';
+    pluralName: 'about-uses';
+    singularName: 'about-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Image: Schema.Attribute.Media<'images'>;
+    InfoStrip: Schema.Attribute.Component<'about-us.info-strip', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-us.about-us'
+    > &
+      Schema.Attribute.Private;
+    OurJourney: Schema.Attribute.Component<'home-page.life-insurance', false>;
+    PageDesc: Schema.Attribute.String;
+    PageDesc2: Schema.Attribute.String;
+    PageTitle: Schema.Attribute.String;
+    PageUrl: Schema.Attribute.String;
+    Partners: Schema.Attribute.Component<'about-us.partners', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBranchListBannerBranchListBanner
   extends Struct.CollectionTypeSchema {
   collectionName: 'branch_list_banners';
@@ -1088,6 +1124,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::branch-list-banner.branch-list-banner': ApiBranchListBannerBranchListBanner;
       'api::branch-list.branch-list': ApiBranchListBranchList;
       'api::career.career': ApiCareerCareer;

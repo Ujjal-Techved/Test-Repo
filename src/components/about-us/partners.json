@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_about_us_partners",
+  "info": {
+    "displayName": "Partners",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "PartnerCard1": {
+      "displayName": "PartnersCard",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.partners-card"
+    },
+    "PartnersCard2": {
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.partners-card"
+    }
+  }
+}
