@@ -171,6 +171,16 @@
 
 @media screen and (max-width: 991.2px) and (min-width: 320px) {
 
+    .Home_banner_wrapper{
+        padding-top: 32px;
+        padding-bottom: 0px;
+    }
+    
+
+    .Home_banner{
+        background: none
+    }
+
     .Home_banner_guide::before{
         display: none;
     }

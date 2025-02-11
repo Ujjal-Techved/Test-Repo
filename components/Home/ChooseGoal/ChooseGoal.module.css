@@ -28,6 +28,11 @@
 }
 
 
+.best_stageoption_card .charct_img{
+    width: 160px;
+    /* width: 100%; */
+}
+
 .best_stageoption_card .best_stageoption_main {
     background-color: #ffffff;
     border-radius: 0px 0px 20px 20px;
@@ -110,11 +115,20 @@
     }
 
     .best_stageoption_card .charct_img{
-        width: 160px;
+        /* width: 160px; */
+        width: 100%;
     }
 
     .best_stageoption_card .best_stageoption_main::before {
         top: -28px;
+    }
+
+    .best_stageoption_section {
+        width: 50%;
+    }
+
+    .best_stageoption_parent {
+        padding: 0px 0px 30px 0px;
     }
 
 }
