@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_home_page_call_backs",
+  "info": {
+    "displayName": "CallBack"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}

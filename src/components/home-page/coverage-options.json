@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_home_page_coverage_options",
+  "info": {
+    "displayName": "CoverageOptions"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "CoverageCard": {
+      "displayName": "CoverageCard",
+      "type": "component",
+      "repeatable": true,
+      "component": "home-page.coverage-card"
+    }
+  }
+}

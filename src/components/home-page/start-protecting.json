@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_home_page_start_protectings",
+  "info": {
+    "displayName": "StartProtecting"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "StartProtectingCard": {
+      "displayName": "StartProtectingCard",
+      "type": "component",
+      "repeatable": true,
+      "component": "home-page.start-protecting-card"
+    }
+  }
+}
