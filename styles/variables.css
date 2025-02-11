@@ -1,6 +1,7 @@
 /* Define CSS variables in a :root pseudo-class for global scope */
 :root {
     --fgi-red: #C21B17;
+    --fgi-darkred:#500402;
     --text-grey: #666666;
     --text-grey2: #6F7072;
     --background-color: #FFFFFF;

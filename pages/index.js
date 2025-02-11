@@ -1,9 +1,11 @@
+import CommonChatbot from "@/components/Common/CommonChatbot/CommonChatbot";
 import Faqs from "@/components/Common/Faqs/Faqs";
 import InvestPlan from "@/components/ContactUs/InvestPlan/InvestPlan";
 import IrdaSection from "@/components/ContactUs/IrdaSection/IrdaSection";
 import BeststageOption from "@/components/Home/BeststageOption/BeststageOption";
 import ChooseGoal from "@/components/Home/ChooseGoal/ChooseGoal";
 import CoverageOption from "@/components/Home/CoverageOption/CoverageOption";
+import HomeBanner from "@/components/Home/HomeBanner/HomeBanner";
 import LifeInsurance from "@/components/Home/LifeInsurance/LifeInsurance";
 import OurCustomer from "@/components/Home/OurCustomer/OurCustomer";
 import ProtectPlan from "@/components/Home/ProtectPlan/ProtectPlan";
@@ -465,17 +467,19 @@ export default function Home() {
 
     return (
         <LandingLayout>
-            <BeststageOption/>
-            <LifeInsurance />
+            <CommonChatbot targetId="lifeInsuranceSection" />  {/* Pass the ID */}
+            <HomeBanner />
+            <BeststageOption />
+            <LifeInsurance id="lifeInsuranceSection" />  {/* Assign ID here */}
             <WhatisGenrali />
             <WhylifeInsurance />
-            <ChooseGoal/>
+            <ChooseGoal />
             <TypesofInsurance />
             <RequestCallback />
             <CoverageOption coveragetabs={coveragetabs} coverageplansData={coverageplansData} />
             <ProtectPlan />
-            <OurCustomer teamMemberstabs={teamMemberstabs} teamMemberData={teamMemberData}/>
-            <InvestPlan/>
+            <OurCustomer teamMemberstabs={teamMemberstabs} teamMemberData={teamMemberData} />
+            <InvestPlan />
             <Faqs faqItems={faqData}
                 title={"Frequently Asked Questions"}
                 subtitle={"See some of the most common questions below."} />
