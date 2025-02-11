@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_about_us_leaders_sections",
+  "info": {
+    "displayName": "LeadersSection"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "LeadersList": {
+      "displayName": "LeadersList",
+      "type": "component",
+      "repeatable": true,
+      "component": "about-us.leaders-list"
+    },
+    "LinkUrl": {
+      "type": "string"
+    }
+  }
+}

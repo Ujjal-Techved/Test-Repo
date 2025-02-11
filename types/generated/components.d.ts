@@ -1,5 +1,30 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AboutUsAwards extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_awards';
+  info: {
+    displayName: 'Awards';
+  };
+  attributes: {
+    AwardsList: Schema.Attribute.Component<'about-us.awards-list', true>;
+    Description: Schema.Attribute.Text;
+    ShowMoreLink: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsAwardsList extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_awards_lists';
+  info: {
+    displayName: 'AwardsList';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images'>;
+    Title: Schema.Attribute.String;
+  };
+}
+
 export interface AboutUsInfoStrip extends Struct.ComponentSchema {
   collectionName: 'components_about_us_info_strips';
   info: {
@@ -9,6 +34,58 @@ export interface AboutUsInfoStrip extends Struct.ComponentSchema {
   attributes: {
     Description: Schema.Attribute.Text;
     Image: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface AboutUsLeadersList extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_leaders_lists';
+  info: {
+    displayName: 'LeadersList';
+  };
+  attributes: {
+    Category: Schema.Attribute.Enumeration<
+      ['Board of Directors', 'Key Management Person']
+    >;
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images'>;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsLeadersSection extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_leaders_sections';
+  info: {
+    displayName: 'LeadersSection';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    LeadersList: Schema.Attribute.Component<'about-us.leaders-list', true>;
+    LinkUrl: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsMilestone extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_milestones';
+  info: {
+    displayName: 'Milestone';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    MilestoneList: Schema.Attribute.Component<'about-us.milestone-list', true>;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsMilestoneList extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_milestone_lists';
+  info: {
+    displayName: 'MilestoneList';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images'>;
+    Year: Schema.Attribute.String;
   };
 }
 
@@ -36,6 +113,66 @@ export interface AboutUsPartnersCard extends Struct.ComponentSchema {
     Description: Schema.Attribute.Text;
     Image: Schema.Attribute.Media<'images'>;
     LinkUrl: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsPrincipleCard extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_principle_cards';
+  info: {
+    displayName: 'PrincipleCard';
+  };
+  attributes: {
+    Category: Schema.Attribute.String;
+    PrincipleList: Schema.Attribute.Component<'about-us.principle-list', true>;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsPrincipleList extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_principle_lists';
+  info: {
+    displayName: 'PrincipleList';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images'>;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsPrinciples extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_principles';
+  info: {
+    displayName: 'Principles';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    PrincipleCard: Schema.Attribute.Component<'about-us.principle-card', true>;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsReportItems extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_report_items';
+  info: {
+    displayName: 'ReportItems';
+  };
+  attributes: {
+    Image: Schema.Attribute.Media<'images'>;
+    LinkUrl: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsReports extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_reports';
+  info: {
+    displayName: 'Reports';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    ReportItems: Schema.Attribute.Component<'about-us.report-items', true>;
+    Title: Schema.Attribute.String;
   };
 }
 
@@ -533,9 +670,20 @@ export interface HomePageWhyLife extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'about-us.awards': AboutUsAwards;
+      'about-us.awards-list': AboutUsAwardsList;
       'about-us.info-strip': AboutUsInfoStrip;
+      'about-us.leaders-list': AboutUsLeadersList;
+      'about-us.leaders-section': AboutUsLeadersSection;
+      'about-us.milestone': AboutUsMilestone;
+      'about-us.milestone-list': AboutUsMilestoneList;
       'about-us.partners': AboutUsPartners;
       'about-us.partners-card': AboutUsPartnersCard;
+      'about-us.principle-card': AboutUsPrincipleCard;
+      'about-us.principle-list': AboutUsPrincipleList;
+      'about-us.principles': AboutUsPrinciples;
+      'about-us.report-items': AboutUsReportItems;
+      'about-us.reports': AboutUsReports;
       'branchcards.info-card': BranchcardsInfoCard;
       'branchcards.pointer-list': BranchcardsPointerList;
       'branchcards.reach-us-cards': BranchcardsReachUsCards;

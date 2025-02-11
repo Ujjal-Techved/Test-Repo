@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_about_us_milestone_lists",
+  "info": {
+    "displayName": "MilestoneList"
+  },
+  "options": {},
+  "attributes": {
+    "Year": {
+      "type": "string"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}

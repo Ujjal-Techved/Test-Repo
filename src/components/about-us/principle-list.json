@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_about_us_principle_lists",
+  "info": {
+    "displayName": "PrincipleList"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

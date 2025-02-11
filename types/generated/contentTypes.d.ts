@@ -381,24 +381,32 @@ export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    Awards: Schema.Attribute.Component<'about-us.awards', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Image: Schema.Attribute.Media<'images'>;
     InfoStrip: Schema.Attribute.Component<'about-us.info-strip', false>;
+    LeadersSection: Schema.Attribute.Component<
+      'about-us.leaders-section',
+      false
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::about-us.about-us'
     > &
       Schema.Attribute.Private;
+    Milestone: Schema.Attribute.Component<'about-us.milestone', false>;
     OurJourney: Schema.Attribute.Component<'home-page.life-insurance', false>;
     PageDesc: Schema.Attribute.String;
     PageDesc2: Schema.Attribute.String;
     PageTitle: Schema.Attribute.String;
     PageUrl: Schema.Attribute.String;
     Partners: Schema.Attribute.Component<'about-us.partners', false>;
+    Principles: Schema.Attribute.Component<'about-us.principles', false>;
     publishedAt: Schema.Attribute.DateTime;
+    Reports: Schema.Attribute.Component<'about-us.reports', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

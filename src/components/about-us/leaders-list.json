@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_about_us_leaders_lists",
+  "info": {
+    "displayName": "LeadersList"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Board of Directors",
+        "Key Management Person"
+      ]
+    }
+  }
+}

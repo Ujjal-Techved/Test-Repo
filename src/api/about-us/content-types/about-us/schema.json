@@ -47,6 +47,36 @@
       "type": "component",
       "repeatable": false,
       "component": "about-us.partners"
+    },
+    "Principles": {
+      "displayName": "Principles",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.principles"
+    },
+    "LeadersSection": {
+      "displayName": "LeadersSection",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.leaders-section"
+    },
+    "Reports": {
+      "displayName": "Reports",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.reports"
+    },
+    "Awards": {
+      "displayName": "Awards",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.awards"
+    },
+    "Milestone": {
+      "displayName": "Milestone",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.milestone"
     }
   }
 }
