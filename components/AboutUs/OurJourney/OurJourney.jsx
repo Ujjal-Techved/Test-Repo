@@ -1,17 +1,15 @@
-import React from 'react';
-import styles from './LifeInsurance.module.css';
-import { Col, Container, Row } from 'reactstrap';
-import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
+import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle'
+import React from 'react'
+import { Col, Container, Row } from 'reactstrap'
+import styles from './OurJourney.module.css'
 
-const LifeInsurance = ({insuranceData}) => {
-   
-
-    return (
-        <div>
+const OurJourney = ({insuranceData}) => {
+  return (
+    <div>
             <Container>
                 <TitleSubtitle
-                    title={"Future Generali India Life Insurance"}
-                    subtitle={"offers easy-to-understand plans tailored for protection, savings, investments, and health, ensuring your financial peace of mind."}
+                    title={"Our Journey in Numbers"}
+                    subtitle={"Proven Credentials, Consistent Performance, Pedigree Investors"}
                 />
                 <Row className={styles.life_insure_row}>
                     {insuranceData.map((item, index) => (
@@ -26,7 +24,7 @@ const LifeInsurance = ({insuranceData}) => {
                 </Row>
             </Container>
         </div>
-    );
+  )
 }
 
-export default LifeInsurance;
+export default OurJourney

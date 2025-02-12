@@ -1,19 +1,18 @@
 import React from 'react'
-import styles from './ProtectPlan.module.css'
 import { Col, Container, Row } from 'reactstrap'
+import styles from './MediaCenter.module.css'
 import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle'
 
-const ProtectPlan = ({protectplanData}) => {
-
+const MediaCenter = ({mediacenterData}) => {
     return (
         <div>
             <Container>
                 <TitleSubtitle
-                    title={"Start Protecting What Matters Most in Your Life"}
-                    subtitle={"We help you build a worry free future with easy processes and expert guidance at every step"}
+                    title={"Media Centre"}
+                    subtitle={"Your go-to hub for news, updates, and insights"}
                 />
                 <Row className={styles.protect_plan_row}>
-                    {protectplanData.map((item, index) => (
+                    {mediacenterData.map((item, index) => (
                         <Col lg="4" md="12" className={styles.protect_plan_col}>
                             <div className={styles.protect_plan_Card}>
                                 <span>{item.title}</span>
@@ -33,4 +32,4 @@ const ProtectPlan = ({protectplanData}) => {
     )
 }
 
-export default ProtectPlan
+export default MediaCenter

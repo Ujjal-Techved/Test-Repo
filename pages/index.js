@@ -64,6 +64,29 @@ export default function Home() {
         }
     ];
 
+     // Array for FGLI life Insurance
+     const insuranceData = [
+        {
+            imgSrc: 'images/home/branches.png',
+            value: '1366',
+            text: 'Self & Partner Branches',
+        },
+        {
+            imgSrc: 'images/home/livecovered.png',
+            value: '1.6 Mn+',
+            text: 'Lives Covered Since Inception',
+        },
+        {
+            imgSrc: 'images/home/asset.png',
+            value: '₹79.58 Bn',
+            text: 'Worth of Asset Under Management',
+        },
+        {
+            imgSrc: 'images/home/claims.png',
+            value: '96.08%',
+            text: 'Claims Settlement Ratio',
+        }
+    ];
 
     // Array for choosegoal data
     const choosegoalData = [
@@ -390,6 +413,36 @@ export default function Home() {
         },
     ];
 
+
+      // Array of protecting life data
+      const protectplanData = [
+        {
+            title: 'Explore Plans',
+            subtitle: 'Browse our wide range of insurance options.',
+            imgSrc: 'images/home/exploreplans.png',
+            LinkText: 'Explore Plans',
+            Link: '/',
+
+        },
+        {
+            title: 'Consult an Advisor',
+            subtitle: 'Speak to our expert advisors for guidance.',
+            imgSrc: 'images/home/ConsultanAdvisor.png',
+            LinkText: 'Talk to an Advisor',
+            Link: '/',
+
+        },
+        {
+            title: 'Secure your policy',
+            subtitle: 'Complete your application and relax with peace of mind.',
+            imgSrc: 'images/home/secureyourpolicy.png',
+            LinkText: 'Calculate Premium',
+            Link: '/',
+
+        }
+
+    ];
+
     // Our Teammember Tabs array data
 
     const teamMemberstabs = [
@@ -558,14 +611,14 @@ export default function Home() {
             <CommonChatbot />
             <HomeBanner />
             <BeststageOption stageOptionsData={stageOptionsData} />
-            <LifeInsurance />
+            <LifeInsurance insuranceData={insuranceData} />
             <WhatisGenrali />
             <WhylifeInsurance />
             <ChooseGoal choosegoalData={choosegoalData} />
             <TypesofInsurance />
             <RequestCallback />
             <CoverageOption coveragetabs={coveragetabs} coverageplansData={coverageplansData} />
-            <ProtectPlan />
+            <ProtectPlan protectplanData={protectplanData} />
             <OurCustomer teamMemberstabs={teamMemberstabs} teamMemberData={teamMemberData} />
             <InvestPlan />
             <Faqs faqItems={faqData}

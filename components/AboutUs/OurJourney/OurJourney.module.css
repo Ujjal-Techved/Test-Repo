@@ -1,0 +1,68 @@
+.life_insure_row{
+    padding: 48px 0px;
+}
+
+.life_insure_col{
+    display: flex;
+}
+
+.life_insure_Card {
+    border: 1px solid var(--fgi-borderdarkgrey);
+    box-shadow: 0px 0px 40px 0px var(--fgi-faqShadow);
+    border-radius: 24px;
+    padding: 20px 9px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 40px;
+    justify-content: space-between;
+}
+
+.life_insure_Card img{
+    margin-top: -60px;
+    width: 125px;
+    height: 125px;
+    object-fit: none;
+}
+
+.life_insure_Card span{
+    font-size: 32px;
+    line-height: 40px;
+    font-family: 'Helvetica-700';
+    color: var(--fgi-red);
+    padding: 8px 0px;
+    
+}
+
+.life_insure_Card p{
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica-500';
+    color: var(--fgi-black);
+    text-align: center;
+}
+
+
+@media screen and (max-width: 991.2px) and (min-width: 320px) {
+
+    .life_insure_row{
+        padding: 24px 0px 0px
+    }
+    .life_insure_Card img{
+        margin-top: -54px;
+        width: 85px;
+        height: 85px;
+        object-fit: contain;
+    }
+    .life_insure_Card span{
+        font-size:28px;
+        line-height: 32px;
+        padding: 4px 0px;
+        
+    }
+    .life_insure_Card p{
+        font-size: 12px;
+        line-height: 16px;
+    }
+}
