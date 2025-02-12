@@ -25,6 +25,35 @@ export interface AboutUsAwardsList extends Struct.ComponentSchema {
   };
 }
 
+export interface AboutUsCorporateSocial extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_corporate_socials';
+  info: {
+    displayName: 'CorporateSocial';
+  };
+  attributes: {
+    CorporateSocialCards: Schema.Attribute.Component<
+      'about-us.corporate-social-cards',
+      true
+    >;
+    Description: Schema.Attribute.Text;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsCorporateSocialCards extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_corporate_social_cards';
+  info: {
+    displayName: 'CorporateSocialCards';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images'>;
+    LinkText: Schema.Attribute.String;
+    LinkUrl: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
+  };
+}
+
 export interface AboutUsInfoStrip extends Struct.ComponentSchema {
   collectionName: 'components_about_us_info_strips';
   info: {
@@ -61,6 +90,31 @@ export interface AboutUsLeadersSection extends Struct.ComponentSchema {
     Description: Schema.Attribute.Text;
     LeadersList: Schema.Attribute.Component<'about-us.leaders-list', true>;
     LinkUrl: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsMediaCard extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_media_cards';
+  info: {
+    displayName: 'MediaCard';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images'>;
+    LinkUrl: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsMediaCenter extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_media_centers';
+  info: {
+    displayName: 'MediaCenter';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    MediaCard: Schema.Attribute.Component<'about-us.media-card', true>;
     Title: Schema.Attribute.String;
   };
 }
@@ -672,9 +726,13 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'about-us.awards': AboutUsAwards;
       'about-us.awards-list': AboutUsAwardsList;
+      'about-us.corporate-social': AboutUsCorporateSocial;
+      'about-us.corporate-social-cards': AboutUsCorporateSocialCards;
       'about-us.info-strip': AboutUsInfoStrip;
       'about-us.leaders-list': AboutUsLeadersList;
       'about-us.leaders-section': AboutUsLeadersSection;
+      'about-us.media-card': AboutUsMediaCard;
+      'about-us.media-center': AboutUsMediaCenter;
       'about-us.milestone': AboutUsMilestone;
       'about-us.milestone-list': AboutUsMilestoneList;
       'about-us.partners': AboutUsPartners;

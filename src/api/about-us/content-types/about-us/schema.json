@@ -21,7 +21,7 @@
     "PageDesc": {
       "type": "string"
     },
-    "PageDesc2": {
+    "PageDescSecondary": {
       "type": "string"
     },
     "Image": {
@@ -77,6 +77,18 @@
       "type": "component",
       "repeatable": false,
       "component": "about-us.milestone"
+    },
+    "MediaCenter": {
+      "displayName": "MediaCenter",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.media-center"
+    },
+    "CorporateSocial": {
+      "displayName": "CorporateSocial",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.corporate-social"
     }
   }
 }

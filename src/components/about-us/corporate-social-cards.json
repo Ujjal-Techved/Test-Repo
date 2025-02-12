@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_about_us_corporate_social_cards",
+  "info": {
+    "displayName": "CorporateSocialCards"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "LinkText": {
+      "type": "string"
+    },
+    "LinkUrl": {
+      "type": "string"
+    }
+  }
+}

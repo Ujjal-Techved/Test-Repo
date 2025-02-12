@@ -382,6 +382,10 @@ export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Awards: Schema.Attribute.Component<'about-us.awards', false>;
+    CorporateSocial: Schema.Attribute.Component<
+      'about-us.corporate-social',
+      false
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -397,6 +401,7 @@ export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
       'api::about-us.about-us'
     > &
       Schema.Attribute.Private;
+    MediaCenter: Schema.Attribute.Component<'about-us.media-center', false>;
     Milestone: Schema.Attribute.Component<'about-us.milestone', false>;
     OurJourney: Schema.Attribute.Component<'home-page.life-insurance', false>;
     PageDesc: Schema.Attribute.String;

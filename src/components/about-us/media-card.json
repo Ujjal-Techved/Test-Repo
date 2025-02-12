@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_about_us_media_cards",
+  "info": {
+    "displayName": "MediaCard"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "LinkUrl": {
+      "type": "string"
+    }
+  }
+}
