@@ -43,6 +43,7 @@ export interface AboutUsCorporateSocial extends Struct.ComponentSchema {
 export interface AboutUsCorporateSocialCards extends Struct.ComponentSchema {
   collectionName: 'components_about_us_corporate_social_cards';
   info: {
+    description: '';
     displayName: 'CorporateSocialCards';
   };
   attributes: {
@@ -50,7 +51,7 @@ export interface AboutUsCorporateSocialCards extends Struct.ComponentSchema {
     Image: Schema.Attribute.Media<'images'>;
     LinkText: Schema.Attribute.String;
     LinkUrl: Schema.Attribute.String;
-    Title: Schema.Attribute.String;
+    Title: Schema.Attribute.Text;
   };
 }
 

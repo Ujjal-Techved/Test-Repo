@@ -405,13 +405,13 @@ export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
     Milestone: Schema.Attribute.Component<'about-us.milestone', false>;
     OurJourney: Schema.Attribute.Component<'home-page.life-insurance', false>;
     PageDesc: Schema.Attribute.String;
-    PageDesc2: Schema.Attribute.String;
     PageTitle: Schema.Attribute.String;
     PageUrl: Schema.Attribute.String;
     Partners: Schema.Attribute.Component<'about-us.partners', false>;
     Principles: Schema.Attribute.Component<'about-us.principles', false>;
     publishedAt: Schema.Attribute.DateTime;
     Reports: Schema.Attribute.Component<'about-us.reports', false>;
+    SecondaryDescription: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

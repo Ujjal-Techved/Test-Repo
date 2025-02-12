@@ -21,9 +21,6 @@
     "PageDesc": {
       "type": "string"
     },
-    "PageDescSecondary": {
-      "type": "string"
-    },
     "Image": {
       "type": "media",
       "multiple": false,
@@ -89,6 +86,9 @@
       "type": "component",
       "repeatable": false,
       "component": "about-us.corporate-social"
+    },
+    "SecondaryDescription": {
+      "type": "text"
     }
   }
 }
