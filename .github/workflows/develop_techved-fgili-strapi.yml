@@ -19,12 +19,10 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
-          node-version: '20.x'
+          node-version: '20.15.1'
           
       - name: npm install, build, and test
         run: |
-          npm install -g npm@11
-          rm -rf node_modules
           npm install
           npm run build --if-present
           npm run test --if-present
@@ -60,5 +58,5 @@ jobs:
         with:
           app-name: 'techved-fgili-strapi'
           slot-name: 'Production'
-          package: .
+          package: release.zip
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BEF8D85CFD914D7EB47A88CC8268D2C3 }}
