@@ -628,6 +628,61 @@ export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiProductListingProductListing
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'product_listings';
+  info: {
+    description: '';
+    displayName: 'ProductListing';
+    pluralName: 'product-listings';
+    singularName: 'product-listing';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ComparePlans: Schema.Attribute.Component<
+      'product-listing.compare-plans',
+      false
+    >;
+    CoverageBenefits: Schema.Attribute.Component<
+      'product-listing.coverage-benefits',
+      true
+    >;
+    CoverageOptions: Schema.Attribute.Component<
+      'home-page.coverage-options',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Faq_Section: Schema.Attribute.Component<'common.faq-section', false>;
+    Image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-listing.product-listing'
+    > &
+      Schema.Attribute.Private;
+    PageDesc: Schema.Attribute.Text;
+    PageTitle: Schema.Attribute.String;
+    PageUrl: Schema.Attribute.String;
+    PolicyTypes: Schema.Attribute.Component<
+      'product-listing.policy-types',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    ReviewSection: Schema.Attribute.Component<'common.review-section', false>;
+    TopSellingProducts: Schema.Attribute.Component<
+      'home-page.coverage-options',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1143,6 +1198,7 @@ declare module '@strapi/strapi' {
       'api::career.career': ApiCareerCareer;
       'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::product-listing.product-listing': ApiProductListingProductListing;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

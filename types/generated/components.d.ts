@@ -590,12 +590,14 @@ export interface HomePageChooseGoal extends Struct.ComponentSchema {
 export interface HomePageCoverageCard extends Struct.ComponentSchema {
   collectionName: 'components_home_page_coverage_cards';
   info: {
+    description: '';
     displayName: 'CoverageCard';
   };
   attributes: {
+    BadgeText: Schema.Attribute.String;
     Brand: Schema.Attribute.String;
     Category: Schema.Attribute.Enumeration<
-      ['Featured', 'Term', 'Saving', 'ULIP', 'Group', 'Retirement']
+      ['Featured', 'Term', 'Saving', 'ULIP', 'Group', 'Retirement', 'Child']
     >;
     Description: Schema.Attribute.Text;
     KnowMoreLink: Schema.Attribute.String;
@@ -722,6 +724,89 @@ export interface HomePageWhyLife extends Struct.ComponentSchema {
   };
 }
 
+export interface ProductListingBenefitsList extends Struct.ComponentSchema {
+  collectionName: 'components_product_listing_benefits_lists';
+  info: {
+    displayName: 'BenefitsList';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface ProductListingComparePlans extends Struct.ComponentSchema {
+  collectionName: 'components_product_listing_compare_plans';
+  info: {
+    displayName: 'ComparePlans';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    PlanList: Schema.Attribute.Component<'product-listing.plan-list', true>;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface ProductListingCoverageBenefits extends Struct.ComponentSchema {
+  collectionName: 'components_product_listing_coverage_benefits';
+  info: {
+    displayName: 'CoverageBenefits';
+  };
+  attributes: {
+    BenefitsList: Schema.Attribute.Component<
+      'product-listing.benefits-list',
+      true
+    >;
+    Category: Schema.Attribute.Enumeration<
+      ['Featured', 'Term', 'Saving', 'ULIP', 'Group', 'Retirement', 'Child']
+    >;
+    Description: Schema.Attribute.Text;
+  };
+}
+
+export interface ProductListingPlanList extends Struct.ComponentSchema {
+  collectionName: 'components_product_listing_plan_lists';
+  info: {
+    description: '';
+    displayName: 'PlanList';
+  };
+  attributes: {
+    DeathBenefits: Schema.Attribute.Boolean;
+    Description: Schema.Attribute.Text;
+    IdealFor: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images'>;
+    MaturityBenefits: Schema.Attribute.Boolean;
+    RiderLocations: Schema.Attribute.Boolean;
+    TaxBenefits: Schema.Attribute.Boolean;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface ProductListingPolicyList extends Struct.ComponentSchema {
+  collectionName: 'components_product_listing_policy_lists';
+  info: {
+    displayName: 'PolicyList';
+  };
+  attributes: {
+    Coverage: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images'>;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface ProductListingPolicyTypes extends Struct.ComponentSchema {
+  collectionName: 'components_product_listing_policy_types';
+  info: {
+    description: '';
+    displayName: 'PolicyTypes';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    PolicyList: Schema.Attribute.Component<'product-listing.policy-list', true>;
+    Title: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -780,6 +865,12 @@ declare module '@strapi/strapi' {
       'home-page.what-is': HomePageWhatIs;
       'home-page.what-stage': HomePageWhatStage;
       'home-page.why-life': HomePageWhyLife;
+      'product-listing.benefits-list': ProductListingBenefitsList;
+      'product-listing.compare-plans': ProductListingComparePlans;
+      'product-listing.coverage-benefits': ProductListingCoverageBenefits;
+      'product-listing.plan-list': ProductListingPlanList;
+      'product-listing.policy-list': ProductListingPolicyList;
+      'product-listing.policy-types': ProductListingPolicyTypes;
     }
   }
 }

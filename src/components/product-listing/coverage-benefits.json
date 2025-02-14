@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_product_listing_coverage_benefits",
+  "info": {
+    "displayName": "CoverageBenefits"
+  },
+  "options": {},
+  "attributes": {
+    "Description": {
+      "type": "text"
+    },
+    "BenefitsList": {
+      "displayName": "BenefitsList",
+      "type": "component",
+      "repeatable": true,
+      "component": "product-listing.benefits-list"
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Featured",
+        "Term",
+        "Saving",
+        "ULIP",
+        "Group",
+        "Retirement",
+        "Child"
+      ]
+    }
+  }
+}

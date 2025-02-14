@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_listings",
+  "info": {
+    "singularName": "product-listing",
+    "pluralName": "product-listings",
+    "displayName": "ProductListing",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PageUrl": {
+      "type": "string"
+    },
+    "PageTitle": {
+      "type": "string"
+    },
+    "PageDesc": {
+      "type": "text"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "TopSellingProducts": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.coverage-options"
+    },
+    "PolicyTypes": {
+      "displayName": "PolicyTypes",
+      "type": "component",
+      "repeatable": false,
+      "component": "product-listing.policy-types"
+    },
+    "CoverageOptions": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.coverage-options"
+    },
+    "CoverageBenefits": {
+      "displayName": "CoverageBenefits",
+      "type": "component",
+      "repeatable": true,
+      "component": "product-listing.coverage-benefits"
+    },
+    "ComparePlans": {
+      "displayName": "ComparePlans",
+      "type": "component",
+      "repeatable": false,
+      "component": "product-listing.compare-plans"
+    },
+    "ReviewSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.review-section"
+    },
+    "Faq_Section": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.faq-section"
+    }
+  }
+}

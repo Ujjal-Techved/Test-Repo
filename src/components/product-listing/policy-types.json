@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_product_listing_policy_types",
+  "info": {
+    "displayName": "PolicyTypes",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "PolicyList": {
+      "displayName": "PolicyList",
+      "type": "component",
+      "repeatable": true,
+      "component": "product-listing.policy-list"
+    }
+  }
+}
