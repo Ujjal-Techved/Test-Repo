@@ -6,51 +6,15 @@ import styles from './TypesofInsurance.module.css';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-const insuranceTypes = [
-    {
-        title: "Retirement",
-        description: "Ensure financial security post-retirement with steady income for a worry-free future",
-        image: "images/home/Retirement.png",
-        link: "/"
-    },
-    {
-        title: "Savings",
-        description: "Build guaranteed funds to meet financial needs and achieve your future goals",
-        image: "images/home/Savings.png",
-        link: "/"
-    },
-    {
-        title: "Group",
-        description: "Comprehensive life insurance benefits for groups, employees, or organization members",
-        image: "images/home/Group.png",
-        link: "/"
-    },
-    {
-        title: "Term",
-        description: "Secure your family's future with pure protection against life’s uncertainties",
-        image: "images/home/Term.png",
-        link: "/"
-    },
-    {
-        title: "Retirement",
-        description: "Ensure financial security post-retirement with steady income for a worry-free future",
-        image: "images/home/Retirement.png",
-        link: "/"
-    },
-    {
-        title: "Savings",
-        description: "Build guaranteed funds to meet financial needs and achieve your future goals",
-        image: "images/home/Savings.png",
-        link: "/"
-    },
-];
+const TypesofInsurance = ({insurancetypesData}) => {
 
+    
 const sliderSettings = {
     arrows:false,
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 4.2, // Changed from 3.2 to 3
+    slidesToShow: 4.2,
     slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 3000,
@@ -80,8 +44,6 @@ const sliderSettings = {
     ]
 };
 
-
-const TypesofInsurance = () => {
     return (
         <div className="types-insurance-wrapper">
             <Container>
@@ -90,7 +52,7 @@ const TypesofInsurance = () => {
                     subtitle="Find the plan that fits your needs and secures your future"
                 />
                 <Slider {...sliderSettings} className={styles.slider}>
-                    {insuranceTypes.map((type, index) => (
+                    {insurancetypesData.map((type, index) => (
                         <div key={index} className={styles.types_insurance_cards}>
                             <span>{type.title}</span>
                             <p>{type.description}</p>

@@ -8,6 +8,7 @@ import OurJourney from '@/components/AboutUs/OurJourney/OurJourney'
 import PartnerFuturegroup from '@/components/AboutUs/PartnerFuturegroup/PartnerFuturegroup'
 import MediaCenter from '@/components/AboutUs/MediaCenter/MediaCenter'
 import ReportsDiscloser from '@/components/AboutUs/ReportsDisclousures/ReportsDiscloser'
+import Awards from '@/components/AboutUs/Awards/Awards'
 
 const Aboutus = () => {
 
@@ -95,6 +96,31 @@ const Aboutus = () => {
         }
     ];
 
+     // Array Types of Award and Recognisation
+
+     const awardData = [
+        {
+            title: "Awarded the Fastest Growing Insurance Company of 2024 by ASSOCHAM",
+            description: "Future Generali India Life Insurance has been awarded the Fastest Growing Insurance Company of 2024 at the 6th edition of ASSOCHAM Insurance Leaders Meet 2024 & Excellence Awards.",
+            image: "images/about-us/award.png",
+        },
+        {
+            title: "Awarded the Fastest Growing Insurance Company of 2024 by ASSOCHAM",
+            description: "Future Generali India Life Insurance has been awarded the Fastest Growing Insurance Company of 2024 at the 6th edition of ASSOCHAM Insurance Leaders Meet 2024 & Excellence Awards.",
+            image: "images/about-us/award.png",
+        },
+        {
+            title: "Awarded the Fastest Growing Insurance Company of 2024 by ASSOCHAM",
+            description: "Future Generali India Life Insurance has been awarded the Fastest Growing Insurance Company of 2024 at the 6th edition of ASSOCHAM Insurance Leaders Meet 2024 & Excellence Awards.",
+            image: "images/about-us/award.png",
+        },
+        {
+            title: "Awarded the Fastest Growing Insurance Company of 2024 by ASSOCHAM",
+            description: "Future Generali India Life Insurance has been awarded the Fastest Growing Insurance Company of 2024 at the 6th edition of ASSOCHAM Insurance Leaders Meet 2024 & Excellence Awards.",
+            image: "images/about-us/award.png",
+        },
+    ];
+
       // Array of Media Center data
       const mediacenterData = [
         {
@@ -127,6 +153,7 @@ const Aboutus = () => {
                 <OurJourney insuranceData={insuranceData}/>
                 <PartnerFuturegroup/>
                 <ReportsDiscloser reportsData={reportsData}/>
+                <Awards awardData={awardData}/>
                 <MediaCenter mediacenterData={mediacenterData}/>
             </div>
         </LandingLayout>

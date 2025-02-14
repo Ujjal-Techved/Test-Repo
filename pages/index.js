@@ -443,6 +443,47 @@ export default function Home() {
 
     ];
 
+    // Array Types of Life Insurance
+
+    const insurancetypesData = [
+        {
+            title: "Retirement",
+            description: "Ensure financial security post-retirement with steady income for a worry-free future",
+            image: "images/home/Retirement.png",
+            link: "/"
+        },
+        {
+            title: "Savings",
+            description: "Build guaranteed funds to meet financial needs and achieve your future goals",
+            image: "images/home/Savings.png",
+            link: "/"
+        },
+        {
+            title: "Group",
+            description: "Comprehensive life insurance benefits for groups, employees, or organization members",
+            image: "images/home/Group.png",
+            link: "/"
+        },
+        {
+            title: "Term",
+            description: "Secure your family's future with pure protection against life’s uncertainties",
+            image: "images/home/Term.png",
+            link: "/"
+        },
+        {
+            title: "Retirement",
+            description: "Ensure financial security post-retirement with steady income for a worry-free future",
+            image: "images/home/Retirement.png",
+            link: "/"
+        },
+        {
+            title: "Savings",
+            description: "Build guaranteed funds to meet financial needs and achieve your future goals",
+            image: "images/home/Savings.png",
+            link: "/"
+        },
+    ];
+
     // Our Teammember Tabs array data
 
     const teamMemberstabs = [
@@ -615,7 +656,7 @@ export default function Home() {
             <WhatisGenrali />
             <WhylifeInsurance />
             <ChooseGoal choosegoalData={choosegoalData} />
-            <TypesofInsurance />
+            <TypesofInsurance  insurancetypesData={insurancetypesData}/>
             <RequestCallback />
             <CoverageOption coveragetabs={coveragetabs} coverageplansData={coverageplansData} />
             <ProtectPlan protectplanData={protectplanData} />
