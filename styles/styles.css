@@ -137,7 +137,7 @@ body.over-hide {
     align-items: flex-start;
 }
 
-.show-more{
+.show-more {
     font-size: 16px;
     line-height: 24px;
     font-family: 'Helvetica-500';
@@ -370,11 +370,76 @@ body.over-hide {
     padding: 70px 0px 0px 0px !important;
 }
 
-.best-stageoption-wrapper.no-slickinit{
+.best-stageoption-wrapper.no-slickinit {
     display: flex;
     /* flex-wrap: wrap; */
     padding-top: 60px;
 }
+
+.social-res-wrapper .slick-arrow {
+    border: 1px solid var(--fgi-red);
+    background: #ffdcd9;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    
+}
+
+.social-res-wrapper .slick-arrow.slick-disabled {
+    background: rgb(245, 245, 245);
+    border: 1px solid #B0B2B3;
+}
+
+.social-res-wrapper .slick-arrow.slick-prev::before,
+.social-res-wrapper .slick-arrow.slick-next::before{
+    content: '';
+}
+
+.social-res-wrapper .slick-arrow.slick-prev::before{
+    content: '';
+    border: solid var(--fgi-red);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 4px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    margin-left: 4px;
+}
+
+.social-res-wrapper .slick-arrow.slick-next::before{
+    content: '';
+    border: solid var(--fgi-red);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 4px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.social-res-wrapper .slick-arrow.slick-prev.slick-disabled::before {
+    content: '';
+    border: solid #B0B2B3;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 4px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    margin-left: 4px;
+}
+
+.social-res-wrapper .slick-arrow.slick-next.slick-disabled::before {
+    content: '';
+    border: solid #B0B2B3;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 4px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    /* margin-left: 4px; */
+}
+
 
 
 @media screen and (max-width: 991.2px) and (min-width: 320px) {
@@ -431,7 +496,7 @@ body.over-hide {
     .guide-btn:not(:last-child) {
         padding-bottom: 8px;
     }
-    
+
 
     /* Common Input Field */
     .fgi-common-input {
@@ -507,22 +572,22 @@ body.over-hide {
         padding: 40px 0px 0px 0px !important;
     }
 
-    .best-stageoption-wrapper.no-slickinit > div{
+    .best-stageoption-wrapper.no-slickinit>div {
         display: flex;
         flex-wrap: wrap;
     }
 
-    .best-stageoption-wrapper.no-slickinit{
+    .best-stageoption-wrapper.no-slickinit {
         display: flex;
         flex-wrap: wrap;
         padding-top: 30px;
         justify-content: center;
     }
-    
+
     .types-insurance-wrapper.awards .slick-track .slick-slide {
         padding: 8px;
     }
-    
+
 
 
 }
