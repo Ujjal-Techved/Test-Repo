@@ -9,6 +9,8 @@ import PartnerFuturegroup from '@/components/AboutUs/PartnerFuturegroup/PartnerF
 import MediaCenter from '@/components/AboutUs/MediaCenter/MediaCenter'
 import ReportsDiscloser from '@/components/AboutUs/ReportsDisclousures/ReportsDiscloser'
 import Awards from '@/components/AboutUs/Awards/Awards'
+import SocialResponsibility from '@/components/AboutUs/SocialResponsibility/SocialResponsibility'
+import Leaders from '@/components/AboutUs/Leaders/Leaders'
 
 const Aboutus = () => {
 
@@ -152,9 +154,11 @@ const Aboutus = () => {
                 <LegacyTrust/>
                 <OurJourney insuranceData={insuranceData}/>
                 <PartnerFuturegroup/>
+                <Leaders/>
                 <ReportsDiscloser reportsData={reportsData}/>
                 <Awards awardData={awardData}/>
                 <MediaCenter mediacenterData={mediacenterData}/>
+                <SocialResponsibility/>
             </div>
         </LandingLayout>
     )
