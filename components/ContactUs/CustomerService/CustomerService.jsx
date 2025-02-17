@@ -1,78 +1,47 @@
-import React from 'react';
-import styles from './CustomerService.module.css';
-import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
-import { Col, Container, Row } from 'reactstrap';
+// Import required dependencies
+import React from 'react'; // Import React for functional component
+import styles from './CustomerService.module.css'; // Import CSS module for component-specific styling
+import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle'; // Import reusable title and subtitle component
+import { Col, Container, Row } from 'reactstrap'; // Import Bootstrap components for responsive layout
 
-const serviceData = [
-    {
-        title: "Premium Payment",
-        icon: "/images/contact-us/payment.svg",
-        links: [
-            { text: "Pay Your Premium Online", href: "/pay-online" },
-            { text: "Pay by Phone", href: "/pay-phone" },
-            { text: "Pay at Branch/ Authorised Centers", href: "/pay-branch" },
-            { text: "Pay Using Auto Debit", href: "/pay-auto-debit" },
-            { text: "Good Health Declaration", href: "/good-health-declaration" }
-        ]
-    },
-    {
-        title: "Self Service Transactions",
-        icon: "/images/contact-us/transactions.svg",
-        links: [
-            { text: "Track Your Claim", href: "/track-claim" },
-            { text: "Track Your Application", href: "/track-application" },
-            { text: "Renewal Receipt", href: "/renewal-receipt" },
-            { text: "Unit Statement", href: "/unit-statement" },
-            { text: "Premium Paid Certificate", href: "/premium-certificate" },
-            { text: "Revival Quotation", href: "/revival-quotation" },
-            { text: "Unclaimed Amount", href: "/unclaimed-amount" },
-            { text: "Update PAN Number", href: "/update-pan" },
-            { text: "Download FG Life App", href: "/download-fg-life-app" },
-            { text: "Get Policy", href: "/get-policy" }
-        ]
-    },
-    {
-        title: "Service Tools",
-        icon: "/images/contact-us/tools.svg",
-        links: [
-            { text: "Download Forms", href: "/download-forms" },
-            { text: "Enquiry Form", href: "/enquiry-form" },
-            { text: "New Business Underwriting Forms", href: "/new-business-forms" },
-            { text: "Group Business Form", href: "/group-business-form" }
-        ]
-    },
-    {
-        title: "Service Guarantee & Complaints",
-        icon: "/images/contact-us/complaints.svg",
-        links: [
-            { text: "Service Guarantee/Turn Around Time (TAT)", href: "/service-guarantee" },
-            { text: "Complaints/Grievance Redressal Procedure", href: "/complaints-procedure" }
-        ]
-    }
-];
-
-const CustomerService = () => {
+// Functional component to display the "Customer Service" section
+const CustomerService = ({ csData }) => {
     return (
-        <div className={styles.Customer_wrapper}>
-            <Container className='mt-negative'>
+        <div className={styles.Customer_wrapper}> {/* Wrapper div for styling */}
+            <Container className='mt-negative'> {/* Bootstrap container with custom margin class */}
                 <div>
+                    {/* Display Title and Subtitle dynamically from csData props */}
                     <TitleSubtitle
-                        title={"Customer Service"}
-                        subtitle={"Find what you need with our easy-to-access resources and support"}
+                        title={csData?.Title} // Fetch title from props
+                        subtitle={csData?.Description} // Fetch description from props
                     />
-                    {serviceData.map((service, index) => (
-                        <div key={index} className={styles.service_cards_main}>
+
+                    {/* Map through the list of service categories */}
+                    {csData?.CategoryList?.map((service, index) => (
+                        <div key={index} className={styles.service_cards_main}> {/* Service category wrapper */}
+                            
+                            {/* Service category title and image */}
                             <div className={styles.service_cards_title}>
-                                <img src={service.icon} alt={service.title} />
-                                <h4>{service.title}</h4>
+                                <img 
+                                    src={process.env.NEXT_PUBLIC_APP_API + service?.Image?.url} // Fetch image dynamically
+                                    alt={service.title} // Alternative text for accessibility
+                                />
+                                <h4>{service.Title}</h4> {/* Display service category title */}
                             </div>
+
+                            {/* List of service links within each category */}
                             <Row className={styles.service_card_list}>
-                                {service.links.map((link, idx) => (
-                                    <Col key={idx} lg='4' xs='12'>
-                                        <a href={link.href}>{link.text} <img src='/images/reach-us/arrow-right.svg' alt='arrow' /></a>
+                                {service?.ListItem?.map((link, idx) => (
+                                    <Col key={idx} lg='4' xs='12'> {/* 4-column layout on large screens, full width on small screens */}
+                                        {/* Clickable service link with right arrow icon */}
+                                        <a href={link.LinkUrl}>
+                                            {link.LinkText} {/* Display link text dynamically */}
+                                            <img src='/images/reach-us/arrow-right.svg' alt='arrow' /> {/* Arrow icon */}
+                                        </a>
                                     </Col>
                                 ))}
                             </Row>
+
                         </div>
                     ))}
                 </div>
@@ -81,4 +50,4 @@ const CustomerService = () => {
     );
 }
 
-export default CustomerService;
+export default CustomerService; // Export the component for use in other parts of the application

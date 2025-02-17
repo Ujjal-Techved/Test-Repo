@@ -1,25 +1,36 @@
-import React from 'react';
-import styles from './IrdaSection.module.css'
-import { Container } from 'reactstrap';
+// Import required dependencies
+import React from 'react'; // Import React for functional component
+import styles from './IrdaSection.module.css'; // Import CSS module for component-specific styling
+import { Container } from 'reactstrap'; // Import Bootstrap container for layout
 
+// Functional component to display the IRDA section
 const IrdaSection = () => {
     return (
-        <Container>
-            <div className={styles.IrdaContainer}>
+        <div className={styles.IrdaContainer}> {/* Wrapper div for IRDA section styling */}
+            <Container> {/* Bootstrap container for responsive layout */}
+                
+                {/* IRDA Logo Image */}
+                <img 
+                    className='mb-3 img-fluid' // Margin bottom and responsive image class
+                    src='/images/contact-us/irda.svg' // Static image source for IRDA
+                    alt='irda' // Alternative text for accessibility
+                />
 
-                <img className='mb-lg-0 mb-3 img-fluid' src='/images/contact-us/irda.svg' alt='irda' />
-                <div>
-                    <p>License Category: <span>Life</span></p>
-                    <p className='mb-lg-0 mb-3'>CIN:- <span>U66010MH2006PLC165288</span></p>
-                </div>
-                <div>
-                    <p>IRDAI Registration No: <span>133</span></p>
-                    <p>(Validity 31st March 2025)</p>
-                </div>
+                {/* Display License Category */}
+                <p>License Category: <span>Life</span></p>
 
-            </div>
-        </Container>
-    )
+                {/* Display CIN (Corporate Identity Number) */}
+                <p className='mb-3'>CIN:- <span>U66010MH2006PLC165288</span></p>
+
+                {/* Display IRDAI Registration Number */}
+                <p>IRDAI Registration No: <span>133</span></p>
+
+                {/* Display Validity Date */}
+                <p>(Validity 31st March 2025)</p>
+
+            </Container>
+        </div>
+    );
 }
 
-export default IrdaSection
+export default IrdaSection; // Export the component for use in other parts of the application
