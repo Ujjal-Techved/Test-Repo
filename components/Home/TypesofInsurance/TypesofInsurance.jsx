@@ -6,58 +6,71 @@ import styles from './TypesofInsurance.module.css';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-const TypesofInsurance = ({insurancetypesData}) => {
+const TypesofInsurance = ({ insurancetypesData }) => {
 
+    // Prevent rendering if `insurancetypesData` is missing
+    if (!insurancetypesData) {
+        return null;
+    }
+
+    // Destructure API response data for cleaner code
+    const { Title, Description, CardList } = insurancetypesData?.TypeInsurance;
     
-const sliderSettings = {
-    arrows:false,
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4.2,
-    slidesToScroll: 1,
-    autoplay: false,
-    autoplaySpeed: 3000,
-    // centerMode: true,  // Ensures the first slide is properly aligned
-    // centerPadding: "30px", // Adds padding on the left and right for visibility
-    responsive: [
-        {
-            breakpoint: 992,
-            settings: {
-         
-                slidesToShow: 2,
+    // Slider settings for the carousel
+    const sliderSettings = {
+        arrows: false, // Hide navigation arrows
+        dots: false,   // Hide pagination dots
+        infinite: false, // Disable infinite looping
+        speed: 500,  // Slide transition speed
+        slidesToShow: 4.2, // Show 4.2 slides at once on large screens
+        slidesToScroll: 1, // Scroll 1 slide at a time
+        autoplay: false, // Disable autoplay
+        autoplaySpeed: 3000, // Autoplay interval
+        responsive: [
+            // Settings for screens less than 992px wide
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2, // Show 2 slides on medium screens
+                }
+            },
+            // Settings for screens less than 768px wide
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2, // Show 2 slides on smaller screens
+                }
+            },
+            // Settings for screens less than 520px wide
+            {
+                breakpoint: 520,
+                settings: {
+                    slidesToShow: 1.2, // Show 1.2 slides on mobile screens
+                }
             }
-        },
-        {
-            breakpoint: 768,
-            settings: {
-        
-                slidesToShow: 2,
-            }
-        },
-        {
-            breakpoint: 520,
-            settings: {
-                slidesToShow: 1.2,
-            }
-        }
-    ]
-};
+        ]
+    };
 
     return (
         <div className="types-insurance-wrapper">
             <Container>
+                {/* Title and subtitle rendered using the TitleSubtitle component */}
                 <TitleSubtitle
-                    title="Explore Different Types of Life Insurance"
-                    subtitle="Find the plan that fits your needs and secures your future"
+                    title={Title}
+                    subtitle={Description}
                 />
+                {/* Slider component to display insurance types in a carousel */}
                 <Slider {...sliderSettings} className={styles.slider}>
-                    {insurancetypesData.map((type, index) => (
+                    {/* Map through CardList and render each insurance type as a slide */}
+                    {CardList?.map((type, index) => (
                         <div key={index} className={styles.types_insurance_cards}>
-                            <span>{type.title}</span>
-                            <p>{type.description}</p>
+                            {/* Display the text and description of the insurance type */}
+                            <span>{type?.Text}</span>
+                            <p>{type?.Description}</p>
                             <div className={styles.types_insurance_imgsrc}>
-                                <img src={type.image} alt={type.title} />
+                                {/* Image for the insurance type */}
+                                <img src={process.env.NEXT_PUBLIC_APP_API + type?.Image?.url} alt={type?.Image?.alternativeText} />
+                                {/* Link to view plans for the insurance type */}
                                 <a href={type.link}>View Plans</a>
                             </div>
                         </div>

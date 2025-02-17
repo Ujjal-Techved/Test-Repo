@@ -17,8 +17,8 @@ const Faqs = ({ faqData }) => {
             <Container>
                 {/* Section title and description */}
                 <TitleSubtitle
-                    title={faqData.Title}
-                    subtitle={faqData.Description}
+                    title={faqData?.Title}
+                    subtitle={faqData?.Description}
                     titleTag='h3'
                 />
 
