@@ -41,6 +41,9 @@
     },
     "BadgeText": {
       "type": "string"
+    },
+    "ProductUIN": {
+      "type": "string"
     }
   }
 }

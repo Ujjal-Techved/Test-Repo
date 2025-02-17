@@ -70,6 +70,7 @@ export interface AboutUsInfoStrip extends Struct.ComponentSchema {
 export interface AboutUsLeadersList extends Struct.ComponentSchema {
   collectionName: 'components_about_us_leaders_lists';
   info: {
+    description: '';
     displayName: 'LeadersList';
   };
   attributes: {
@@ -77,6 +78,7 @@ export interface AboutUsLeadersList extends Struct.ComponentSchema {
       ['Board of Directors', 'Key Management Person']
     >;
     Description: Schema.Attribute.Text;
+    FullDescription: Schema.Attribute.Text;
     Image: Schema.Attribute.Media<'images'>;
     Title: Schema.Attribute.String;
   };
@@ -603,6 +605,7 @@ export interface HomePageCoverageCard extends Struct.ComponentSchema {
     KnowMoreLink: Schema.Attribute.String;
     MostPopular: Schema.Attribute.Boolean;
     Pointers: Schema.Attribute.Blocks;
+    ProductUIN: Schema.Attribute.String;
     TalkToAdvisorLink: Schema.Attribute.String;
     Title: Schema.Attribute.String;
   };
