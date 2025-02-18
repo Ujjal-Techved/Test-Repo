@@ -7,7 +7,7 @@ import styles from './ReportsDiscloser.module.css'
 
 const ReportsDiscloser = ({reportsData}) => {
     return (
-        <div>
+        <div className='pd-t pd-b'>
             <Container>
                 <TitleSubtitle
                     title={"Reports and Disclosures"}
@@ -16,15 +16,15 @@ const ReportsDiscloser = ({reportsData}) => {
                 <Row className={styles.reports_disclosure_row}>
                     {reportsData.map((item, index) => (
                         <Col lg="3" key={index}>
-                            <div className={styles.reports_disclosure_card}>
+                            <a href={item.link} className={styles.reports_disclosure_card}>
                                 <div className={styles.reports_disclosure_title}>
                                     <img src={item.image} alt="image" />
                                     <p>{item.title}</p>
                                 </div>
-                                <a href={item.link}>
+                                <div>
                                     <img src="/images/reach-us/arrow-right.svg" alt="arrow" />
-                                </a>
-                            </div>
+                                </div>
+                            </a>
                         </Col>
                     ))}
                 </Row>

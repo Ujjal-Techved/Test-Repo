@@ -5,7 +5,7 @@ import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle'
 
 const PartnerFuturegroup = () => {
     return (
-        <div>
+        <div className={styles.partner_wrapper + ' pd-t pd-b'}>
             <Container>
                 <TitleSubtitle
                     title={"Partners in Securing Your Future"}

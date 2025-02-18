@@ -1,3 +1,12 @@
+.partner_wrapper{
+        background: url(/images/faqs/bg-right.svg);
+        background-position: right bottom;
+        /* background-position: left top; */
+        background-size: auto 120px, auto 120px;
+        background-repeat: no-repeat;
+
+}
+
 .futuregroup_wrapper {
     display: flex;
     gap: 26px;
@@ -5,7 +14,7 @@
     margin: 0 auto;
     height: 100%;
     position: relative;
-    padding-bottom: 56px;
+    /* padding-bottom: 56px; */
 }
 
 .futuregroup_card {

@@ -68,7 +68,7 @@ const SocialResponsibility = () => {
 
 
     return (
-        <div className='social-res-wrapper'>
+        <div className='social-res-wrapper pd-t pd-b'>
             <Container>
                 <TitleSubtitle
                     title={"Corporate Social Responsibility"}
