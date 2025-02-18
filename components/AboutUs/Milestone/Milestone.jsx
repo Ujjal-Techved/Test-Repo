@@ -10,6 +10,7 @@ const Milestone = ({ milestoneList }) => {
     const [nav2, setNav2] = useState(null);
     const mainSliderRef = useRef(null);
     const thumbSliderRef = useRef(null);
+    const [activeIndex, setActiveIndex] = useState(0); // Track active slide
 
 
     // Main Slider Settings
@@ -25,6 +26,9 @@ const Milestone = ({ milestoneList }) => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: false,
+        beforeChange: (oldIndex, newIndex) => {
+            setActiveIndex(newIndex);
+        },
     };
 
     // Thumbnail Slider Settings
@@ -34,12 +38,20 @@ const Milestone = ({ milestoneList }) => {
             setNav2(slider);
             thumbSliderRef.current = slider;
         },
-        slidesToShow: 5,
-        swipeToSlide: true,
+        slidesToShow: 6,
+        draggable:false,
         focusOnSelect: true,
         dots: false,
         arrows: false,
         infinite: false,
+        responsive: [
+            {
+                breakpoint: 992, // Below 992px
+                settings: {
+                    slidesToShow: 3, // Show 3 slides instead of 6
+                },
+            },
+        ],
     };
 
     return (
@@ -54,32 +66,28 @@ const Milestone = ({ milestoneList }) => {
                     {
                         milestoneList?.map((milestone, index) => (
                             <div key={index}>
-                                <Row className={Styles.mainRow}>
-                                    <Col lg={3} className={Styles.year}>{milestone?.Year}</Col>
-                                    <Col lg={3}>
-                                        <img src={process.env.NEXT_PUBLIC_APP_API + milestone?.Image?.url} className={Styles.picture} />
-                                    </Col>
-                                    <Col lg={4}>
-                                        <div className={Styles.description}>{milestone?.Description}</div>
-                                    </Col>
-                                </Row>
+                                <div className={Styles.mainRow}>
+                                    <div className={Styles.year}>{milestone?.Year}</div>
+                                    <img src={process.env.NEXT_PUBLIC_APP_API + milestone?.Image?.url} className={Styles.picture} />
+                                    <div className={Styles.description}>{milestone?.Description}</div>
+                                </div>
                             </div>
                         ))
                     }
                 </Slider>
 
             </Container>
-            <Container fluid>
+            <div>
                 <Slider {...thumbSliderSettings}>
                     {
-                        milestoneList?.map((milestone,index) => (
-                            <div className={Styles.timeline} key={index}>
+                        milestoneList?.map((milestone, index) => (
+                            <div className={`${Styles.timeline}  ${activeIndex === index ? Styles.active : ""} ${activeIndex > index ? Styles.complete : ""}`} key={index}>
                                 <div className={Styles.timelineYear}>{milestone?.Year}</div>
                             </div>
                         ))
                     }
                 </Slider>
-            </Container>
+            </div>
         </div>
     )
 }
