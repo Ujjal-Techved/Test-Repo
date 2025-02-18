@@ -2,18 +2,30 @@ import React from 'react'
 import { Container } from 'reactstrap'
 import styles from './WhatisGenrali.module.css'
 
-const WhatisGenrali = () => {
+const WhatisGenrali = ({ whatIsData }) => {
+
+   // Prevent rendering if `whatIsData` is missing
+   if (!whatIsData) {
+    return null;
+  }
+
+  // Destructure API response data for cleaner code
+  const { Title, Description } = whatIsData?.WhatIs;
+
   return (
     <div>
         <Container>
             <div className={styles.genrali_wrapper}>
-                <img src='images/home/fgli-logo.png'></img>
-                <h3>What is genrali?</h3>
-                <p>Generali is one of the largest global insurance and asset management providers, present in over 50 countries in the world, with a total premium income of € 82.5 billion in 2023.</p>
+                {/* Displaying a static logo image */}
+                <img src='images/home/fgli-logo.png' alt="FGLI Logo"></img>
+                {/* Title from API response */}
+                <h3>{Title}</h3>
+                {/* Description content: Assuming it's an array and accessing the first element */}
+                <p>{Description[0].children[0].text}</p>
             </div>
         </Container>
     </div>
   )
 }
 
-export default WhatisGenrali
+export default WhatisGenrali;

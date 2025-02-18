@@ -6,123 +6,98 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const Joinculture = () => {
-    
+const Joinculture = ({ joinCultureData }) => {
+
     const [hoveredIndex, setHoveredIndex] = useState(null);
 
+    // Prevent rendering if `joinCultureData` is missing
+    if (!joinCultureData) {
+        return null;
+    }
 
-    const joincultureData = [
-        {
-            icon: '/images/careers/inclusion.webp',
-            title: 'Inclusion',
-            description: 'Everyone feels welcome and valued'
-        },
-        {
-            icon: '/images/careers/encouragement.webp',
-            title: 'Encouragement',
-            description: 'Grow your skills and career'
-        },
-        {
-            icon: '/images/careers/flexibility.webp',
-            title: 'Flexibility',
-            description: 'Explore roles beyond your expertise'
-        },
-        {
-            icon: '/images/careers/work-life-balance.webp',
-            title: 'Work-life Balance',
-            description: 'Collaboration and support come naturally'
-        },
-        {
-            icon: '/images/careers/flexibility.webp',
-            title: 'Fostering Teamwork',
-            description: 'Balance professional and personal priorities'
-        }
-    ];
+    // Destructure API response data for cleaner code
+    const { Title, Description, FeatureList, SliderSection } = joinCultureData.JoinCulture;
 
-    // Local static images
-    const sliderImages = [
-        "/images/careers/slide1.png",
-        "/images/careers/slide2.png",
-        "/images/careers/slide3.png",
-        "/images/careers/slide4.png",
-        "/images/careers/slide1.png",
-        "/images/careers/slide2.png",
-        "/images/careers/slide3.png",
-        "/images/careers/slide4.png",
-        "/images/careers/slide1.png",
-        "/images/careers/slide2.png"
-    ];
-
-
+    // Settings for the slick carousel
     const settings = {
-        infinite: true,         // Enable infinite loop
-        speed: 1000,             // Slide transition speed (reduce for quicker transitions)
-        slidesToShow: 5,        // Number of slides visible at a time
-        slidesToScroll: 1,      // Number of slides to scroll
-        autoplay: true,         // Enable autoplay
-        autoplaySpeed: 1000,    // Set a reasonable speed for autoplay (1 second)
-        cssEase: "ease",      // Smooth transition effect
-        pauseOnHover: true,     // Stop autoplay when hovered
-        centerMode: false,      // Disable center mode
-        variableWidth: false,   // Disable variable width
-        responsive: [
+        infinite: true,         // Enables infinite loop
+        speed: 1000,           // Transition speed for slides
+        slidesToShow: 5,       // Number of slides visible at a time
+        slidesToScroll: 1,     // Number of slides to scroll at a time
+        autoplay: true,        // Enables autoplay
+        autoplaySpeed: 1000,   // Speed for autoplay transition (1 second)
+        cssEase: "ease",       // Smooth transition effect
+        pauseOnHover: true,    // Stops autoplay when hovered
+        centerMode: false,     // Disables center mode
+        variableWidth: false,  // Disables variable width for slides
+        responsive: [          // Responsive settings for different screen sizes
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 3, // Adjust for smaller screens
+                    slidesToShow: 3, // Adjusts for medium screens
                 }
             },
             {
                 breakpoint: 768,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 2, // Adjusts for tablets
                 }
             },
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 1.2,
+                    slidesToShow: 1.2, // Adjusts for mobile screens
                 }
             }
         ]
     };
-    
+
     return (
         <div className={styles.Joinculture_pt}>
             <Container>
+                {/* Section title with a subtitle */}
                 <TitleSubtitle
-                    title={"Join a Culture of Growth"}
-                    subtitle={"Empowering Your Growth, Well-Being, and Success Every Step of the Way"}
+                    title={Title}
+                    subtitle={Description}
                 />
 
-                {/* Joinculture card data */}
+                {/* Feature List Section */}
                 <div className={styles.joinculture_wrapper}>
-                    {joincultureData.map((item, index) => (
+                    {FeatureList?.map((item, index) => (
                         <div key={index} className={styles.joinculture_cards}>
                             <span>
-                                <img src={item.icon} alt={item.title} /> {item.title}
+                                {/* Feature Icon and Title */}
+                                <img 
+                                    src={process.env.NEXT_PUBLIC_APP_API + item?.Image?.url}  
+                                    alt={item?.Title} 
+                                /> 
+                                {item?.Title}
                             </span>
-                            <p>{item.description}</p>
+                            <p>{item?.Description}</p> {/* Feature Description */}
                         </div>
                     ))}
                 </div>
             </Container>
+
             {/* Joinculture Slick Slider */}
             <div className={styles.slider_container}>
                 <Slider {...settings}>
-                    {sliderImages.map((image, index) => (
+                    {SliderSection?.map((image, index) => (
                         <div
                             key={index}
                             className={`${styles.slider_item} ${hoveredIndex === index ? styles.hovered : ""}`}
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
                         >
-                            <img src={image} alt={`Slide ${index + 1}`} />
+                            {/* Slider Image */}
+                            <img  
+                                src={process.env.NEXT_PUBLIC_APP_API + image?.Image?.url} 
+                                alt={`Slide ${index + 1}`} 
+                            />
                         </div>
                     ))}
                 </Slider>
             </div>
-
         </div>
     );
 };

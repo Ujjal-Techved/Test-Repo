@@ -18,12 +18,11 @@ const LocationPopup = (props) => {
               });
     
               // Make a request to the Nominatim API to get city name
-              const apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.coords.latitude}&lon=${position.coords.longitude}&zoom=10&addressdetails=1`;
+              const apiUrl = `${process.env.NEXT_PUBLIC_LOCATION_API}/reverse?format=json&lat=${position.coords.latitude}&lon=${position.coords.longitude}&zoom=10&addressdetails=1`;
     
               const response = await axios.get(apiUrl);
-              const resCity = response.data.address.city || response.data.address.village;
+              const resCity = response.data.address.city || response.data.address.village || response.data.address.state_district ;
               const resState = response.data.address.state;
-              // console.log(response,"response==>");
               if (resCity !== null || resCity !== "null" || resCity !== undefined || resCity !== "undefined" || resCity !== "") {
                   window.location.href=props.pageUrl + resState.replace(/\s+/g, '-').toLowerCase() + "/" + resCity.replace(/\s+/g, '-').toLowerCase();
               }

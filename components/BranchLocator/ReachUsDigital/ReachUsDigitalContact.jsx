@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './ReachUsDigital.module.css';
 import { Col, Container, Row } from 'reactstrap';
 
-const ReachUsDigital = ({ reachUsCard, AIcontactUs }) => {
+const ReachUsDigitalContact = ({ reachUsCard, AIcontactUs }) => {
     return (
         <Container>
             {/* Row for displaying reach us cards, with additional styling if AIcontactUs is true */}
@@ -24,12 +24,12 @@ const ReachUsDigital = ({ reachUsCard, AIcontactUs }) => {
                                 {/* Description with optional contact info */}
                                 <p className={styles.reach_us_desc}>
                                     {item?.Description}
-                                    <span className={styles.reach_us_contact}>{item?.Contact}</span>
+                                    <span className={styles.reach_us_contact}>{item?.Description_Contact}</span>
                                 </p>
                             </div>
                             {/* Link section */}
                             <div className={styles.reach_us_link}>
-                                <a href={item?.Link} className={styles.reach_us_linktext}>
+                                <a href={item?.LinkUrl} className={styles.reach_us_linktext}>
                                     {item?.LinkText}
                                     <img 
                                         className={styles.reach_us_arrow} 
@@ -46,4 +46,4 @@ const ReachUsDigital = ({ reachUsCard, AIcontactUs }) => {
     )
 }
 
-export default ReachUsDigital;
+export default ReachUsDigitalContact;

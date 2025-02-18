@@ -1,23 +1,45 @@
-import React from 'react'
-import styles from './SendApplication.module.css'
-import { Container } from 'reactstrap'
-import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle'
+import React from 'react';
+import styles from './SendApplication.module.css';
+import { Container } from 'reactstrap';
+import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
 
-const SendApplication = () => {
-  return (
-    <div>
-        <Container>
-            <div className={styles.application_wrapper}>
-            <TitleSubtitle
-                    title={"Get on Board with Future Generali India Life Insurance!"}
-                    subtitle={"Let us work together today to build you a career you’ll be proud of tomorrow."}
-                    extraClass="whiteColor"
-                />
-                <button className="whiteBtn w-sm-100">Send Your Application</button>
-            </div>
-        </Container>
-    </div>
-  )
-}
+const SendApplication = ({ sendApplicationData }) => {
 
-export default SendApplication
+    // Prevent rendering if `sendApplicationData` is missing or undefined
+    if (!sendApplicationData) {
+        return null;
+    }
+
+    // Destructure API response data for cleaner code and easier access
+    const { Title, Description, LinkText, LinkUrl } = sendApplicationData?.SendApplication;
+
+    // Function to handle button click and redirect to LinkUrl
+    const handleRedirect = () => {
+        if (LinkUrl) {
+            window.location.href = LinkUrl; // Redirect to the provided URL
+        }
+    };
+
+    return (
+        <div>
+            <Container>
+                <div className={styles.application_wrapper}>
+                    
+                    {/* Section Title and Subtitle */}
+                    <TitleSubtitle
+                        title={Title}
+                        subtitle={Description}
+                        extraClass="whiteColor"
+                    />
+
+                    {/* Button to redirect to LinkUrl */}
+                    <button className="whiteBtn w-sm-100" onClick={handleRedirect}>
+                        {LinkText}
+                    </button>
+                </div>
+            </Container>
+        </div>
+    );
+};
+
+export default SendApplication;
