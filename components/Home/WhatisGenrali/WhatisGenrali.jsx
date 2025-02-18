@@ -13,7 +13,7 @@ const WhatisGenrali = ({ whatIsData }) => {
   const { Title, Description } = whatIsData?.WhatIs;
 
   return (
-    <div>
+    <div className='pd-b'>
         <Container>
             <div className={styles.genrali_wrapper}>
                 {/* Displaying a static logo image */}

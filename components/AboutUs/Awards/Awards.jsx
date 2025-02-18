@@ -53,7 +53,7 @@ const Awards = ({ awardData }) => {
 
 
     return (
-        <div className="types-insurance-wrapper awards">
+        <div className="types-insurance-wrapper awards pd-t pd-b">
             <Container>
                 <TitleSubtitle
                     title={"Awards & Recognitions"}
@@ -70,7 +70,7 @@ const Awards = ({ awardData }) => {
                         </div>
                     ))}
                 </Slider>
-                <a className='show-more pt-4 pb-5'>Show More +</a>
+                <a href='/' className='show-more pt-4'>Show More +</a>
             </Container>
         </div>
     )

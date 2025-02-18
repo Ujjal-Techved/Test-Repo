@@ -5,7 +5,7 @@ import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle'
 
 const LegacyTrust = () => {
     return (
-        <div>
+        <div >
             <Container>
                 <div className={styles.insure_wrapper}>
                     <Row className={styles.insure_main}>
@@ -24,7 +24,7 @@ const LegacyTrust = () => {
 
                         <Col lg="12">
                             <div className={styles.genrali_wrapper}>
-                                <img src='images/home/fgli-logo.png'></img>
+                                <img src='images/about-us/fgli-logo.png'></img>
                                 
                                 <p>As of today, Generali is the largest shareholder in Future Generali India Life Insurance with a stake of 73.99% in the Company. Generali brings in 190+ years of insurance expertise as well as its global network’s best practices, capabilities, and resources, driving sustainable and profitable growth for communities, clients, employees, and shareholders. Established in 1831, Generali is present in over 50 countries in the world, with 82 thousand employees serving 68 million customers globally.</p>
                             </div>

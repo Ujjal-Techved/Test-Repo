@@ -1,0 +1,19 @@
+.whatsapp_cotainer {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: flex;
+    justify-content: flex-start;
+    pointer-events: none;
+}
+
+.Home_banner_whatsapp {
+    pointer-events: all;
+}
+
+
+
+
+

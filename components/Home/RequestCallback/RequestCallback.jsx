@@ -17,7 +17,7 @@ const RequestCallback = ({ requestCallbackData }) => {
     const { Title, Description } = requestCallbackData?.CallBack;
 
     return (
-        <div>
+        <div className='pd-b'>
             <Container>
                 <div className={styles.application_wrapper}>
                     {/* Title and subtitle rendered using the TitleSubtitle component */}

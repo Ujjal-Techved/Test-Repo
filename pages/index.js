@@ -15,6 +15,7 @@ import WhatisGenrali from "@/components/Home/WhatisGenrali/WhatisGenrali";
 import WhylifeInsurance from "@/components/Home/WhylifeInsurance/WhylifeInsurance";
 import LandingLayout from "@/components/Layouts/LandingLayout";
 import { apiClient } from '../utils/apiClient'; // ✅ Ensure correct import path
+import CommonWhatsapp from "@/components/Common/CommonWhatsapp/CommonWhatsapp";
 
 export default function Home(props) {
 

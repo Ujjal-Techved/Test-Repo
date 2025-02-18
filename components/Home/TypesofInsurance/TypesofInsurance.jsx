@@ -51,7 +51,7 @@ const TypesofInsurance = ({ insurancetypesData }) => {
     };
 
     return (
-        <div className="types-insurance-wrapper"> {/* Wrapper div for styling */}
+        <div className="types-insurance-wrapper pd-t pd-b"> {/* Wrapper div for styling */}
             <Container> {/* Bootstrap container for responsive layout */}
                 
                 {/* Render section title and description using TitleSubtitle component */}

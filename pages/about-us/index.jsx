@@ -11,6 +11,7 @@ import ReportsDiscloser from '@/components/AboutUs/ReportsDisclousures/ReportsDi
 import Awards from '@/components/AboutUs/Awards/Awards'
 import SocialResponsibility from '@/components/AboutUs/SocialResponsibility/SocialResponsibility'
 import Leaders from '@/components/AboutUs/Leaders/Leaders'
+import GuidePrinciple from '@/components/AboutUs/GuidePrinciple/GuidePrinciple'
 import Milestone from '@/components/AboutUs/Milestone/Milestone'
 
 const Aboutus = () => {
@@ -44,6 +45,165 @@ const Aboutus = () => {
             text: 'Claims Settlement Ratio',
         }
     ];
+
+     // Array of Leadership data
+     const leadersListData = [
+        {
+            "id": 1,
+            "Title": "Palamadai Sundararajan Jayakumar",
+            "Description": "Independent Director & Chairman",
+            "Category": "Board of Directors",
+            "Image": {
+                "id": "",
+                "documentId": "",
+                "url": "/images/about-us/PalamadaiSundararajanJayakumar.png",
+                "alternativeText": null,
+                "caption": null,
+                "name": "image.png"
+            }
+        },
+        {
+            "id": 2,
+            "Title": "Shailesh Haribhakti",
+            "Description": "Independent Director",
+            "Category": "Board of Directors",
+            "Image": {
+                "id": "",
+                "documentId": "",
+                "url": "/images/about-us/ShaileshHaribhakti.png",
+                "alternativeText": null,
+                "caption": null,
+                "name": "image.png"
+            }
+        },
+        {
+            "id": 3,
+            "Title": "Dr. Devi Singh",
+            "Description": "Independent Director",
+            "Category": "Board of Directors",
+            "Image": {
+                "id": "",
+                "documentId": "",
+                "url": "/images/about-us/Dr.DeviSingh.png",
+                "alternativeText": null,
+                "caption": null,
+                "name": "image.png"
+            }
+        },
+        {
+            "id": 4,
+            "Title": "Roberto Leonardi",
+            "Description": "Non- Executive Director",
+            "Category": "Board of Directors",
+            "Image": {
+                "id": "",
+                "documentId": "",
+                "url": "/images/about-us/RobertoLeonardi.png",
+                "alternativeText": null,
+                "caption": null,
+                "name": "image.png"
+            }
+        },
+        {
+            "id": 5,
+            "Title": "Lima Alexandrova",
+            "Description": "Non-Executive Director (Additional)",
+            "Category": "Key Management Person",
+            "Image": {
+                "id": "",
+                "documentId": "",
+                "url": "/images/about-us/LimaAlexandrova.png",
+                "alternativeText": null,
+                "caption": null,
+                "name": "image.png"
+            }
+        },
+        {
+            "id": 6,
+            "Title": "Lima Alexandrova",
+            "Description": "Non- Executive Director (Additional)",
+            "Category": "Board of Directors",
+            "Image": {
+                "id": "",
+                "documentId": "",
+                "url": "/images/about-us/LimaAlexandrova.png",
+                "alternativeText": null,
+                "caption": null,
+                "name": "image.png"
+            }
+        },
+        {
+            "id": 7,
+            "Title": "Valentina Sarrocco",
+            "Description": "Non- Executive Director",
+            "Category": "Board of Directors",
+            "Image": {
+                "id": "",
+                "documentId": "",
+                "url": "/images/about-us/ValentinaSarrocco.png",
+                "alternativeText": null,
+                "caption": null,
+                "name": "image.png"
+            }
+        },
+        {
+            "id": 8,
+            "Title": "Anup Rau Velamuri",
+            "Description": "Non- Executive Director",
+            "Category": "Board of Directors",
+            "Image": {
+                "id": "",
+                "documentId": "",
+                "url": "/images/about-us/AnupRauVelamuri.png",
+                "alternativeText": null,
+                "caption": null,
+                "name": "image.png"
+            }
+        },
+        {
+            "id": 9,
+            "Title": "K B Vijay Srinivas",
+            "Description": "Non- Executive Director",
+            "Category": "Board of Directors",
+            "Image": {
+                "id": "",
+                "documentId": "",
+                "url": "/images/about-us/KBVijaySrinivas.png",
+                "alternativeText": null,
+                "caption": null,
+                "name": "image.png"
+            }
+        },
+        {
+            "id": 10,
+            "Title": "Alok Rungta",
+            "Description": "Managing Director & CEO",
+            "Category": "Board of Directors",
+            "Image": {
+                "id": "",
+                "documentId": "",
+                "url": "/images/about-us/AlokRungta.png",
+                "alternativeText": null,
+                "caption": null,
+                "name": "image.png"
+            }
+        },
+        {
+            "id": 11,
+            "Title": "Alok Rungta",
+            "Description": "Managing Director & CEO",
+            "Category": "Key Management Person",
+            "Image": {
+                "id": "",
+                "documentId": "",
+                "url": "/images/about-us/AlokRungta.png",
+                "alternativeText": null,
+                "caption": null,
+                "name": "image.png"
+            }
+        },
+
+    ]
 
     // Array of Reports and Disclosure Data
 
@@ -270,15 +430,16 @@ const Aboutus = () => {
                 <Container>
                     <Breadcrumbs values={breadcrumbs} />
                 </Container>
-                <LegacyTrust />
-                <OurJourney insuranceData={insuranceData} />
-                <PartnerFuturegroup />
-                <Leaders />
-                <ReportsDiscloser reportsData={reportsData} />
-                <Awards awardData={awardData} />
+                <LegacyTrust/>
+                <OurJourney insuranceData={insuranceData}/>
+                <PartnerFuturegroup/>
+                <GuidePrinciple/>
+                <Leaders leadersListData={leadersListData}/>
+                <ReportsDiscloser reportsData={reportsData}/>
+                <Awards awardData={awardData}/>
                 <Milestone milestoneList={milestoneList} />
-                <MediaCenter mediacenterData={mediacenterData} />
-                <SocialResponsibility />
+                <MediaCenter mediacenterData={mediacenterData}/>
+                <SocialResponsibility/>
             </div>
         </LandingLayout>
     )

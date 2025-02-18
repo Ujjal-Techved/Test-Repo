@@ -14,7 +14,7 @@ const LifeInsurance = ({ lifeInsurData }) => {
     const { Title, Description, FeatureList } = lifeInsurData?.LifeInsurance;
 
     return (
-        <div>
+        <div className='pd-t'>
             <Container>
                 {/* Title and subtitle rendered using the TitleSubtitle component */}
                 <TitleSubtitle

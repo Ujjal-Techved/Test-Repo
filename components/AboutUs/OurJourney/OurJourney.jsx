@@ -5,7 +5,7 @@ import styles from './OurJourney.module.css'
 
 const OurJourney = ({insuranceData}) => {
   return (
-    <div>
+    <div className='pd-t pd-b'>
             <Container>
                 <TitleSubtitle
                     title={"Our Journey in Numbers"}

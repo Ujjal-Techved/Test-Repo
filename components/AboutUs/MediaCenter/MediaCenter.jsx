@@ -5,7 +5,7 @@ import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle'
 
 const MediaCenter = ({mediacenterData}) => {
     return (
-        <div>
+        <div className='pd-t pd-b'>
             <Container>
                 <TitleSubtitle
                     title={"Media Centre"}

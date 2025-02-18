@@ -36,7 +36,7 @@ const ChooseGoal = ({ choosegoalData }) => {
     // };
 
     return (
-        <div className={styles.best_stageoption_parent}>
+        <div className={styles.best_stageoption_parent + ' pd-t pd-b'}>
             <Container>
                 {/* Title and Subtitle component */}
                 <TitleSubtitle

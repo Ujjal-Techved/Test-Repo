@@ -79,7 +79,7 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
     };
 
     return (
-        <div>
+        <div className='pd-t pd-b'>
             <Container>
                 {/* Title and subtitle section */}
                 <TitleSubtitle
