@@ -12,6 +12,7 @@ import Awards from '@/components/AboutUs/Awards/Awards'
 import SocialResponsibility from '@/components/AboutUs/SocialResponsibility/SocialResponsibility'
 import Leaders from '@/components/AboutUs/Leaders/Leaders'
 import GuidePrinciple from '@/components/AboutUs/GuidePrinciple/GuidePrinciple'
+import Milestone from '@/components/AboutUs/Milestone/Milestone'
 
 const Aboutus = () => {
 
@@ -207,60 +208,60 @@ const Aboutus = () => {
     // Array of Reports and Disclosure Data
 
     const reportsData = [
-        { 
-            title: "Annual Reports", 
+        {
+            title: "Annual Reports",
             image: "/images/about-us/img1.png",
-            link: "/" 
+            link: "/"
         },
-        { 
-            title: "Bonus Declaration", 
+        {
+            title: "Bonus Declaration",
             image: "/images/about-us/img2.png",
-            link: "/"  
+            link: "/"
         },
-        { 
-            title: "Whistle Blowing Channels", 
+        {
+            title: "Whistle Blowing Channels",
             image: "/images/about-us/img3.png",
-            link: "/"  
+            link: "/"
         },
-        { 
-            title: "Whistle Blower Policy", 
-            image: "/images/about-us/img4.png" 
+        {
+            title: "Whistle Blower Policy",
+            image: "/images/about-us/img4.png"
         },
-        { 
-            title: "Public Disclosures", 
+        {
+            title: "Public Disclosures",
             image: "/images/about-us/img5.png",
-            link: "/"  
+            link: "/"
         },
-        { 
-            title: "Anti Fraud Policy", 
+        {
+            title: "Anti Fraud Policy",
             image: "/images/about-us/img6.png",
-            link: "/"  
+            link: "/"
         },
-        { 
-            title: "Stewardship Policy", 
+        {
+            title: "Stewardship Policy",
             image: "/images/about-us/img7.png",
-            link: "/"  
+            link: "/"
         },
-        { 
-            title: "New Group Fund Interest Rate", 
+        {
+            title: "New Group Fund Interest Rate",
             image: "/images/about-us/img8.png",
-            link: "/"  
+            link: "/"
         },
-        { 
-            title: "Extra-ordinary General Meeting Notice", 
+        {
+            title: "Extra-ordinary General Meeting Notice",
             image: "/images/about-us/img9.png",
-            link: "/"  
+            link: "/"
         },
-        { 
-            title: "Annual General Meeting Notice", 
+        {
+            title: "Annual General Meeting Notice",
             image: "/images/about-us/img10.png",
-            link: "/"  
+            link: "/"
         }
     ];
 
-     // Array Types of Award and Recognisation
+    // Array Types of Award and Recognisation
 
-     const awardData = [
+    const awardData = [
         {
             title: "Awarded the Fastest Growing Insurance Company of 2024 by ASSOCHAM",
             description: "Future Generali India Life Insurance has been awarded the Fastest Growing Insurance Company of 2024 at the 6th edition of ASSOCHAM Insurance Leaders Meet 2024 & Excellence Awards.",
@@ -283,8 +284,8 @@ const Aboutus = () => {
         },
     ];
 
-      // Array of Media Center data
-      const mediacenterData = [
+    // Array of Media Center data
+    const mediacenterData = [
         {
             title: 'Press Releases',
             subtitle: 'For Our Latest Press Releases',
@@ -301,9 +302,127 @@ const Aboutus = () => {
             Link: '/',
 
         }
-
     ];
 
+    const milestoneList = [
+        {
+            id: 22,
+            Year: "1990",
+            Description: "We value our people, encourage diversity and invest in continuous learning and growth by creating a transparent, cohesive and accessible working environment. Developing our people will ensure our Company's long-term future.",
+            Image: {
+                id: 122,
+                documentId: "shdulre53t948u9544ixc14d",
+                url: "/uploads/Image_9910c7b9a9.png",
+                alternativeText: null,
+                caption: null,
+                name: "Image.png"
+            }
+        },
+        {
+            id: 23,
+            Year: "1995",
+            Description: "We value our people, encourage diversity and invest in continuous learning and growth by creating a transparent, cohesive and accessible working environment. Developing our people will ensure our Company's long-term future.",
+            Image: {
+                id: 122,
+                documentId: "shdulre53t948u9544ixc14d",
+                url: "/uploads/Image_9910c7b9a9.png",
+                alternativeText: null,
+                caption: null,
+                name: "Image.png"
+            }
+        },
+        {
+            id: 24,
+            Year: "2000",
+            Description: "We value our people, encourage diversity and invest in continuous learning and growth by creating a transparent, cohesive and accessible working environment. Developing our people will ensure our Company's long-term future.",
+            Image: {
+                id: 122,
+                documentId: "shdulre53t948u9544ixc14d",
+                url: "/uploads/Image_9910c7b9a9.png",
+                alternativeText: null,
+                caption: null,
+                name: "Image.png"
+            }
+        },
+        {
+            id: 25,
+            Year: "2005",
+            Description: "We value our people, encourage diversity and invest in continuous learning and growth by creating a transparent, cohesive and accessible working environment. Developing our people will ensure our Company's long-term future.",
+            Image: {
+                id: 122,
+                documentId: "shdulre53t948u9544ixc14d",
+                url: "/uploads/Image_9910c7b9a9.png",
+                alternativeText: null,
+                caption: null,
+                name: "Image.png"
+            }
+        },
+        {
+            id: 26,
+            Year: "2010",
+            Description: "We value our people, encourage diversity and invest in continuous learning and growth by creating a transparent, cohesive and accessible working environment. Developing our people will ensure our Company's long-term future.",
+            Image: {
+                id: 122,
+                documentId: "shdulre53t948u9544ixc14d",
+                url: "/uploads/Image_9910c7b9a9.png",
+                alternativeText: null,
+                caption: null,
+                name: "Image.png"
+            }
+        },
+        {
+            id: 27,
+            Year: "2015",
+            Description: "We value our people, encourage diversity and invest in continuous learning and growth by creating a transparent, cohesive and accessible working environment. Developing our people will ensure our Company's long-term future.",
+            Image: {
+                id: 122,
+                documentId: "shdulre53t948u9544ixc14d",
+                url: "/uploads/Image_9910c7b9a9.png",
+                alternativeText: null,
+                caption: null,
+                name: "Image.png"
+            }
+        },
+        {
+            id: 28,
+            Year: "2020",
+            Description: "We value our people, encourage diversity and invest in continuous learning and growth by creating a transparent, cohesive and accessible working environment. Developing our people will ensure our Company's long-term future.",
+            Image: {
+                id: 122,
+                documentId: "shdulre53t948u9544ixc14d",
+                url: "/uploads/Image_9910c7b9a9.png",
+                alternativeText: null,
+                caption: null,
+                name: "Image.png"
+            }
+        },
+        {
+            id: 29,
+            Year: "2025",
+            Description: "We value our people, encourage diversity and invest in continuous learning and growth by creating a transparent, cohesive and accessible working environment. Developing our people will ensure our Company's long-term future.",
+            Image: {
+                id: 122,
+                documentId: "shdulre53t948u9544ixc14d",
+                url: "/uploads/Image_9910c7b9a9.png",
+                alternativeText: null,
+                caption: null,
+                name: "Image.png"
+            }
+        },
+        {
+            id: 30,
+            Year: "2030",
+            Description: "We value our people, encourage diversity and invest in continuous learning and growth by creating a transparent, cohesive and accessible working environment. Developing our people will ensure our Company's long-term future.",
+            Image: {
+                id: 122,
+                documentId: "shdulre53t948u9544ixc14d",
+                url: "/uploads/Image_9910c7b9a9.png",
+                alternativeText: null,
+                caption: null,
+                name: "Image.png"
+            }
+        }
+    ]
 
     return (
         <LandingLayout>
@@ -318,6 +437,7 @@ const Aboutus = () => {
                 <Leaders leadersListData={leadersListData}/>
                 <ReportsDiscloser reportsData={reportsData}/>
                 <Awards awardData={awardData}/>
+                <Milestone milestoneList={milestoneList} />
                 <MediaCenter mediacenterData={mediacenterData}/>
                 <SocialResponsibility/>
             </div>

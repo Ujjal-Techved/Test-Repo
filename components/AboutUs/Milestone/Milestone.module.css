@@ -1,0 +1,145 @@
+.mainRow {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.year {
+    text-align: center;
+    font-family: "Helvetica-500";
+    font-style: italic;
+    font-size: 80px;
+    line-height: 100px;
+    margin-bottom: 40px;
+    color: var(--fgi-black);
+    width: 200px;
+}
+
+.description {
+    font-family: "Helvetica-400";
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 40px;
+    color: var(--fgi-black);
+    width: 350px;
+}
+
+.picture {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+    transform: rotate(-3deg);
+    border-radius: 20px;
+    margin: 20px 70px 30px;
+    box-shadow: 0px 4px 18px 0px #00000029;
+}
+
+.timeline {
+    text-align: center;
+    position: relative;
+}
+
+.timeline::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 50%;
+    top: 8px;
+    left: 0px;
+    background-color: var(--timeline);
+    transition: 0.3s;
+}
+
+.timeline::before {
+    position: absolute;
+    content: "";
+    height: 1px;
+    width: 50%;
+    top: 8px;
+    right: 0px;
+    background-color: var(--timeline);
+    transition: 0.3s;
+}
+
+.timeline.active::after,
+.timeline.complete::after,
+.timeline.complete::before {
+    background-color: var(--fgi-red);
+}
+
+.timeline .timelineYear {
+    font-family: "Helvetica-400";
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--text-grey2);
+    position: relative;
+    margin-top: 28px;
+}
+
+.timeline.active .timelineYear {
+    font-family: "Helvetica-500";
+    color: var(--fgi-black);
+}
+
+.timeline .timelineYear::after {
+    content: "";
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    border-radius: 100%;
+    top: -28px;
+    left: 50%;
+    z-index: 9;
+    transform: translateX(-50%);
+    border: 1px solid var(--timeline);
+    background: var(--background-color);
+    transition: 0.3s;
+}
+
+.timeline.active .timelineYear::after,
+.timeline.complete .timelineYear::after {
+    border: 1px solid var(--fgi-red);
+}
+
+.timeline.active .timelineYear::before,
+.timeline.complete .timelineYear::before {
+    background: var(--fgi-red);
+    content: "";
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    border-radius: 100%;
+    top: -24px;
+    left: 50%;
+    z-index: 10;
+    transform: translateX(-50%);
+}
+
+@media screen and (max-width: 991.2px) and (min-width: 320px) {
+
+    .mainRow {
+        flex-wrap: wrap;
+    }
+
+    .year {
+        font-size: 64px;
+        line-height: 80px;
+        margin-bottom: 0px;
+        width: 100%;
+    }
+    
+    .description {
+        font-size: 14px;
+        line-height: 18px;
+        margin-bottom: 20px;
+        color: var(--fgi-black);
+        width: 100%;
+    }
+    
+    .picture {
+        margin: 0px auto 30px;
+    }
+
+}

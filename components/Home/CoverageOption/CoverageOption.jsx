@@ -4,20 +4,32 @@ import { Col, Container, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, N
 import Slider from 'react-slick';
 import TitleSubtitle from '../../Common/TitleSubtitle/TitleSubtitle';
 
-const CoverageOption = ({coveragetabs,coverageplansData}) => {
+const CoverageOption = ({ coveragetabs, coverageplansData }) => {
 
-    // Create the breadcrumbs array based on state and city
+    // Breadcrumbs for navigation (currently hardcoded)
     const breadcrumbs = [
         { name: "Contact Us", url: "/contact-us", active: true },
-    ]
+    ];
 
+    // Prevent rendering if `coverageplansData` is missing
+    if (!coverageplansData) {
+        return null;
+    }
+
+    // Destructure API response data for cleaner code
+    const { Title, CoverageCard } = coverageplansData?.CoverageOptions;
+
+    // State to manage the active tab
     const [coverageactiveTab, setCoverageActiveTab] = useState(coveragetabs[0].tabtitle);
-    // To manage mobile screen state
-    const [isMobile, setIsMobile] = useState(false);  
+
+    // State to manage mobile view
+    const [isMobile, setIsMobile] = useState(false);
+
+    // State to manage dropdown open/close
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
-    // Detect if the screen width is below 992px
+    // Effect to detect screen width and set mobile state
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth < 992) {
@@ -27,7 +39,7 @@ const CoverageOption = ({coveragetabs,coverageplansData}) => {
             }
         };
 
-        handleResize();  // Check the screen size on initial render
+        handleResize();  // Check screen size on initial render
         window.addEventListener("resize", handleResize); // Add event listener for resizing
 
         return () => {
@@ -35,7 +47,7 @@ const CoverageOption = ({coveragetabs,coverageplansData}) => {
         };
     }, []);
 
-
+    // Slider settings for the coverage cards
     const sliderSettings = {
         dots: false,
         infinite: false,
@@ -78,14 +90,16 @@ const CoverageOption = ({coveragetabs,coverageplansData}) => {
     return (
         <div>
             <Container>
+                {/* Title and Subtitle component */}
                 <TitleSubtitle
-                    title={"Our Awesome Coverage Options"}
-                  
+                    title={Title}
                 />
+
+                {/* Coverage Option Section */}
                 <div className={styles.CoverageOption_section}>
                     {/* Tabs Section */}
                     <div className='common-tabs-wrapper'>
-                        {/* for desktop view tabs */}
+                        {/* Render tabs for desktop view */}
                         {!isMobile ? (
                             <Nav tabs>
                                 {coveragetabs.map(({ id, tabtitle }) => (
@@ -95,10 +109,10 @@ const CoverageOption = ({coveragetabs,coverageplansData}) => {
                                 ))}
                             </Nav>
                         ) : (
-                            // for mobile view tabs in dropdown
+                            // Render dropdown for mobile view
                             <Dropdown className='common-dropdown' isOpen={dropdownOpen} toggle={toggleDropdown}>
                                 <DropdownToggle caret>
-                                {coveragetabs.find(tab => tab.tabtitle  === coverageactiveTab)?.tabtitle || "Select"}
+                                    {coveragetabs.find(tab => tab.tabtitle === coverageactiveTab)?.tabtitle || "Select"}
                                 </DropdownToggle>
                                 <DropdownMenu>
                                     {coveragetabs.map(({ id, tabtitle }) => (
@@ -109,32 +123,39 @@ const CoverageOption = ({coveragetabs,coverageplansData}) => {
                                 </DropdownMenu>
                             </Dropdown>
                         )}
+
+                        {/* Tab Content Section */}
                         <TabContent activeTab={"1"}>
-                            {/* Featured Tabcontent */}
                             <TabPane tabId="1">
                                 <div className={styles.tab_content_wrapper}>
+                                    {/* Slider for coverage cards */}
                                     <Slider {...sliderSettings}>
-                                        {coverageplansData.filter((plan)=>(plan.category.toLowerCase() == coverageactiveTab.toLowerCase())).map((plan, index) => (
+                                        {CoverageCard?.filter((plan) => (plan?.Category.toLowerCase() === coverageactiveTab?.toLowerCase())).map((plan, index) => (
                                             <div key={index} className={styles.tab_main_cards}>
                                                 <div className={styles.tab_content_cards}>
+                                                    {/* Plan Title and Brand */}
                                                     <div className={styles.fgli_plans_title}>
                                                         <p className={styles.most_popular}>
-                                                            {plan.subtitle}
-                                                            {plan.popularity && <span>{plan.popularity}</span>}
+                                                            {plan?.Brand}
+                                                            {plan?.MostPopular && <span>Most Popular</span>}
                                                         </p>
-                                                        <h4>{plan.title}</h4>
-                                                        <h5>{plan.description}</h5>
+                                                        <h4>{plan?.Title}</h4>
+                                                        <h5>{plan?.Description}</h5>
                                                     </div>
+
+                                                    {/* Plan Benefits */}
                                                     <div className={`${styles.promise_text} cms-data`}>
                                                         <ul>
-                                                            {plan.benefits.map((benefit, idx) => (
-                                                                <li key={idx}>{benefit}</li>
+                                                            {plan?.Pointers?.[0]?.children?.map((benefit, idx) => (
+                                                                <li key={idx}>{benefit?.children?.map((item) => item.text).join(" ")}</li>
                                                             ))}
                                                         </ul>
                                                     </div>
+
+                                                    {/* Buttons for Know More and Talk to Advisor */}
                                                     <div className={styles.btn_popups}>
-                                                        <a href={plan.knowMore} target="_blank" className='redhref mob-redhref'>Know More</a>
-                                                        <button className='redArrowBtn mob-redArrowBtn' >Talk to Advisor <span>&#10095;</span></button>
+                                                        <a href={plan?.KnowMoreLink} target="_blank" className='redhref mob-redhref'>Know More</a>
+                                                        <button onClick={() => router.push(plan?.TalkToAdvisorLink)} className='redArrowBtn mob-redArrowBtn'>Talk to Advisor <span>&#10095;</span></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -142,17 +163,8 @@ const CoverageOption = ({coveragetabs,coverageplansData}) => {
                                     </Slider>
                                 </div>
                             </TabPane>
-
-                            {/* <TabPane tabId="2">
-                                Term Content
-                            </TabPane>
-                            <TabPane tabId="3">
-                                Saving Content
-                            </TabPane> */}
                         </TabContent>
                     </div>
-
-
                 </div>
             </Container>
         </div>

@@ -14,9 +14,9 @@ import TypesofInsurance from "@/components/Home/TypesofInsurance/TypesofInsuranc
 import WhatisGenrali from "@/components/Home/WhatisGenrali/WhatisGenrali";
 import WhylifeInsurance from "@/components/Home/WhylifeInsurance/WhylifeInsurance";
 import LandingLayout from "@/components/Layouts/LandingLayout";
+import { apiClient } from '../utils/apiClient'; // ✅ Ensure correct import path
 
-export default function Home() {
-
+export default function Home(props) {
     // Array for Stageoption data
     const stageOptionsData = [
 
@@ -646,19 +646,18 @@ export default function Home() {
             answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
         },
     ];
-
     return (
         <LandingLayout>
             <CommonChatbot />
-            <HomeBanner />
-            <BeststageOption stageOptionsData={stageOptionsData} />
-            <LifeInsurance insuranceData={insuranceData} />
-            <WhatisGenrali />
-            <WhylifeInsurance />
-            <ChooseGoal choosegoalData={choosegoalData} />
-            <TypesofInsurance  insurancetypesData={insurancetypesData}/>
-            <RequestCallback />
-            <CoverageOption coveragetabs={coveragetabs} coverageplansData={coverageplansData} />
+            <HomeBanner homeBannerData={props?.homePageData}/>
+            <BeststageOption bestStageData={props?.homePageData} />
+            <LifeInsurance lifeInsurData={props?.homePageData} />
+            <WhatisGenrali whatIsData={props?.homePageData}/>
+            <WhylifeInsurance whylifeInsurData={props?.homePageData}/>
+            <ChooseGoal choosegoalData={props?.homePageData} />
+            <TypesofInsurance  insurancetypesData={props?.homePageData}/>
+            <RequestCallback  requestCallbackData={props?.homePageData}/>
+            <CoverageOption coveragetabs={coveragetabs} coverageplansData={props?.homePageData} />
             <ProtectPlan protectplanData={protectplanData} />
             <OurCustomer teamMemberstabs={teamMemberstabs} teamMemberData={teamMemberData} />
             <InvestPlan />
@@ -669,4 +668,27 @@ export default function Home() {
             <IrdaSection />
         </LandingLayout>
     );
+};
+
+// ✅ Fetch data from API using getServerSideProps
+export async function getServerSideProps(context) {
+  try {
+    // 🔹 Fetch career page data based on the Page URL filter
+    const response = await apiClient('/api/home-pages?filters[PageUrl][$eq]=/');
+
+    return {
+      props: {
+        homePageData: response?.data?.[0] || {}, // ✅ Ensure pageData is not undefined
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching careers data:", error);
+    
+    // ✅ Return an empty object to prevent page crash in case of an error
+    return {
+      props: {
+        pageData: {},
+      },
+    };
+  }
 }
