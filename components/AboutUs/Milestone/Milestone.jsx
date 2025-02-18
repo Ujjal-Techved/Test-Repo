@@ -55,7 +55,7 @@ const Milestone = ({ milestoneList }) => {
     };
 
     return (
-        <div className='social-res-wrapper pb-4'>
+        <div className='social-res-wrapper pd-t pd-b'>
             <Container>
                 <TitleSubtitle
                     title={"Our Journey, One Milestone at a Time"}

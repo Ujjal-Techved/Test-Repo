@@ -464,11 +464,11 @@ body.over-hide {
 
     /* common padding */
     .pd-t {
-        padding-top: 36px;
+        padding-top: 24px;
     }
 
     .pd-b {
-        padding-bottom: 36px;
+        padding-bottom: 24px;
     }
 
     .divider {
@@ -616,6 +616,27 @@ body.over-hide {
         padding: 8px;
     }
 
+    .social-res-wrapper .slick-arrow.slick-prev{
+        left: 0px;
+    }
+    
+    .social-res-wrapper .slick-arrow.slick-next {
+        right: 0px;
+    }
 
+    .social-res-wrapper .slick-arrow{
+        width: 24px;
+        height: 24px;
+    }
+
+    .social-res-wrapper .slick-arrow.slick-prev::before {
+        border-width: 0 2px 2px 0;
+        padding: 3px;
+    }
+
+    .social-res-wrapper .slick-arrow.slick-next::before {
+        border-width: 0 2px 2px 0;
+        padding: 3px;
+    }
 
 }
