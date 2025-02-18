@@ -4,17 +4,21 @@
     overflow: hidden; /* Ensures content does not exceed the screen */
 }
 
+.team_slider_parent{
+    padding: 24px 12px;
+}
+
 .team_slider {
     box-shadow: 2px 2px 20px 0px rgba(160, 160, 160, 0.25);
     background-color: var(--background-color);
     border-radius: 32px;
     padding: 24px;
-    margin: 40px 50px 10px 50px; /* Adds margin on both sides for better visibility */
+    /* margin: 40px 50px 10px 50px; */
     display: flex !important;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    max-width: 324px;
+    /* max-width: 324px; */
     width: 100%;
 }
 
@@ -40,10 +44,10 @@
 
 @media screen and (max-width: 991.2px) and (min-width: 320px) {
 
-    .team_slider {
-        margin: 40px 105px; /* Adds margin on both sides for better visibility */
+    /* .team_slider {
+        margin: 40px 105px; 
         max-width: 198px;
-    }
+    } */
 
     .team_slider .team_feedback {
         font-family: "Helvetica-400";
