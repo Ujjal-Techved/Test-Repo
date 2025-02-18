@@ -3,9 +3,17 @@ import TitleSubtitle from '../TitleSubtitle/TitleSubtitle';
 import { Accordion, AccordionBody, AccordionHeader, AccordionItem, Container } from 'reactstrap';
 import styles from './Faqs.module.css';
 
-const Faqs = ({ faqData }) => {
+const Faqs = ({ faqItems }) => {
     // State to track which FAQ item is open
     const [openIndex, setOpenIndex] = useState("");
+
+    // Prevent rendering if `faqItems` is missing to avoid errors
+    if (!faqItems) {
+        return null;
+    }
+
+    // Destructure API response data for cleaner code
+    const { Title, Description, FaqList } = faqItems?.Faq_Section;
 
     // Function to toggle open/close state of a FAQ item
     const toggleFaq = (index) => {
@@ -17,16 +25,21 @@ const Faqs = ({ faqData }) => {
             <Container>
                 {/* Section title and description */}
                 <TitleSubtitle
-                    title={faqData?.Title}
-                    subtitle={faqData?.Description}
+                    title={Title}
+                    subtitle={Description}
                     titleTag='h3'
                 />
 
                 {/* FAQ Accordion */}
-                <Accordion open={openIndex} toggle={toggleFaq} className={styles.faqListContainer}>
+                <Accordion 
+                    open={openIndex} 
+                    toggle={toggleFaq} 
+                    className={styles.faqListContainer}
+                >
                     {/* Loop through FAQ list and create an accordion item for each */}
-                    {faqData?.FaqList?.map((item, index) => (
+                    {FaqList?.map((item, index) => (
                         <AccordionItem key={index} className={styles.faqItem}>
+                            
                             {/* Accordion Header (Click to expand/collapse) */}
                             <AccordionHeader 
                                 tag="div" 
@@ -38,7 +51,10 @@ const Faqs = ({ faqData }) => {
                             </AccordionHeader>
 
                             {/* Accordion Body (Contains Answer) */}
-                            <AccordionBody className={styles.faqBody} accordionId={index.toString()}>
+                            <AccordionBody 
+                                className={styles.faqBody} 
+                                accordionId={index.toString()}
+                            >
                                 {item?.Answer}
                             </AccordionBody>
                         </AccordionItem>
