@@ -9,7 +9,7 @@
     background-color: var(--background-color);
     border-radius: 32px;
     padding: 24px;
-    margin: 40px 50px; /* Adds margin on both sides for better visibility */
+    margin: 40px 50px 10px 50px; /* Adds margin on both sides for better visibility */
     display: flex !important;
     flex-direction: column;
     align-items: flex-start;

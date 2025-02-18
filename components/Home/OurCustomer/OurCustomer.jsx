@@ -68,7 +68,7 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
     };
 
     return (
-        <div>
+        <div className='pd-t pd-b'>
             <Container>
                 <TitleSubtitle
                     title={"What Our Customers Are Saying"}

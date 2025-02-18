@@ -6,7 +6,7 @@ const CommonChatbot = () => {
  
 
     return (
-        <Container className={styles.chatboat_cotainer}>
+        <Container className={styles.chatbot_cotainer}>
             <div className={styles.main_chatbot}>
                 <div className={styles.Home_banner_chatbot}>
                     <div className={styles.Home_banner_innerbot}>

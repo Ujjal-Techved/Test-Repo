@@ -14,7 +14,7 @@ const WhylifeInsurance = ({ whylifeInsurData }) => {
     const { Title, Description, ButtonText1, ButtonText2 } = whylifeInsurData?.WhyLife;
 
     return (
-        <div>
+        <div className='pd-t pd-b'>
             <Container>
                 <div className={styles.insure_wrapper}>
                     <Row className={styles.insure_main}>

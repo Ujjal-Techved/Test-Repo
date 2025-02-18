@@ -88,7 +88,7 @@ const CoverageOption = ({ coveragetabs, coverageplansData }) => {
     };
 
     return (
-        <div>
+        <div className='pd-t pd-b'>
             <Container>
                 {/* Title and Subtitle component */}
                 <TitleSubtitle
@@ -125,7 +125,7 @@ const CoverageOption = ({ coveragetabs, coverageplansData }) => {
                         )}
 
                         {/* Tab Content Section */}
-                        <TabContent activeTab={"1"}>
+                        <TabContent activeTab={"1"} className='pb-0'>
                             <TabPane tabId="1">
                                 <div className={styles.tab_content_wrapper}>
                                     {/* Slider for coverage cards */}

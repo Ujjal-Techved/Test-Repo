@@ -601,15 +601,19 @@ body.over-hide {
     }
 
     .best-stageoption-wrapper.no-slickinit>div {
-        display: flex;
-        flex-wrap: wrap;
+        /* display: flex;
+        flex-wrap: wrap; */
+        max-width: 160px;
     }
+
+    
 
     .best-stageoption-wrapper.no-slickinit {
         display: flex;
         flex-wrap: wrap;
         padding-top: 30px;
         justify-content: center;
+        gap: 16px;
     }
 
     .types-insurance-wrapper.awards .slick-track .slick-slide {

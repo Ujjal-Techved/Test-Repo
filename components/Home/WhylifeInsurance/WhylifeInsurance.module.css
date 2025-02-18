@@ -1,6 +1,6 @@
-.insure_wrapper{
+/* .insure_wrapper{
     padding: 56px 0px;
-}
+} */
 
 .insure_main {
     align-items: center;
@@ -16,7 +16,7 @@
     border-radius: 20px;
 }
 
-@media screen and (max-width: 1024px) and (min-width: 992px) {
+@media screen and (max-width: 1100px) and (min-width: 992px) {
     .insure_imgsrc img{
         width: 100%;
     }
