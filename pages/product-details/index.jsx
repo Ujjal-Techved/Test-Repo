@@ -6,11 +6,10 @@ import styles from './ProductDetails.module.css'
 
 const index = () => {
 
-    // Create the breadcrumbs array based on state and city
+    // Create the breadcrumbs array
     const breadcrumbs = [
         { name: "Long Term Income Plan", url: "/product-details", active: true },
     ]
-
 
     return (
         <LandingLayout>
