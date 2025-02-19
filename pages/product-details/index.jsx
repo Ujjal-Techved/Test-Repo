@@ -3,6 +3,7 @@ import LandingLayout from '@/components/Layouts/LandingLayout'
 import React from 'react'
 import { Container } from 'reactstrap'
 import styles from './ProductDetails.module.css'
+import PdpBanner from '@/components/PDP/PdpBanner/PdpBanner'
 
 const index = () => {
 
@@ -17,6 +18,7 @@ const index = () => {
                 <Container>
                     <Breadcrumbs values={breadcrumbs} />
                 </Container>
+                <PdpBanner/>
             </div>
         </LandingLayout>
     )
