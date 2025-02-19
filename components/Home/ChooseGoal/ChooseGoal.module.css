@@ -71,7 +71,7 @@
 }
 
 .best_stageoption_card:hover .best_stageoption_main {
-    min-height: 100px;
+    /* min-height: 100px; */
 }
 
 .protect_plan_linktext {
@@ -79,6 +79,7 @@
     display: flex;
     align-items: center;
     gap: 4px;
+    cursor: pointer;
 }
 
 .protect_plan_linktext span {
@@ -87,7 +88,7 @@
     font-family: 'Helvetica-500';
     color: var(--fgi-black);
     white-space: nowrap;
-    max-width: 145px;
+    max-width: 190px;
     overflow: hidden;
     text-overflow: ellipsis;
 }

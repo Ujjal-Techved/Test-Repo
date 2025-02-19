@@ -42,6 +42,9 @@ export default function Home(props) {
             {/* Common Chatbot component */}
             <CommonChatbot />
 
+            {/* Common Whatsapp component */}
+            <CommonWhatsapp />
+
             {/* Home Banner section with data passed from props */}
             <HomeBanner homeBannerData={props?.homePageData} />
             

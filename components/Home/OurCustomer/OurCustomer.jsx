@@ -11,7 +11,7 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
     const [teamactiveTab, setTeamActiveTab] = useState(teamMemberstabs[0].tabtitle);
 
     // State to manage mobile screen detection
-    const [isMobile, setIsMobile] = useState(false);  
+    const [isMobile, setIsMobile] = useState(false);
 
     // State to manage dropdown for mobile view
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -28,11 +28,11 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
     // Detect if the screen width is below 992px
     useEffect(() => {
         const handleResize = () => {
-                if (window.innerWidth < 992) {
-                    setIsMobile(true);
-                } else {
-                    setIsMobile(false);
-                }
+            if (window.innerWidth < 992) {
+                setIsMobile(true);
+            } else {
+                setIsMobile(false);
+            }
         };
 
         handleResize(); // Initial check
@@ -46,36 +46,41 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
     // Slider settings for team member reviews
     const sliderSettings = {
         dots: false,
-        infinite: true,
+        infinite: false,
         speed: 500,
-        slidesToShow: 3.2, // Number of visible slides
+        slidesToShow: 3.3,
         slidesToScroll: 1,
-        autoplay: false,
-        autoplaySpeed: 3000,
-        centerMode: true,
-        centerPadding: "30px",
+        arrows: false,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 3.5,
-                    centerPadding: "20px",
-                },
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                }
             },
             {
-                breakpoint: 768,
+                breakpoint: 992,
                 settings: {
-                    slidesToShow: 3.2,
-                },
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
             },
             {
-                breakpoint: 576,
+                breakpoint: 630,
                 settings: {
-                    slidesToShow: 1.5,
-                    centerPadding: "8px",
-                },
+                    slidesToShow: 1.2,
+                    slidesToScroll: 1,
+                }
             },
-        ],
+            {
+                breakpoint: 520,
+                settings: {
+                    slidesToShow: 1.3,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
     };
 
     return (
@@ -95,9 +100,9 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
                         {!isMobile ? (
                             <Nav tabs>
                                 {teamMemberstabs.map(({ id, tabtitle }) => (
-                                    <NavItem 
-                                        key={id} 
-                                        className={teamactiveTab === tabtitle ? "active" : ""} 
+                                    <NavItem
+                                        key={id}
+                                        className={teamactiveTab === tabtitle ? "active" : ""}
                                         onClick={() => setTeamActiveTab(tabtitle)}
                                     >
                                         <NavLink>{tabtitle}</NavLink>
@@ -112,8 +117,8 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
                                 </DropdownToggle>
                                 <DropdownMenu>
                                     {teamMemberstabs.map(({ id, tabtitle }) => (
-                                        <DropdownItem 
-                                            key={id} 
+                                        <DropdownItem
+                                            key={id}
                                             onClick={() => { setTeamActiveTab(tabtitle); toggleDropdown(); }}
                                         >
                                             {tabtitle}
@@ -132,32 +137,34 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
                                         {ReviewCards?.filter((member) =>
                                             member?.Category?.toLowerCase() === teamactiveTab?.toLowerCase()
                                         ).map((eachmember, index) => (
-                                            <div key={index} className={styles.team_slider}>
-                                                {/* Reviewer's Image */}
-                                                <img
-                                                    src={process.env.NEXT_PUBLIC_APP_API + eachmember?.Image?.url}
-                                                    alt={eachmember?.Image?.alternativeText || 'Review Image'}
-                                                />
+                                            <div key={index} className={styles.team_slider_parent}>
+                                                <div  className={styles.team_slider}>
+                                                    {/* Reviewer's Image */}
+                                                    <img
+                                                        src={process.env.NEXT_PUBLIC_APP_API + eachmember?.Image?.url}
+                                                        alt={eachmember?.Image?.alternativeText || 'Review Image'}
+                                                    />
 
-                                                {/* Review content */}
-                                                <p className={styles.team_feedback}>{eachmember?.Review}</p>
+                                                    {/* Review content */}
+                                                    <p className={styles.team_feedback}>{eachmember?.Review}</p>
 
-                                                {/* Reviewer's name and rating */}
-                                                <div className={styles.member_name}>
-                                                    <label>{eachmember?.Name}</label>
-                                                    <p className="date">
-                                                        <Rating
-                                                            initialValue={eachmember?.Rating}
-                                                            iconsCount={5}
-                                                            readonly
-                                                            size={16}
-                                                            allowFraction
-                                                            fillColor={"rgba(255, 195, 41, 1)"}
-                                                            emptyColor={"#FFF"}
-                                                            SVGstrokeColor={"rgba(255, 195, 41, 1)"}
-                                                            SVGstrokeWidth={"2"}
-                                                        />
-                                                    </p>
+                                                    {/* Reviewer's name and rating */}
+                                                    <div className={styles.member_name}>
+                                                        <label>{eachmember?.Name}</label>
+                                                        <p className="date">
+                                                            <Rating
+                                                                initialValue={eachmember?.Rating}
+                                                                iconsCount={5}
+                                                                readonly
+                                                                size={16}
+                                                                allowFraction
+                                                                fillColor={"rgba(255, 195, 41, 1)"}
+                                                                emptyColor={"#FFF"}
+                                                                SVGstrokeColor={"rgba(255, 195, 41, 1)"}
+                                                                SVGstrokeWidth={"2"}
+                                                            />
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         ))}
