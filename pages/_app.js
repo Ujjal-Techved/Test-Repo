@@ -1,6 +1,7 @@
 // pages/_app.js
 
 // Import your global CSS here
+import React,{useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css';
 import '../styles/styles.css';
