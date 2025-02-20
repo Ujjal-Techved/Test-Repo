@@ -1,0 +1,64 @@
+
+
+.common_point_wrapper {
+    border: 1px solid var(--fgi-borderdarkgrey);
+    box-shadow: 0px 0px 25px 0px var(--fgi-faqShadow);
+    padding: 32px 24px;
+    border-radius: 24px;
+}
+
+.common_point_row {
+    gap: 20px 0px;
+}
+
+.common_point_wrapper p {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: 'Helvetica-500';
+    color: var(--text-grey2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin-bottom: 24px;
+}
+
+.common_point_wrapper .common_point_card p {
+    font-family: 'Helvetica-400';
+    justify-content: left;
+    min-height: 40px;
+    align-items: flex-start;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.common_point_card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    height: 100%;
+}
+
+.point_description span {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica-500';
+    color: var(--fgi-black);
+}
+
+
+@media screen and (max-width: 991.2px) and (min-width:320px) {
+
+    .common_point_wrapper p{
+        padding: 0px;
+    }
+
+    .common_point_wrapper .common_point_card p {
+        min-height: 0px;
+    }
+
+    .common_point_wrapper {
+        padding: 24px 16px;
+    }
+
+}
