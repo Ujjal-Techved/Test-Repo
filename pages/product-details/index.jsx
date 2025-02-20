@@ -10,10 +10,11 @@ import TailoredPlan from '@/components/PDP/TailoredPlan/TailoredPlan'
 import LifeInsurance from '@/components/Home/LifeInsurance/LifeInsurance'
 import OurCustomer from '@/components/Home/OurCustomer/OurCustomer'
 import Faqs from '@/components/Common/Faqs/Faqs'
+import PdpBanner from '@/components/PDP/PdpBanner/PdpBanner'
 
 const index = () => {
 
-    // Create the breadcrumbs array based on state and city
+    // Create the breadcrumbs array
     const breadcrumbs = [
         { name: "Long Term Income Plan", url: "/product-details", active: true },
     ]
@@ -318,6 +319,9 @@ const index = () => {
                 <Container>
                     <Breadcrumbs values={breadcrumbs} />
                 </Container>
+                {/* PDP Main Banner Section */}
+                <PdpBanner/>
+
                 {/* Why long term plan section */}
                 <Whylongtermplan TermplanCardData={TermplanCardData} />
 
@@ -342,7 +346,6 @@ const index = () => {
                     title={"Frequently Asked Questions"}
                     subtitle={"See some of the most common questions below."}
                 />
-
             </div>
         </LandingLayout>
     )
