@@ -1,0 +1,44 @@
+.card1{
+    background: var(--border-grey);
+    padding: 12px;
+    margin-bottom: 70px;
+    position: relative;
+    width: 126px;
+    height: 126px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card1::after{
+    position: absolute;
+    content: url('/images/product-detail/guide-arrow-1.png');
+    height: 70px;
+    width: 11px;
+    left: 50%;
+    transform: translateX(-50%);
+    top:100%;
+    z-index: 5;
+}
+
+.card2{
+    background: var(--border-grey);
+    padding: 12px;
+    position: relative;
+    width: 126px;
+    height: 70px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card2::after{
+    position: absolute;
+    content: url('/images/product-detail/guide-arrow-2.png');
+    height: 13px;
+    width: 97px;
+    left: 100%;
+    transform: translateY(-50%);
+    top:50%;
+    z-index: 5;
+}

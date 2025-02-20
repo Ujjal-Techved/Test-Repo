@@ -346,23 +346,27 @@ body.over-hide {
 
 .common-tabs-wrapper .slick-track,
 .types-insurance-wrapper .slick-track,
-.tailored-plan-wrapper .slick-track{
+.tailored-plan-wrapper .slick-track,
+.policy-steps .slick-track {
     display: flex !important;
 }
 
 .common-tabs-wrapper .slick-track .slick-slide,
 .types-insurance-wrapper .slick-track .slick-slide,
-.tailored-plan-wrapper .slick-track .slick-slide{
+.tailored-plan-wrapper .slick-track .slick-slide,
+.policy-steps .slick-track .slick-slide {
     height: unset;
 }
 
 .common-tabs-wrapper .slick-track .slick-slide>div,
 .types-insurance-wrapper .slick-track .slick-slide>div,
-.tailored-plan-wrapper .slick-track .slick-slide>div {
+.tailored-plan-wrapper .slick-track .slick-slide>div,
+.policy-steps .slick-track .slick-slide>div {
     height: 100%;
 }
 
-.types-insurance-wrapper .slick-track .slick-slide {
+.types-insurance-wrapper .slick-track .slick-slide,
+.policy-steps .slick-track .slick-slide  {
     padding: 10px;
 }
 
@@ -405,11 +409,15 @@ body.over-hide {
 }
 
 .social-res-wrapper .slick-arrow.slick-prev{
-    left: -50px;
+    left: 0px;
+    background: var(--background-color);
+    z-index: 5000;
 }
 
 .social-res-wrapper .slick-arrow.slick-next {
-    right: -50px;
+    right: 0px;
+    background: var(--background-color);
+    z-index: 5000;
 }
 
 
