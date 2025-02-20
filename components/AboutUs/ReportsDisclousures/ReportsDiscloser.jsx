@@ -1,28 +1,44 @@
-import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle'
-import React from 'react'
-import { Col, Container, Row } from 'reactstrap'
-import styles from './ReportsDiscloser.module.css'
+import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
+import React from 'react';
+import { Col, Container, Row } from 'reactstrap';
+import styles from './ReportsDiscloser.module.css';
 
+const ReportsDiscloser = ({ reportsData }) => {
 
+    // Prevent rendering if `reportsData` is missing to avoid errors
+    if (!reportsData) {
+        return null;
+    }
 
-const ReportsDiscloser = ({reportsData}) => {
+    // Destructure API response data for cleaner and more readable code
+    const { Title, Description, ReportItems } = reportsData?.Reports;
+
     return (
         <div className='pd-t pd-b'>
             <Container>
+                {/* Section Title and Description */}
                 <TitleSubtitle
-                    title={"Reports and Disclosures"}
-                    subtitle={"This section lists Future Generali Life’s performance information including annual reports, bonus declaration, and public disclosures"}
+                    title={Title}
+                    subtitle={Description}
                 />
+
+                {/* Reports List */}
                 <Row className={styles.reports_disclosure_row}>
-                    {reportsData.map((item, index) => (
+                    {ReportItems?.map((item, index) => (
                         <Col lg="3" key={index}>
-                            <a href={item.link} className={styles.reports_disclosure_card}>
+                            {/* Report Card with a clickable link */}
+                            <a href={item?.LinkUrl} className={styles.reports_disclosure_card} target="_blank" rel="noopener noreferrer">
                                 <div className={styles.reports_disclosure_title}>
-                                    <img src={item.image} alt="image" />
-                                    <p>{item.title}</p>
+                                    {/* Report Image */}
+                                    <img src={process.env.NEXT_PUBLIC_APP_API + item?.Image.url} alt={item.Image.alternativeText} />
+                                    
+                                    {/* Report Title */}
+                                    <p>{item?.Title}</p>
                                 </div>
+
+                                {/* Right Arrow Icon for Navigation */}
                                 <div>
-                                    <img src="/images/reach-us/arrow-right.svg" alt="arrow" />
+                                    <img src="/images/reach-us/arrow-right.svg" alt="Navigate to Report" />
                                 </div>
                             </a>
                         </Col>
