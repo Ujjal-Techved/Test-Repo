@@ -11,6 +11,7 @@ import LifeInsurance from '@/components/Home/LifeInsurance/LifeInsurance'
 import OurCustomer from '@/components/Home/OurCustomer/OurCustomer'
 import Faqs from '@/components/Common/Faqs/Faqs'
 import PdpBanner from '@/components/PDP/PdpBanner/PdpBanner'
+import PolicySteps from '@/components/PDP/PolicySteps/PolicySteps'
 
 const index = () => {
 
@@ -285,33 +286,132 @@ const index = () => {
 
     const faqData = {
         Faq_Section: {
-                "id": "",
-                "Title": "Frequently asked questions",
-                "Description": "See some of the most common questions below.",
-                "FaqList": [
-                    {
-                        "id": "",
-                        "Question": "What is Life Insurance?",
-                        "Answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                    },
-                    {
-                        "id": "",
-                        "Question": "What are riders in life insurance plans?",
-                        "Answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                    },
-                    {
-                        "id": "",
-                        "Question": "How Much Life Insurance Cover Do You Need?",
-                        "Answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                    },
-                    {
-                        "id": "",
-                        "Question": "What do you mean by the term “ MLC Copy”?",
-                        "Answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                    }
-                ]
-            },
+            "id": "",
+            "Title": "Frequently asked questions",
+            "Description": "See some of the most common questions below.",
+            "FaqList": [
+                {
+                    "id": "",
+                    "Question": "What is Life Insurance?",
+                    "Answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                },
+                {
+                    "id": "",
+                    "Question": "What are riders in life insurance plans?",
+                    "Answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                },
+                {
+                    "id": "",
+                    "Question": "How Much Life Insurance Cover Do You Need?",
+                    "Answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                },
+                {
+                    "id": "",
+                    "Question": "What do you mean by the term “ MLC Copy”?",
+                    "Answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                }
+            ]
+        },
     }
+
+    const stepsData = [
+        {
+            Title: "Choose Your Plan Option",
+            Image: "/images/product-detail/steps-1.png",
+            DescTop: "",
+            DescBottom: "",
+            SplitCols: false,
+            StepDetailList: [
+                {
+                    Title: "Growth Plan",
+                    Desc: "Plan for yourself: Receive Survival Benefits and Maturity Benefit upon survival. Death Benefit is payable to your Nominee."
+                },
+                {
+                    Title: "Comprehensive Coverage Plan",
+                    Desc: "Plan for yourself and your loved ones: A lump sum is paid to the nominee upon the death of Life Assured. In addition, survival and maturity benefits continue as scheduled."
+                },
+            ]
+        },
+        {
+            Title: "Choose Your Income Option",
+            Image: "/images/product-detail/steps-1.png",
+            DescTop: "Plan for yourself: Receive Survival Benefits and Maturity Benefit upon survival.",
+            DescBottom: "",
+            SplitCols: false,
+            StepDetailList: [
+                {
+                    Title: "Growth Plan",
+                    Desc: "Plan for yourself: Receive Survival Benefits and Maturity Benefit upon survival. Death Benefit is payable to your Nominee."
+                },
+                {
+                    Title: "Comprehensive Coverage Plan",
+                    Desc: "Plan for yourself and your loved ones: A lump sum is paid to the nominee upon the death of Life Assured. In addition, survival and maturity benefits continue as scheduled."
+                },
+            ]
+        },
+        {
+            Title: "Define Policy Parameters",
+            Image: "/images/product-detail/steps-1.png",
+            DescTop: "",
+            DescBottom: "",
+            SplitCols: true,
+            StepDetailList: [
+                {
+                    Title: "Growth Plan",
+                    Desc: "Plan for yourself: Receive Survival Benefit"
+                },
+                {
+                    Title: "Comprehensive Coverage Plan",
+                    Desc: "Plan for yourself and your loved ones"
+                },
+                {
+                    Title: "Growth Plan 2",
+                    Desc: "Plan for yourself: Receive Survival Benefit"
+                },
+                {
+                    Title: "Comprehensive Coverage Plan 2",
+                    Desc: "Plan for yourself and your loved ones"
+                },
+                {
+                    Title: "Growth Plan 2",
+                    Desc: "Plan for yourself: Receive Survival Benefit"
+                },
+            ]
+        },
+        {
+            Title: "Choose from optional riders",
+            Image: "/images/product-detail/steps-1.png",
+            DescTop: "",
+            DescBottom: "Plan for yourself: Receive Survival Benefits and Maturity Benefit upon survival.",
+            SplitCols: false,
+            StepDetailList: [
+                {
+                    Title: "Growth Plan",
+                    Desc: "Plan for yourself: Receive Survival Benefits and Maturity Benefit upon survival. Death Benefit is payable to your Nominee."
+                },
+                {
+                    Title: "Comprehensive Coverage Plan",
+                    Desc: "Plan for yourself and your loved ones: A lump sum is paid to the nominee upon the death of Life Assured. In addition, survival and maturity benefits continue as scheduled."
+                },
+            ]
+        },
+        {
+            Title: "Fill out the Proposal Form",
+            Image: "/images/product-detail/steps-1.png",
+            DescTop: "Plan for yourself: Receive Survival Benefits and Maturity Benefit upon survival.",
+            DescBottom: "",
+            SplitCols: false,
+            StepDetailList: []
+        },
+        {
+            Title: "Pay Your Premium",
+            Image: "/images/product-detail/steps-1.png",
+            DescTop: "Plan for yourself: Receive Survival Benefits and Maturity Benefit upon survival.",
+            DescBottom: "",
+            SplitCols: false,
+            StepDetailList: []
+        },
+    ]
 
     return (
         <LandingLayout>
@@ -320,7 +420,7 @@ const index = () => {
                     <Breadcrumbs values={breadcrumbs} />
                 </Container>
                 {/* PDP Main Banner Section */}
-                <PdpBanner/>
+                <PdpBanner />
 
                 {/* Why long term plan section */}
                 <Whylongtermplan TermplanCardData={TermplanCardData} />
@@ -336,6 +436,9 @@ const index = () => {
 
                 {/* Life Insurance section */}
                 <LifeInsurance lifeInsurData={lifeInsurData} />
+
+                {/* Policy steps section */}
+                <PolicySteps stepsData={stepsData} />
 
                 {/* Our Customer section */}
                 <OurCustomer teamMemberstabs={teamMemberstabs} teamMemberData={teamMemberData} />
