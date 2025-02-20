@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import styles from './TailoredPlan.module.css';
 import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
+import SlickSlider from 'react-slick';
+import { Slider } from 'rsuite';
 
 const TailoredPlan = () => {
 
-// Array for planDetail data
+    // Array for planDetail data
 
     const planDetailData = [
         {
@@ -40,25 +42,199 @@ const TailoredPlan = () => {
         }
     ];
 
-    const data = [
-        { year: "1-10", "30 years": "0%", "40 years": "0%", "50 years": "0%" },
-        { year: "11-15", "30 years": "50%", "40 years": "50%", "50 years": "50%" },
-        { year: "16-20", "30 years": "100%", "40 years": "100%", "50 years": "100%" },
-        { year: "21-25", "30 years": "150%", "40 years": "150%", "50 years": "150%" },
-        { year: "26-30", "30 years": "200%", "40 years": "200%", "50 years": "200%" },
-        { year: "31-35", "30 years": "250%", "40 years": "250%", "50 years": "250%" },
-        { year: "36-40", "30 years": "300%", "40 years": "300%", "50 years": "300%" },
-        { year: "41-45", "30 years": "", "40 years": "350%", "50 years": "350%" },
-        { year: "46-50", "30 years": "", "40 years": "", "50 years": "400%" },
-      ];
+    // State to track slider Growth Plan value uo to 50 years
+    const [growthplanupto50yeasrvalue, setGrowthplanupto50yeasrvalue] = useState(0); // Initial value
+
+    // State to track slider value uo to 65 years
+    const [upto65yeasrvalue, setUpto65yeasrvalue] = useState(0); // Initial value
+
+    // State to track slider Cover Plan value uo to 50 years
+    const [coverplanupto50yeasrvalue, setCoverplanupto50yeasrvalue] = useState(0); // Initial value
+
+    // State to track mobile view
+    const [isMobileView, setIsMobileView] = useState(false);
+
+    useEffect(() => {
+        // Function to handle screen resizing
+        const handleResize = () => {
+            setIsMobileView(window.innerWidth < 992);
+        };
+
+        handleResize(); // Initial check
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    // Slider settings for responsive display  
+    const sliderSettings = {
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 1.03,
+        slidesToScroll: 1,
+        arrows: false,
+    };
+
+    // Plan cards component  
+    const planCards = (
+        <>
+            {/* Growth Plan card */}
+            <div className={styles.growth_plan_main}>
+                <div className={styles.growth_plan_card}>
+
+                    <div className={styles.growth_plan_quote}>
+                        <img src="/images/product-detail/gplan.png" alt="growth-plan" />
+                        <div>
+                            <h5>Growth Plan</h5>
+                            <p>Middle-aged individuals planning long-term wealth generation and life protection.</p>
+                        </div>
+                    </div>
+                    <div className={styles.detail_box_wrapper}>
+                        <div className={`${styles.detail_box} entry`}>
+                            <span>Entry Age</span>
+                            <p>Min: 0 days (Death Benefit Multiple of 10)<br />Max: 65 years (Death Benefit Multiple of 5, 7, or 10)</p>
+                        </div>
+                        <div className={`${styles.detail_box} maturity`}>
+                            <span>Maturity Age</span>
+                            <p>30-100 years</p>
+                        </div>
+                        <div className={`${styles.detail_box} premium`}>
+                            <span>Premium Amount</span>
+                            <p>Minimum:</p>
+                            {/* Rsuit slider main section */}
+                            <div className="rsuit-main-wrapper">
+                                <div className='ages-and-value'>
+                                    <p>Age: 0 days-50 years</p>
+                                    <span>₹ <p>{growthplanupto50yeasrvalue.toLocaleString()}</p></span>
+                                </div>
+                                <div className='pre-amount-slider'>
+                                    <Slider
+                                        className='rs-silder'
+                                        defaultValue={0}
+                                        min={0}
+                                        step={10000}
+                                        max={30000}
+                                        graduated
+                                        progress
+                                        onChange={(newValue) => setGrowthplanupto50yeasrvalue(newValue)}
+                                    />
+                                    <div className='rs-months'>
+                                        <span>Monthly</span>
+                                        <span>Quarterly</span>
+                                        <span>Half Year</span>
+                                        <span>Yearly</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Rsuit slider main section */}
+                            <div className="rsuit-main-wrapper pt-3">
+                                <div className='ages-and-value'>
+                                    <p>Age: 51-65 years</p>
+                                    <span>₹ <p>{upto65yeasrvalue.toLocaleString()}</p></span>
+                                </div>
+                                <div className='pre-amount-slider'>
+                                    <Slider
+                                        className='rs-silder'
+                                        defaultValue={0}
+                                        min={0}
+                                        step={10000}
+                                        max={30000}
+                                        graduated
+                                        progress
+                                        onChange={(newValue) => setUpto65yeasrvalue(newValue)}
+                                    />
+                                    <div className='rs-months'>
+                                        <span>Monthly</span>
+                                        <span>Quarterly</span>
+                                        <span>Half Year</span>
+                                        <span>Yearly</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Maximum: No Limit <small>(As per Board Approved Underwriting Policy)</small></p>
+                        </div>
+                    </div>
+                    <div className={styles.quote_btn_div}>
+                        <a href="/" className={`${styles.get_quote_btn} whiteBtn redborder`}>Get A Quote</a>
+                    </div>
+                </div>
+            </div>
+
+            {/* Comprehensive Coverage Plan card */}
+            <div className={styles.growth_plan_main}>
+                <div className={styles.growth_plan_card}>
+                    <div className={styles.growth_plan_quote}>
+                        <img src="/images/product-detail/cplan.png" alt="coverage-plan" />
+                        <div>
+                            <h5>Comprehensive Coverage Plan</h5>
+                            <p>Long-term, flexible plan offering extensive coverage and premium customization for lifelong security.</p>
+                        </div>
+                    </div>
+
+                    <div className={styles.detail_box_wrapper}>
+                        <div className={`${styles.detail_box} entry`}>
+                            <span>Entry Age</span>
+                            <p>30 - 100 years</p>
+                        </div>
+                        <div className={`${styles.detail_box} maturity`}>
+                            <span>Maturity Age</span>
+                            <p>30-100 years</p>
+                        </div>
+                        <div className={`${styles.detail_box} premium`}>
+                            <span>Premium Amount</span>
+                            <p>Minimum:</p>
+                            {/* Rsuit slider main section */}
+                            <div className="rsuit-main-wrapper">
+                                <div className='ages-and-value'>
+                                    <p>Age: 0 days-50 years</p>
+                                    <span>₹ <p>{coverplanupto50yeasrvalue.toLocaleString()}</p></span>
+                                </div>
+                                <div className='pre-amount-slider'>
+                                    <Slider
+                                        className='rs-silder'
+                                        defaultValue={0}
+                                        min={0}
+                                        step={10000}
+                                        max={30000}
+                                        graduated
+                                        progress
+                                        onChange={(newValue) => setCoverplanupto50yeasrvalue(newValue)}
+                                    />
+                                    <div className='rs-months'>
+                                        <span>Monthly</span>
+                                        <span>Quarterly</span>
+                                        <span>Half Year</span>
+                                        <span>Yearly</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Maximum: No Limit <small>(As per Board Approved Underwriting Policy)</small></p>
+                        </div>
+                    </div>
+                    <div className={styles.quote_btn_div}>
+                        <a href="/" className={`${styles.get_quote_btn} whiteBtn redborder`}>Get A Quote</a>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 
     return (
-        <div className='pd-t pd-b'>
+        <div className='tailored-plan-wrapper pd-t pd-b'>
             <Container>
                 <TitleSubtitle
                     title={"Tailored plans to secure your future"}
                     subtitle={"Choose the plan that fits your life"}
                 />
+                {/* Growth plan and Coverage plan Section */}
+                <div className={styles.fgli_plan_section}>
+                    {isMobileView ? (
+                        <SlickSlider {...sliderSettings}>{planCards.props.children}</SlickSlider>
+                    ) : (
+                        planCards
+                    )}
+                </div>
                 {/* Common Points Section */}
                 <div className={styles.common_point_wrapper}>
                     <p>
@@ -78,7 +254,9 @@ const TailoredPlan = () => {
                         ))}
                     </Row>
                 </div>
-                
+
+                <div>
+                </div>
             </Container>
         </div>
     );

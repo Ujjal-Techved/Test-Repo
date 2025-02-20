@@ -20,6 +20,7 @@
     "react-simple-star-rating": "^5.1.7",
     "react-slick": "^0.30.3",
     "reactstrap": "^9.2.3",
+    "rsuite": "^5.77.1",
     "slick-carousel": "^1.8.1"
   }
 }

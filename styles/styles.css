@@ -345,17 +345,20 @@ body.over-hide {
 
 
 .common-tabs-wrapper .slick-track,
-.types-insurance-wrapper .slick-track {
+.types-insurance-wrapper .slick-track,
+.tailored-plan-wrapper .slick-track{
     display: flex !important;
 }
 
 .common-tabs-wrapper .slick-track .slick-slide,
-.types-insurance-wrapper .slick-track .slick-slide {
+.types-insurance-wrapper .slick-track .slick-slide,
+.tailored-plan-wrapper .slick-track .slick-slide{
     height: unset;
 }
 
 .common-tabs-wrapper .slick-track .slick-slide>div,
-.types-insurance-wrapper .slick-track .slick-slide>div {
+.types-insurance-wrapper .slick-track .slick-slide>div,
+.tailored-plan-wrapper .slick-track .slick-slide>div {
     height: 100%;
 }
 
@@ -458,6 +461,80 @@ body.over-hide {
     /* margin-left: 4px; */
 }
 
+/* Rsuit slider common css */
+
+.rsuit-main-wrapper .ages-and-value{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.rsuit-main-wrapper .ages-and-value p{
+    font-size: 14px;
+    line-height: 28px;
+    font-family: 'Helvetica-400';
+    color: var(--fgi-black);
+    margin-top: 0px;
+}
+
+.rsuit-main-wrapper .ages-and-value span{
+    font-size: 18px;
+    line-height: 28px;
+    font-family: 'Helvetica-300';
+    color: var(--fgi-black);
+    display: flex;
+    border-bottom: 1px solid var(--fgi-bordergrey);
+}
+
+.rsuit-main-wrapper .ages-and-value span p{
+    font-size: 18px;
+    line-height: 28px;
+    font-family: 'Helvetica-500';
+    color: var(--fgi-black);
+    margin-top: 0px;
+    margin-left: 4px;
+}
+
+.pre-amount-slider .rs-silder{
+    margin: 10px 0px;
+}
+
+.rsuit-main-wrapper .rs-slider-progress-bar{
+    background-color: var(--fgi-red);
+}
+
+.rsuit-main-wrapper .rs-slider-handle:before{
+    background-color: var(--background-color);
+    border: 2px solid var(--fgi-red);
+    border-radius: 24px;
+    content: "";
+    cursor: pointer;
+    height: 16px;
+    margin-left: -6px;
+    position: absolute;
+    transition: box-shadow .15s ease-in-out, background-color .15s ease-in-out, transform .15s ease-in-out;
+    width: 22px;
+    top: -2px;
+}
+
+.rsuit-main-wrapper .rs-slider-graduator>ol>li.rs-slider-pass:before {
+    border-color: var(--fgi-red);
+    border-color: var(--fgi-red);
+}
+
+.rs-months{
+    display: flex;
+    justify-content: space-between;
+}
+
+.rs-months span{
+    font-size: 14px !important;
+    line-height: 18px !important;
+    font-family: 'Helvetica-400' !important;
+    color: var( --border-grey1) !important;
+    
+}
 
 
 @media screen and (max-width: 991.2px) and (min-width: 320px) {
@@ -641,6 +718,20 @@ body.over-hide {
     .social-res-wrapper .slick-arrow.slick-next::before {
         border-width: 0 2px 2px 0;
         padding: 3px;
+    }
+
+
+    /* common rsuit slider css */
+
+    .rsuit-main-wrapper .rs-slider-handle:before{
+        border: 1px solid var(--fgi-red);
+        border-radius: 10px;
+        height: 10px;
+        margin-left: -6px;
+        position: absolute;
+        transition: box-shadow .15s ease-in-out, background-color .15s ease-in-out, transform .15s ease-in-out;
+        width: 18px;
+        top: 0px;
     }
 
 }
