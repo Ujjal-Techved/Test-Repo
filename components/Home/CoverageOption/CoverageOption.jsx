@@ -3,8 +3,10 @@ import styles from './CoverageOption.module.css';
 import { Col, Container, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Nav, NavItem, NavLink, Row, TabContent, TabPane } from 'reactstrap';
 import Slider from 'react-slick';
 import TitleSubtitle from '../../Common/TitleSubtitle/TitleSubtitle';
+import { useRouter } from 'next/router';
 
 const CoverageOption = ({ coveragetabs, coverageplansData }) => {
+    const router = useRouter()
 
     // Breadcrumbs for navigation (currently hardcoded)
     const breadcrumbs = [

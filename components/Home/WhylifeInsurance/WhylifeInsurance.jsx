@@ -11,7 +11,7 @@ const WhylifeInsurance = ({ whylifeInsurData }) => {
     }
 
     // Destructure API response data for cleaner code
-    const { Title, Description, ButtonText1, ButtonText2 } = whylifeInsurData?.WhyLife;
+    const { Title, Description, ButtonText1, ButtonText2,ButtonLink1,ButtonLink2 } = whylifeInsurData?.WhyLife;
 
     return (
         <div className='pd-t pd-b'>
@@ -28,8 +28,8 @@ const WhylifeInsurance = ({ whylifeInsurData }) => {
                             />
                             <div className={styles.insure_btn}>
                                 {/* Buttons */}
-                                <a className='redBtn redborder trasborder'>{ButtonText1}</a>
-                                <a className='whiteBtn redborder'>{ButtonText2}</a>
+                                <a href={ButtonLink1} className='redBtn redborder trasborder'>{ButtonText1}</a>
+                                <a href={ButtonLink2} className='whiteBtn redborder'>{ButtonText2}</a>
                             </div>
                         </Col>
                         {/* Right side: Image */}
