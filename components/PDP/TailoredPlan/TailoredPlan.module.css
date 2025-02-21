@@ -43,6 +43,10 @@
     margin: 0 auto;
 }
 
+.growth_plan_quote > img {
+    height: 82px;
+}
+
 .quote_btn_div {
     text-align: center;
     order: 2;
