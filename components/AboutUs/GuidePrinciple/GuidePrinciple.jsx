@@ -86,11 +86,11 @@ const GuidePrinciple = ({ guidePrincipleData }) => {
                                     <Col lg="7">
                                         <div className={styles.insure_card}>
                                             <Row className={styles.guide_card_row}>
-                                                {principle?.PrincipleList.map((item, i, arr) => (
+                                                {principle?.PrincipleList.slice(0,5).map((item, i, arr) => (
                                                     <Col
                                                         key={item.id}
-                                                        lg={i === arr.length - 1 ? "12" : "6"}
-                                                        md={i === arr.length - 1 ? "12" : "6"}
+                                                        lg={i === 4 ? "12" : "6"}
+                                                        md={i === 4 ? "12" : "6"}
                                                         sm="12"
                                                         className={styles.guide_card_col}
                                                     >
