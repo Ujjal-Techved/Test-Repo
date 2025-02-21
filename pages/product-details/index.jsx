@@ -12,6 +12,7 @@ import OurCustomer from '@/components/Home/OurCustomer/OurCustomer'
 import Faqs from '@/components/Common/Faqs/Faqs'
 import PdpBanner from '@/components/PDP/PdpBanner/PdpBanner'
 import PolicySteps from '@/components/PDP/PolicySteps/PolicySteps'
+import Download from '@/components/PDP/Download/Download'
 
 const index = () => {
 
@@ -157,6 +158,32 @@ const index = () => {
             ]
         },
     }
+
+
+      // Array of Dowanload Data
+
+      const downloadData = [
+        {
+            title: "Product Brochure",
+            image: "/images/product-detail/ProductBrochure.png",
+        },
+        {
+            title: "Policy Schedule",
+            image: "/images/product-detail/PolicySchedule.png",
+        },
+        {
+            title: "Policy Document ",
+            image: "/images/product-detail/PolicyDocument.png",
+        },
+        {
+            title: "Product Presentation",
+            image: "/images/product-detail/ProductPresentation.png"
+        },
+        {
+            title: "Customer Information Sheet",
+            image: "/images/product-detail/CustomerInformationSheet.png",
+        }
+    ];
 
 
     // Our Teammember Tabs array data for dynamically displaying tabs
@@ -439,6 +466,9 @@ const index = () => {
 
                 {/* Policy steps section */}
                 <PolicySteps stepsData={stepsData} />
+
+                {/* Dowanload section */}
+                <Download downloadData={downloadData}/>
 
                 {/* Our Customer section */}
                 <OurCustomer teamMemberstabs={teamMemberstabs} teamMemberData={teamMemberData} />

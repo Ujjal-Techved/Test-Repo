@@ -331,6 +331,7 @@ body.over-hide {
 .common-tabs-wrapper .nav-link:hover {
     border-color: none;
     border: none;
+    text-decoration: none;
 }
 
 .common-tabs-wrapper .nav-item.active .nav-link {
