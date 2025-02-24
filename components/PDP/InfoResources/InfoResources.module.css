@@ -1,0 +1,36 @@
+.information_card{
+    border: 1px solid var(--fgi-borderdarkgrey);
+    border-radius: 24px;
+    padding: 24px;
+}
+
+
+/* Policy Table CSS */
+
+.policy_table_header{
+    box-shadow: 0px 4px 22px 0px var(--fgi-borderdarkgrey);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    min-height: 80px;
+}
+
+.policy_table_year{
+    background: var(--fgi-red);
+    border-top-left-radius: 24px;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica-500';
+    color: var(--background-color);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.policy_table_range_year{
+    font-size: 14px;
+    line-height: 18px;
+    font-family: 'Helvetica-400';
+    background-color: var(--background-grey);
+}
