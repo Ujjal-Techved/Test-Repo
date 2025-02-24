@@ -46,10 +46,10 @@
 
 .guide_card_row .guide_card_col:not(:last-child) {
     position: relative;
-    padding-bottom: 6.5px;
+    /* padding-bottom: 6.5px; */
 }
 
-.guide_card_row .guide_card_col:nth-child(1)::after {
+/* .guide_card_row .guide_card_col:nth-child(1)::after {
     content: "";
     position: absolute;
     top: 0;
@@ -85,12 +85,18 @@
     width: 100%; 
     height: 1px;
     background: linear-gradient(to left, transparent, var(--fgi-red), transparent);
-}
+} */
 
 .guide_card {
     text-align: center;
-    padding: 12px 12px 28px 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
 
+.guide_card:hover {
+    background-color: var(--fgi-lightblue);
 }
 
 .guide_card h4 {
