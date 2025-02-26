@@ -7,7 +7,7 @@ import Slider from 'react-slick';
 const Milestone = ({ milestoneList }) => {
 
     // Prevent rendering if `milestoneList` is missing
-    if (!milestoneList) {
+    if (!milestoneList?.Milestone) {
         return null;
     }
 

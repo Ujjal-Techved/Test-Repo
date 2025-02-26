@@ -6,7 +6,7 @@ import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle'
 const GuidePrinciple = ({ guidePrincipleData }) => {
 
     // Prevent rendering if `guidePrincipleData` is missing
-    if (!guidePrincipleData) {
+    if (!guidePrincipleData?.Principles) {
         return null;
     }
 

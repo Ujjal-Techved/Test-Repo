@@ -6,7 +6,7 @@ import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle'
 const MediaCenter = ({ mediacenterData }) => {
 
     // Prevent rendering if `mediacenterData` is missing
-    if (!mediacenterData) {
+    if (!mediacenterData?.MediaCenter) {
         return null;
     }
 

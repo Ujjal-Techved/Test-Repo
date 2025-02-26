@@ -11,12 +11,12 @@ const Joinculture = ({ joinCultureData }) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
 
     // Prevent rendering if `joinCultureData` is missing
-    if (!joinCultureData) {
+    if (!joinCultureData?.JoinCulture) {
         return null;
     }
 
     // Destructure API response data for cleaner code
-    const { Title, Description, FeatureList, SliderSection } = joinCultureData.JoinCulture;
+    const { Title, Description, FeatureList, SliderSection } = joinCultureData?.JoinCulture;
 
     // Settings for the slick carousel
     const settings = {

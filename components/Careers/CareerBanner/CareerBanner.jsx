@@ -104,7 +104,7 @@ const CareerBanner = ({ bannerData }) => {
                                 <div key={index} className={styles.statsItem}>
                                     <img 
                                         src={process.env.NEXT_PUBLIC_APP_API + data.Image.url} 
-                                        alt="Banner Image" 
+                                        alt={data.Image.alternativeText}
                                     />
                                     <p>{data.Title}</p>
                                 </div>

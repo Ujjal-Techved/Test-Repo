@@ -8,7 +8,7 @@ const Faqs = ({ faqItems }) => {
     const [openIndex, setOpenIndex] = useState("");
 
     // Prevent rendering if `faqItems` is missing to avoid errors
-    if (!faqItems) {
+    if (!faqItems?.Faq_Section) {
         return null;
     }
 

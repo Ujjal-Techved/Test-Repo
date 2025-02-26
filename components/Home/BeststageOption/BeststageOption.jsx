@@ -35,7 +35,7 @@ const sliderSettings = {
 const BeststageOption = ({bestStageData}) => {
 
     // Prevent rendering if `bestStageData` is missing
-    if (!bestStageData) {
+    if (!bestStageData?.WhatStage) {
         return null;
     }
 

@@ -7,7 +7,7 @@ import { richTextToHtml } from "../../../utils/richTextToHtml";
 const Promises = ({ promisesData }) => {
 
     // Prevent rendering if `promisesData` is missing or undefined
-    if (!promisesData) {
+    if (!promisesData?.ValueSection) {
         return null;
     }
 

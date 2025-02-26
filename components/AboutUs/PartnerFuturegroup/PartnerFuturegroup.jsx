@@ -6,7 +6,7 @@ import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
 const PartnerFuturegroup = ({ partnerFuturegroupData }) => {
 
     // Prevent rendering if `partnerFuturegroupData` is missing
-    if (!partnerFuturegroupData) {
+    if (!partnerFuturegroupData?.Partners) {
         return null;
     }
 

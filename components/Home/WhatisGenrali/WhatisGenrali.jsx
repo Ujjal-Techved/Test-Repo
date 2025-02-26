@@ -5,7 +5,7 @@ import styles from './WhatisGenrali.module.css'
 const WhatisGenrali = ({ whatIsData }) => {
 
    // Prevent rendering if `whatIsData` is missing
-   if (!whatIsData) {
+   if (!whatIsData?.WhatIs) {
     return null;
   }
 

@@ -8,7 +8,7 @@ import Slider from 'react-slick';
 const Ourteam = ({ teamMembers }) => {
 
     // ✅ Prevents rendering if `teamMembers` data is unavailable
-    if (!teamMembers) {
+    if (!teamMembers?.ReviewSection) {
         return null;
     }
 

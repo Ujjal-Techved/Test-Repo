@@ -7,7 +7,7 @@ import Slider from 'react-slick';
 const ChooseGoal = ({ choosegoalData }) => {
 
     // Prevent rendering if `choosegoalData` is missing
-    if (!choosegoalData) {
+    if (!choosegoalData?.ChooseGoal) {
         return null;
     }
 

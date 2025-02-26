@@ -7,7 +7,7 @@ import styles from './Leaders.module.css'
 const Leaders = ({ leadersListData }) => {
     
     // Prevent rendering if `leadersListData` is missing
-    if (!leadersListData) {
+    if (!leadersListData?.LeadersSection) {
         return null;
     }
 

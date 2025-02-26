@@ -7,7 +7,7 @@ import Slider from 'react-slick';
 const SocialResponsibility = ({ socialResponsibility }) => {
 
     // Prevent rendering if `socialResponsibility` data is missing to avoid errors
-    if (!socialResponsibility) {
+    if (!socialResponsibility?.CorporateSocial) {
         return null;
     }
 

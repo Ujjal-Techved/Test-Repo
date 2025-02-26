@@ -6,7 +6,7 @@ import styles from './OurJourney.module.css';
 const OurJourney = ({ insuranceData }) => {
 
     // Prevent rendering if `insuranceData` is missing
-    if (!insuranceData) {
+    if (!insuranceData?.OurJourney) {
         return null;
     }
 

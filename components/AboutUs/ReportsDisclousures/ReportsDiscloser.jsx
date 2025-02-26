@@ -6,7 +6,7 @@ import styles from './ReportsDiscloser.module.css';
 const ReportsDiscloser = ({ reportsData }) => {
 
     // Prevent rendering if `reportsData` is missing to avoid errors
-    if (!reportsData) {
+    if (!reportsData?.Reports) {
         return null;
     }
 

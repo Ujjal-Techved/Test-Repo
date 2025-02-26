@@ -18,7 +18,7 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
     const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
     // Prevent rendering if `teamMemberData` is missing
-    if (!teamMemberData) {
+    if (!teamMemberData?.ReviewSection) {
         return null;
     }
 

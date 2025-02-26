@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick-theme.css'; // Required for proper styling
 const Awards = ({ awardData }) => {
 
     // Prevent rendering if `awardData` is missing
-    if (!awardData) {
+    if (!awardData?.Awards) {
         return null;
     }
 

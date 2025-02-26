@@ -9,7 +9,7 @@ const RequestCallback = ({ requestCallbackData }) => {
     const [mobileNumber, setMobileNumber] = useState('');
 
     // Prevent rendering if `requestCallbackData` is missing
-    if (!requestCallbackData) {
+    if (!requestCallbackData?.CallBack) {
         return null;
     }
 

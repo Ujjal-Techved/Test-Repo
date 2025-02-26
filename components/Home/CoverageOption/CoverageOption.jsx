@@ -14,7 +14,7 @@ const CoverageOption = ({ coveragetabs, coverageplansData }) => {
     ];
 
     // Prevent rendering if `coverageplansData` is missing
-    if (!coverageplansData) {
+    if (!coverageplansData?.CoverageOptions) {
         return null;
     }
 
