@@ -13,6 +13,15 @@ const CareerBanner = ({ bannerData }) => {
     // State for banner statistics fetched from API
     const [bannerStats, setBannerStats] = useState([]);
 
+    
+    // Prevent rendering if `bannerData` is missing
+    if (!bannerData) {
+        return null;
+    }
+
+    // Destructure API response data for cleaner code
+    const { PageTitle, PageDesc,  } = bannerData;
+
     // Effect to update states when bannerData changes
     useEffect(() => {
         if (bannerData) {
@@ -52,8 +61,8 @@ const CareerBanner = ({ bannerData }) => {
                 <Row>
                     {/* Left Section: Banner Content and Job Filter */}
                     <Col lg="6">
-                        <p className={styles.bannerDesc}>YOUR POTENTIAL, OUR PLATFORM</p>
-                        <h1 className={styles.bannerTitle}>Join Us, Where People Make the Difference</h1>
+                        <p className={styles.bannerDesc}>{PageDesc}</p>
+                        <h1 className={styles.bannerTitle}>{PageTitle}</h1>
                         <p className={styles.bannerDesc2}>
                             An Individual, Non-Linked, Non-Participating (without profits), Savings, Life Insurance Plan.
                         </p>
