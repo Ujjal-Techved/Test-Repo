@@ -4,6 +4,7 @@
     --fgi-darkred:#500402;
     --text-grey: #666666;
     --text-grey2: #6F7072;
+    --background-grey: #F6F6F699;
     --background-color: #FFFFFF;
     --fgi-black: #20252B;
     --fgi-black2:#353535;
@@ -35,4 +36,7 @@
     --fgi-lightpink: #FFCEC61A;
     --timeline:#D0CCD9;
     --fgi-lightblue: #F9FCFF;
+    --note-grey:#707070;
+    --grad-red1:#AA1B17;
+    --grad-red2:#500402;
 }
