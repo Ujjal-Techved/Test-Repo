@@ -1,4 +1,3 @@
-import CommonChatbot from "@/components/Common/CommonChatbot/CommonChatbot";
 import Faqs from "@/components/Common/Faqs/Faqs";
 import InvestPlan from "@/components/ContactUs/InvestPlan/InvestPlan";
 import IrdaSection from "@/components/ContactUs/IrdaSection/IrdaSection";
@@ -15,7 +14,6 @@ import WhatisGenrali from "@/components/Home/WhatisGenrali/WhatisGenrali";
 import WhylifeInsurance from "@/components/Home/WhylifeInsurance/WhylifeInsurance";
 import LandingLayout from "@/components/Layouts/LandingLayout";
 import { apiClient } from '../utils/apiClient'; // ✅ Ensure correct import path
-import CommonWhatsapp from "@/components/Common/CommonWhatsapp/CommonWhatsapp";
 
 export default function Home(props) {
 
@@ -39,11 +37,6 @@ export default function Home(props) {
 
     return (
         <LandingLayout>
-            {/* Common Chatbot component */}
-            <CommonChatbot />
-
-            {/* Common Whatsapp component */}
-            <CommonWhatsapp />
 
             {/* Home Banner section with data passed from props */}
             <HomeBanner homeBannerData={props?.homePageData} />
