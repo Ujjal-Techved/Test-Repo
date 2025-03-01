@@ -97,7 +97,7 @@ const CareerBanner = ({ bannerData }) => {
                     <Col lg="6">
                         <div className={styles.statsContainer}>
                             {/* Background Banner Image */}
-                            <img src='/images/career/banner-fg.png' alt='banner' className={styles.bannerImg} />
+                            <img src='/images/careers/banner-fg.png' alt='banner' className={styles.bannerImg} />
 
                             {/* Banner Statistics (Dynamic Data) */}
                             {bannerStats?.map((data, index) => (
