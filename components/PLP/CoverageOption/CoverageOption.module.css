@@ -82,6 +82,78 @@
     padding-top: 24px;
 }
 
+/* See Benefits new section css */
+
+.seebenfits_section p{
+    font-size: 20px;
+    line-height: 28px;
+    font-family: 'Helvetica-400';
+    color: var(--text-grey2);
+    text-align: center;
+}
+
+.seebenfits_wrapper{
+    text-align: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.seebenfits_wrapper .seebenefit_btn{
+    font-size: 16px;
+    line-height: 20px;
+    font-family: 'Helvetica-500';
+    color: var(--fgi-red);
+    background: transparent;
+    position: relative;
+}
+
+.seebenfits_wrapper .seebenefit_btn::after{
+    position: absolute;
+    content: '';
+    border: solid var(--fgi-red);
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    top: 4px;
+    right: -8px;
+}
+
+.seebenfits_wrapper.show .seebenefit_btn::after{
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    top: 8px;
+    right: -8px;
+}
+
+.seebenfits_wrapper .seebenefits_main{
+    display: none;
+}
+
+.seebenfits_wrapper.show .seebenefits_main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding-top: 16px;
+}
+
+.seebenefits_card{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.seebenefits_card p{
+    font-size: 16px;
+    line-height: 20px;
+    font-family: 'Helvetica-400';
+    color: var(--text-grey2);
+    text-align: left;
+}
+
 @media screen and (max-width: 1200px) and (min-width: 992px) {
     .tab_content_cards {
         margin: 0px;
@@ -124,5 +196,33 @@
         line-height: 20px;
         padding: 4px 0px 24px 0px;
     }
+
+    /* See Benefits new section css */
+    .seebenfits_section p{
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .seebenfits_wrapper{
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+
+    .seebenfits_wrapper.show .seebenefits_main{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .seebenefits_card p{
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .seebenefits_card img{
+        width: 32px;
+        height: 32px;
+    }
+
 
 }

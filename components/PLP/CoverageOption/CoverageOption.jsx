@@ -5,7 +5,7 @@ import Slider from 'react-slick';
 import TitleSubtitle from '../../Common/TitleSubtitle/TitleSubtitle';
 import { useRouter } from 'next/router';
 
-const CoverageOption = ({ coveragetabs, coverageplansData }) => {
+const CoverageOption = ({ coveragetabs, CoverageBenefits, coverageplansData }) => {
     const router = useRouter()
 
     // Breadcrumbs for navigation (currently hardcoded)
@@ -31,6 +31,13 @@ const CoverageOption = ({ coveragetabs, coverageplansData }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
+    // See Benefits section Toggle Function
+    const [isBenefitsVisible, setIsBenefitsVisible] = useState(false);
+
+    const toggleBenefits = () => {
+        setIsBenefitsVisible((prev) => !prev);
+    };
+
     // Effect to detect screen width and set mobile state
     useEffect(() => {
         const handleResize = () => {
@@ -48,6 +55,7 @@ const CoverageOption = ({ coveragetabs, coverageplansData }) => {
             window.removeEventListener("resize", handleResize); // Cleanup on component unmount
         };
     }, []);
+
 
     // Slider settings for the coverage cards
     const sliderSettings = {
@@ -105,7 +113,7 @@ const CoverageOption = ({ coveragetabs, coverageplansData }) => {
                         {!isMobile ? (
                             <Nav tabs>
                                 {coveragetabs.map(({ id, tabtitle }) => (
-                                    <NavItem key={id} className={coverageactiveTab === tabtitle ? "active" : ""} onClick={() => setCoverageActiveTab(tabtitle)}>
+                                    <NavItem key={id} className={coverageactiveTab === tabtitle ? "active" : ""} onClick={() => {setCoverageActiveTab(tabtitle);setIsBenefitsVisible(false)}}>
                                         <NavLink>{tabtitle}</NavLink>
                                     </NavItem>
                                 ))}
@@ -130,6 +138,22 @@ const CoverageOption = ({ coveragetabs, coverageplansData }) => {
                         <TabContent activeTab={"1"} className='pb-0'>
                             <TabPane tabId="1">
                                 <div className={styles.tab_content_wrapper}>
+                                    {CoverageBenefits?.filter((plan) => (plan?.Category.toLowerCase() === coverageactiveTab?.toLowerCase())).map((plan, index) => (
+                                        <div key={index} className={styles.seebenfits_section}>
+                                            <p>{plan.Description}</p>
+                                            <div className={`${styles.seebenfits_wrapper} ${isBenefitsVisible ? styles.show : ""}`}>
+                                                <button className={styles.seebenefit_btn} onClick={toggleBenefits}>See Benefits</button>
+                                                <div className={styles.seebenefits_main}>
+                                                    {plan.BenefitsList.map((benefitlist, index) => (
+                                                        <div key={index} className={styles.seebenefits_card}>
+                                                            <img src={benefitlist.Image.url}></img>
+                                                            <p>{benefitlist.Description}</p>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
                                     {/* Slider for coverage cards */}
                                     <Slider {...sliderSettings}>
                                         {coverageplansData?.filter((plan) => (plan?.Category.toLowerCase() === coverageactiveTab?.toLowerCase())).map((plan, index) => (
