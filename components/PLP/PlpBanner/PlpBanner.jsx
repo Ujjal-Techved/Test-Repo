@@ -8,7 +8,6 @@ import * as Yup from "yup";
 
 const PlpBanner = () => {
 
-    const handleSubmit = () => { }
 
     const validationSchema = Yup.object().shape({
         name: Yup.string()
@@ -76,7 +75,7 @@ const PlpBanner = () => {
                                                 <p className={styles.errorMsg}>{errors.phone}</p>
                                             </div>
 
-                                            <button className="redBtn w-100" onClick={handleSubmit}>
+                                            <button className="redBtn w-100" type='submit'>
                                                 Schedule a Call
                                             </button>
                                         </Form>
