@@ -3,16 +3,19 @@ import React from 'react';
 import Styles from './ProductLanding.module.css'
 import Breadcrumbs from '@/components/Common/Breadcrumbs/Breadcrumbs';
 import { Container } from 'reactstrap';
+import PlpBanner from '@/components/PLP/PlpBanner/PlpBanner';
 import ComparePlan from '@/components/PLP/ComparePlan/ComparePlan';
 import CoverageOption from '@/components/PLP/CoverageOption/CoverageOption';
 import OurCustomer from '@/components/PLP/OurCustomer/OurCustomer';
 import Faqs from '@/components/Common/Faqs/Faqs';
 import Whyinsurancematter from '@/components/PLP/Whyinsurancematter/Whyinsurancematter';
+import TypesOfPolicies from '@/components/PLP/TypesOfPolicies/TypesOfPolicies';
+import PlpCallback from '@/components/PLP/PlpCallback/PlpCallback';
 const index = () => {
 
     // Create the breadcrumbs array
     const breadcrumbs = [
-        { name: "Product Landing", url: "/product-landing", active: true },
+        { name: "Life Insurance", url: "/product-landing", active: true },
     ]
 
     // Array of coverage tabs data, used to dynamically create tab navigation
@@ -780,6 +783,58 @@ const index = () => {
     }
 
 
+    const policyList = [
+        {
+            Title: "Term Plans",
+            Coverage: "Pure risk cover (only death benefit)",
+            Image: {
+                url: "/uploads/rb_34597_1_5f1c04687f.png",
+            }
+        },
+        {
+            Title: "Traditional Endowment Plans",
+            Coverage: "Insurance Cover + Savings (death benefit + maturity benefit)",
+            Image: {
+                url: "/uploads/growing_money_b99a826895.png",
+            }
+        },
+        {
+            Title: "Money Back Plans",
+            Coverage: "Insurance cover with periodic returns",
+            Image: {
+                url: "/uploads/money_back_icon_3d_rendering_b_9ee05a9371.png",
+            }
+        },
+        {
+            Title: "Whole Life Insurance Plans",
+            Coverage: "Coverage for a lifetime",
+            Image: {
+                url: "/uploads/3d_icons_81_b_1_ec930f148c.png",
+            }
+        },
+        {
+            Title: "Child Plans",
+            Coverage: "To create a corpus for child's education + waiver of premium \n(in case of death of parents)",
+            Image: {
+                url: "/uploads/rb_32393_1_3091fa97b3.png",
+            }
+        },
+        {
+            Title: "Retirement Plans",
+            Coverage: "Life Cover + Regular Income for an independent and worry-free retirement",
+            Image: {
+                url: "/uploads/pension_fund_3d_illustration_icon_1_bea10fe935.png",
+            }
+        },
+        {
+            Title: "ULIPs",
+            Coverage: "Insurance + Wealth Creation (market linked returns)",
+            Image: {
+                url: "/uploads/insurance_concep_7d6145a7ae.png",
+            }
+        }
+    ]
+
     return (
         <LandingLayout>
             <div>
@@ -788,6 +843,10 @@ const index = () => {
                 </Container>
                 <CoverageOption coveragetabs={coveragetabs} CoverageBenefits={CoverageBenefits} coverageplansData={coverageplansData} />
                 <Whyinsurancematter TermplanCardData={TermplanCardData}/>
+                <PlpBanner />
+                <CoverageOption coveragetabs={coveragetabs} coverageplansData={coverageplansData} />
+                <PlpCallback/>
+                <TypesOfPolicies policyList={policyList} />
                 <ComparePlan />
                 <OurCustomer teamMemberstabs={teamMemberstabs} teamMemberData={teamMemberData} />
                 {/* FAQ section with static title and subtitle */}

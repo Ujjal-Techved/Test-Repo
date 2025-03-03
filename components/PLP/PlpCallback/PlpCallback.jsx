@@ -1,19 +1,11 @@
 import React, { useState } from 'react';
-import styles from './RequestCallback.module.css';
+import styles from './PlpCallback.module.css';
 import { Container } from 'reactstrap';
 import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
-const RequestCallback = ({ requestCallbackData }) => {
-
-    // Prevent rendering if `requestCallbackData` is missing
-    if (!requestCallbackData?.CallBack) {
-        return null;
-    }
-
-    // Destructure API response data for cleaner code
-    const { Title, Description } = requestCallbackData?.CallBack;
+const PlpCallback = ({ }) => {
 
     const validationSchema = Yup.object().shape({
         name: Yup.string()
@@ -31,8 +23,8 @@ const RequestCallback = ({ requestCallbackData }) => {
                 <div className={styles.application_wrapper}>
                     {/* Title and subtitle rendered using the TitleSubtitle component */}
                     <TitleSubtitle
-                        title={Title}
-                        subtitle={Description}
+                        title={"Get Expert Advice from Your Trusted Life Insurance Company! "}
+                        subtitle={"Need quick answers? Future Generali is the best life insurance company <br/> in India with 24/7 support and expert financial guidance."}
                         extraClass="whiteColor" // Custom class for styling
                     />
                     <div>
@@ -83,10 +75,11 @@ const RequestCallback = ({ requestCallbackData }) => {
                             )}
                         </Formik>
                     </div>
+                    <p className={styles.note}>We promise we won’t spam you. Just real conversations with real people, whenever you need help! </p>
                 </div>
             </Container>
         </div>
     );
 };
 
-export default RequestCallback;
+export default PlpCallback;
