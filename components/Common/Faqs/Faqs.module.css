@@ -48,6 +48,7 @@
         font-size: 14px;
         line-height: 20px;
         min-height: 76px;
+        gap: 4px;
     }
 
     .faqBody>div {
