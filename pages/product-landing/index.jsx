@@ -841,20 +841,35 @@ const index = () => {
                 <Container>
                     <Breadcrumbs values={breadcrumbs} />
                 </Container>
-                <CoverageOption coveragetabs={coveragetabs} CoverageBenefits={CoverageBenefits} coverageplansData={coverageplansData} />
-                <Whyinsurancematter TermplanCardData={TermplanCardData}/>
-                <PlpBanner />
-                <CoverageOption coveragetabs={coveragetabs} coverageplansData={coverageplansData} />
-                <PlpCallback/>
-                <TypesOfPolicies policyList={policyList} />
-                <ComparePlan />
-                <OurCustomer teamMemberstabs={teamMemberstabs} teamMemberData={teamMemberData} />
+                
                 {/* FAQ section with static title and subtitle */}
-                <Faqs
-                    faqItems={faqItems}
+                <PlpBanner />
+
+                {/* CoverageOption section with static title and subtitle*/}
+                <CoverageOption coveragetabs={coveragetabs} CoverageBenefits={CoverageBenefits} coverageplansData={coverageplansData} />
+
+                {/* Whyinsurancematter section with static title and subtitle */}
+                <Whyinsurancematter TermplanCardData={TermplanCardData}/>
+
+                {/* PlpCallback section with static title and subtitle */}
+                <PlpCallback/>
+
+                {/* TypesOfPolicies section with static title and subtitle */}
+                <TypesOfPolicies policyList={policyList} />
+
+                {/* ComparePlan section with static title and subtitle */}
+                <ComparePlan />
+
+                {/* OurCustomer section with static title and subtitle */}
+                <OurCustomer teamMemberstabs={teamMemberstabs} teamMemberData={teamMemberData} />
+
+
+                {/* FAQ section with static title and subtitle */}
+                <Faqs faqItems={faqItems}
                 // title={"Got Questions? We’ve Got Answers!"}
                 // subtitle={"Answers to some of the most common questions we get."}
-                />
+                />\
+
             </div>
         </LandingLayout>
     )
