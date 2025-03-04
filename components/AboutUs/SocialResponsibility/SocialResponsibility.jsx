@@ -4,45 +4,33 @@ import { Col, Container, Row } from 'reactstrap';
 import styles from './SocialResponsibility.module.css';
 import Slider from 'react-slick';
 
-const socialResponsibilityData = [
-    {
-        id: 1,
-        title: "1With the objective of making a positive and long-term, sustainable impact on the community,",
-        description: "Future Generali India Life Insurance initiated its first CSR project in Maharashtra. This project has been launched in partnership with The Energy Resource",
-        imageUrl: '/images/about-us/csr-project.png'
-    },
-    {
-        id: 2,
-        title: "2Awarded two the Fastest Growing Insurance Company of 2024 by ASSOCHAM",
-        description: "Future Generali India Life Insurance has been awarded the Fastest Growing Insurance Company of 2024 at the 6th edition of ASSOCHAM Insurance Leaders Meet 2024 & Excellence",
-        imageUrl: '/images/about-us/csr-project.png'
-    },
-    {
-        id: 3,
-        title: "3Awarded three the Fastest Growing Insurance Company of 2024 by ASSOCHAM",
-        description: "Future Generali India Life Insurance has been awarded the Fastest Growing Insurance Company of 2024 at the 6th edition of ASSOCHAM Insurance Leaders Meet 2024 & Excellence",
-        imageUrl: '/images/about-us/csr-project.png'
-    },
-];
+const SocialResponsibility = ({ socialResponsibility }) => {
 
-const SocialResponsibility = () => {
+    // Prevent rendering if `socialResponsibility` data is missing to avoid errors
+    if (!socialResponsibility?.CorporateSocial) {
+        return null;
+    }
 
+    // Destructure API response data for cleaner and more readable code
+    const { Title, Description, CorporateSocialCards } = socialResponsibility?.CorporateSocial;
+
+    // Slider settings for responsive behavior
     const settings = {
         dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: false,
+        autoplay: false, // Auto-play is disabled for better user control
         autoplaySpeed: 3000,
         arrows: true,
-        centerMode: true, 
+        centerMode: true, // Enables partial visibility of next/prev slides
         responsive: [
             {
                 breakpoint: 992,
                 settings: {
                     arrows: false,
-                    slidesToShow: 2,
+                    slidesToShow: 2, // Show 2 slides on medium screens
                 }
             },
             {
@@ -51,7 +39,7 @@ const SocialResponsibility = () => {
                     infinite: false,
                     centerMode: false, 
                     arrows: false,
-                    slidesToShow: 2,
+                    slidesToShow: 2, // Show 2 slides on tablets
                 }
             },
             {
@@ -60,36 +48,44 @@ const SocialResponsibility = () => {
                     infinite: false,
                     centerMode: false, 
                     arrows: false,
-                    slidesToShow: 1.1,
+                    slidesToShow: 1.1, // Show 1 full slide with partial next slide on mobile
                 }
             }
         ]
     };
 
-
     return (
         <div className='social-res-wrapper pd-t pd-b'>
             <Container>
+                {/* Section Title and Description */}
                 <TitleSubtitle
-                    title={"Corporate Social Responsibility"}
-                    subtitle={"Driving meaningful change through sustainable initiatives and community-focused efforts"}
+                    title={Title}
+                    subtitle={Description}
                 />
+
+                {/* Social Responsibility Slider */}
                 <div className={styles.social_res_slider}>
                     <Slider {...settings}>
-                        {socialResponsibilityData.map((item) => (
-                            <div className={styles.social_res_main}>
-                                <div className={styles.social_res_card} key={item.id}>
+                        {CorporateSocialCards?.map((item) => (
+                            <div className={styles.social_res_main} key={item.id}>
+                                <div className={styles.social_res_card}>
                                     <Row>
+                                        {/* Left Column - Text Content */}
                                         <Col lg="6">
                                             <div className={styles.social_desc_section}>
-                                                <h5>{item.title}</h5>
-                                                <p>{item.description}</p>
-                                                <a className='redBtn'>Read More</a>
+                                                <h5>{item?.Title}</h5>
+                                                <p>{item?.Description}</p>
+                                                <a href={item?.LinkUrl} className='redBtn'>{item?.LinkText}</a>
                                             </div>
                                         </Col>
+
+                                        {/* Right Column - Image */}
                                         <Col lg="6">
                                             <div className={styles.social_img_section}>
-                                                <img src={item.imageUrl} alt='csr-project' />
+                                                <img 
+                                                    src={process.env.NEXT_PUBLIC_APP_API + item?.Image.url} 
+                                                    alt={item?.Image.alternativeText} 
+                                                />
                                             </div>
                                         </Col>
                                     </Row>

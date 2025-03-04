@@ -11,7 +11,7 @@ import "slick-carousel/slick/slick-theme.css"; // Import Slick carousel styles
 const TypesofInsurance = ({ insurancetypesData }) => {
 
     // Prevent rendering if `insurancetypesData` is missing to avoid errors
-    if (!insurancetypesData) {
+    if (!insurancetypesData?.TypeInsurance) {
         return null;
     }
 

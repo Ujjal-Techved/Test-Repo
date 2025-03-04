@@ -1,21 +1,32 @@
-import React from 'react'
-import styles from './Awards.module.css'
-import { Container } from 'reactstrap'
-import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle'
-import Slider from 'react-slick'
+import React from 'react';
+import styles from './Awards.module.css';
+import { Container } from 'reactstrap';
+import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
+import Slider from 'react-slick'; // React Slick dependency
+import 'slick-carousel/slick/slick.css'; // Missing dependency for styling
+import 'slick-carousel/slick/slick-theme.css'; // Required for proper styling
 
 const Awards = ({ awardData }) => {
 
-    // Truncate title 
+    // Prevent rendering if `awardData` is missing
+    if (!awardData?.Awards) {
+        return null;
+    }
+
+    // Destructure API response data for cleaner code
+    const { Title, Description, ShowMoreLink, AwardsList } = awardData?.Awards;
+
+    // Function to truncate long titles
     const truncateTitle = (text, maxLength = 43) => {
         return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
     };
 
-    //   Truncate description
+    // Function to truncate long descriptions
     const truncateDesciption = (text, maxLength = 95) => {
         return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
     };
 
+    // Slick slider settings for responsiveness
     const sliderSettings = {
         arrows: false,
         dots: false,
@@ -31,14 +42,12 @@ const Awards = ({ awardData }) => {
             {
                 breakpoint: 992,
                 settings: {
-
                     slidesToShow: 2,
                 }
             },
             {
                 breakpoint: 768,
                 settings: {
-
                     slidesToShow: 2,
                 }
             },
@@ -51,29 +60,36 @@ const Awards = ({ awardData }) => {
         ]
     };
 
-
     return (
         <div className="types-insurance-wrapper awards pd-t pd-b">
             <Container>
+                {/* Title and subtitle component */}
                 <TitleSubtitle
-                    title={"Awards & Recognitions"}
-                    subtitle={"Recognized for excellence, commitment, and innovation in the insurance industry"}
+                    title={Title}
+                    subtitle={Description}
                 />
+
+                {/* Awards list displayed as a carousel */}
                 <Slider {...sliderSettings} className={styles.slider}>
-                    {awardData.map((type, index) => (
+                    {AwardsList?.map((type, index) => (
                         <div key={index} className={styles.types_insurance_cards}>
                             <div className={styles.types_insurance_imgsrc}>
-                                <img src={type.image} alt={type.title} />
+                                <img
+                                    src={process.env.NEXT_PUBLIC_APP_API + type?.Image.url}
+                                    alt={type.Image.alternativeText} // Ensure alternative text is present for accessibility
+                                />
                             </div>
-                            <span>{truncateTitle(type.title)}</span>
-                            <p>{truncateDesciption(type.description)}</p>
+                            <span>{truncateTitle(type?.Title)}</span>
+                            <p>{truncateDesciption(type?.Description)}</p>
                         </div>
                     ))}
                 </Slider>
-                <a href='/' className='show-more pt-4'>Show More +</a>
+
+                {/* "Show More" link for additional awards */}
+                <a href={ShowMoreLink} className='show-more pt-4'>Show More +</a>
             </Container>
         </div>
-    )
-}
+    );
+};
 
-export default Awards
+export default Awards;

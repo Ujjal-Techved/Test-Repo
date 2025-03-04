@@ -1,4 +1,4 @@
-.application_wrapper{
+.application_wrapper {
     background: url('/images/careers/application-bg.png'), var(--fgi-red);
     background-position: center;
     background-repeat: no-repeat;
@@ -11,15 +11,75 @@
     text-align: center;
 }
 
-.form_callback{
+.leadForm {
     display: flex;
-    align-items: center;
+    width: 100%;
+    gap: 24px;
+    align-items: flex-start;
     justify-content: center;
-    gap: 26px;
+}
+
+.inputField {
+    font-family: "Helvetica-400";
+    font-size: 16px;
+    line-height: 24px;
+    border: 1px solid var(--border-grey);
+    color: var(--background-color);
+    padding: 11.2px 16px;
+    border-radius: 200px;
+    outline: none;
+    width: 260px;
+    background-color: var(--inp-alt);
+}
+
+.inputField:focus {
+    border: 1px solid var(--border-grey);
+    outline: none;
+}
+
+.inputField::placeholder {
+    font-size: 16px;
+    color: var(--background-color);
+}
+
+.formGroup {
+    position: relative;
+    padding-bottom: 16px;
+}
+
+.formGroup .errorMsg {
+    position: absolute;
+    top: 52px;
+    font-size: 12px;
+    line-height: 12px;
+    color: var(--background-color);
+    padding-left: 16px;
+    display: none;
+}
+
+.formGroup.error .errorMsg {
+    display: block;
+}
+
+
+@media screen and (max-width: 1024px) and (min-width: 992px) {
+
+    .leadForm {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .formGroup {
+        width: 40%;
+    }
+
+    .inputField {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 991.2px) and (min-width: 320px) {
-    .application_wrapper{
+    .application_wrapper {
         background: var(--fgi-red);
         min-height: 306px;
         margin-top: 0px;
@@ -27,16 +87,21 @@
         padding: 32px 15px;
         text-align: center;
     }
-    .form_callback{
-        flex-wrap: wrap;
 
+    .leadForm {
+        flex-wrap: wrap;
+        gap: 12px;
     }
 
-    .form_callback input{
+    .formGroup {
         width: 100%;
     }
-    
-    .form_callback button{
+
+    .inputField {
+        width: 100%;
+    }
+
+    .form_callback button {
         border: 1px solid transparent;
     }
 

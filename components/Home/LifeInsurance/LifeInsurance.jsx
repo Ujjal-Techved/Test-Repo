@@ -6,7 +6,7 @@ import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
 const LifeInsurance = ({ lifeInsurData }) => {
    
     // Prevent rendering if `lifeInsurData` is missing
-    if (!lifeInsurData) {
+    if (!lifeInsurData?.LifeInsurance) {
         return null;
     }
 

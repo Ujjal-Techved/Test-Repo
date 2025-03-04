@@ -7,7 +7,7 @@ import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
 const Benefits = ({benefitsData}) => {
 
 // Prevent rendering if `promisesData` is missing or undefined
-if (!benefitsData) {
+if (!benefitsData?.Benefits) {
     return null;
 }
 

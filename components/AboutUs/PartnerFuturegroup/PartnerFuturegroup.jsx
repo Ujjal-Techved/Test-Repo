@@ -1,39 +1,70 @@
-import React from 'react'
-import styles from './PartnerFuturegroup.module.css'
-import { Container } from 'reactstrap'
-import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle'
+import React from 'react';
+import styles from './PartnerFuturegroup.module.css';
+import { Container } from 'reactstrap';
+import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
 
-const PartnerFuturegroup = () => {
+const PartnerFuturegroup = ({ partnerFuturegroupData }) => {
+
+    // Prevent rendering if `partnerFuturegroupData` is missing
+    if (!partnerFuturegroupData?.Partners) {
+        return null;
+    }
+
+    // Destructure API response data for cleaner code
+    const { Title, Description, PartnerCard1, PartnersCard2 } = partnerFuturegroupData?.Partners;
+
     return (
         <div className={styles.partner_wrapper + ' pd-t pd-b'}>
             <Container>
+                {/* Section Title and Description */}
                 <TitleSubtitle
-                    title={"Partners in Securing Your Future"}
-                    subtitle={"Powered by Future Group’s legacy and Generali’s global expertise"}
+                    title={Title}
+                    subtitle={Description}
                 />
+
+                {/* Wrapper for Partner Cards */}
                 <div className={styles.futuregroup_wrapper}>
+                    
+                    {/* First Partner Card (Future Group) */}
                     <div className={`${styles.futuregroup_card} ${styles.start}`}>
                         <div>
-                            <img src='images/about-us/futuregroup-logo.png' alt='futuregroup-logo'></img>
-                            <p>Future Group operates some of India’s most popular retail chains like Central, Big Bazaar, Food Bazaar, Home Town and eZone.</p>
+                            {/* Partner Logo */}
+                            <img src='images/about-us/futuregroup-logo.png' alt='Future Group Logo' />
+                            
+                            {/* Partner Description */}
+                            <p>{PartnerCard1?.Description}</p>
                         </div>
-                        <a href='/'>Read more +</a>
+
+                        {/* Read More Link */}
+                        {PartnerCard1?.LinkUrl && (
+                            <a href={PartnerCard1.LinkUrl}>Read more +</a>
+                        )}
+
+                        {/* Middle Logo for Branding */}
                         <div className={styles.fgli_middle_content}>
-                            <img src='/images/header/fgli-logo.svg' alt='FGLI'></img>
+                            <img src='/images/header/fgli-logo.svg' alt='FGLI Logo' />
                         </div>
-                    </div>
-                    <div className={`${styles.futuregroup_card} ${styles.end}`}>
-                        <div>
-                            <img src='images/about-us/generrali.png' alt='generrali'></img>
-                            <p>Generali is an independent, Italian Group, with a strong international presence. Established in 1831, it is among the world’s leading insurers and it is present in over 60 countries with total premium income exceeding €70 billion in 2016.</p>
-                        </div>
-                        <a href='/'>Read more +</a>
                     </div>
 
+                    {/* Second Partner Card (Generali) */}
+                    <div className={`${styles.futuregroup_card} ${styles.end}`}>
+                        <div>
+                            {/* Partner Logo */}
+                            <img src='images/about-us/generrali.png' alt='Generali Logo' />
+                            
+                            {/* Partner Description */}
+                            <p>{PartnersCard2?.Description}</p>
+                        </div>
+
+                        {/* Read More Link */}
+                        {PartnersCard2?.LinkUrl && (
+                            <a href={PartnersCard2.LinkUrl}>Read more +</a>
+                        )}
+                    </div>
                 </div>
             </Container>
         </div>
-    )
-}
+    );
+};
 
-export default PartnerFuturegroup
+export default PartnerFuturegroup;

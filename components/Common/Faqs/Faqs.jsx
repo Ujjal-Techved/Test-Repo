@@ -4,11 +4,14 @@ import { Accordion, AccordionBody, AccordionHeader, AccordionItem, Container } f
 import styles from './Faqs.module.css';
 
 const Faqs = ({ faqItems }) => {
+
+    console.log(faqItems,"FaqList")
+
     // State to track which FAQ item is open
     const [openIndex, setOpenIndex] = useState("");
 
     // Prevent rendering if `faqItems` is missing to avoid errors
-    if (!faqItems) {
+    if (!faqItems?.Faq_Section) {
         return null;
     }
 

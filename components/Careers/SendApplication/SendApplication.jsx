@@ -6,7 +6,7 @@ import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
 const SendApplication = ({ sendApplicationData }) => {
 
     // Prevent rendering if `sendApplicationData` is missing or undefined
-    if (!sendApplicationData) {
+    if (!sendApplicationData?.SendApplication) {
         return null;
     }
 

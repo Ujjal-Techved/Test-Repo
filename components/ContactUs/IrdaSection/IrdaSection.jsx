@@ -7,7 +7,7 @@ import { Container } from 'reactstrap'; // Import Bootstrap container for layout
 const IrdaSection = ({ irdaSectionData }) => {
 
     // Prevent rendering if `irdaSectionData` is missing to avoid errors
-    if (!irdaSectionData) {
+    if (!irdaSectionData?.IrdaSection) {
         return null;
     }
 

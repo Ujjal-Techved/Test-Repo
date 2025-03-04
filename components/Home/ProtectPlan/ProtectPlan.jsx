@@ -6,7 +6,7 @@ import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle'
 const ProtectPlan = ({ protectplanData }) => {
 
     // Prevent rendering if `protectplanData` is missing
-    if (!protectplanData) {
+    if (!protectplanData?.StartProtecting) {
         return null;
     }
 

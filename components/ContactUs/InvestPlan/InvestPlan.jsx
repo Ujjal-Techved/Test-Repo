@@ -10,7 +10,7 @@ const InvestPlan = ({ investPlanData }) => {
     const [mobileNumber, setMobileNumber] = useState('');
 
     // Prevent rendering if `investPlanData` is missing
-    if (!investPlanData) {
+    if (!investPlanData?.AppLink) {
         return null;
     }
 

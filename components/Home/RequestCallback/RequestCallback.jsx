@@ -2,19 +2,28 @@ import React, { useState } from 'react';
 import styles from './RequestCallback.module.css';
 import { Container } from 'reactstrap';
 import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
+import { Formik, Form, Field } from "formik";
+import * as Yup from "yup";
 
 const RequestCallback = ({ requestCallbackData }) => {
-    // State hooks to manage form inputs
-    const [fullName, setFullName] = useState('');
-    const [mobileNumber, setMobileNumber] = useState('');
 
     // Prevent rendering if `requestCallbackData` is missing
-    if (!requestCallbackData) {
+    if (!requestCallbackData?.CallBack) {
         return null;
     }
 
     // Destructure API response data for cleaner code
     const { Title, Description } = requestCallbackData?.CallBack;
+
+    const validationSchema = Yup.object().shape({
+        name: Yup.string()
+            .min(3, "Please enter a valid name")
+            .required("Name is required"),
+        phone: Yup.string()
+            .min(10, "Enter a valid 10-digit mobile no.")
+            .max(10, "Enter a valid 10-digit mobile no.")
+            .required("Phone number is required"),
+    });
 
     return (
         <div className='pd-b'>
@@ -26,43 +35,53 @@ const RequestCallback = ({ requestCallbackData }) => {
                         subtitle={Description}
                         extraClass="whiteColor" // Custom class for styling
                     />
-                    <div className={styles.form_callback}>
-                        {/* Input for Full Name */}
-                        <input
-                            type="text"
-                            readOnly={false}
-                            placeholder="Enter Full Name"
-                            className="fgi-common-input"
-                            name="fullName"
-                            value={fullName}
-                            onChange={(e) => {
-                                const value = e.target.value;
-                                // Allow only alphabets and spaces in full name
-                                if (/^[a-zA-Z ]*$/.test(value)) {
-                                    setFullName(value);
-                                }
+                    <div>
+                        <Formik
+                            initialValues={{
+                                name: "",
+                                phone: ""
                             }}
-                        />
-                        {/* Input for Mobile Number */}
-                        <input
-                            type="tel"
-                            readOnly={false}
-                            placeholder="Enter Mobile Number"
-                            className="fgi-common-input"
-                            name="mobileNumber"
-                            value={mobileNumber}
-                            onChange={(e) => {
-                                const value = e.target.value;
-                                // Allow only digits and limit to 10 characters for mobile number
-                                if (/^\d{0,10}$/.test(value)) {
-                                    setMobileNumber(value);
-                                }
+                            validateOnBlur={false}
+                            validateOnChange={false}
+                            validationSchema={validationSchema}
+                            onSubmit={(values) => {
+                                console.log("Form submitted:", values);
                             }}
-                            maxLength="10" // Restrict mobile number length to 10
-                            pattern="\d{10}" // Ensures exactly 10 digits for validation
-                        />
-                        {/* Button to submit the callback request */}
-                        <button className="whiteBtn w-sm-100">Request a Call Back</button>
+                        >
+                            {({ errors, setFieldValue, setFieldError }) => (
+                                <Form className={styles.leadForm}>
+                                    <div className={`${styles.formGroup} ${errors.name ? styles.error : ""} `}>
+                                        <Field
+                                            type="text"
+                                            name="name"
+                                            placeholder='Enter Full Name'
+                                            className={styles.inputField}
+                                            onChange={(e) => {
+                                                setFieldValue('name', e.target.value.replace(/[^A-Za-z\s]/g, ""));
+                                                setFieldError('name', '');
+                                            }}
+                                        />
+                                        <p className={styles.errorMsg}>{errors.name}</p>
+                                    </div>
+                                    <div className={`${styles.formGroup} ${errors.phone ? styles.error : ""} `}>
+                                        <Field
+                                            type="tel"
+                                            name="phone"
+                                            placeholder='Enter Mobile Number'
+                                            className={styles.inputField}
+                                            maxLength={10}
+                                            onChange={(e) => {
+                                                setFieldValue('phone', e.target.value.replace(/\D/g, ""));
+                                                setFieldError('phone', '');
+                                            }}
+                                        />
+                                        <p className={styles.errorMsg}>{errors.phone}</p>
+                                    </div>
+
+                                    <button type='submit' className="whiteBtn px-4 w-sm-100">Request a Call Back</button>
+                                </Form>
+                            )}
+                        </Formik>
                     </div>
                 </div>
             </Container>
