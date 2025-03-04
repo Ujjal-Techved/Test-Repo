@@ -8,16 +8,24 @@
 }
 
 .titleContainer .maintitle {
-    font-family: "Helvetica-800";
-    font-size: 48px;
+    font-family: "Helvetica-700";
+    font-size: 40px;
     line-height: 56px;
     color: var(--fgi-black);
     margin-bottom: 8px;
 }
 
+.titleContainer.pageTitle .maintitle {
+    font-family: "Helvetica-700";
+    font-size: 48px;
+    line-height: 64px;
+    color: var(--fgi-black);
+    margin-bottom: 16px;
+}
+
 .titleContainer .subtitle {
     font-family: "Helvetica-400";
-    font-size: 18px;
+    font-size: 20px;
     line-height: 28px;
     color: var(--text-grey);
 }
@@ -26,6 +34,10 @@
     max-width: 60%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.titleContainer.descPlp .subtitle {
+    max-width: 626px;
 }
 
 .titleContainer.desc-max-60.leftAligned .subtitle {

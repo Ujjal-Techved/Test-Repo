@@ -58,6 +58,7 @@ body.over-hide {
     border-radius: 42px;
     display: inline-block;
     border: none;
+    outline: none;
 }
 
 .redBtn:disabled {
@@ -79,6 +80,7 @@ body.over-hide {
     border-radius: 42px;
     display: inline-block;
     border: none;
+    outline: none;
 }
 
 .whiteBtn.redborder {
@@ -96,6 +98,7 @@ body.over-hide {
     border-radius: 42px;
     display: inline-block;
     border: none;
+    outline: none;
 }
 
 .redArrowBtn span {

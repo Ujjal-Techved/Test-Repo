@@ -13,6 +13,7 @@ import Faqs from '@/components/Common/Faqs/Faqs'
 import PdpBanner from '@/components/PDP/PdpBanner/PdpBanner'
 import PolicySteps from '@/components/PDP/PolicySteps/PolicySteps'
 import Download from '@/components/PDP/Download/Download'
+import InfoResources from '@/components/PDP/InfoResources/InfoResources'
 
 const index = () => {
 
@@ -469,6 +470,9 @@ const index = () => {
 
                 {/* Dowanload section */}
                 <Download downloadData={downloadData}/>
+
+                {/* Importnat Information and Resources */}
+                <InfoResources/>
 
                 {/* Our Customer section */}
                 <OurCustomer teamMemberstabs={teamMemberstabs} teamMemberData={teamMemberData} />

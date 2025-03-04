@@ -1,0 +1,219 @@
+/* compareplan_leftsection */
+
+.compareplan_benefit_leftsection {
+    max-width: 180px;
+    width: 100%;
+}
+
+.compareplan_wrapper {
+    display: flex;
+    align-items: flex-end;
+}
+
+.plan_benefits {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.plan_benefits p {
+    font-size: 16px;
+    line-height: 20px;
+    font-family: 'Helvetica-500';
+    color: var(--fgi-black);
+    padding: 8px 24px;
+    min-height: 60px;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* compareplan_rightsection */
+
+.compareplan_rightsection {
+    display: flex;
+}
+
+.plan_card_title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 0px;
+    max-width: 174px;
+    width: 100%;
+}
+
+.plan_card_title .plan_card_desc {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.plan_card_title .plan_card_desc h5 {
+    font-size: 15px;
+    line-height: 20px;
+    font-family: 'Helvetica-700';
+    color: var(--fgi-black);
+    min-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.plan_card_title p {
+    font-size: 12px;
+    line-height: 16px;
+    font-family: 'Helvetica-400';
+    color: var(--text-grey2);
+    min-height: 48px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.plan_card .plan_card_value_section .plan_card_value {
+    padding: 6px 46px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-colour);
+    margin-top: 0px;
+    gap: 20px;
+}
+
+.plan_card .plan_card_value_section .plan_card_value:nth-child(odd) {
+    background: var(--background-colour);
+}
+
+.plan_card .plan_card_value_section .plan_card_value:nth-child(even) {
+    background: var(--background-grey);
+}
+
+.plan_card .plan_card_value_section .plan_card_value span {
+    display: none;
+}
+
+.plan_card_ideal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plan_card_ideal p {
+    font-size: 12px;
+    line-height: 16px;
+    font-family: 'Helvetica-400';
+    color: var(--text-grey2);
+    padding: 8px;
+    height: 58px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    max-width: 174px;
+}
+
+.plan_card_ideal span {
+    font-size: 16px;
+    line-height: 20px;
+    font-family: 'Helvetica-500';
+    color: var(--fgi-black);
+    display: none;
+}
+
+@media screen and (max-width: 991.2px) and (min-width: 320px) {
+
+    /* compareplan_leftsection */
+    .compareplan_wrapper {
+        display: block;
+        align-items: unset;
+    }
+
+    .compareplan_wrapper .compareplan_benefit_leftsection {
+        display: none;
+    }
+
+
+
+
+    /* compareplan_rightsection */
+
+    .compareplan_rightsection {
+        display: block;
+    }
+
+
+    .plan_card_wrapper {
+        padding: 8px 16px 8px 0px;
+    }
+
+    .plan_card_wrapper .plan_card {
+        box-shadow: 0px 4px 40px 0px #1822BD26;
+        border-radius: 24px;
+    }
+
+    .plan_card_title .plan_card_desc h5 {
+        font-size: 16px;
+        line-height: 20px;
+        font-family: 'Helvetica-700';
+        color: var(--fgi-black);
+        min-height: unset;
+    }
+
+    .plan_card_title {
+        max-width: unset;
+    }
+
+    .plan_card_title p {
+        text-align: center;
+        min-height: 32px;
+    }
+
+    .plan_card .plan_card_value_section .plan_card_value {
+        justify-content: space-between;
+    }
+
+    .plan_card .plan_card_value_section .plan_card_value span {
+        display: block;
+        font-size: 16px;
+        line-height: 20px;
+        font-family: 'Helvetica-500';
+        color: var(--fgi-black);
+    }
+
+    .plan_card_ideal {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        padding: 8px 46px;
+        min-height: 60px;
+        gap: 8px;
+    }
+
+
+    .plan_card_ideal p {
+        padding: 0px;
+        height: 48px;
+        max-width: 230px;
+
+    }
+
+    .plan_card_ideal span {
+        display: block;
+    }
+
+
+}
