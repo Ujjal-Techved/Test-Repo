@@ -109,3 +109,47 @@ jobs:
             -H "Authorization: Bearer ${{ secrets.AZURE_DEVOPS_PAT }}" \
             -d "$PATCH_DATA" \
             "https://dev.azure.com/${{ secrets.AZURE_ORG }}/${{ secrets.AZURE_PROJECT }}/_apis/wit/workitems/${{ env.TASK_ID }}?api-version=6.0"
+      - name: Link GitHub Branch and Commit to Azure DevOps Task
+        if: env.TASK_ID != ''
+        run: |
+          echo "Linking GitHub branch and commit to work item: ${{ env.TASK_ID }}"
+      
+          BRANCH_URL="https://github.com/${{ github.repository }}/tree/${{ env.BRANCH_NAME }}"
+          COMMIT_URL="${{ env.COMMIT_URL }}"
+          BRANCH_COMMENT="Linked GitHub branch: ${{ env.BRANCH_NAME }}"
+          COMMIT_COMMENT="Linked GitHub commit: ${{ github.sha }}"
+      
+          LINK_PAYLOAD=$(jq -n \
+            --arg commitUrl "$COMMIT_URL" \
+            --arg commitComment "$COMMIT_COMMENT" \
+            --arg branchUrl "$BRANCH_URL" \
+            --arg branchComment "$BRANCH_COMMENT" \
+            '[
+              {
+                "op": "add",
+                "path": "/relations/-",
+                "value": {
+                  "rel": "Hyperlink",
+                  "url": $commitUrl,
+                  "attributes": { "comment": $commitComment }
+                }
+              },
+              {
+                "op": "add",
+                "path": "/relations/-",
+                "value": {
+                  "rel": "Hyperlink",
+                  "url": $branchUrl,
+                  "attributes": { "comment": $branchComment }
+                }
+              }
+            ]')
+      
+          echo "PATCH payload for linking:"
+          echo "$LINK_PAYLOAD"
+      
+          curl -X PATCH \
+            -H "Content-Type: application/json-patch+json" \
+            -H "Authorization: Bearer ${{ secrets.AZURE_DEVOPS_PAT }}" \
+            -d "$LINK_PAYLOAD" \
+            "https://dev.azure.com/${{ secrets.AZURE_ORG }}/${{ secrets.AZURE_PROJECT }}/_apis/wit/workitems/${{ env.TASK_ID }}?api-version=6.0"
