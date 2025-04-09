@@ -99,7 +99,8 @@ jobs:
           echo "Updating Azure DevOps Task ID: ${{ env.TASK_ID }} with the following details:"
           echo "$UPDATE_MESSAGE"
 
-          curl -X PATCH -H "Content-Type: application/json" \
+          curl -X PATCH \
+          -H "Content-Type: application/json-patch+json" \
           -H "Authorization: Bearer ${{ secrets.AZURE_DEVOPS_PAT }}" \
           -d '{
             "fields": {
