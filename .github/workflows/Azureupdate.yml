@@ -70,41 +70,42 @@ jobs:
       - name: Update Azure DevOps Task
         run: |
           UPDATE_MESSAGE=""
-          
+      
           if [[ -n "${{ env.MESSAGE }}" ]]; then
             UPDATE_MESSAGE="${{ env.MESSAGE }}"
           fi
-          
+      
           if [[ -n "${{ env.COMMIT_MESSAGE }}" ]]; then
             UPDATE_MESSAGE+="\n\n**Commit Message:** ${{ env.COMMIT_MESSAGE }}"
           fi
-          
+      
           if [[ -n "${{ env.BRANCH_NAME }}" ]]; then
             UPDATE_MESSAGE+="\n\n**Branch:** ${{ env.BRANCH_NAME }}"
           fi
-          
+      
           if [[ -n "${{ env.COMMIT_URL }}" ]]; then
             UPDATE_MESSAGE+="\n\n**Commit:** [View Commit](${{ env.COMMIT_URL }})"
           fi
-          
+      
           if [[ -n "${{ env.PR_URL }}" ]]; then
             UPDATE_MESSAGE+="\n\n**Pull Request:** [PR Link](${{ env.PR_URL }})"
           fi
-
+      
           if [[ -z "${{ env.TASK_ID }}" ]]; then
             echo "No Task ID found. Skipping update."
             exit 0
           fi
-
-          echo "Updating Azure DevOps Task ID: ${{ env.TASK_ID }} with the following details:"
-          echo "$UPDATE_MESSAGE"
-
+      
+          echo "Updating Azure DevOps Task ID: ${{ env.TASK_ID }}"
+      
+          # Escape properly using jq
+          PATCH_DATA=$(jq -n --arg msg "$UPDATE_MESSAGE" '[{ "op": "add", "path": "/fields/System.History", "value": $msg }]')
+      
+          echo "Patch Payload:"
+          echo "$PATCH_DATA"
+      
           curl -X PATCH \
-          -H "Content-Type: application/json-patch+json" \
-          -H "Authorization: Bearer ${{ secrets.AZURE_DEVOPS_PAT }}" \
-          -d '{
-            "fields": {
-              "System.History": "'"$UPDATE_MESSAGE"'"
-            }
-          }' \
-          "https://dev.azure.com/${{ secrets.AZURE_ORG }}/${{ secrets.AZURE_PROJECT }}/_apis/wit/workitems/${{ env.TASK_ID }}?api-version=6.0"
+            -H "Content-Type: application/json-patch+json" \
+            -H "Authorization: Bearer ${{ secrets.AZURE_DEVOPS_PAT }}" \
+            -d "$PATCH_DATA" \
+            "https://dev.azure.com/${{ secrets.AZURE_ORG }}/${{ secrets.AZURE_PROJECT }}/_apis/wit/workitems/${{ env.TASK_ID }}?api-version=6.0"
