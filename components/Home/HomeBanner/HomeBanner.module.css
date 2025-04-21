@@ -25,17 +25,19 @@
 
 .Home_banner_main p{
     font-size: 20px;
-    line-height: 24px;
-    font-family: 'Helvetica-500';
-    color: var(--fgi-darkred);
+    line-height: 28px;
+    font-family: 'Roboto-500';
+    color: var(--text-grey2);
     margin-bottom: 12px;
+    text-transform: uppercase;
 }
 
 .Home_banner_main h1{
-    font-size: 56px;
-    line-height: 72px;
-    font-family: 'Helvetica-700';
+    font-size: 48px;
+    line-height: 60px;
+    font-family: 'Roboto-300';
     color: var(--fgi-black);
+    font-weight: 300;
 }
 
 .Home_banner_section{
@@ -45,14 +47,14 @@
 }
 
 .Home_banner_chatbot{
-    background: linear-gradient(360.05deg, #FFDBDB 17.16%, #FF816D 74.48%);
-    border-radius: 20px;
+    background: linear-gradient(360.05deg, #FFDBDB 17.16%, #C21B17 74.48%);
+    border-radius: 4px;
     padding: 7px;
 }
 
 .Home_banner_innerbot{
     background-color: var(--background-color);
-    border-radius: 14px;
+    border-radius: 4px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,7 +66,7 @@
     width: 100%;
     max-width: 480px;
     height: 260px;
-    border-radius: 14px;
+    border-radius: 4px;
     padding-top: 15px;
     object-fit: cover;
 }
@@ -90,7 +92,7 @@
     height: 11px;
     background: radial-gradient(180% 180% at left -65% top -65%, transparent 99%, #ffdbdb);
     transform: rotate(0deg);
-    left: -11px;
+    left: -4px;
     bottom: 0px;
 }
 
@@ -101,14 +103,14 @@
     height: 11px;
     background: radial-gradient(180% 180% at right -65% top -65%, transparent 99%, #ffdbdb);
     transform: rotate(0deg);
-    right: -11px;
+    right: -4px;
     bottom: 0px;
 }
 
 .chabot_title p{
     font-size: 12px;
     line-height: 20px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     color: var(--fgi-black);
 }
 
@@ -117,7 +119,7 @@
     align-items: center;
     font-size: 12px;
     line-height: 16px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     color: var(--fgi-red) !important;
     gap: 4px;
     text-decoration: none;
@@ -156,10 +158,11 @@
 }
 
 .Home_banner_guide h5{
-    font-size: 18px;
-    line-height: 26px;
-    font-family: 'Helvetica-500';
+    font-size: 20px;
+    line-height: 28px;
+    font-family: 'Roboto-500';
     color: var(--fgi-black);
+    font-weight: 500;
 }
 
 
@@ -186,8 +189,9 @@
     }
 
     .Home_banner_guide{
-        margin: 0px 12px;
-        padding: 16px 24px;
+        margin: 0px 4px;
+        padding: 16px;
+        border-radius: 4px;
     }
 
     .Home_banner_main p{
@@ -211,31 +215,33 @@
     }
 
     .chabot_title p{
-        font-size: 10px;
-        line-height: 10px;
+        font-size: 6px;
+        line-height: 8px;
+        font-weight: 700;
     }
 
     .chabot_title a{
-        font-size: 8px;
+        font-size: 6px;
         line-height: 8px;
     }
 
     .Home_banner_guide h5{
-        font-size: 14px;
-        line-height: 20px;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 500;
     }
 
     .Home_banner_chatbot{
-        border-radius: 10px;
+        border-radius: 4px;
         padding: 4px;
     }
     
     .Home_banner_innerbot{
-        border-radius: 6px;
+        border-radius: 4px;
     }
     
     .Home_banner_innerbot img{
-        border-radius: 6px;
+        border-radius: 4px;
     }
 
     .chabot_title::after, .chabot_title::before{
@@ -256,6 +262,7 @@
         width: calc(100% - 36px);
         border-radius: 10px 10px 0px 0px;
         padding: 4px 7px 0px 7px;
+        gap: 3px;
     }
 
 

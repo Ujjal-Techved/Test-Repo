@@ -25,7 +25,7 @@
     border-radius: 20px !important;
     box-shadow: none;
     background: var(--background-color);
-    font-family: "Helvetica-500";
+    font-family: "Roboto-500";
     font-size: 20px;
     line-height: 28px;
     color: var(--fgi-faqTitle);
@@ -34,7 +34,7 @@
 .faqBody>div {
     color: var(--text-grey2);
     padding: 0 32px 24px;
-    font-family: "Helvetica-400";
+    font-family: "Roboto-400";
     font-size: 16px;
     line-height: 24px;
 }

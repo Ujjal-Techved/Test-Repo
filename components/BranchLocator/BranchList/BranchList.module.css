@@ -22,7 +22,7 @@
 }
 
 .BranchList_wrap p{
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     font-size: 16px;
     line-height: 24px;
     color: var(--fgi-darkblack);
@@ -30,7 +30,7 @@
 
 .BranchList_wrap span{
     color: var(--text-grey);
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     font-size: 12px;
     line-height: 15px;
     padding-top: 4px;
@@ -41,13 +41,13 @@
     align-items: center;
     gap: 8px;
     color: var(--fgi-black);
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     font-size: 14px;
     line-height: 18px;
 }
 
 .listCount{
-    font-family: 'Helvetica-700';
+    font-family: 'Roboto-700';
     font-size: 16px;
     line-height: 21px;
     color: var(--fgi-red);

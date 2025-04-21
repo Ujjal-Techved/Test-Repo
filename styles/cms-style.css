@@ -2,7 +2,7 @@
 .cms-data {
     font-size: 14px;
     line-height: 20px;
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--text-grey2);
 }
 
@@ -60,7 +60,7 @@
 .cms-data a {
     color: var(--fgi-red) !important;
     text-decoration: underline !important;
-    font-family: "Helvetica-400";
+    font-family: "Roboto-400";
 }
 
 @media screen and (max-width: 991.2px) and (min-width: 320px) {

@@ -29,7 +29,7 @@
 .life_insure_Card span{
     font-size: 32px;
     line-height: 40px;
-    font-family: 'Helvetica-700';
+    font-family: 'Roboto-700';
     color: var(--fgi-red);
     padding: 8px 0px;
     
@@ -38,7 +38,7 @@
 .life_insure_Card p{
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     color: var(--fgi-black);
     text-align: center;
 }

@@ -7,7 +7,7 @@
 .guide_title_main h2 {
     font-size: 48px;
     line-height: 58px;
-    font-family: 'Helvetica-700';
+    font-family: 'Roboto-700';
     color: var(--fgi-black);
 }
 
@@ -102,7 +102,7 @@
 .guide_card h4 {
     font-size: 18px;
     line-height: 28px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     color: var(--fgi-black);
     display: flex;
     align-items: center;
@@ -113,7 +113,7 @@
 .guide_card p {
     font-size: 14px;
     line-height: 18px;
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--text-grey2);
 }
 
@@ -135,7 +135,7 @@
     .guide_title_main h2 {
         font-size: 18px;
         line-height: 26px;
-        font-family: 'Helvetica-800';
+        font-family: 'Roboto-800';
         text-align: center;
     }
 

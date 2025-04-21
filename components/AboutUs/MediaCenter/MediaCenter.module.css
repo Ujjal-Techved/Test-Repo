@@ -25,7 +25,7 @@
 .protect_plan_Card span{
     font-size: 26px;
     line-height: 26px;
-    font-family: 'Helvetica-900';
+    font-family: 'Roboto-900';
     color: var(--fgi-black);
     padding: 8px 0px;
     
@@ -34,7 +34,7 @@
 .protect_plan_Card p{
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--text-grey);
     text-align: center;
 }
@@ -42,7 +42,7 @@
 .protect_plan_linktext{
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     color: var(--fgi-black);
     text-decoration: none;
     display: flex;

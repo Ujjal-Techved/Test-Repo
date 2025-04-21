@@ -6,7 +6,7 @@
 }
 
 .bannerTitle {
-    font-family: "Helvetica-700";
+    font-family: "Roboto-700";
     font-size: 56px;
     line-height: 72px;
     text-align: left;
@@ -15,7 +15,7 @@
 
 .bannerDesc {
     color: var(--text-grey2);
-    font-family: "Helvetica-500";
+    font-family: "Roboto-500";
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
@@ -83,7 +83,7 @@
 .statsItem p {
     max-width: 94px;
     margin-left: 12px;
-    font-family: "Helvetica-500";
+    font-family: "Roboto-500";
     font-size: 16px;
     line-height: 24px;
     text-align: left;
@@ -125,7 +125,7 @@
 
     .bannerDesc2 {
         display: block;
-        font-family: "Helvetica-400";
+        font-family: "Roboto-400";
         font-size: 14px;
         line-height: 18px;
         color: var(--text-grey2);
@@ -166,7 +166,7 @@
     .statsItem p {
         max-width: 100%;
         margin-left: 0;
-        font-family: "Helvetica-400";
+        font-family: "Roboto-400";
         font-size: 14px;
         line-height: 18px;
         text-align: center;

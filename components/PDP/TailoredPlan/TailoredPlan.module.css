@@ -29,14 +29,14 @@
 .growth_plan_quote h5 {
     font-size: 24px;
     line-height: 32px;
-    font-family: 'Helvetica-700';
+    font-family: 'Roboto-700';
     color: var(--fgi-black);
 }
 
 .growth_plan_quote p {
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--text-grey);
     padding-top: 8px;
     max-width: 422px;
@@ -78,20 +78,20 @@
 .detail_box span {
     font-size: 16px;
     line-height: 28px;
-    font-family: 'Helvetica-700';
+    font-family: 'Roboto-700';
     color: var(--fgi-black);
 }
 
 .detail_box p {
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     color: var(--fgi-black);
     margin-top: 16px;
 }
 
 .detail_box p small {
-    font-family: 'Helvetica-300';
+    font-family: 'Roboto-300';
 }
 
 
@@ -120,7 +120,7 @@
 .common_point_wrapper p {
     font-size: 14px;
     line-height: 20px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     color: var(--text-grey2);
     display: flex;
     align-items: center;
@@ -130,7 +130,7 @@
 }
 
 .common_point_wrapper .common_point_card p {
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     justify-content: left;
     min-height: 40px;
     align-items: flex-start;
@@ -148,7 +148,7 @@
 .point_description span {
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     color: var(--fgi-black);
 }
 
@@ -210,7 +210,7 @@
     }
 
     .detail_box p {
-        font-family: 'Helvetica-400';
+        font-family: 'Roboto-400';
         margin-top: 8px;
     }
 

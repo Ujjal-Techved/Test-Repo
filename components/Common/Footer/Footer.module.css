@@ -14,7 +14,7 @@
 .footer_links_title{
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Helvetica-700';
+    font-family: 'Roboto-700';
     min-height: 24px;
 }
 
@@ -22,7 +22,7 @@
     text-decoration: none;
     font-size: 14px;
     line-height: 20px;
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--background-color);
     margin-top: 12px;
     display: flex;
@@ -54,7 +54,7 @@
 .footer_bottom_bar p{
     font-size: 12px;
     line-height: 16px;
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--text-grey);
 }
 

@@ -3,7 +3,7 @@
 .insure_title{
     font-size: 14px;
     line-height: 20px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     color: var(--text-grey2);
     text-transform: uppercase;
 }
@@ -42,7 +42,7 @@
 .genrali_wrapper p {
     font-size: 20px;
     line-height: 28px;
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--background-color);
     padding: 11px 0px;
 }

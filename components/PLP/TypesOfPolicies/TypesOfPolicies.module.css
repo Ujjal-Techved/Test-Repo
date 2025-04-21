@@ -9,7 +9,7 @@
     background: var(--fgi-pink);
     padding: 24px 32px;
     margin: 0;
-    font-family: "Helvetica-700";
+    font-family: "Roboto-700";
     font-size: 24px;
     line-height: 32px;
     color: var(--fgi-black);
@@ -18,7 +18,7 @@
 .dataRow {
     align-items: center;
     padding: 14px 32px;
-    font-family: "Helvetica-400";
+    font-family: "Roboto-400";
     font-size: 18px;
     line-height: 24px;
     color: var(--fgi-black);
@@ -30,7 +30,7 @@
 }
 
 .dataTitle {
-    font-family: "Helvetica-500";
+    font-family: "Roboto-500";
     font-size: 20px;
     line-height: 28px;
     display: flex;
@@ -57,7 +57,7 @@
     }
     .dataTitle {
         justify-content: center;
-        font-family: "Helvetica-700";
+        font-family: "Roboto-700";
         text-align: left;
         margin-bottom: 8px;
     }

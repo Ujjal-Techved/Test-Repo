@@ -94,6 +94,14 @@
     font-style: normal;
 }
 
+/* Roboto Bold (600) */
+@font-face {
+    font-family: 'Roboto-600';
+    src: url('/fonts/Roboto/Roboto-SemiBold.ttf');
+    font-style: normal;
+}
+
+
 /* Roboto Bold (700) */
 @font-face {
     font-family: 'Roboto-700';

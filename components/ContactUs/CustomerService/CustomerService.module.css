@@ -20,7 +20,7 @@
 }
 
 .service_cards_title h4{
-    font-family: "Helvetica-800";
+    font-family: "Roboto-800";
     font-size: 24px;
     line-height: 36px;
     color: var(--fgi-black);
@@ -31,7 +31,7 @@
     display: flex;
     align-items: center;
     gap: 4px;
-    font-family: "Helvetica-400";
+    font-family: "Roboto-400";
     font-size: 16px;
     line-height: 24px;
     color: var(--fgi-black);

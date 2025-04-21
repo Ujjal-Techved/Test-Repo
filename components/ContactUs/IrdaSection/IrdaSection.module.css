@@ -9,14 +9,14 @@
 }
 
 .IrdaContainer p {
-    font-family: "Helvetica-400";
+    font-family: "Roboto-400";
     font-size: 20px;
     line-height: 32px;
     color: var(--text-grey2);
 }
 
 .IrdaContainer p>span {
-    font-family: "Helvetica-700";
+    font-family: "Roboto-700";
     font-size: 20px;
     line-height: 32px;
 }

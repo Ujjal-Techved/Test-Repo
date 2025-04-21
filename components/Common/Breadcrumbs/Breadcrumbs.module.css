@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     font-size: 14px;
     line-height: 20px;
     color: var(--text-grey2);
@@ -12,7 +12,7 @@
 }
 
 .breadcrumbs_wrapper .txt {
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     font-size: 14px;
     line-height: 20px;
     color: var(--text-grey2);
@@ -23,7 +23,7 @@
 }
 
 .breadcrumbs_wrapper .txt>span {
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     font-size: 14px;
     line-height: 20px;
     color: var(--text-grey2);
@@ -32,7 +32,7 @@
 }
 
 .breadcrumbs_wrapper .txt.active {
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     font-size: 14px;
     line-height: 20px;
     color: var(--fgi-red);

@@ -68,7 +68,7 @@
 .leader_card_front label {
   font-size: 18px;
   line-height: 26px;
-  font-family: 'Helvetica-500';
+  font-family: 'Roboto-500';
   color: var(--fgi-black);
   padding-top: 20px;
   padding-bottom: 8px;
@@ -78,14 +78,14 @@
 .leader_card_front h5 {
   font-size: 14px;
   line-height: 20px;
-  font-family: 'Helvetica-400';
+  font-family: 'Roboto-400';
   color: var(--text-grey2);
 }
 
 .leader_card_back p {
   font-size: 16px;
   line-height: 28px;
-  font-family: 'Helvetica-400';
+  font-family: 'Roboto-400';
   color: var(--fgi-black);
   text-align: left;
   overflow-y: auto;
@@ -107,7 +107,7 @@
 .terms_and_condition a {
   font-size: 16px;
   line-height: 24px;
-  font-family: 'Helvetica-500';
+  font-family: 'Roboto-500';
   color: var(--fgi-red);
   text-decoration: none;
   display: block;
@@ -147,7 +147,7 @@
   .leader_card_front label {
     font-size: 12px;
     line-height: 16px;
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--fgi-black);
     padding-top: 8px;
     padding-bottom: 0px;

@@ -30,21 +30,21 @@ const HomeBanner = ({ homeBannerData }) => {
                 <div className={styles.Home_banner_wrapper}>
                     <Row>
                         {/* Left Column: Display main content */}
-                        <Col lg="5">
+                        <Col lg="4">
                             <div className={styles.Home_banner_main}>
                                 <p>{Description}</p>
                                 <h1>{Title}</h1>
                             </div>
                         </Col>
                         {/* Right Column: Chatbot and guide options */}
-                        <Col lg="7">
+                        <Col lg="8">
                             <div className={styles.Home_banner_section}>
                                 {/* Chatbot section */}
                                 <div className={styles.Home_banner_chatbot}>
                                     <div className={styles.Home_banner_innerbot}>
                                         <img src='images/home/chatbot.gif' alt='chatbot' />
                                         <div className={styles.chabot_title}>
-                                            <p>Have questions?</p>
+                                            <p>Trusty’s got you covered!</p>
                                             <a href='/'>Let’s Chat <img src='images/home/chatarrow.png' alt="arrow" /></a>
                                         </div>
                                     </div>

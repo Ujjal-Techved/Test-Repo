@@ -3,34 +3,43 @@
     padding: 24px 0px 60px 0px;
 }
 
+.stageOption_centermode{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+
 .stageOption_title{
-    font-size: 14px;
-    line-height: 18px;
-    font-family: 'Helvetica-400';
+    font-size: 20px;
+    line-height: 28px;
+    font-family: 'Roboto-300';
     color: var(--fgi-black);
     text-align: center;
+    font-weight: 300;
 }
 
 .best_stageoption_section{
     padding: 13px;
+    max-width: 286px;
 }
 
 .best_stageoption_card {
     display: flex !important;
     flex-direction: column;
-    border: 1px solid var(--fgi-borderlightgrey);
-    border-radius: 20px;
+    /* border: 1px solid var(--fgi-borderlightgrey); */
+    /* border-radius: 20px; */
     background: linear-gradient(to bottom, #ffffff, #ffecec);
     height: 176px;
     justify-content: flex-end;
     align-items: center;
-
+    box-shadow: 0px 10px 40px 0px #0000001A;
 }
 
 
 .best_stageoption_card .best_stageoption_main {
     background-color: #ffffff;
-    border-radius: 0px 0px 20px 20px;
+    /* border-radius: 0px 0px 20px 20px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,7 +54,7 @@
 .best_stageoption_card .best_stageoption_main p {
     font-size: 14px;
     line-height: 18px;
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--text-grey);
     text-align: center;
     padding-top: 4px;
@@ -78,8 +87,8 @@
 .protect_plan_linktext span {
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Helvetica-500';
-    color: var(--fgi-black);
+    font-family: 'Roboto-500';
+    color: var(--fgi-red);
     white-space: nowrap;
     max-width: 145px;
     overflow: hidden;
@@ -98,11 +107,20 @@
     background: -15px 99% / calc(100% + 30px) 80px no-repeat radial-gradient(#0000 70%, #FFFFFF 72%);
 }
 
+.best_stageoption_card .charct_img{
+    width: 190px;
+}
 
 @media screen and (max-width: 991.2px) and (min-width: 320px) {
 
     .protect_plan_linktext span {
-        font-size: 12px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .stageOption_title{
+        font-size: 16px;
+        line-height: 24px;
     }
 
     .best_stageoption_card {
@@ -110,7 +128,7 @@
     }
 
     .best_stageoption_card .charct_img{
-        width: 160px;
+        width: 150px;
     }
 
     .best_stageoption_card .best_stageoption_main::before {
@@ -119,6 +137,11 @@
 
     .best_stageoption_parent{
         padding: 24px 0px 30px 0px;
+    }
+
+    .protect_plan_linktext span{
+        max-width: 108px;
+        white-space:unset;
     }
 
 }

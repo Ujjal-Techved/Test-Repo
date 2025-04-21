@@ -16,7 +16,7 @@
 }
 
 .joinculture_cards span {
-    font-family: "Helvetica-500";
+    font-family: "Roboto-500";
     font-size: 20px;
     line-height: 28px;
     color: var(--fgi-black);
@@ -27,7 +27,7 @@
 }
 
 .joinculture_cards p {
-    font-family: "Helvetica-400";
+    font-family: "Roboto-400";
     font-size: 14px;
     line-height: 18px;
     color: var(--text-grey2);

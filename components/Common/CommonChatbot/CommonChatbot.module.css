@@ -98,7 +98,7 @@
 .chabot_title p {
     font-size: 10px;
     line-height: 10px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     color: var(--fgi-black);
 }
 
@@ -107,7 +107,7 @@
     align-items: center;
     font-size: 8px;
     line-height: 8px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     color: var(--fgi-red) !important;
     gap: 4px;
     text-decoration: none;

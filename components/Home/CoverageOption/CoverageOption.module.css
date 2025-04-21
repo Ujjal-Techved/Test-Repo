@@ -30,7 +30,7 @@
 .fgli_plans_title p {
     font-size: 18px;
     line-height: 26px;
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--text-grey2);
     display: flex;
     align-items: center;
@@ -42,7 +42,7 @@
 .fgli_plans_title span {
     font-size: 12px;
     line-height: 18px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     border: 1px solid var(--text-grey2);
     padding: 2px 8px;
     border-radius: 26px;
@@ -62,7 +62,7 @@
 .fgli_plans_title h4 {
     font-size: 28px;
     line-height: 44px;
-    font-family: 'Helvetica-800';
+    font-family: 'Roboto-800';
     color: var(--fgi-black);
     padding: 8px 16px;
 }
@@ -70,7 +70,7 @@
 .fgli_plans_title h5 {
     font-size: 14px;
     line-height: 20px;
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--text-grey2);
     padding-bottom: 24px;
 }

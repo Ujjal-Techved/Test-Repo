@@ -4,33 +4,33 @@ import styles from './BeststageOption.module.css';
 import { Container } from 'reactstrap';
 
 // Slider settings for stageOptions
-const sliderSettings = {
-    dots: false,
-    arrow: false,
-    infinite: false,
-    autoplay: false,
-    speed: 500,
-    slidesToShow: 6,
-    slidesToScroll: 1,
-    responsive: [
-        {
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                arrows: false 
-            }
-        },
-        {
-            breakpoint: 600,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                arrows: false 
-            }
-        }
-    ]
-};
+// const sliderSettings = {
+//     dots: false,
+//     arrow: false,
+//     infinite: false,
+//     autoplay: false,
+//     speed: 500,
+//     slidesToShow: 5,
+//     slidesToScroll: 1,
+//     responsive: [
+//         {
+//             breakpoint: 1024,
+//             settings: {
+//                 slidesToShow: 2,
+//                 slidesToScroll: 1,
+//                 arrows: false 
+//             }
+//         },
+//         {
+//             breakpoint: 600,
+//             settings: {
+//                 slidesToShow: 2,
+//                 slidesToScroll: 1,
+//                 arrows: false 
+//             }
+//         }
+//     ]
+// };
 
 const BeststageOption = ({bestStageData}) => {
 
@@ -47,7 +47,8 @@ const BeststageOption = ({bestStageData}) => {
             <Container>
                 <div className='best-stageoption-wrapper'>
                     <p className={styles.stageOption_title}>{Title}</p>
-                    <Slider {...sliderSettings}>
+                    <div className={styles.stageOption_centermode}>
+                    {/* <Slider {...sliderSettings}> */}
                         {CardList?.map((option) => (
                             <div key={option.id} className={styles.best_stageoption_section}>
                                 <div className={styles.best_stageoption_card}>
@@ -62,7 +63,8 @@ const BeststageOption = ({bestStageData}) => {
                                 </div>
                             </div>
                         ))}
-                    </Slider>
+                    {/* </Slider> */}
+                    </div>
                 </div>
             </Container>
         </div>

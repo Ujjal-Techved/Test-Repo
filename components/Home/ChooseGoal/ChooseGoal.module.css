@@ -6,7 +6,7 @@
 .stageOption_title{
     font-size: 14px;
     line-height: 18px;
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--fgi-black);
     text-align: center;
 }
@@ -51,7 +51,7 @@
 .best_stageoption_card .best_stageoption_main p {
     font-size: 14px;
     line-height: 18px;
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--text-grey);
     text-align: center;
     padding-top: 4px;
@@ -85,7 +85,7 @@
 .protect_plan_linktext span {
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     color: var(--fgi-black);
     white-space: nowrap;
     max-width: 190px;

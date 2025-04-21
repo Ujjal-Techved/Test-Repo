@@ -54,7 +54,7 @@
 .commonlink_btn {
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Helvetica-700';
+    font-family: 'Roboto-700';
     background: linear-gradient(180deg, #AF2219 0%, #C21B17 100%);
     color: var(--background-color);
     text-decoration: none;

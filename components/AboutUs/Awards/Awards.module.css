@@ -19,14 +19,14 @@
 .types_insurance_cards span{
     font-size: 18px;
     line-height: 26px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     color: var(--fgi-black);
 }
 
 .types_insurance_cards p{
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--text-grey2);
     padding-top: 8px;
     padding-bottom: 24px;
@@ -39,7 +39,7 @@
 .types_insurance_imgsrc a{
     font-size: 16px;
     line-height: 20px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     color: var(--fgi-red);
     text-decoration: none;
     display: block;

@@ -19,7 +19,7 @@
 .plan_benefits p {
     font-size: 16px;
     line-height: 20px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     color: var(--fgi-black);
     padding: 8px 24px;
     min-height: 60px;
@@ -56,7 +56,7 @@
 .plan_card_title .plan_card_desc h5 {
     font-size: 15px;
     line-height: 20px;
-    font-family: 'Helvetica-700';
+    font-family: 'Roboto-700';
     color: var(--fgi-black);
     min-height: 40px;
     overflow: hidden;
@@ -69,7 +69,7 @@
 .plan_card_title p {
     font-size: 12px;
     line-height: 16px;
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--text-grey2);
     min-height: 48px;
     text-align: center;
@@ -112,7 +112,7 @@
 .plan_card_ideal p {
     font-size: 12px;
     line-height: 16px;
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--text-grey2);
     padding: 8px;
     height: 58px;
@@ -128,7 +128,7 @@
 .plan_card_ideal span {
     font-size: 16px;
     line-height: 20px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     color: var(--fgi-black);
     display: none;
 }
@@ -167,7 +167,7 @@
     .plan_card_title .plan_card_desc h5 {
         font-size: 16px;
         line-height: 20px;
-        font-family: 'Helvetica-700';
+        font-family: 'Roboto-700';
         color: var(--fgi-black);
         min-height: unset;
     }
@@ -189,7 +189,7 @@
         display: block;
         font-size: 16px;
         line-height: 20px;
-        font-family: 'Helvetica-500';
+        font-family: 'Roboto-500';
         color: var(--fgi-black);
     }
 

@@ -46,7 +46,7 @@
 .reach_us_title{
     font-size: 24px;
     line-height: 32px;
-    font-family: 'Helvetica-800';
+    font-family: 'Roboto-800';
     color: var(--fig-black);
     display: flex;
     justify-content: space-between;
@@ -56,20 +56,20 @@
 .reach_us_desc{
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--text-grey);
     padding-top: 8px;
 }
 
 .reach_us_contact{
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--fgi-red);
 }
 
 .reach_us_linktext{
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     color: var(--fgi-black);
     text-decoration: none;
     display: flex;
