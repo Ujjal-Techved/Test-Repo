@@ -1,42 +1,47 @@
-.investPlan_bg{
-    background: url('/images/contact-us/bg-invest.png'), var(--fgi-red);
+.investPlan_bg {
+    /* background: url('/images/contact-us/bg-invest.png'), var(--fgi-red);
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     min-height: 484px;
-    border-radius: 30px;
+    border-radius: 4px;
     position: relative;
     margin-top: 62px;
     margin-bottom: 80px;
+    background: url('/images/faqs/bg-left.svg'), url('/images/faqs/bg-right.svg'), var(--fgi-red);
+    background-repeat: no-repeat;
+    background-position: left 64px, right 385px, center;
 }
 
-.investPlan_bg::after{
+.investPlan_bg::after {
     position: absolute;
-    content:  url('/images/contact-us/bg-phone.png');
+    content: url('/images/contact-us/bg-phone.png');
     top: -62px;
     right: 132px;
 }
 
 
-.investPlan_main{
-    padding: 37.5px 0px 37.5px 64px;
+.investPlan_main {
+    padding: 37.5px 0px 37.5px 104px;
     max-width: 645px;
     width: 100%;
 }
 
-.investPlan_main h3{
-    font-family: "Roboto-900";
-    font-size: 51px;
-    line-height: 66px;
+.investPlan_main h3 {
+    font-family: "Roboto-300";
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 60px;
     color: var(--background-color);
 }
 
-.form_applink{
-    max-width: 396px;
+.form_applink {
+    /* max-width: 396px; */
+    max-width: 545px;
     width: 100%;
-    padding: 40px 0px 32px 0px;
+    padding: 24px 0px 32px 0px;
 }
 
-.form_applink label{
+.form_applink label {
     font-family: "Roboto-400";
     font-size: 16px;
     line-height: 24px;
@@ -44,7 +49,7 @@
     margin-bottom: 12px;
 }
 
-.applink_main{
+.applink_main {
     border: 1px solid var(--border-grey);
     border-radius: 32px;
     background: var(--fgi-whitegray);
@@ -54,53 +59,116 @@
     justify-content: space-between;
 }
 
-.form_control{
+.form_control {
     background: transparent;
     border: none;
     font-family: "Roboto-400";
     font-size: 16px;
     line-height: 24px;
     color: var(--background-color);
-  }
+}
 
-  .form_control:focus-visible{
+.form_control:focus-visible {
     border: none;
-    outline: none; 
-  }
+    outline: none;
+}
 
-  .form_control::placeholder {
+.form_control::placeholder {
     font-family: "Roboto-400";
     font-size: 16px;
     line-height: 24px;
-    color: var(--background-color); /* Optional: Set a placeholder color */
+    color: var(--background-color);
+    /* Optional: Set a placeholder color */
 }
 
-.scanner_links{
+.scanner_links {
     display: flex;
     align-items: center;
     gap: 24px;
 }
 
-.links_btn{
+.links_btn {
     background: transparent;
     border: none;
     margin-left: 24px;
 }
 
-.links_wrapper{
+.links_wrapper {
     border-left: 1px solid var(--border-grey);
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
+
+
+.leadForm {
+    display: flex;
+    width: 100%;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inputField {
+    font-family: "Roboto-300";
+    font-size: 20px;
+    line-height: 24px;
+    border: none;
+    border-bottom: 1px solid var(--fgi-bordergrey);
+    color: var(--background-color);
+    padding: 2px 0;
+    outline: none;
+    width: 334px;
+    background: none;
+    font-weight: 400;
+}
+
+.inputField:focus {
+    /* border: 1px solid var(--border-grey); */
+    outline: none;
+}
+
+.inputField::placeholder {
+    color: var(--placeholder-gray);
+}
+
+.formGroup {
+    position: relative;
+    padding-bottom: 16px;
+}
+
+.formGroup label {
+    font-family: "Roboto-400";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--background-color);
+    display: block;
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.formGroup .errorMsg {
+    position: absolute;
+    top: 64px;
+    font-size: 12px;
+    line-height: 12px;
+    color: var(--background-color);
+    display: none;
+}
+
+.formGroup.error .errorMsg {
+    display: block;
+}
+
 @media screen and (max-width: 1200px) and (min-width: 992px) {
 
-    .investPlan_bg::after{
+    .investPlan_bg::after {
         right: 0px;
     }
 
-    .investPlan_bg{
+    .investPlan_bg {
         background-position: right;
     }
 
@@ -110,77 +178,102 @@
 
 @media screen and (max-width: 991px) and (min-width: 320px) {
 
-    .investPlan_bg{
-        background: url('/images/contact-us/bg-invest-mob.png'), var(--fgi-red);
+    .investPlan_bg {
+        /* background: url('/images/contact-us/bg-invest-mob.png'), var(--fgi-red);
         background-position: right;
+        background-repeat: no-repeat; */
+        background: url('/images/faqs/bg-left.svg'), url('/images/faqs/bg-right.svg'), var(--fgi-red);
         background-repeat: no-repeat;
+        background-position: left 30px, right 390px, center;
         margin-top: 0px;
         margin-bottom: 80px;
         z-index: 10;
     }
 
-    .investPlan_main{
+    .investPlan_main {
         padding: 20px 16px 0px 16px;
         max-width: unset;
         width: 100%;
         /* margin-top: 40px; */
     }
 
-    .investPlan_main h3{
-        font-family: "Roboto-800";
-        font-size: 28px;
-        line-height: 36px;
+    .investPlan_main h3 {
+        font-family: "Roboto-300";
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 28px;
     }
 
-    .form_applink{
+    .form_applink {
         max-width: unset;
         width: 100%;
         padding: 12px 0px 32px 0px;
     }
 
-    .scanner_links{
+    .scanner_links {
         flex-direction: column;
         max-width: 105px;
         gap: 12px;
         align-items: flex-start;
     }
 
-    .form_control{
-        font-size: 12px;
-      }
-    
-      .form_control:focus-visible{
-        border: none;
-        outline: none; 
-      }
-    
-      .form_control::placeholder {
+    .form_control {
         font-size: 12px;
     }
 
-    .investPlan_bg::after{
+    .form_control:focus-visible {
+        border: none;
+        outline: none;
+    }
+
+    .form_control::placeholder {
+        font-size: 12px;
+    }
+
+    .investPlan_bg::after {
         position: absolute;
-        content:  url('/images/contact-us/bg-phone-mob.png');
+        content: url('/images/contact-us/bg-phone-mob.png');
         top: 250px;
         right: 0px;
         z-index: -1;
     }
 
-    .scanner_links > div > img{
+    .scanner_links>div>img {
         width: 59px;
     }
-    .links_btn{
+
+    .links_btn {
         margin-left: 0px;
     }
-    .links_btn img{
+
+    .links_btn img {
         width: 101px;
     }
 
-    .links_wrapper{
+    .links_wrapper {
         border-left: 0px;
         border-top: 1px solid var(--border-grey);
         padding-top: 12px;
         gap: 12px;
+    }
+
+    .leadForm {
+        flex-wrap: wrap;
+        gap: 0px;
+    }
+
+    .formGroup,
+    .inputField {
+        width: 100%;
+    }
+
+    .inputField {
+        font-size: 16px;
+    }
+
+    .formGroup label {
+        font-size: 12px;
+        margin-bottom: 0px;
     }
 
 }
