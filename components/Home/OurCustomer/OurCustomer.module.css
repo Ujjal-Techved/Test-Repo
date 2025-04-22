@@ -11,7 +11,7 @@
 .team_slider {
     box-shadow: 2px 2px 20px 0px rgba(160, 160, 160, 0.25);
     background-color: var(--background-color);
-    border-radius: 32px;
+    border-radius: 4px;
     padding: 24px;
     /* margin: 40px 50px 10px 50px; */
     display: flex !important;
@@ -27,7 +27,7 @@
 }
 
 .team_slider .team_feedback {
-    font-family: "Roboto-500";
+    font-family: "Roboto-400";
     font-size: 18px;
     line-height: 28px;
     color: var(--fgi-black);
@@ -44,17 +44,25 @@
 
 @media screen and (max-width: 991.2px) and (min-width: 320px) {
 
-    /* .team_slider {
-        margin: 40px 105px; 
-        max-width: 198px;
-    } */
+    .team_slider_parent{
+        padding: 24px 8px;
+    }
+
+    .team_slider {
+       padding: 16px;
+    }
+
+    .team_slider img {
+        min-height: 48px;
+    }
+    
 
     .team_slider .team_feedback {
         font-family: "Roboto-400";
-        font-size: 12px;
-        line-height: 16px;
+        font-size: 14px;
+        line-height: 20px;
         padding: 14px 0px 14px 0px;
-        height: 100px;
+        height: unset;
     }
 
     .member_name label {

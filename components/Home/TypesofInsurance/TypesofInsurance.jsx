@@ -20,11 +20,11 @@ const TypesofInsurance = ({ insurancetypesData }) => {
     
     // Slider settings for the carousel
     const sliderSettings = {
-        arrows: false, // Hide navigation arrows for a cleaner UI
+        arrows: true, // Hide navigation arrows for a cleaner UI
         dots: false,   // Hide pagination dots
         infinite: false, // Prevent infinite looping for better UX
         speed: 500,  // Set slide transition speed to 500ms
-        slidesToShow: 4.2, // Display 4.2 slides at a time on large screens
+        slidesToShow: 4.32, // Display 4.2 slides at a time on large screens
         slidesToScroll: 1, // Scroll 1 slide at a time
         autoplay: false, // Disable autoplay to avoid distraction
         autoplaySpeed: 3000, // Set autoplay interval (only if enabled)
@@ -51,8 +51,8 @@ const TypesofInsurance = ({ insurancetypesData }) => {
     };
 
     return (
-        <div className="types-insurance-wrapper pd-t pd-b"> {/* Wrapper div for styling */}
-            <Container> {/* Bootstrap container for responsive layout */}
+        <div className="types-insurance-wrapper social-res-wrapper pd-t pd-b"> {/* Wrapper div for styling */}
+            <Container fluid className={styles.plan_containerfluid + ' plan-container-fluid'}> {/* Bootstrap container for responsive layout */}
                 
                 {/* Render section title and description using TitleSubtitle component */}
                 <TitleSubtitle
@@ -81,7 +81,7 @@ const TypesofInsurance = ({ insurancetypesData }) => {
                                 />
 
                                 {/* Link to view plans for the insurance type */}
-                                <a href={type?.Url}>View Plans</a>
+                                <a className='common-right-arrow' href={type?.Url}>View Plans</a>
                             </div>
                         </div>
                     ))}

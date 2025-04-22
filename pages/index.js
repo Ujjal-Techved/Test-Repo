@@ -14,6 +14,8 @@ import WhatisGenrali from "@/components/Home/WhatisGenrali/WhatisGenrali";
 import WhylifeInsurance from "@/components/Home/WhylifeInsurance/WhylifeInsurance";
 import LandingLayout from "@/components/Layouts/LandingLayout";
 import { apiClient } from '../utils/apiClient'; // ✅ Ensure correct import path
+import PartnerFuturegroup from "@/components/Home/PartnerFuturegroup/PartnerFuturegroup";
+import WhylifeInsurancenew from "@/components/Home/WhylifeInsurancenew/WhylifeInsurancenew";
 
 export default function Home(props) {
 
@@ -35,6 +37,72 @@ export default function Home(props) {
         { id: "4", tabtitle: "Returns" },
     ];
 
+        // Array for Data structure containing information about the term plan benefits
+        const TermplanCardData = [
+          {
+              id: 1,
+              Title: "Why go for Future Generali Long Term Income Plan?",
+              Subtitle:
+                  "A Life Insurance Savings Plan that provides you long-term financial support through guaranteed long-term income, that too increasing with time along with much-needed life protection for you and your family, so that you enjoy all your life milestones without any worry.",
+              TermplanList: [
+                  {
+                      id: 1,
+                      Title: "Guaranteed Benefits",
+                      Description: "on death, survival, and maturity",
+                      Image: { url: "images/product-detail/plan1.png" }
+                  },
+                  {
+                      id: 2,
+                      Title: "Long Term Income",
+                      Description: "for up to 50 years",
+                      Image: { url: "images/product-detail/plan2.png" }
+                  },
+                  {
+                      id: 3,
+                      Title: "Flexible Life Cover",
+                      Description: "with Death Benefit Multiples",
+                      Image: { url: "images/product-detail/plan3.png" }
+                  },
+                  {
+                      id: 4,
+                      Title: "Family Income Security",
+                      Description: "in your absence",
+                      Image: { url: "images/product-detail/plan4.png" }
+                  },
+                  {
+                      id: 5,
+                      Title: "Extended Life Cover",
+                      Description: "Awesome perks are just around the corner!",
+                      Image: { url: "images/product-detail/plan3.png" }
+                  },
+                  {
+                      id: 6,
+                      Title: "Extended Life Cover",
+                      Description: "Awesome perks are just around the corner!",
+                      Image: { url: "images/product-detail/plan3.png" }
+                  },
+                  {
+                      id: 7,
+                      Title: "Extended Life Cover",
+                      Description: "Awesome perks are just around the corner!",
+                      Image: { url: "images/product-detail/plan3.png" }
+                  },
+                  {
+                      id: 8,
+                      Title: "Tax Savings",
+                      Description: "Awesome perks are just around the corner!",
+                      Image: { url: "images/product-detail/plan5.png" }
+                  },
+                  {
+                      id: 9,
+                      Title: "Loyalty Additions",
+                      Description: "from the 11th policy year onward",
+                      Image: { url: "images/product-detail/plan4.png" }
+                  }
+              ]
+          }
+      ];
+
     return (
         <LandingLayout>
 
@@ -49,12 +117,18 @@ export default function Home(props) {
             
             {/* What is Generali section */}
             <WhatisGenrali whatIsData={props?.homePageData} />
+
+            {/* Partners in Securing Your Future */}
+            <PartnerFuturegroup/>
+
+            {/* New Why Life Insurance section */}
+            <WhylifeInsurancenew whylifeInsurData={props?.homePageData} TermplanCardData={TermplanCardData}/>
             
             {/* Why Life Insurance section */}
-            <WhylifeInsurance whylifeInsurData={props?.homePageData} />
+            {/* <WhylifeInsurance whylifeInsurData={props?.homePageData} /> */}
             
             {/* Choose Goal section */}
-            <ChooseGoal choosegoalData={props?.homePageData} />
+            {/* <ChooseGoal choosegoalData={props?.homePageData} /> */}
             
             {/* Types of Insurance section */}
             <TypesofInsurance insurancetypesData={props?.homePageData} />
@@ -63,7 +137,7 @@ export default function Home(props) {
             <RequestCallback requestCallbackData={props?.homePageData} />
             
             {/* Coverage Option section */}
-            <CoverageOption coveragetabs={coveragetabs} coverageplansData={props?.homePageData} />
+            {/* <CoverageOption coveragetabs={coveragetabs} coverageplansData={props?.homePageData} /> */}
             
             {/* Protect Plan section */}
             <ProtectPlan protectplanData={props?.homePageData} />

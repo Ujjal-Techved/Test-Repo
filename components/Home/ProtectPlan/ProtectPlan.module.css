@@ -1,39 +1,42 @@
 .protect_plan_row{
-    padding: 40px 0px;
+    padding: 8px 0px;
+    justify-content: space-between;
 }
 
 .protect_plan_col{
     display: flex;
+    max-width: 380px;
 }
 
 .protect_plan_Card {
-    border: 1px solid var(--fgi-borderdarkgrey);
+    /* border: 1px solid var(--fgi-borderdarkgrey); */
     box-shadow: 0px 0px 40px 0px var(--fgi-faqShadow);
-    border-radius: 24px;
+    border-radius: 4px;
     padding: 26px;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
     width: 100%;
-    margin-bottom: 40px;
-    justify-content: space-between;
-    height: 100%;
+    /* margin-bottom: 40px; */
+    /* justify-content: space-between;
+    height: 100%; */
+    text-align: center;
 }
 
 
 .protect_plan_Card span{
-    font-size: 26px;
-    line-height: 26px;
-    font-family: 'Roboto-900';
+    font-size: 20px;
+    line-height: 28px;
+    font-family: 'Roboto-500';
     color: var(--fgi-black);
     padding: 8px 0px;
     
 }
 
 .protect_plan_Card p{
-    font-size: 16px;
-    line-height: 24px;
-    font-family: 'Roboto-400';
+    font-size: 20px;
+    line-height: 28px;
+    font-family: 'Roboto-300';
     color: var(--text-grey);
     text-align: center;
 }
@@ -42,22 +45,27 @@
     font-size: 16px;
     line-height: 24px;
     font-family: 'Roboto-500';
-    color: var(--fgi-black);
+    color: var(--fgi-red);
     text-decoration: none;
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.protect_plan_Card > img{
+    padding: 16px 0px;
 }
 
 
 @media screen and (max-width: 520px) and (min-width: 320px) {
     .protect_plan_row{
-        gap: 32px;
+        gap: 0px;
         padding-bottom: 32px;
     }
     .protect_plan_Card{
         max-width: 248px;
         padding: 10px;
-        
+        margin-bottom: 24px;
     }
     .protect_plan_col{
         justify-content: center;

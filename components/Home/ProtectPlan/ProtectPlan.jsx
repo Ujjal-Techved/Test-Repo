@@ -24,7 +24,7 @@ const ProtectPlan = ({ protectplanData }) => {
                 <Row className={styles.protect_plan_row + ' pb-0'}>
                     {/* Iterate through each item in StartProtectingCard and render a column */}
                     {StartProtectingCard?.map((item, index) => (
-                        <Col lg="4" md="12" className={styles.protect_plan_col}>
+                        <Col lg="4" md="12" xs="6" className={styles.protect_plan_col}>
                             <div className={styles.protect_plan_Card}>
                                 {/* Title of the card */}
                                 <span>{item?.Title}</span>

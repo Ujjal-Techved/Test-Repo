@@ -48,7 +48,7 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
         dots: false,
         infinite: false,
         speed: 500,
-        slidesToShow: 3.3,
+        slidesToShow: 3.14,
         slidesToScroll: 1,
         arrows: false,
         responsive: [
@@ -85,7 +85,7 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
 
     return (
         <div className='pd-t pd-b'>
-            <Container>
+            <Container fluid className={styles.plan_containerfluid + ' plan-container-fluid'}>
                 {/* Title and subtitle section */}
                 <TitleSubtitle
                     title={Title}
