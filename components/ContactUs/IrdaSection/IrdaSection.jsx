@@ -18,27 +18,6 @@ const IrdaSection = ({ irdaSectionData }) => {
         <div > {/* Wrapper div for IRDA section styling */}
             <Container className={styles.IrdaContainer}> {/* Bootstrap container for responsive layout */}
 
-                <div>
-                    {/* Display License Category */}
-                    <p>
-                        {RightText[0]?.children[0]?.text} {/* License Category Label */}
-                        <span>{RightText[0]?.children[1]?.text}</span> {/* License Category Value */}
-                    </p>
-
-                    {/* Display CIN (Corporate Identity Number) */}
-                    <p className='mb-3'>
-                        {RightText[1]?.children[0]?.text} {/* CIN Label */}
-                        <span>{RightText[1]?.children[1]?.text}</span> {/* CIN Value */}
-                    </p>
-                </div>
-
-                {/* IRDA Logo Image */}
-                <img
-                    className='mb-3 img-fluid' // Adds margin-bottom and ensures responsiveness
-                    src={process.env.NEXT_PUBLIC_APP_API + Image?.url} // Constructs image URL dynamically
-                    alt={Image?.alternativeText || "IRDA Logo"} // Adds alternative text for accessibility
-                />
-
 
                 <div>
 
@@ -51,6 +30,29 @@ const IrdaSection = ({ irdaSectionData }) => {
                     {/* Display Validity Date */}
                     <p>{LeftText[1]?.children[0]?.text}</p> {/* Validity Period */}
                 </div>
+
+
+                {/* IRDA Logo Image */}
+                <img
+                    className='img-fluid' // Adds margin-bottom and ensures responsiveness
+                    src={process.env.NEXT_PUBLIC_APP_API + Image?.url} // Constructs image URL dynamically
+                    alt={Image?.alternativeText || "IRDA Logo"} // Adds alternative text for accessibility
+                />
+
+                <div>
+                    {/* Display License Category */}
+                    <p>
+                        {RightText[0]?.children[0]?.text} {/* License Category Label */}
+                        <span>{RightText[0]?.children[1]?.text}</span> {/* License Category Value */}
+                    </p>
+
+                    {/* Display CIN (Corporate Identity Number) */}
+                    <p>
+                        {RightText[1]?.children[0]?.text} {/* CIN Label */}
+                        <span>{RightText[1]?.children[1]?.text}</span> {/* CIN Value */}
+                    </p>
+                </div>
+
 
             </Container>
         </div>

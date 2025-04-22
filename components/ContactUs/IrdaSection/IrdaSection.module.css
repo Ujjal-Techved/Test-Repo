@@ -10,15 +10,17 @@
 
 .IrdaContainer p {
     font-family: "Roboto-400";
-    font-size: 20px;
-    line-height: 32px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
     color: var(--text-grey2);
 }
 
 .IrdaContainer p>span {
     font-family: "Roboto-700";
-    font-size: 20px;
-    line-height: 32px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
 }
 
 .IrdaContainer div{
@@ -38,8 +40,22 @@
         align-items: center;
     }
 
-    .IrdaContainer:last-child div{
+    .IrdaContainer p,
+    .IrdaContainer p>span {
+        font-size: 20px;
+        line-height: 32px;
+    }
+
+    .IrdaContainer div:last-child{
+        order: 2;
+     }
+
+     .IrdaContainer div:first-child{
         order: 3;
+     }
+
+     .IrdaContainer > img{
+        order: 1;
      }
      
 
