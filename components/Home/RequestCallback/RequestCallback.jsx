@@ -31,9 +31,9 @@ const RequestCallback = ({ requestCallbackData }) => {
                 <div className={styles.application_wrapper}>
                     {/* Title and subtitle rendered using the TitleSubtitle component */}
                     <TitleSubtitle
-                        title={Title}
-                        subtitle={Description}
-                        extraClass="whiteColor" // Custom class for styling
+                        title={"Get Expert Advice from Your Trusted Life Insurance Company!"}
+                        subtitle={"Need quick answers? Future Generali is the best life insurance company in India with 24/7 support and expert financial guidance."}
+                        extraClass="whiteColor pageTitle max-792" // Custom class for styling
                     />
                     <div>
                         <Formik
@@ -51,10 +51,11 @@ const RequestCallback = ({ requestCallbackData }) => {
                             {({ errors, setFieldValue, setFieldError }) => (
                                 <Form className={styles.leadForm}>
                                     <div className={`${styles.formGroup} ${errors.name ? styles.error : ""} `}>
+                                        <label htmlFor="name">Full Name *</label>
                                         <Field
                                             type="text"
                                             name="name"
-                                            placeholder='Enter Full Name'
+                                            placeholder='Enter your Full Name'
                                             className={styles.inputField}
                                             onChange={(e) => {
                                                 setFieldValue('name', e.target.value.replace(/[^A-Za-z\s]/g, ""));
@@ -64,10 +65,11 @@ const RequestCallback = ({ requestCallbackData }) => {
                                         <p className={styles.errorMsg}>{errors.name}</p>
                                     </div>
                                     <div className={`${styles.formGroup} ${errors.phone ? styles.error : ""} `}>
+                                        <label htmlFor="phone">Mobile Number *</label>
                                         <Field
                                             type="tel"
                                             name="phone"
-                                            placeholder='Enter Mobile Number'
+                                            placeholder='Enter your Mobile Number'
                                             className={styles.inputField}
                                             maxLength={10}
                                             onChange={(e) => {
@@ -83,6 +85,7 @@ const RequestCallback = ({ requestCallbackData }) => {
                             )}
                         </Formik>
                     </div>
+                    <p className={styles.footNote}>We promise we won’t spam you. Just real conversations with real people, whenever you need help! </p>
                 </div>
             </Container>
         </div>
