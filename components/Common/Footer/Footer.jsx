@@ -17,21 +17,24 @@ const Footer = () => {
       column: 1,
       sections: [
         {
-          title: "Tools and Calculators",
+          title: "Company",
+          img: "/images/footer/company.svg",
+          links: [
+            { name: "About Us (New Category)", href: "/" },
+            { name: "Careers", href: "/" },
+            { name: "Alumni", href: "/" },
+            { name: "Public Disclosures", href: "/" },
+            { name: "Stewardship Policy", href: "/" }
+          ],
+        },
+        {
+          title: "Explore Tools",
+          img: "/images/footer/explore-tools.svg",
           links: [
             { name: "Education Ready", href: "/" },
             { name: "Future Ready", href: "/" },
             { name: "Retirement Ready", href: "/" },
-          ],
-        },
-        {
-          title: "Agents",
-          links: [
-            { name: "Corporate Agents", href: "/" },
-            { name: "Individual Agents", href: "/" },
-            { name: "Terminated Agents", href: "/" },
-            { name: "Order Of Suspension Or Cancellation Of Appointment", href: "/" },
-            { name: "Goods & Services Tax (GST)", href: "/" },
+            { name: "Fund Performance", href: "/" }
           ],
         },
       ],
@@ -40,22 +43,20 @@ const Footer = () => {
       column: 2,
       sections: [
         {
-          title: "Quick Links",
+          title: "Support and Assistance",
+          img: "/images/footer/support-and-assistance.svg",
           links: [
             { name: "Customer Service", href: "/" },
             { name: "Claims", href: "/" },
             { name: "Group Claims", href: "/" },
-            { name: "Fund Performance", href: "/" },
-            { name: "Epolicy", href: "/" },
-            { name: "Careers", href: "/" },
-            { name: "Alumni", href: "/" },
-            { name: "Unclaimed Amount", href: "/" },
-            { name: "Public Disclosures", href: "/" },
-            { name: "Stewardship Policy", href: "/" },
             { name: "Track Application", href: "/" },
-            { name: "Claims Settlement Process - MH, GJ Cyclone Taukate And WB, OR Cyclone Yaas", href: "/" },
-            { name: "Simplified Claims Settlement Process For Train Tragedy Victims In The State Of Odisha", href: "/" },
             { name: "Cancel Autopay", href: "/" },
+            { name: "Nomination and Remuneration Policy", href: "/" },
+            { name: "Glossary", href: "/" },
+            { name: "Epolicy", href: "/" },
+            { name: "Claims settlement process - MH, GJ cyclone Taukate and WB, OR cyclone Yaas", href: "/" },
+            { name: "Simplified Claims Settlement Process for Train Tragedy Victims in the state of Odisha", href: "/" },
+            { name: "FAQ (New Category)", href: "/" }
           ],
         },
       ],
@@ -64,13 +65,24 @@ const Footer = () => {
       column: 3,
       sections: [
         {
-          title: "Assistance",
+          title: "Agents",
+          img: "/images/footer/agents.svg",
           links: [
-            { name: "Nomination And Remuneration Policy", href: "/" },
-            { name: "Insurance Awareness And Consumer Education Policy", href: "/" },
-            { name: "FG Life Code Of Conduct", href: "/" },
-            { name: "Glossary", href: "/" },
-            { name: "Withdrawn Products", href: "/" },
+            { name: "Corporate Agents", href: "/" },
+            { name: "Individual Agents", href: "/" },
+            { name: "Terminated Agents", href: "/" },
+            { name: "Order of Suspension or Cancellation Taukate of Appointment", href: "/" },
+            { name: "Goods & Services Tax (GST)", href: "/" }
+          ],
+        },
+        {
+          title: "Regulatory and Legal",
+          img: "/images/footer/regulatory-and-legal.svg",
+          links: [
+            { name: "IRDAI", href: "/" },
+            { name: "Life Insurance Council Insurance Ombudsman", href: "/" },
+            { name: "Consumer Education- IRDAI", href: "/" },
+            { name: "Bima Bharosa Spurious Calls", href: "/" }
           ],
         },
       ],
@@ -79,26 +91,22 @@ const Footer = () => {
       column: 4,
       sections: [
         {
-          title: "Disclaimer",
+          title: "Policies",
+          img: "/images/footer/policies.svg",
           links: [
+            { name: "Nomination and Remuneration Policy", href: "/" },
+            { name: "Insurance Awareness and Consumer Education Policy", href: "/" },
             { name: "Privacy Policy", href: "/" },
             { name: "Disclaimer", href: "/" },
+            { name: "FG Life Code of Conduct", href: "/" }
           ],
         },
         {
           title: "Group Company",
+          img: "/images/footer/company.svg",
           links: [
             { name: "Future Group", href: "/" },
-            { name: "Generali Group", href: "/" },
-          ],
-        },
-        {
-          title: "Regulatory",
-          links: [
-            { name: "IRDAI", href: "/" },
-            { name: "Life Insurance Council Insurance Ombudsman", href: "/" },
-            { name: "Consumer Education- IRDAI", href: "/" },
-            { name: "Bima Bharosa Spurious Calls", href: "/" },
+            { name: "Generali Group", href: "/" }
           ],
         },
       ],
@@ -126,6 +134,7 @@ const Footer = () => {
                           onClick={() => handleToggle(sectionKey)}
                         >
                           <div className={styles.footer_links_title} role="button">
+                            <img src={section.img} alt="icon" />
                             {section.title}
                           </div>
                           <ul className={styles.footer_links_list}>
@@ -156,14 +165,16 @@ const Footer = () => {
               <Col xs="12" lg="3">
                 <div className={styles.footer_address_wrapper}>
                   <div className={styles.footer_links_title} role="button">
+                    <img src="/images/footer/address.svg" alt="icon" />
                     Correspondence Address
                   </div>
                   <ul className={styles.footer_links_list}>
                     <li>
                       <p className={styles.footer_link}>
-                        Future Generali India Life Insurance Co Ltd., Unit 801 and
-                        802, 8th floor, Tower C, Embassy 247 Park, L.B.S. Marg,
-                        Vikhroli (W), Mumbai- 400 083
+                        Future Generali India Life Insurance Co Ltd., <br />
+                        Unit 801 and 802, 8th floor, Tower C, <br />
+                        Embassy 247 Park, L.B.S. Marg, Vikhroli <br />
+                        (W), Mumbai- 400 083
                       </p>
                     </li>
                   </ul>
@@ -171,11 +182,16 @@ const Footer = () => {
               </Col>
               <Col xs="12" lg="3">
                 <div className={styles.footer_address_wrapper}>
+                  <div className={`${styles.footer_links_title} ${styles.mobSpace}`} role="button">
+                    <img src="/images/footer/regulatory-and-legal.svg" alt="icon" />
+                    IRDAI Registration
+                  </div>
                   <ul className={styles.footer_links_list}>
                     <li>
                       <p className={styles.footer_link}>
-                        IRDAI Registration No: 133 (Validity 31st March 2025)
-                        License Category: Life CIN:- U66010MH2006PLC165288
+                        IRDAI Registration No: 133 (Validity 31st <br />
+                        March 2025) License Category: Life <br />
+                        CIN:- U66010MH2006PLC165288 <br />
                         Underwriting Philosophy
                       </p>
                     </li>
@@ -183,31 +199,43 @@ const Footer = () => {
                 </div>
               </Col>
               <Col xs="12" lg="3">
-                <div className={styles.footer_links_container}>
-                  <div className={styles.footer_links_title} role="button">
-                    Follow us on
+                <div className={`${styles.footer_links_container} ${styles.reverse}`}>
+                  <div>
+                    <div className={`${styles.footer_links_title} ${styles.mobSpace}`} role="button">
+                      <img src="/images/footer/download.svg" alt="icon" className="d-none d-lg-block"/>
+                      Download our app now
+                    </div>
+                    <div className={styles.storeLink}>
+                      <a href="/"><img src="/images/footer/playstorefooter.svg" alt="playstore" /></a>
+                      <a href="/"><img src="/images/footer/appstorefooter.svg" alt="appstore" /></a>
+                    </div>
                   </div>
-                  <div className={styles.social_icon_list}>
-                    <a href="/">
-                      <img src="/images/footer/linkedin.svg" alt="LinkedIn" />
-                    </a>
-                    <a href="/">
-                      <img src="/images/footer/youtube.svg" alt="YouTube" />
-                    </a>
-                    <a href="/">
-                      <img src="/images/footer/twitter.svg" alt="Twitter" />
-                    </a>
-                    <a href="/">
-                      <img src="/images/footer/facebook.svg" alt="Facebook" />
-                    </a>
-                    <a href="/">
-                      <img src="/images/footer/instagram.svg" alt="Instagram" />
-                    </a>
+                  <div>
+                    <div className={`${styles.footer_links_title} ${styles.mobSpace}`} role="button">
+                      Follow us on
+                    </div>
+                    <div className={styles.social_icon_list}>
+                      <a href="/">
+                        <img src="/images/footer/linkedin.svg" alt="LinkedIn" />
+                      </a>
+                      <a href="/">
+                        <img src="/images/footer/youtube.svg" alt="YouTube" />
+                      </a>
+                      <a href="/">
+                        <img src="/images/footer/twitter.svg" alt="Twitter" />
+                      </a>
+                      <a href="/">
+                        <img src="/images/footer/facebook.svg" alt="Facebook" />
+                      </a>
+                      <a href="/">
+                        <img src="/images/footer/instagram.svg" alt="Instagram" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </Col>
               <Col xs="12" lg="3">
-                <div className={styles.footer_links_container}>
+                <div className={`${styles.footer_links_container} ${styles.contact}`}>
                   <div className={styles.footer_links_title} role="button">
                     Connect with us
                   </div>
