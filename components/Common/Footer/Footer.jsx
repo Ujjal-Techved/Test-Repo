@@ -20,21 +20,21 @@ const Footer = () => {
           title: "Company",
           img: "/images/footer/company.svg",
           links: [
-            { name: "About Us (New Category)", href: "/" },
-            { name: "Careers", href: "/" },
-            { name: "Alumni", href: "/" },
-            { name: "Public Disclosures", href: "/" },
-            { name: "Stewardship Policy", href: "/" }
+            { name: "About Us (New Category)", href: "/about-us" },
+            { name: "Careers", href: "/careers" },
+            { name: "Alumni", href: "https://alumni.fglife.in/?_gl=1*1dp790g*_gcl_au*NTc4MzczNDIxLjE3NDUyMzMyODQ." },
+            { name: "Public Disclosures", href: "/about-us/public-disclosures" },
+            { name: "Stewardship Policy", href: "/about-us/stewardship-policy" }
           ],
         },
         {
           title: "Explore Tools",
           img: "/images/footer/explore-tools.svg",
           links: [
-            { name: "Education Ready", href: "/" },
-            { name: "Future Ready", href: "/" },
-            { name: "Retirement Ready", href: "/" },
-            { name: "Fund Performance", href: "/" }
+            { name: "Education Ready", href: "/tools-and-calculators/child-education-calculator" },
+            { name: "Future Ready", href: "/tools-and-calculators/financial-planning-calculator" },
+            { name: "Retirement Ready", href: "/tools-and-calculators/retirement-planning-calculator" },
+            { name: "Fund Performance", href: "/fund-performance" }
           ],
         },
       ],
@@ -46,16 +46,16 @@ const Footer = () => {
           title: "Support and Assistance",
           img: "/images/footer/support-and-assistance.svg",
           links: [
-            { name: "Customer Service", href: "/" },
-            { name: "Claims", href: "/" },
-            { name: "Group Claims", href: "/" },
-            { name: "Track Application", href: "/" },
-            { name: "Cancel Autopay", href: "/" },
-            { name: "Nomination and Remuneration Policy", href: "/" },
-            { name: "Glossary", href: "/" },
-            { name: "Epolicy", href: "/" },
-            { name: "Claims settlement process - MH, GJ cyclone Taukate and WB, OR cyclone Yaas", href: "/" },
-            { name: "Simplified Claims Settlement Process for Train Tragedy Victims in the state of Odisha", href: "/" },
+            { name: "Customer Service", href: "/customer-service" },
+            { name: "Claims", href: "/claims" },
+            { name: "Group Claims", href: "/group-claims" },
+            { name: "Track Application", href: "https://customer.life.futuregenerali.in/ApplicationTracker/?_ga=2.72848464.2114184424.1586144890-319957071.1584596450&_gl=1*uft9fp*_gcl_au*NTc4MzczNDIxLjE3NDUyMzMyODQ." },
+            { name: "Cancel Autopay", href: "/autopay-mandate" },
+            { name: "Nomination and Remuneration Policy", href: "/media/gzzjzued/nomination-remuneration-policy.pdf" },
+            { name: "Glossary", href: "/glossary" },
+            { name: "Epolicy", href: "https://customer.life.futuregenerali.in/WebAppln/Pages/Common/Login.aspx?_gl=1*8z8x2a*_gcl_au*NTc4MzczNDIxLjE3NDUyMzMyODQ." },
+            { name: "Claims settlement process - MH, GJ cyclone Taukate and WB, OR cyclone Yaas", href: "/claims/claims-settlement-process-maharashtra-gujarat-cyclone-taukate-and-west-bengal-odisha-cyclone-yaas" },
+            { name: "Simplified Claims Settlement Process for Train Tragedy Victims in the state of Odisha", href: "/claims/simplified-claims-settlement-process-for-train-tragedy-victims-in-the-state-of-odisha/" },
             { name: "FAQ (New Category)", href: "/" }
           ],
         },
@@ -68,21 +68,23 @@ const Footer = () => {
           title: "Agents",
           img: "/images/footer/agents.svg",
           links: [
-            { name: "Corporate Agents", href: "/" },
-            { name: "Individual Agents", href: "/" },
-            { name: "Terminated Agents", href: "/" },
-            { name: "Order of Suspension or Cancellation Taukate of Appointment", href: "/" },
-            { name: "Goods & Services Tax (GST)", href: "/" }
+            { name: "Corporate Agents", href: "/media/xepj1upu/corporate-list.pdf" },
+            { name: "Individual Agents", href: "/media/n1ccm3r2/list-of-individual-agents-as-on-31-03-25.pdf" },
+            { name: "Terminated Agents", href: "/media/5pnj51uk/terminated-agents-as-on-31-10-23.pdf" },
+            { name: "Order of Suspension or Cancellation Taukate of Appointment", href: "/about-us/order-of-suspension-or-cancellation-of-appointment" },
+            { name: "Goods & Services Tax (GST)", href: "/disclaimers/gst" }
           ],
         },
         {
           title: "Regulatory and Legal",
           img: "/images/footer/regulatory-and-legal.svg",
           links: [
-            { name: "IRDAI", href: "/" },
-            { name: "Life Insurance Council Insurance Ombudsman", href: "/" },
-            { name: "Consumer Education- IRDAI", href: "/" },
-            { name: "Bima Bharosa Spurious Calls", href: "/" }
+            { name: "IRDAI", href: "https://www.irdai.gov.in/" },
+            { name: "Life Insurance Council", href: "https://www.policyholder.gov.in/" },
+            { name: "Insurance Ombudsman", href: "https://www.policyholder.gov.in/Ombudsman.aspx" },
+            { name: "Consumer Education- IRDAI", href: "https://www.policyholder.gov.in/" },
+            { name: "Bima Bharosa", href: "https://bimabharosa.irdai.gov.in/" },
+            { name: "Spurious Calls", href: "/media/1332/spurious-calls.pdf" },
           ],
         },
       ],
@@ -94,19 +96,19 @@ const Footer = () => {
           title: "Policies",
           img: "/images/footer/policies.svg",
           links: [
-            { name: "Nomination and Remuneration Policy", href: "/" },
-            { name: "Insurance Awareness and Consumer Education Policy", href: "/" },
-            { name: "Privacy Policy", href: "/" },
-            { name: "Disclaimer", href: "/" },
-            { name: "FG Life Code of Conduct", href: "/" }
+            { name: "Nomination and Remuneration Policy", href: "/media/gzzjzued/nomination-remuneration-policy.pdf" },
+            { name: "Insurance Awareness and Consumer Education Policy", href: "/media/miuphwp3/insurance-awareness-consumer-education-policy.pdf" },
+            { name: "Privacy Policy", href: "/disclaimers/privacypolicy" },
+            { name: "Disclaimer", href: "/disclaimers" },
+            { name: "FG Life Code of Conduct", href: "/media/mswjfqkk/code-of-conduct-eng-version-india-life.pdf" }
           ],
         },
         {
           title: "Group Company",
           img: "/images/footer/company.svg",
           links: [
-            { name: "Future Group", href: "/" },
-            { name: "Generali Group", href: "/" }
+            { name: "Future Group", href: "https://www.futuregroup.in/" },
+            { name: "Generali Group", href: "https://www.generali.com/" }
           ],
         },
       ],
@@ -206,8 +208,8 @@ const Footer = () => {
                       Download our app now
                     </div>
                     <div className={styles.storeLink}>
-                      <a href="/"><img src="/images/footer/playstorefooter.svg" alt="playstore" /></a>
-                      <a href="/"><img src="/images/footer/appstorefooter.svg" alt="appstore" /></a>
+                      <a href="https://play.google.com/store/apps/details?id=com.fgli&hl=en_IN&gl=US"><img src="/images/footer/playstorefooter.svg" alt="playstore" /></a>
+                      <a href="https://apps.apple.com/in/app/fg-life/id1524802982"><img src="/images/footer/appstorefooter.svg" alt="appstore" /></a>
                     </div>
                   </div>
                   <div>
@@ -215,19 +217,19 @@ const Footer = () => {
                       Follow us on
                     </div>
                     <div className={styles.social_icon_list}>
-                      <a href="/">
+                      <a href="https://www.linkedin.com/company/future-generali-india-life-insurance">
                         <img src="/images/footer/linkedin.svg" alt="LinkedIn" />
                       </a>
-                      <a href="/">
+                      <a href="https://www.youtube.com/c/FutureGeneraliIndiaLife?sub_confirmation=1">
                         <img src="/images/footer/youtube.svg" alt="YouTube" />
                       </a>
-                      <a href="/">
+                      <a href="https://twitter.com/fglifeind">
                         <img src="/images/footer/twitter.svg" alt="Twitter" />
                       </a>
-                      <a href="/">
+                      <a href="https://www.facebook.com/futuregeneralilife">
                         <img src="/images/footer/facebook.svg" alt="Facebook" />
                       </a>
-                      <a href="/">
+                      <a href="https://www.instagram.com/fglifeind/">
                         <img src="/images/footer/instagram.svg" alt="Instagram" />
                       </a>
                     </div>
