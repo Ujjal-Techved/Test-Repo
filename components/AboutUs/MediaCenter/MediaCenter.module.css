@@ -8,9 +8,9 @@
 }
 
 .protect_plan_Card {
-    border: 1px solid var(--fgi-borderdarkgrey);
+    /* border: 1px solid var(--fgi-borderdarkgrey); */
     box-shadow: 0px 0px 40px 0px var(--fgi-faqShadow);
-    border-radius: 24px;
+    border-radius: 4px;
     padding: 26px;
     display: flex;
     flex-direction: column;
@@ -23,9 +23,9 @@
 
 
 .protect_plan_Card span{
-    font-size: 26px;
+    font-size: 24px;
     line-height: 26px;
-    font-family: 'Roboto-900';
+    font-family: 'Roboto-500';
     color: var(--fgi-black);
     padding: 8px 0px;
     
@@ -43,7 +43,7 @@
     font-size: 16px;
     line-height: 24px;
     font-family: 'Roboto-500';
-    color: var(--fgi-black);
+    color: var(--fgi-red);
     text-decoration: none;
     display: flex;
     align-items: center;

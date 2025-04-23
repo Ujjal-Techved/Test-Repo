@@ -1,0 +1,291 @@
+.protect_plan_row {
+    padding: 40px 0px 0px;
+    justify-content: center;
+}
+
+.protect_plan_col {
+    display: flex;
+}
+
+.protect_plan_Card {
+    /* border: 1px solid var(--fgi-borderdarkgrey); */
+    box-shadow: 0px 0px 40px 0px var(--fgi-faqShadow);
+    border-radius: 4px;
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* margin-bottom: 40px; */
+    /* justify-content: space-between; */
+    /* height: 100%; */
+}
+
+
+.protect_plan_Card span {
+    font-size: 24px;
+    line-height: 26px;
+    font-family: 'Roboto-500';
+    color: var(--fgi-black);
+    padding-bottom: 12px;
+
+}
+
+.protect_plan_Card p {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Roboto-400';
+    color: var(--text-grey);
+    text-align: center;
+}
+
+.protect_plan_linktext {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Roboto-500';
+    color: var(--fgi-red);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.plan_img {
+    padding: 16px 0px;
+}
+
+
+/* Claims Section Css */
+
+
+.reach_cards_parent {
+    width: 100%;
+    padding-top: 40px;
+}
+
+.reach_us_link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.reach_us_link {
+    padding-top: 32px;
+}
+
+.reach_cards {
+    border: 1px solid var(--fgi-borderdarkgrey);
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 32px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.reach_us_title {
+    font-size: 20px;
+    line-height: 28px;
+    font-family: 'Roboto-500';
+    font-weight: 500;
+    color: var(--fig-black);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.reach_us_desc {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Roboto-400';
+    color: var(--text-grey);
+    padding-top: 8px;
+}
+
+.reach_us_contact {
+    font-family: 'Roboto-400';
+    color: var(--fgi-red);
+}
+
+.reach_us_linktext {
+    font-size: 16px;
+    line-height: 20px;
+    font-family: 'Roboto-500';
+    color: var(--fgi-red);
+    text-decoration: none;
+    display: flex;
+    gap: 4px;
+}
+
+.reach_us_img {
+    margin-top: -44px;
+    margin-right: -16px;
+}
+
+/* Career Section Css */
+
+.career_content_section {
+    max-width: 271px;
+    width: 100%;
+    position: relative;
+    z-index: 9;
+}
+
+.career_plan_Card {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 32px 24px;
+    position: relative;
+    background-image: url('/images/contact-us/ellipse.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+
+/* .career_plan_Card::before {
+    position: absolute;
+    content: url('/images/contact-us/non-campus.png');
+    right: 4%;
+    bottom: -5px;
+    z-index: 2;
+} */
+
+/* .career_plan_Card: {
+    position: absolute;
+    content: '';
+    bac
+    right: 4%;
+    bottom: -5px;
+    z-index: 0;
+} */
+
+.career_content_section span {
+    font-size: 20px;
+    line-height: 28px;
+    font-family: 'Roboto-600';
+    font-weight: 600;
+    color: var(--fgi-black);
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+.career_content_section p {
+    font-size: 14px;
+    line-height: 18px;
+    font-family: 'Roboto-400';
+    font-weight: 400;
+    color: var(--text-grey2);
+    text-align: left;
+    padding-bottom: 24px;
+}
+
+.capmus_section img {
+    margin-bottom: -32px;
+}
+
+
+
+@media screen and (max-width: 991.2px) and (min-width: 320px) {
+    .protect_plan_row {
+        gap: 0px;
+        padding-top: 40px;
+    }
+
+    .protect_plan_Card {
+        max-width: unset;
+        padding: 10px;
+        margin-bottom: 26px;
+
+    }
+
+    .protect_plan_col {
+        justify-content: center;
+    }
+
+    .protect_plan_Card span {
+        font-size: 18px;
+        line-height: 26px;
+        padding: 4px 0px;
+
+    }
+
+    .protect_plan_Card p {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .plan_img {
+        width: 76px;
+    }
+
+    /* Cliams Section Css */
+
+    .reach_cards_row {
+        padding-top: 24px;
+    }
+
+    .reach_cards_row.ai_contactUs {
+        padding-top: 136px;
+    }
+
+    .reach_cards {
+        width: 100%;
+        /* min-height: 140px; */
+        padding: 16px;
+    }
+
+    .reach_us_title {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .reach_us_img {
+        margin-top: -34px;
+        width: 64px;
+        margin-right: 0px;
+    }
+
+    .reach_us_desc {
+        padding-right: 36px;
+    }
+
+    .reach_us_linktext span {
+        display: none;
+    }
+
+    .reach_us_link {
+        padding-top: 0px;
+        justify-content: flex-end;
+        margin-top: -24px;
+    }
+
+    .reach_us_link img {
+        width: 24px;
+    }
+
+    /* Career Section Css */
+
+    .career_content_section{
+        margin-right: -60px;
+    }
+
+    .career_plan_Card{
+        background-position: right bottom;
+    }
+
+    .career_content_section span {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .career_content_section p {
+        font-size: 12px;
+        line-height: 16px;
+        padding-bottom: 16px;
+    }
+
+    .capmus_section img {
+       width: 150px;
+       margin-bottom: -10px;
+    }
+}

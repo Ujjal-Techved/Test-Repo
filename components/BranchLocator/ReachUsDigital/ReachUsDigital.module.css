@@ -15,12 +15,35 @@
     transform: translateX(-50%);
 }
 
+/* .reach_cards_row:last-child{
+    height: 100%;
+} */
+
+.reach_cards_parent{
+    width: 100%;
+}
+
+.reach_cards_row > div:last-child .reach_cards_parent .reach_cards{
+    height: calc(100% - 32px);
+}
+
+.reach_cards_row > div:last-child .reach_cards_parent .reach_cards .reach_us_link{
+    padding-top: 16px;
+}
+
+.reach_cards_row > div:last-child .reach_cards_parent .reach_cards{
+    padding-bottom: 12px;
+}
 
 /* .reach_us_text, .reach_us_link{
     display: flex;
     align-items: center;
     justify-content: space-between;
 } */
+
+.qr_code{
+    margin-top: 16px;
+}
 
 .reach_us_link{
     display: flex;
@@ -34,19 +57,21 @@
 
 .reach_cards{
     border: 1px solid var(--fgi-borderdarkgrey);
-    border-radius: 16px;
+    border-radius: 4px;
     padding: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
     display: flex;
     width: 100%;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
 }
 
 .reach_us_title{
-    font-size: 24px;
-    line-height: 32px;
-    font-family: 'Roboto-800';
+    font-size: 20px;
+    line-height: 28px;
+    font-family: 'Roboto-500';
+    font-weight: 500;
     color: var(--fig-black);
     display: flex;
     justify-content: space-between;
@@ -68,9 +93,9 @@
 
 .reach_us_linktext{
     font-size: 16px;
-    line-height: 24px;
+    line-height: 20px;
     font-family: 'Roboto-500';
-    color: var(--fgi-black);
+    color: var(--fgi-red);
     text-decoration: none;
     display: flex;
     gap: 4px;
@@ -95,13 +120,13 @@
 
     .reach_cards{
         width: 100%;
-        min-height: 140px;
+        /* min-height: 140px; */
         padding: 16px;
     }
 
     .reach_us_title{
-        font-size: 20px;
-        line-height: 28px;
+        font-size: 16px;
+        line-height: 24px;
     }
 
     .reach_us_img{
@@ -120,6 +145,24 @@
         top: -120px;
         left: 0px;
         transform: none;
+    }
+
+    .reach_cards_row > div:last-child .reach_cards_parent .reach_cards .reach_us_link{
+        padding-top: 0px;
+    }
+
+    .reach_us_linktext span{
+        display: none;
+    }
+
+    .reach_us_link{
+        padding-top: 0px;
+        justify-content: flex-end;
+        margin-top: -24px;
+    }
+
+    .reach_us_link img{
+        width: 24px;
     }
  
 

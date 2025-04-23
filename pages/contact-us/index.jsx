@@ -12,13 +12,88 @@ import InvestPlan from '@/components/ContactUs/InvestPlan/InvestPlan';
 import VisitUs from '@/components/ContactUs/VisitUs/VisitUs';
 import IrdaSection from '@/components/ContactUs/IrdaSection/IrdaSection';
 import { apiClient } from '../../utils/apiClient';  // Ensure correct path
+import ReachOutcenter from '@/components/ContactUs/ReachOutcenter/ReachOutcenter';
 
 const ContactUs = (props) => {
-  
+
   // Define breadcrumbs for navigation
   const breadcrumbs = [
     { name: "Contact Us", url: "/contact-us", active: true },
   ];
+
+  // Reach Out Tabs array data for dynamically displaying tabs
+  const reachOuttabs = [
+    { id: "1", tabtitle: "Careers" },
+    { id: "2", tabtitle: "Claims" },
+    { id: "3", tabtitle: "Media" },
+  ];
+
+  // Reach Out cards Data array
+
+    const MediaCard = [
+      {
+        id: 7,
+        Title: "Press Releases",
+        Description: "For Our Latest Press Releases",
+        LinkUrl: "/about-us/press-releases",
+        Category: "Careers",
+        Image: {
+          id: 123,
+          documentId: "cvmh4q9ijwjb3inmwy5cvf5f",
+          url: "/uploads/Group_1410117290_1aaa960178.png",
+          alternativeText: null,
+          caption: null,
+          name: "Group 1410117290.png"
+        }
+      },
+      {
+        id: 8,
+        Title: "Press Coverage",
+        Description: "For Our Latest Press Coverage",
+        LinkUrl: "/about-us/press-coverage",
+        Category: "Careers",
+        Image: {
+          id: 124,
+          documentId: "fj18g647u1ftluf47159447s",
+          url: "/uploads/Group_1410117291_3f8b335b11.png",
+          alternativeText: null,
+          caption: null,
+          name: "Group 1410117291.png"
+        }
+      },
+      {
+        id: 9,
+        Title: "Press Coverage",
+        Description: "For Our Latest Press Coverage",
+        LinkUrl: "/about-us/press-coverage",
+        Category: "Claims",
+        Image: {
+          id: 124,
+          documentId: "fj18g647u1ftluf47159447s",
+          url: "/uploads/Group_1410117291_3f8b335b11.png",
+          alternativeText: null,
+          caption: null,
+          name: "Group 1410117291.png"
+        }
+      },
+      {
+        id: 9,
+        Title: "Press Coverage Media",
+        Description: "For Our Latest Press Coverage",
+        LinkUrl: "/about-us/press-coverage",
+        Category: "Media",
+        Image: {
+          id: 124,
+          documentId: "fj18g647u1ftluf47159447s",
+          url: "/uploads/Group_1410117291_3f8b335b11.png",
+          alternativeText: null,
+          caption: null,
+          name: "Group 1410117291.png"
+        }
+      }
+    ]
+  
+  
 
   return (
     <LandingLayout>
@@ -28,21 +103,24 @@ const ContactUs = (props) => {
           <Breadcrumbs values={breadcrumbs} />
 
           {/* Page Title and Description */}
-          <TitleSubtitle
+          {/* <TitleSubtitle
             title={props?.pageData?.PageTitle}
             subtitle={props?.pageData?.PageDesc}
             extraClass="desc-max-60 pageTitle"
-          />
+          /> */}
         </Container>
+
+        {/* Customer Service Section */}
+        <CustomerService csData={props?.pageData?.CustomerService} />
 
         {/* Digital Contact Section */}
         <ReachUsDigitalContact reachUsCard={props?.pageData?.Contact_Details_Cards} AIcontactUs />
 
+        {/* Reach Out Section */}
+        <ReachOutcenter  reachOuttabs={reachOuttabs} MediaCard={MediaCard}/>
+
         {/* Visit Us Section */}
         <VisitUs visitUsCard={props?.pageData?.VisitUs} />
-
-        {/* Customer Service Section */}
-        <CustomerService csData={props?.pageData?.CustomerService} />
 
         {/* Investment Plan Section */}
         <InvestPlan appLink={props?.pageData?.AppLink} />
@@ -70,7 +148,7 @@ export async function getServerSideProps(context) {
     };
   } catch (error) {
     console.error("Error fetching contact us data:", error);
-    
+
     // Return empty props in case of an error to prevent page crash
     return {
       props: {
