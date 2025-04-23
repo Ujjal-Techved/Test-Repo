@@ -48,7 +48,7 @@ const ContactUs = (props) => {
         <ReachOutcenter />
 
         {/* Visit Us Section */}
-        <VisitUs visitUsCard={props?.pageData?.VisitUs} />
+        {/* <VisitUs visitUsCard={props?.pageData?.VisitUs} /> */}
 
         {/* Investment Plan Section */}
         <InvestPlan investPlanData={props?.pageData?.AppLink} />
