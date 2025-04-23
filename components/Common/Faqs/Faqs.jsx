@@ -3,20 +3,18 @@ import TitleSubtitle from '../TitleSubtitle/TitleSubtitle';
 import { Accordion, AccordionBody, AccordionHeader, AccordionItem, Container } from 'reactstrap';
 import styles from './Faqs.module.css';
 
-const Faqs = ({ faqItems }) => {
-
-    console.log(faqItems,"FaqList")
+const Faqs = ({ faqData }) => {
 
     // State to track which FAQ item is open
     const [openIndex, setOpenIndex] = useState("");
 
     // Prevent rendering if `faqItems` is missing to avoid errors
-    if (!faqItems?.Faq_Section) {
+    if (!faqData) {
         return null;
     }
 
     // Destructure API response data for cleaner code
-    const { Title, Description, FaqList } = faqItems?.Faq_Section;
+    const { Title, Description, FaqList } = faqData;
 
     // Function to toggle open/close state of a FAQ item
     const toggleFaq = (index) => {

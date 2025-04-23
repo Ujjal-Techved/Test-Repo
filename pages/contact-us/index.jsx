@@ -20,6 +20,8 @@ const ContactUs = (props) => {
     { name: "Contact Us", url: "/contact-us", active: true },
   ];
 
+  console.log(props.pageData)
+
   return (
     <LandingLayout>
       <div className={styles.contactWrapper}>
@@ -45,7 +47,7 @@ const ContactUs = (props) => {
         <CustomerService csData={props?.pageData?.CustomerService} />
 
         {/* Investment Plan Section */}
-        <InvestPlan appLink={props?.pageData?.AppLink} />
+        <InvestPlan investPlanData={props?.pageData?.AppLink} />
 
         {/* Frequently Asked Questions (FAQs) Section */}
         <Faqs faqData={props?.pageData?.Faqs} />
