@@ -12,7 +12,7 @@ const InvestPlan = ({ investPlanData }) => {
     const [mobileNumber, setMobileNumber] = useState('');
 
     // Prevent rendering if `investPlanData` is missing
-    if (!investPlanData?.AppLink) {
+    if (!investPlanData) {
         return null;
     }
 
@@ -25,7 +25,7 @@ const InvestPlan = ({ investPlanData }) => {
         QR_Code_Image,
         PlayStore_Image,
         AppStore_Image
-    } = investPlanData?.AppLink;
+    } = investPlanData;
 
     const validationSchema = Yup.object().shape({
         phone: Yup.string()

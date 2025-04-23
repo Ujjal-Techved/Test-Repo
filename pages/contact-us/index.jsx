@@ -21,79 +21,7 @@ const ContactUs = (props) => {
     { name: "Contact Us", url: "/contact-us", active: true },
   ];
 
-  // Reach Out Tabs array data for dynamically displaying tabs
-  const reachOuttabs = [
-    { id: "1", tabtitle: "Careers" },
-    { id: "2", tabtitle: "Claims" },
-    { id: "3", tabtitle: "Media" },
-  ];
-
-  // Reach Out cards Data array
-
-    const MediaCard = [
-      {
-        id: 7,
-        Title: "Press Releases",
-        Description: "For Our Latest Press Releases",
-        LinkUrl: "/about-us/press-releases",
-        Category: "Careers",
-        Image: {
-          id: 123,
-          documentId: "cvmh4q9ijwjb3inmwy5cvf5f",
-          url: "/uploads/Group_1410117290_1aaa960178.png",
-          alternativeText: null,
-          caption: null,
-          name: "Group 1410117290.png"
-        }
-      },
-      {
-        id: 8,
-        Title: "Press Coverage",
-        Description: "For Our Latest Press Coverage",
-        LinkUrl: "/about-us/press-coverage",
-        Category: "Careers",
-        Image: {
-          id: 124,
-          documentId: "fj18g647u1ftluf47159447s",
-          url: "/uploads/Group_1410117291_3f8b335b11.png",
-          alternativeText: null,
-          caption: null,
-          name: "Group 1410117291.png"
-        }
-      },
-      {
-        id: 9,
-        Title: "Press Coverage",
-        Description: "For Our Latest Press Coverage",
-        LinkUrl: "/about-us/press-coverage",
-        Category: "Claims",
-        Image: {
-          id: 124,
-          documentId: "fj18g647u1ftluf47159447s",
-          url: "/uploads/Group_1410117291_3f8b335b11.png",
-          alternativeText: null,
-          caption: null,
-          name: "Group 1410117291.png"
-        }
-      },
-      {
-        id: 9,
-        Title: "Press Coverage Media",
-        Description: "For Our Latest Press Coverage",
-        LinkUrl: "/about-us/press-coverage",
-        Category: "Media",
-        Image: {
-          id: 124,
-          documentId: "fj18g647u1ftluf47159447s",
-          url: "/uploads/Group_1410117291_3f8b335b11.png",
-          alternativeText: null,
-          caption: null,
-          name: "Group 1410117291.png"
-        }
-      }
-    ]
-  
-  
+  console.log(props.pageData)
 
   return (
     <LandingLayout>
@@ -117,13 +45,13 @@ const ContactUs = (props) => {
         <ReachUsDigitalContact reachUsCard={props?.pageData?.Contact_Details_Cards} AIcontactUs />
 
         {/* Reach Out Section */}
-        <ReachOutcenter  reachOuttabs={reachOuttabs} MediaCard={MediaCard}/>
+        <ReachOutcenter />
 
         {/* Visit Us Section */}
         <VisitUs visitUsCard={props?.pageData?.VisitUs} />
 
         {/* Investment Plan Section */}
-        <InvestPlan appLink={props?.pageData?.AppLink} />
+        <InvestPlan investPlanData={props?.pageData?.AppLink} />
 
         {/* Frequently Asked Questions (FAQs) Section */}
         <Faqs faqData={props?.pageData?.Faqs} />

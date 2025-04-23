@@ -146,14 +146,10 @@ export default function Home(props) {
             <OurCustomer teamMemberstabs={teamMemberstabs} teamMemberData={props?.homePageData} />
             
             {/* Invest Plan section */}
-            <InvestPlan investPlanData={props?.homePageData} />
+            <InvestPlan investPlanData={props?.homePageData?.AppLink} />
             
             {/* FAQ section with static title and subtitle */}
-            <Faqs 
-                faqItems={props?.homePageData}
-                title={"Frequently Asked Questions"}
-                subtitle={"See some of the most common questions below."} 
-            />
+            <Faqs faqData={props?.homePageData?.Faq_Section} />
 
             <RequestCallback requestCallbackData={props?.homePageData} />
 
