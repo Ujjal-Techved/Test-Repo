@@ -58,6 +58,7 @@ const ContactUs = (props) => {
 
         {/* IRDA (Insurance Regulatory and Development Authority) Section */}
         <IrdaSection />
+        
       </div>
     </LandingLayout>
   );
