@@ -59,7 +59,7 @@ const BranchLocator = (props) => {
                 <div className={`${styles.listContainer} ${props.city && props.state ? styles.active : ""}`}>
                     <div className={styles.filterComponent}>
                         <Row className={styles.row}>
-                            <Col lg="5" className={styles.col + ' dropdown-arrow'}>
+                            <div className={styles.col + ' dropdown-arrow'}>
                                 <Select
                                     options={props.cityList}
                                     value={selectedCity}
@@ -79,8 +79,28 @@ const BranchLocator = (props) => {
                                     classNamePrefix="react-select"
                                     components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Remove arrow and separator
                                 />
-                            </Col>
-                            <Col lg="4" className={styles.col}>
+                            </div>
+                            <div className={styles.col + ' dropdown-arrow'}>
+                                <Select
+                                    options={props.stateList}
+                                    value={selectedState}
+                                    // onChange={(option) => { setSelectedState(option); setSelectedCity("") }}
+                                    onInputChange={(inputValue, { action }) => {
+                                        if (action === "input-change") {
+                                            // Allow only alphabetic characters and spaces, with a max length of 50
+                                            const sanitizedInput = inputValue.replace(/[^a-zA-Z\s]/g, "").slice(0, 50);
+                                            return sanitizedInput;
+                                        }
+                                    }}
+                                    placeholder="State Name"
+                                    className="react-select-container"
+                                    classNamePrefix="react-select"
+                                    // isSearchable={false}
+                                    // menuIsOpen={false}
+                                    components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
+                                />
+                            </div>
+                            <div className={styles.col}>
                                 <Select
                                     options={props.stateList}
                                     value={selectedState}
@@ -88,16 +108,14 @@ const BranchLocator = (props) => {
                                     placeholder="State Name"
                                     className="react-select-container"
                                     classNamePrefix="react-select"
-                                    isSearchable={false}
-                                    menuIsOpen={false}
                                     components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
                                 />
-                            </Col>
-                            <Col lg="3" className={styles.col}>
+                            </div>
+                            <div className={styles.colbtn}>
                                 <button className="redBtn w-100" onClick={handleSubmit} disabled={!selectedCity?.value}>
                                     Search
                                 </button>
-                            </Col>
+                            </div>
                         </Row>
                     </div>
 
