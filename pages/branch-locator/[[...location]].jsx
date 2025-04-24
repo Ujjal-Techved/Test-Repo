@@ -63,7 +63,7 @@ const BranchLocator = (props) => {
                     <div className={styles.filterComponent}>
                         <Row className={styles.row}>
                             <div className={styles.col + ' dropdown-arrow'}>
-                                <label>Select City</label>
+                                <label className='common-label'>Select City</label>
                                 <Select
                                     options={props.cityList}
                                     value={selectedCity}
@@ -85,7 +85,7 @@ const BranchLocator = (props) => {
                                 />
                             </div>
                             <div className={styles.col + ' dropdown-arrow'}>
-                                <label>Select State</label>
+                                <label className='common-label'>Select State</label>
                                 <Select
                                     options={props.stateList}
                                     value={selectedState}
@@ -106,7 +106,7 @@ const BranchLocator = (props) => {
                                 />
                             </div>
                             <div className={styles.col + ' dropdown-arrow'}>
-                                <label>Select Pin Code</label>
+                                <label className='common-label'>Select Pin Code</label>
                                 <Select
                                     options={props.pincodeList}
                                     value={selectedPincode}

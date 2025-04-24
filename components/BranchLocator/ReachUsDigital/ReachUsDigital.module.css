@@ -118,6 +118,10 @@
         padding-top: 24px;
     }
 
+    .reach_cards_row > div{
+        padding: 0px;
+    }
+
     .reach_cards_row.ai_contactUs{
         padding-top: 136px;
     }

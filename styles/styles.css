@@ -65,7 +65,7 @@ body.over-hide {
 }
 
 .redBtn:disabled {
-    background: linear-gradient(180deg, #ffbfba 0%, #ff8280 100%);
+    background: linear-gradient(180deg, #ffbfba -40%, #C21B17 100%);
 }
 
 .redborder.trasborder {
@@ -251,20 +251,33 @@ body.over-hide {
     text-decoration: none;
 }
 
+.common-label{
+    font-size: 14px;
+    line-height: 24px;
+    font-family: 'Roboto-400';
+    color: var(--text-grey2);
+}
+
 .react-select-container .react-select__control {
-    border-radius: 42px;
-    border: 1px solid var(--border-grey);
+    border-radius: 0px;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    border-bottom: 1px solid var(--border-grey);
     box-shadow: none;
     font-family: "Roboto-400";
     font-size: 16px;
     line-height: 22.4px;
-    padding: 12px 16px;
+    padding: 12px 16px 0px 0px;
     padding-right: 32px;
 }
 
 
 .react-select-container .react-select__control:hover {
-    border: 1px solid var(--border-grey);
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    border-bottom: 1px solid var(--border-grey);
 }
 
 .react-select-container .react-select__value-container,
@@ -273,8 +286,16 @@ body.over-hide {
     margin: 0;
 }
 
+.react-select-container .react-select__input-container input#react-select-50-input{
+    font-size: 18px !important;
+    line-height: 28px;
+    font-family: 'Roboto-300';
+    font-weight: 300;
+    color: var(--text-grey2);
+}
+
 .react-select-container .react-select__menu {
-    border-radius: 16px;
+    border-radius: 4px;
     padding: 16px 6px 16px 16px;
 }
 

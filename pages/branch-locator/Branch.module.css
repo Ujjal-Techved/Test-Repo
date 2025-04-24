@@ -1,7 +1,7 @@
 .listContainer {
     max-width: 1222px;
     padding: 24px;
-    border-radius: 32px;
+    border-radius: 4px;
     margin: 0 auto;
 }
 
@@ -62,12 +62,17 @@
     }
 
     .listContainer .filterComponent {
-        border-radius: 24px;
+        border-radius: 4px;
         box-shadow: 0px 4px 48px 0px var(--fgi-boxshadowgrey);
+        width: 100%;
     }
 
     .filterComponent .row {
         gap: 16px;
+    }
+
+    .filterComponent .row .col {
+        width: 100%;
     }
 }
 
@@ -78,7 +83,7 @@
     }
 
     .listContainer .filterComponent {
-        border-radius: 32px;
+        border-radius: 4px;
         box-shadow: 0px 4px 48px 0px var(--fgi-boxshadowgrey);
     }
 
@@ -89,5 +94,13 @@
     .branch_img {
         width: 328px;
         padding-top: 24px;
+    }
+
+    .filterComponent .row .col {
+        width: 100%;
+    }
+
+    .filterComponent .row .colbtn {
+        width: 100%;
     }
 }
