@@ -190,6 +190,13 @@ body.over-hide {
     text-align: center;
 }
 
+.popupwhiteBtn , .popupredBtn{
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    text-transform: capitalize;
+}
+
 /* Common Arrow */
 
 .common-right-arrow{
@@ -690,6 +697,10 @@ body.over-hide {
 
     .guide-btn:not(:last-child) {
         padding-bottom: 8px;
+    }
+
+    .popupwhiteBtn , .popupredBtn{
+       padding: 12px 24px;
     }
 
 

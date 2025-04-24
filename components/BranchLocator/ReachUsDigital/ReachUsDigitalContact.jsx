@@ -185,7 +185,7 @@ const ReachUsDigitalContact = ({ reachUsCard, AIcontactUs }) => {
                                 </h3>
                                 <p className={styles.reach_us_desc}>
                                     Scan this QR code or send ‘Hi’ on WhatsApp number
-                                    <span className={styles.reach_us_contact}>+91 7777777777</span>
+                                    <span className={styles.reach_us_contact}> +91 7777777777</span>
                                 </p>
                                 <img className={styles.qr_code} src='/images/contact-us/qr.png' />
                             </div>
