@@ -472,7 +472,7 @@ export interface ApiBranchListBannerBranchListBanner
           localized: true;
         };
       }>;
-    SubTitle: Schema.Attribute.String &
+    SubTitle: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

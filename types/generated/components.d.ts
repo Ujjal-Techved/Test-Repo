@@ -259,11 +259,11 @@ export interface BranchcardsPointerList extends Struct.ComponentSchema {
 export interface BranchcardsReachUsCards extends Struct.ComponentSchema {
   collectionName: 'components_branchcards_reach_us_cards';
   info: {
+    description: '';
     displayName: 'ReachUsCards';
   };
   attributes: {
-    Contact: Schema.Attribute.String;
-    Description: Schema.Attribute.String;
+    Description: Schema.Attribute.Text;
     Image: Schema.Attribute.Media<'images'>;
     Link: Schema.Attribute.String;
     LinkText: Schema.Attribute.String;
