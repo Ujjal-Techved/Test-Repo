@@ -42,9 +42,9 @@ const LocationPopup = (props) => {
                 <div className={styles.location_popup_main}>
                     <span>Enable Location</span>
                     <p>Allow location access to find nearby branches quicker</p>
-                    <div className={styles.btn_popups}>
-                        <button className='whiteBtn redborder' onClick={props.toggle}>No, Don’t Allow</button>
-                        <button className='redBtn trasborder' onClick={requestLocation}>Allow Access</button>
+                    <div className={styles.btn_popups + ' justify-content-around'}>
+                        <button className='whiteBtn redborder popupwhiteBtn' onClick={props.toggle}>No, Don’t Allow</button>
+                        <button className='redBtn trasborder popupredBtn' onClick={requestLocation}>Allow Access</button>
                     </div>
                 </div>
         </div>

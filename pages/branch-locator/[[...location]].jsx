@@ -12,6 +12,8 @@ import { apiClient } from '../../utils/apiClient';  // Ensure correct path
 import { useRouter } from 'next/router';
 import LocationPopup from '@/components/BranchLocator/LocationPopup/LocationPopup';
 import CommonPopup from '@/components/Common/CommonPopup/CommonPopup';
+import InvestPlan from '@/components/ContactUs/InvestPlan/InvestPlan';
+import ReachUsDigitalContact from '@/components/BranchLocator/ReachUsDigital/ReachUsDigitalContact';
 
 const BranchLocator = (props) => {
     const router = useRouter();  // Initialize Next.js router for page navigation
@@ -145,12 +147,22 @@ const BranchLocator = (props) => {
 
                 {/* Display additional contact options */}
                 <InfoCard infoCardDetails={props?.pageData?.InfoCards} />
-                <TitleSubtitle
+                
+                {/* <TitleSubtitle
                     title={props?.pageData?.ReachUsTitle}
                     subtitle={props?.pageData?.ReachUsSubTitle}
                     titleTag="h3"
-                />
-                <ReachUsDigital reachUsCard={props?.pageData?.ReachUsCards} />
+                /> */}
+
+                {/* Digital Contact Section OLD */}
+                {/* <ReachUsDigital reachUsCard={props?.pageData?.ReachUsCards} /> */}
+
+                {/* Digital Contact Section */}
+                <ReachUsDigitalContact reachUsCard={props?.pageData?.Contact_Details_Cards} AIcontactUs />
+
+                {/* Invest Plan section */}
+                <InvestPlan investPlanData={props?.pageData?.AppLink} />
+
             </Container>
             <CommonPopup isOpen={locationPopup} toggle={toggleLocationPopup}>
                 <LocationPopup toggle={toggleLocationPopup} pageUrl="/branch-locator/" />

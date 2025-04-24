@@ -101,6 +101,10 @@
     gap: 4px;
 }
 
+.reach_us_linktext:hover{
+    color: var(--fgi-red);
+}
+
 .reach_us_img{
     margin-top: -44px;
     margin-right: -16px;
