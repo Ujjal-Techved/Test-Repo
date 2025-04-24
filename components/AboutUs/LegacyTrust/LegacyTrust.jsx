@@ -21,12 +21,12 @@ const LegacyTrust = ({legacyTrustrData}) => {
                             <TitleSubtitle
                                 title={PageTitle}
                                 subtitle={SecondaryDescription}
-                                extraClass={"leftAligned text-start"}
+                                extraClass={"pageTitle leftAligned text-start"}
                             />
 
                         </Col>
                         <Col lg="5" className={styles.insure_imgsrc}>
-                            <img src='images/about-us/fgli.png' alt='fgli' />
+                            <img src='images/about-us/fgili.jpg' alt='fgli' />
                         </Col>
 
                         <Col lg="12">
