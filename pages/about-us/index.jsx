@@ -14,35 +14,58 @@ import Leaders from '@/components/AboutUs/Leaders/Leaders'
 import GuidePrinciple from '@/components/AboutUs/GuidePrinciple/GuidePrinciple'
 import Milestone from '@/components/AboutUs/Milestone/Milestone'
 import { apiClient } from '../../utils/apiClient';  // Ensure correct path
+import HelpingPeople from '@/components/AboutUs/HelpingPeople/HelpingPeople'
 
 const Aboutus = (props) => {
-    // Breadcrumbs for navigation within the "About Us" page
-    const breadcrumbs = [
-        { name: "About Us", url:props?.aboutUsData?.PageUrl, active: true },
-    ]
+  // Breadcrumbs for navigation within the "About Us" page
+  const breadcrumbs = [
+    { name: "About Us", url: props?.aboutUsData?.PageUrl, active: true },
+  ]
 
-    return (
-        <LandingLayout>
-            <div className={styles.contactWrapper}>
-                <Container>
-                    {/* Breadcrumb navigation */}
-                    <Breadcrumbs values={breadcrumbs} />
-                </Container>
-                
-                {/* Different sections of the About Us page, receiving data as props */}
-                <LegacyTrust legacyTrustrData={props?.aboutUsData}/>
-                <OurJourney insuranceData={props?.aboutUsData}/>
-                <PartnerFuturegroup partnerFuturegroupData={props?.aboutUsData}/>
-                <GuidePrinciple guidePrincipleData={props?.aboutUsData}/>
-                <Leaders leadersListData={props?.aboutUsData}/>
-                <ReportsDiscloser reportsData={props?.aboutUsData}/>
-                <Awards awardData={props?.aboutUsData}/>
-                <Milestone milestoneList={props?.aboutUsData} />
-                <MediaCenter mediacenterData={props?.aboutUsData}/>
-                <SocialResponsibility socialResponsibility={props?.aboutUsData}/>
-            </div>
-        </LandingLayout>
-    )
+  return (
+    <LandingLayout>
+      <div className={styles.contactWrapper}>
+        <Container>
+          {/* Breadcrumb navigation */}
+          <Breadcrumbs values={breadcrumbs} />
+        </Container>
+
+        {/* Different sections of the About Us page, receiving data as props */}
+        <LegacyTrust legacyTrustrData={props?.aboutUsData} />
+
+        {/* PartnerFuturegroup Section */}
+        <PartnerFuturegroup partnerFuturegroupData={props?.aboutUsData} />
+
+        {/* Our journey Section */}
+        <OurJourney insuranceData={props?.aboutUsData} />
+
+        {/* GuidePrinciple Section */}
+        <GuidePrinciple guidePrincipleData={props?.aboutUsData} />
+
+        {/* Leaders Section */}
+        <Leaders leadersListData={props?.aboutUsData} />
+
+        {/* Our journey Section */}
+        <ReportsDiscloser reportsData={props?.aboutUsData} />
+
+        {/* Helping People Section */}
+        <HelpingPeople />
+
+        {/* Awards Section */}
+        <Awards awardData={props?.aboutUsData} />
+
+        {/* Milestone Section */}
+        <Milestone milestoneList={props?.aboutUsData} />
+
+        {/* MediaCenter Section */}
+        <MediaCenter mediacenterData={props?.aboutUsData} />
+
+        {/* SocialResponsibility Section */}
+        <SocialResponsibility socialResponsibility={props?.aboutUsData} />
+
+      </div>
+    </LandingLayout>
+  )
 }
 
 // ✅ Fetch data from API using getServerSideProps to ensure fresh data on each request
@@ -58,7 +81,7 @@ export async function getServerSideProps(context) {
     };
   } catch (error) {
     console.error("Error fetching About Us page data:", error);
-    
+
     // ✅ Return an empty object to prevent the page from crashing in case of an error
     return {
       props: {

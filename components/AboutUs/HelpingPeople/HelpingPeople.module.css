@@ -1,0 +1,94 @@
+
+.helping_title{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.helping_title h2{
+    font-family: "Roboto-300";
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 52px;
+    color: var(--fgi-black);
+}
+
+.helping_description{
+    font-family: "Roboto-400";
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--text-grey);
+    padding: 16px 0px 24px 0px;
+}
+
+.helping_contribute{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.helping_contribute:not(:last-child){
+    margin-bottom: 24px;
+}
+
+.helping_contribute img{
+    width: 48px;
+}
+
+.helping_subtitle h5{
+    font-family: "Roboto-600";
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--fgi-black);
+}
+
+.helping_subtitle p{
+    font-family: "Roboto-400";
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--text-grey);;
+}
+
+@media screen and (max-width:991.2px) and (min-width:320px) {
+
+    .helping_people_wrapper > div{
+        gap: 16px;
+    }
+    
+    .helping_title{
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .helping_title img {
+        width: 100%;
+    }
+
+    .all_families img{
+        width: 100%;
+    }
+
+    .helping_title h2{
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .helping_description{
+        padding: 8px 0px 16px 0px;
+    }
+
+    .helping_contribute{
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .helping_subtitle h5, .helping_subtitle p{
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .helping_subtitle p{
+        padding-top: 4px;
+    }
+
+}

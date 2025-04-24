@@ -14,7 +14,7 @@ const LegacyTrust = ({legacyTrustrData}) => {
     return (
         <div >
             <Container>
-                <div className={styles.insure_wrapper}>
+                <div className={styles.insure_wrapper + ' pd-b'}>
                     <Row className={styles.insure_main}>
                         <Col lg="6" className={styles.insure_description}>
                             <p className={styles.insure_title}>{PageDesc}</p>
