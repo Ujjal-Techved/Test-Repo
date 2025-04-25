@@ -33,7 +33,7 @@
 }
 
 .Home_banner_chatbot {
-    background: linear-gradient(360.05deg, #FFDBDB 17.16%, #FF816D 74.48%);
+    background: linear-gradient(360.05deg, #FFDBDB 17.16%, #C21B17 74.48%);
     border-radius: 10px;
     padding: 4px;
     pointer-events: all;
@@ -52,18 +52,19 @@
 
 .Home_banner_innerbot img {
     width: 100%;
-    max-width: 150px;
-    height: 168px;
+    max-width: 121px;
+    height: 120px;
     border-radius: 6px;
-    padding-top: 15px;
+    padding-top: 12px;
     object-fit: cover;
 }
 
 .chabot_title {
-    background: #ffdbdb;
+    /* background: #ffdbdb; */
+    background: linear-gradient(to bottom right, rgba(255, 112, 112, 0.4), transparent 60%),#ffdbdb;
     width: calc(100% - 36px);
     border-radius: 10px 10px 0px 0px;
-    padding: 4px 7px 0px 7px;
+    padding: 4px 7px 7px 7px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -73,7 +74,7 @@
     position: relative;
 }
 
-.chabot_title::before {
+/* .chabot_title::before {
     position: absolute;
     content: '';
     width: 12px;
@@ -93,19 +94,20 @@
     transform: rotate(0deg);
     right: -11px;
     bottom: 0px;
-}
+} */
 
 .chabot_title p {
     font-size: 10px;
     line-height: 10px;
     font-family: 'Roboto-500';
     color: var(--fgi-black);
+    display: none;
 }
 
 .chabot_title a {
     display: flex;
     align-items: center;
-    font-size: 8px;
+    font-size: 12px;
     line-height: 8px;
     font-family: 'Roboto-500';
     color: var(--fgi-red) !important;
@@ -143,5 +145,13 @@
 
     .chabot_title p {
         display: none;
+    }
+
+    .chabot_title {
+        width: calc(100% - 28px);
+    }
+
+    .chabot_title a {
+        font-size: 10px;
     }
 }

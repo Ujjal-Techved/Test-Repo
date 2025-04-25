@@ -22,7 +22,7 @@ const MediaCenter = ({ mediacenterData }) => {
                 />
                 <Row className={styles.protect_plan_row}>
                     {MediaCard?.map((item, index) => (
-                        <Col lg="4" md="12" className={styles.protect_plan_col} key={index}>
+                        <Col lg="4" md="6" xs="6" className={styles.protect_plan_col} key={index}>
                             <div className={styles.protect_plan_Card}>
                                 <span>{item?.Title}</span>
                                 <p>{item?.Description}</p>

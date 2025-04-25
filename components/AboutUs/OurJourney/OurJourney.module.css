@@ -1,3 +1,11 @@
+.OurJourney_wrapper {
+    background: url(/images/faqs/bg-right.svg);
+    background-position: right bottom;
+    background-size: auto 120px, auto 120px;
+    background-repeat: no-repeat;
+
+}
+
 .life_insure_row{
     padding: 48px 0px 0px 0px;
 }
@@ -75,6 +83,12 @@
 
 
 @media screen and (max-width: 991.2px) and (min-width: 320px) {
+
+    .life_insure_row{
+       gap: 40px 0px;
+       padding: 28px 0px 0px 0px;
+    }
+
     .life_insure_Card img{
         margin-top: -54px;
         width: 85px;
@@ -93,5 +107,17 @@
         line-height: 16px;
         font-weight: 400;
         font-family: 'Roboto-400';
+    }
+
+    .life_insure_fy{
+        padding: 12px 0px 0px;
+    }
+
+    .life_insure_fy span{
+        font-size: 14px;
+        line-height: 20px;
+        font-family: 'Roboto-600';
+        color: var(--text-grey2);
+        padding: 0px;
     }
 }

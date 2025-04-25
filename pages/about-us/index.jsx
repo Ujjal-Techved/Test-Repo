@@ -55,13 +55,13 @@ const Aboutus = (props) => {
         <Awards awardData={props?.aboutUsData} />
 
         {/* Milestone Section */}
-        <Milestone milestoneList={props?.aboutUsData} />
+        {/* <Milestone milestoneList={props?.aboutUsData} /> */}
 
         {/* MediaCenter Section */}
         <MediaCenter mediacenterData={props?.aboutUsData} />
 
         {/* SocialResponsibility Section */}
-        <SocialResponsibility socialResponsibility={props?.aboutUsData} />
+        {/* <SocialResponsibility socialResponsibility={props?.aboutUsData} /> */}
 
       </div>
     </LandingLayout>

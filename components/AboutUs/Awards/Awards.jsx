@@ -61,7 +61,7 @@ const Awards = ({ awardData }) => {
     };
 
     return (
-        <div className="types-insurance-wrapper awards pd-t pd-b">
+        <div className={styles.insurance_wrapper + ' types-insurance-wrapper awards pd-t pd-b'}>
             <Container>
                 {/* Title and subtitle component */}
                 <TitleSubtitle
@@ -86,7 +86,9 @@ const Awards = ({ awardData }) => {
                 </Slider>
 
                 {/* "Show More" link for additional awards */}
-                <a href={ShowMoreLink} className='show-more pt-4'>Show More +</a>
+                <div className={styles.show_more_tag}>
+                    <a href={ShowMoreLink} className='common-right-arrow'>Show More</a>
+                </div>
             </Container>
         </div>
     );

@@ -201,6 +201,14 @@ body.over-hide {
 
 .common-right-arrow{
     position: relative;
+    font-size: 16px;
+    line-height: 20px;
+    font-family: 'Roboto-500';
+    font-weight: 500;
+    color: var(--fgi-red);
+    text-decoration: none;
+    display: inline-block;
+    padding-top: 8px;
 }
 
 .common-right-arrow::after{
@@ -215,6 +223,10 @@ body.over-hide {
     display: inline-block;
     padding: 3px;
     transform: rotate(-45deg);
+}
+
+.common-right-arrow:hover{
+    color: var(--fgi-red);
 }
 
 /* Common Input fields */

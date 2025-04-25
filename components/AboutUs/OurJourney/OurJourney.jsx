@@ -14,7 +14,7 @@ const OurJourney = ({ insuranceData }) => {
     const { Title, Description, FeatureList } = insuranceData?.OurJourney;
 
     return (
-        <div className='pd-t pd-b'>
+        <div className={styles.OurJourney_wrapper + ' pd-t pd-b'}>
             <Container>
                 {/* Title and subtitle section */}
                 <TitleSubtitle

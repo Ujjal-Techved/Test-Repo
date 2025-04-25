@@ -50,10 +50,10 @@
 }
 
 .leader_card_front {
-  border: 1px solid var(--border-lightgrey);
+  /* border: 1px solid var(--border-lightgrey); */
   box-shadow: 0px 4px 56px 0px #00000014;
   background-color: var(--background-color);
-  border-radius: 24px;
+  border-radius: 4px;
   padding: 0px 16px 24px 16px;
   display: flex;
   flex-direction: column;
@@ -97,10 +97,10 @@
 
 
 .leader_card_back {
-  border: 1px solid var(--border-lightgrey);
+  /* border: 1px solid var(--border-lightgrey); */
   box-shadow: 0px 4px 56px 0px #00000014;
   background-color: var(--background-color);
-  border-radius: 24px;
+  border-radius: 4px;
   transform: rotateY(180deg);
   padding: 24px 16px;
 }
@@ -138,7 +138,7 @@
     padding: 0px 8px 14px 8px;
     justify-content: flex-start;
     gap: 20px;
-    box-shadow: none;
+    /* box-shadow: none; */
   }
 
   .leader_card_front img {
@@ -146,9 +146,9 @@
   }
 
   .leader_card_front label {
-    font-size: 12px;
-    line-height: 16px;
-    font-family: 'Roboto-400';
+    font-size: 14px;
+    line-height: 18px;
+    font-family: 'Roboto-500';
     color: var(--fgi-black);
     padding-top: 8px;
     padding-bottom: 0px;
@@ -172,6 +172,11 @@
 
   .leader_card:hover .leader_card_inner {
     height: 212px;
+  }
+
+  .terms_and_condition a {
+    font-size: 14px;
+    line-height: 20px;
   }
 
 }
