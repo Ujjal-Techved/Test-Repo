@@ -49,16 +49,14 @@ const GuidePrinciple = ({ guidePrincipleData }) => {
 
                 <div className='common-tabs-wrapper'>
                     {/* for desktop view tabs */}
-                    {!isMobile ? (
-                        <Nav tabs>
-                            {uniqueCategories?.map((Category, index) => (
-                                <NavItem key={index} className={principleactiveTab === Category ? "active" : ""} onClick={() => setPrincipleActiveTab(Category)}>
-                                    <NavLink>{Category}</NavLink>
-                                </NavItem>
-                            ))}
-                        </Nav>
-                    ) : (
-                        <Dropdown className='common-dropdown' isOpen={dropdownOpen} toggle={toggleDropdown}>
+                    <Nav tabs>
+                        {uniqueCategories?.map((Category, index) => (
+                            <NavItem key={index} className={principleactiveTab === Category ? "active" : ""} onClick={() => setPrincipleActiveTab(Category)}>
+                                <NavLink>{Category}</NavLink>
+                            </NavItem>
+                        ))}
+                    </Nav>
+                    {/* <Dropdown className='common-dropdown' isOpen={dropdownOpen} toggle={toggleDropdown}>
                             <DropdownToggle caret>
                                 {uniqueCategories?.find(cat => cat === principleactiveTab) || "Select"}
                             </DropdownToggle>
@@ -69,8 +67,7 @@ const GuidePrinciple = ({ guidePrincipleData }) => {
                                     </DropdownItem>
                                 ))}
                             </DropdownMenu>
-                        </Dropdown>
-                    )}
+                        </Dropdown> */}
 
                     <TabContent activeTab={"1"} className='pb-0'>
                         {/* PrincipleCardData Tabcontent */}
@@ -78,24 +75,25 @@ const GuidePrinciple = ({ guidePrincipleData }) => {
                         {PrincipleCard?.filter((principle) => (principle?.Category.toLowerCase() == principleactiveTab.toLowerCase())).map((principle, index) => (
                             <div className={styles.insure_wrapper} key={index}>
                                 <Row className={styles.insure_main}>
-                                    <Col lg="5" className={styles.insure_description}>
+                                    <Col lg="12" className={styles.insure_description}>
                                         <div className={styles.guide_title_main}>
                                             <h2>{principle?.Title}</h2>
                                         </div>
                                     </Col>
-                                    <Col lg="7">
+                                    <Col lg="12">
                                         <div className={styles.insure_card}>
                                             <Row className={styles.guide_card_row}>
-                                                {principle?.PrincipleList.slice(0,5).map((item, i, arr) => (
+                                                {principle?.PrincipleList.slice(0, 5).map((item, i, arr) => (
                                                     <Col
                                                         key={item.id}
-                                                        lg={i === 4 ? "12" : "6"}
-                                                        md={i === 4 ? "12" : "6"}
-                                                        sm="12"
+                                                        lg={principle?.PrincipleList?.length >= 5 ? "4" : "6"}
+                                                        md={principle?.PrincipleList?.length >= 5 ? "4" : "6"}
+                                                        xs="12"
                                                         className={styles.guide_card_col}
                                                     >
                                                         <div className={styles.guide_card}>
-                                                            <h4><img src={process.env.NEXT_PUBLIC_APP_API + item?.Image.url} alt={item.Image.alternativeText} className={styles.principle_image} />{item?.Title}</h4>
+                                                            <img src={process.env.NEXT_PUBLIC_APP_API + item?.Image.url} alt={item.Image.alternativeText} className={styles.principle_image} />
+                                                            <h4>{item?.Title}</h4>
                                                             <p>{item?.Description}</p>
                                                         </div>
                                                     </Col>

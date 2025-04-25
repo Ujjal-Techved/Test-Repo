@@ -389,16 +389,17 @@ body.over-hide {
 
 .common-tabs-wrapper .nav-item {
     border-bottom: 1px solid var(--fgi-red);
-    padding: 0px 20px;
+    padding: 10px 20px;
 }
 
 
 .common-tabs-wrapper .nav-link {
     font-size: 16px;
-    line-height: 40px;
+    line-height: 24px;
     font-family: 'Roboto-500';
+    font-weight: 500;
     color: var(--text-grey2);
-    margin: 0px 17px;
+    /* margin: 0px 17px; */
     border: none;
     padding: 0px;
     cursor: pointer;
@@ -859,6 +860,11 @@ body.over-hide {
         transition: box-shadow .15s ease-in-out, background-color .15s ease-in-out, transform .15s ease-in-out;
         width: 18px;
         top: 0px;
+    }
+
+    .common-tabs-wrapper .nav-link {
+        font-size: 14px;
+        line-height: 18px;
     }
 
 }
