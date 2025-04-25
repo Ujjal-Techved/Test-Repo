@@ -436,6 +436,12 @@ export interface ApiBranchListBannerBranchListBanner
     };
   };
   attributes: {
+    BottomBanner: Schema.Attribute.Component<'contact-us.app-link', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -467,6 +473,12 @@ export interface ApiBranchListBannerBranchListBanner
         };
       }>;
     ReachUsTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    SeoSection: Schema.Attribute.Component<'common.seo-section', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

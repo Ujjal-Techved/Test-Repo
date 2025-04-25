@@ -69,6 +69,26 @@
           "localized": true
         }
       }
+    },
+    "BottomBanner": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "contact-us.app-link"
+    },
+    "SeoSection": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "common.seo-section"
     }
   }
 }

@@ -468,6 +468,31 @@ export interface CommonReviewSection extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonSchemaTag extends Struct.ComponentSchema {
+  collectionName: 'components_common_schema_tags';
+  info: {
+    displayName: 'SchemaTag';
+  };
+  attributes: {
+    Text: Schema.Attribute.Text;
+  };
+}
+
+export interface CommonSeoSection extends Struct.ComponentSchema {
+  collectionName: 'components_common_seo_sections';
+  info: {
+    description: '';
+    displayName: 'SeoSection';
+  };
+  attributes: {
+    CanonicalTag: Schema.Attribute.Text;
+    MetaDescription: Schema.Attribute.Text;
+    MetaKeyword: Schema.Attribute.String;
+    SchemaTag: Schema.Attribute.Component<'common.schema-tag', true>;
+    TitleTag: Schema.Attribute.Text;
+  };
+}
+
 export interface ContactUsAppLink extends Struct.ComponentSchema {
   collectionName: 'components_contact_us_app_links';
   info: {
@@ -850,6 +875,8 @@ declare module '@strapi/strapi' {
       'common.irda-section': CommonIrdaSection;
       'common.review-cards': CommonReviewCards;
       'common.review-section': CommonReviewSection;
+      'common.schema-tag': CommonSchemaTag;
+      'common.seo-section': CommonSeoSection;
       'contact-us.app-link': ContactUsAppLink;
       'contact-us.contact-cards': ContactUsContactCards;
       'contact-us.cs-category': ContactUsCsCategory;

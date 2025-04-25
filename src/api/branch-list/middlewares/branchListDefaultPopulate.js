@@ -16,6 +16,7 @@ module.exports = (config, { strapi }) => {
           "Phone_Number",
           "City",
           "State",
+          "Pincode",
           "createdAt",
         ];
       }

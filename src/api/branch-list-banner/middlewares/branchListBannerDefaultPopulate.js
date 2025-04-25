@@ -22,14 +22,37 @@ module.exports = (config, { strapi }) => {
       // Populate all nested components 
       if (!ctx.query.populate) {
         ctx.query.populate = {
-            InfoCards :true,
-            ReachUsCards :{
-            populate:{
-              Image:{
-                fields:["url", "alternativeText", "caption", "name"]
+          InfoCards: true,
+          ReachUsCards: {
+            populate: {
+              Image: {
+                fields: ["url", "alternativeText", "caption", "name"]
+              },
+              QRImage: {
+                fields: ["url", "alternativeText", "caption", "name"]
               },
             }
           },
+
+          BottomBanner: {
+            populate: {
+              QR_Code_Image: {
+                fields: ["url", "alternativeText", "caption", "name"]
+              },
+              PlayStore_Image: {
+                fields: ["url", "alternativeText", "caption", "name"]
+              },
+              AppStore_Image: {
+                fields: ["url", "alternativeText", "caption", "name"]
+              },
+            }
+          },
+          SeoSection: {
+            populate: {
+              SchemaTag: true,
+            }
+          }
+
         };
       }
     }
