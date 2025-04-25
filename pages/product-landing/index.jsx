@@ -11,6 +11,7 @@ import Faqs from '@/components/Common/Faqs/Faqs';
 import Whyinsurancematter from '@/components/PLP/Whyinsurancematter/Whyinsurancematter';
 import TypesOfPolicies from '@/components/PLP/TypesOfPolicies/TypesOfPolicies';
 import PlpCallback from '@/components/PLP/PlpCallback/PlpCallback';
+import ChooseGoal from '@/components/PLP/ChooseGoal/ChooseGoal';
 const index = () => {
 
     // Create the breadcrumbs array
@@ -595,6 +596,87 @@ const index = () => {
         }
     ]
 
+    // Array for Choose Goal Options 
+    const ChoosegoalData = {
+        "ChooseGoal": {
+            "id": 11,
+            "Title": "Choose your goal and calculate your path",
+            "Description": "Tell us your goals, and we’ll guide you to the perfect life insurance solution",
+            "CardList": [
+                {
+                    "id": 165,
+                    "Text": "Plan my dream vacation",
+                    "Description": null,
+                    "Url": "/",
+                    "Image": {
+                        "id": 67,
+                        "documentId": "g1c58v71mfxtw93u5zbkdykp",
+                        "url": "/uploads/image_1_6bd845ea64.svg",
+                        "alternativeText": null,
+                        "caption": null,
+                        "name": "image (1).svg"
+                    }
+                },
+                {
+                    "id": 166,
+                    "Text": "Buy a home",
+                    "Description": null,
+                    "Url": "/",
+                    "Image": {
+                        "id": 68,
+                        "documentId": "asp4tivgwy7o0mrq5cm00zqm",
+                        "url": "/uploads/Frame_1984078174_5_5b9bbf2935.svg",
+                        "alternativeText": null,
+                        "caption": null,
+                        "name": "Frame 1984078174 (5).svg"
+                    }
+                },
+                {
+                    "id": 167,
+                    "Text": "Plan for child's education",
+                    "Description": null,
+                    "Url": "/",
+                    "Image": {
+                        "id": 66,
+                        "documentId": "sj2edo5m431bo95zoipc9s0n",
+                        "url": "/uploads/image_2_e4d28b431e.svg",
+                        "alternativeText": null,
+                        "caption": null,
+                        "name": "image (2).svg"
+                    }
+                },
+                {
+                    "id": 168,
+                    "Text": "Save for retirement",
+                    "Description": null,
+                    "Url": "/",
+                    "Image": {
+                        "id": 84,
+                        "documentId": "ux3m0e0fzgtvpuidosj33rxe",
+                        "url": "/uploads/Frame_1984078174_3_4d7437f891.png",
+                        "alternativeText": null,
+                        "caption": null,
+                        "name": "Frame 1984078174 (3).png"
+                    }
+                },
+                {
+                    "id": 169,
+                    "Text": "Other Goals Tell Me",
+                    "Description": null,
+                    "Url": "/",
+                    "Image": {
+                        "id": 65,
+                        "documentId": "xk85efz4k91fcwvo391vpwn1",
+                        "url": "/uploads/Frame_1984078174_6_e0810c81fa.svg",
+                        "alternativeText": null,
+                        "caption": null,
+                        "name": "Frame 1984078174 (6).svg"
+                    }
+                }
+            ]
+        }
+    }
+
     // Array for Data structure containing information about the term plan benefits
     const TermplanCardData = [
         {
@@ -841,18 +923,21 @@ const index = () => {
                 <Container>
                     <Breadcrumbs values={breadcrumbs} />
                 </Container>
-                
+
                 {/* FAQ section with static title and subtitle */}
                 <PlpBanner />
+
+                {/* ChooseGoal section */}
+                <ChooseGoal choosegoalData={ChoosegoalData}/>
 
                 {/* CoverageOption section with static title and subtitle*/}
                 <CoverageOption coveragetabs={coveragetabs} CoverageBenefits={CoverageBenefits} coverageplansData={coverageplansData} />
 
                 {/* Whyinsurancematter section with static title and subtitle */}
-                <Whyinsurancematter TermplanCardData={TermplanCardData}/>
+                <Whyinsurancematter TermplanCardData={TermplanCardData} />
 
                 {/* PlpCallback section with static title and subtitle */}
-                <PlpCallback/>
+                <PlpCallback />
 
                 {/* TypesOfPolicies section with static title and subtitle */}
                 <TypesOfPolicies policyList={policyList} />
@@ -865,10 +950,13 @@ const index = () => {
 
 
                 {/* FAQ section with static title and subtitle */}
-                <Faqs faqItems={faqItems}
+                <Faqs faqData={faqItems?.Faq_Section}
                 // title={"Got Questions? We’ve Got Answers!"}
                 // subtitle={"Answers to some of the most common questions we get."}
                 />\
+
+                {/* PlpCallback section with static title and subtitle */}
+                <PlpCallback />
 
             </div>
         </LandingLayout>

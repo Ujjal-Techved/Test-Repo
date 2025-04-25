@@ -12,9 +12,14 @@
     gap: 16px;
 }
 
-.insure_imgsrc img {
-    border-radius: 20px;
+.red_btn{
+    text-transform: none;
+    margin-top: 8px;
 }
+
+/* .insure_imgsrc img {
+    border-radius: 20px;
+} */
 
 .formComponent {
     padding-bottom:8px;

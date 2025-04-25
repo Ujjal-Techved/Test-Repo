@@ -1,13 +1,14 @@
 .application_wrapper {
-    background: url('/images/careers/application-bg.png'), var(--fgi-red);
+    /* background: url('/images/careers/application-bg.png'), var(--fgi-red); */
+    background: var(--fgi-red);
     background-position: center;
     background-repeat: no-repeat;
     min-height: 308px;
-    border-radius: 30px;
+    border-radius: 4px;
     position: relative;
     /* margin-top: 62px; */
     /* margin-bottom: 80px; */
-    padding: 40px 160px;
+    padding: 40px 16px 8px;
     text-align: center;
 }
 
@@ -20,26 +21,26 @@
 }
 
 .inputField {
-    font-family: "Roboto-400";
-    font-size: 16px;
+    font-family: "Roboto-300";
+    font-size: 20px;
     line-height: 24px;
-    border: 1px solid var(--border-grey);
+    border: none;
+    border-bottom: 1px solid var(--fgi-bordergrey);
     color: var(--background-color);
-    padding: 11.2px 16px;
-    border-radius: 200px;
+    padding: 2px 0;
     outline: none;
-    width: 260px;
-    background-color: var(--inp-alt);
+    width: 334px;
+    background: none;
+    font-weight: 400;
 }
 
 .inputField:focus {
-    border: 1px solid var(--border-grey);
+    /* border: 1px solid var(--border-grey); */
     outline: none;
 }
 
 .inputField::placeholder {
-    font-size: 16px;
-    color: var(--background-color);
+    color: var(--placeholder-gray);
 }
 
 .formGroup {
@@ -47,13 +48,23 @@
     padding-bottom: 16px;
 }
 
+.formGroup label {
+    font-family: "Roboto-400";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--background-color);
+    display: block;
+    text-align: left;
+    margin-bottom: 12px;
+}
+
 .formGroup .errorMsg {
     position: absolute;
-    top: 52px;
+    top: 64px;
     font-size: 12px;
     line-height: 12px;
     color: var(--background-color);
-    padding-left: 16px;
     display: none;
 }
 
@@ -61,19 +72,16 @@
     display: block;
 }
 
-.note {
+.footNote {
     font-family: "Roboto-300";
     font-weight: 300;
     font-style: italic;
     font-size: 12px;
     line-height: 18px;
-    color: var(--background-color);
     text-align: right;
-    position: absolute;
-    bottom: 8px;
-    right: 16px;
+    color: var(--background-color);
+    margin-top: 20px;
 }
-
 
 @media screen and (max-width: 1024px) and (min-width: 992px) {
 
@@ -89,20 +97,14 @@
     .inputField {
         width: 100%;
     }
-
-    .note {
-        display: none;
-    }
-    
 }
 
 @media screen and (max-width: 991.2px) and (min-width: 320px) {
     .application_wrapper {
         background: var(--fgi-red);
-        min-height: 306px;
         margin-top: 0px;
         margin-bottom: 40px;
-        padding: 32px 15px;
+        padding: 32px 12px 12px;
         text-align: center;
     }
 
@@ -117,14 +119,19 @@
 
     .inputField {
         width: 100%;
+        font-size: 18px;
+    }
+
+    .formGroup label {
+        margin-bottom: 8px;
     }
 
     .form_callback button {
         border: 1px solid transparent;
     }
 
-    .note {
-        display: none;
+    .footNote {
+        text-align: left;
     }
 
 }

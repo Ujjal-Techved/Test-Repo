@@ -33,7 +33,7 @@ const PlpBanner = () => {
                                 extraClass={"leftAligned text-start pageTitle descPlp"} // Custom class for left-aligned content
                             />
                             <div className={styles.formComponent}>
-                                <Formik
+                                {/* <Formik
                                     initialValues={{
                                         name: "",
                                         phone: ""
@@ -80,7 +80,59 @@ const PlpBanner = () => {
                                             </button>
                                         </Form>
                                     )}
+                                </Formik> */}
+                                <Formik
+                                    initialValues={{
+                                        name: "",
+                                        phone: ""
+                                    }}
+                                    validateOnBlur={false}
+                                    validateOnChange={false}
+                                    validationSchema={validationSchema}
+                                    onSubmit={(values) => {
+                                        console.log("Form submitted:", values);
+                                    }}
+                                >
+                                    {({ errors, setFieldValue, setFieldError }) => (
+                                        <Form className="lead-form">
+                                            <div className={`form-group ${errors.name ? "error" : ""}`}>
+                                                <label htmlFor="name">Enter Full Name</label>
+                                                <Field
+                                                    type="text"
+                                                    name="name"
+                                                    placeholder="Enter your Name"
+                                                    className="input-field"
+                                                    onChange={(e) => {
+                                                        setFieldValue("name", e.target.value.replace(/[^A-Za-z\s]/g, ""));
+                                                        setFieldError("name", "");
+                                                    }}
+                                                />
+                                                <p className="error-msg">{errors.name}</p>
+                                            </div>
+
+                                            <div className={`form-group ${errors.phone ? "error" : ""}`}>
+                                                <label htmlFor="phone">Enter Mobile Number</label>
+                                                <Field
+                                                    type="tel"
+                                                    name="phone"
+                                                    placeholder="Your Mobile Number"
+                                                    className="input-field"
+                                                    maxLength={10}
+                                                    onChange={(e) => {
+                                                        setFieldValue("phone", e.target.value.replace(/\D/g, ""));
+                                                        setFieldError("phone", "");
+                                                    }}
+                                                />
+                                                <p className="error-msg">{errors.phone}</p>
+                                            </div>
+
+                                            <button type="submit" className={styles.red_btn + ' redBtn px-4 w-sm-100'}>
+                                            Schedule a Call
+                                            </button>
+                                        </Form>
+                                    )}
                                 </Formik>
+
                             </div>
                         </Col>
                         {/* Right side: Image */}
