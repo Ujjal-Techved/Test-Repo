@@ -25,6 +25,13 @@
     },
     "Link": {
       "type": "string"
+    },
+    "QRImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

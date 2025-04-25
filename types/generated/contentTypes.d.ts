@@ -539,6 +539,12 @@ export interface ApiBranchListBranchList extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    Pincode: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     State: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
