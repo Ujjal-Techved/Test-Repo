@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_common_seo_sections",
+  "info": {
+    "displayName": "SeoSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "TitleTag": {
+      "type": "text"
+    },
+    "CanonicalTag": {
+      "type": "text"
+    },
+    "MetaKeyword": {
+      "type": "string"
+    },
+    "MetaDescription": {
+      "type": "text"
+    },
+    "SchemaTag": {
+      "displayName": "SchemaTag",
+      "type": "component",
+      "repeatable": true,
+      "component": "common.schema-tag"
+    }
+  }
+}

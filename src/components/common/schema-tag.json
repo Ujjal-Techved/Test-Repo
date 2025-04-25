@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_common_schema_tags",
+  "info": {
+    "displayName": "SchemaTag"
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "text"
+    }
+  }
+}

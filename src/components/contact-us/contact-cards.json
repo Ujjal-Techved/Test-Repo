@@ -1,7 +1,8 @@
 {
   "collectionName": "components_contact_us_contact_cards",
   "info": {
-    "displayName": "ContactCards"
+    "displayName": "ContactCards",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -21,14 +22,12 @@
       "type": "string"
     },
     "Image": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

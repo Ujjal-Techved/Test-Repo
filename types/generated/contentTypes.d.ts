@@ -369,9 +369,143 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
+  collectionName: 'about_uses';
+  info: {
+    description: '';
+    displayName: 'AboutUs';
+    pluralName: 'about-uses';
+    singularName: 'about-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Awards: Schema.Attribute.Component<'about-us.awards', false>;
+    CorporateSocial: Schema.Attribute.Component<
+      'about-us.corporate-social',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Image: Schema.Attribute.Media<'images'>;
+    InfoStrip: Schema.Attribute.Component<'about-us.info-strip', false>;
+    LeadersSection: Schema.Attribute.Component<
+      'about-us.leaders-section',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-us.about-us'
+    > &
+      Schema.Attribute.Private;
+    MediaCenter: Schema.Attribute.Component<'about-us.media-center', false>;
+    Milestone: Schema.Attribute.Component<'about-us.milestone', false>;
+    OurJourney: Schema.Attribute.Component<'home-page.life-insurance', false>;
+    PageDesc: Schema.Attribute.String;
+    PageTitle: Schema.Attribute.String;
+    PageUrl: Schema.Attribute.String;
+    Partners: Schema.Attribute.Component<'about-us.partners', false>;
+    Principles: Schema.Attribute.Component<'about-us.principles', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    Reports: Schema.Attribute.Component<'about-us.reports', false>;
+    SecondaryDescription: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBranchListBannerBranchListBanner
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'branch_list_banners';
+  info: {
+    description: '';
+    displayName: 'BranchListBanner';
+    pluralName: 'branch-list-banners';
+    singularName: 'branch-list-banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    BottomBanner: Schema.Attribute.Component<'contact-us.app-link', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    InfoCards: Schema.Attribute.Component<'branchcards.info-card', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::branch-list-banner.branch-list-banner'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    ReachUsCards: Schema.Attribute.Component<
+      'branchcards.reach-us-cards',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    ReachUsSubTitle: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    ReachUsTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    SeoSection: Schema.Attribute.Component<'common.seo-section', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    SubTitle: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBranchListBranchList extends Struct.CollectionTypeSchema {
   collectionName: 'branch_lists';
   info: {
+    description: '';
     displayName: 'BranchList';
     pluralName: 'branch-lists';
     singularName: 'branch-list';
@@ -379,25 +513,101 @@ export interface ApiBranchListBranchList extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    Branch_Address: Schema.Attribute.String;
-    Branch_Name: Schema.Attribute.String;
-    City: Schema.Attribute.String;
+    Branch_Address: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Branch_Name: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    City: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::branch-list.branch-list'
-    > &
-      Schema.Attribute.Private;
-    Phone_Number: Schema.Attribute.Integer;
+    >;
+    Phone_Number: Schema.Attribute.BigInteger &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Pincode: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
-    State: Schema.Attribute.String;
+    State: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCareerCareer extends Struct.CollectionTypeSchema {
+  collectionName: 'careers';
+  info: {
+    description: '';
+    displayName: 'Career';
+    pluralName: 'careers';
+    singularName: 'career';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BannerStats: Schema.Attribute.Component<'careers.banner-stats', true>;
+    Benefits: Schema.Attribute.Component<'careers.benefits', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    JobRoleList: Schema.Attribute.Component<'careers.job-role-list', true>;
+    JoinCulture: Schema.Attribute.Component<'careers.join-culture', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::career.career'
+    > &
+      Schema.Attribute.Private;
+    PageDesc: Schema.Attribute.Text;
+    PageTitle: Schema.Attribute.String;
+    PageUrl: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    ReviewSection: Schema.Attribute.Component<'common.review-section', false>;
+    SendApplication: Schema.Attribute.Component<
+      'careers.send-application',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ValueSection: Schema.Attribute.Component<'careers.values-section', false>;
   };
 }
 
@@ -413,6 +623,7 @@ export interface ApiContactUsContactUs extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    AppLink: Schema.Attribute.Component<'contact-us.app-link', false>;
     Contact_Details_Cards: Schema.Attribute.Component<
       'contact-us.contact-cards',
       true
@@ -420,6 +631,11 @@ export interface ApiContactUsContactUs extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    CustomerService: Schema.Attribute.Component<
+      'contact-us.customer-service',
+      false
+    >;
+    Faqs: Schema.Attribute.Component<'common.faq-section', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -428,11 +644,123 @@ export interface ApiContactUsContactUs extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     PageDesc: Schema.Attribute.Text;
     PageTitle: Schema.Attribute.String;
+    PageUrl: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     VisitUs: Schema.Attribute.Component<'contact-us.visit-us', false>;
+  };
+}
+
+export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
+  collectionName: 'home_pages';
+  info: {
+    description: '';
+    displayName: 'HomePage';
+    pluralName: 'home-pages';
+    singularName: 'home-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AppLink: Schema.Attribute.Component<'contact-us.app-link', false>;
+    CallBack: Schema.Attribute.Component<'home-page.call-back', false>;
+    ChooseGoal: Schema.Attribute.Component<'home-page.choose-goal', false>;
+    CoverageOptions: Schema.Attribute.Component<
+      'home-page.coverage-options',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.String;
+    Faq_Section: Schema.Attribute.Component<'common.faq-section', false>;
+    IrdaSection: Schema.Attribute.Component<'common.irda-section', false>;
+    LifeInsurance: Schema.Attribute.Component<
+      'home-page.life-insurance',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-page.home-page'
+    > &
+      Schema.Attribute.Private;
+    PageUrl: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    ReviewSection: Schema.Attribute.Component<'common.review-section', false>;
+    StartProtecting: Schema.Attribute.Component<
+      'home-page.start-protecting',
+      false
+    >;
+    Title: Schema.Attribute.Text;
+    TypeInsurance: Schema.Attribute.Component<
+      'home-page.type-insurance',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    WhatIs: Schema.Attribute.Component<'home-page.what-is', false>;
+    WhatStage: Schema.Attribute.Component<'home-page.what-stage', false>;
+    WhyLife: Schema.Attribute.Component<'home-page.why-life', false>;
+  };
+}
+
+export interface ApiProductListingProductListing
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'product_listings';
+  info: {
+    description: '';
+    displayName: 'ProductListing';
+    pluralName: 'product-listings';
+    singularName: 'product-listing';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ComparePlans: Schema.Attribute.Component<
+      'product-listing.compare-plans',
+      false
+    >;
+    CoverageBenefits: Schema.Attribute.Component<
+      'product-listing.coverage-benefits',
+      true
+    >;
+    CoverageOptions: Schema.Attribute.Component<
+      'home-page.coverage-options',
+      false
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Faq_Section: Schema.Attribute.Component<'common.faq-section', false>;
+    Image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-listing.product-listing'
+    > &
+      Schema.Attribute.Private;
+    PageDesc: Schema.Attribute.Text;
+    PageTitle: Schema.Attribute.String;
+    PageUrl: Schema.Attribute.String;
+    PolicyTypes: Schema.Attribute.Component<
+      'product-listing.policy-types',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    ReviewSection: Schema.Attribute.Component<'common.review-section', false>;
+    TopSellingProducts: Schema.Attribute.Component<
+      'home-page.coverage-options',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -945,8 +1273,13 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::branch-list-banner.branch-list-banner': ApiBranchListBannerBranchListBanner;
       'api::branch-list.branch-list': ApiBranchListBranchList;
+      'api::career.career': ApiCareerCareer;
       'api::contact-us.contact-us': ApiContactUsContactUs;
+      'api::home-page.home-page': ApiHomePageHomePage;
+      'api::product-listing.product-listing': ApiProductListingProductListing;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

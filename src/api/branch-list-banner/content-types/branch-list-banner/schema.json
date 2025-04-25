@@ -1,0 +1,94 @@
+{
+  "kind": "collectionType",
+  "collectionName": "branch_list_banners",
+  "info": {
+    "singularName": "branch-list-banner",
+    "pluralName": "branch-list-banners",
+    "displayName": "BranchListBanner",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "SubTitle": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "InfoCards": {
+      "displayName": "InfoCard",
+      "type": "component",
+      "repeatable": true,
+      "component": "branchcards.info-card",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "ReachUsTitle": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "ReachUsSubTitle": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "ReachUsCards": {
+      "displayName": "ReachUsCards",
+      "type": "component",
+      "repeatable": true,
+      "component": "branchcards.reach-us-cards",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "BottomBanner": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "contact-us.app-link"
+    },
+    "SeoSection": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "common.seo-section"
+    }
+  }
+}

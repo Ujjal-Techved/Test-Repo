@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_contact_us_app_links",
+  "info": {
+    "displayName": "AppLink",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "QR_Code_Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "PlayStore_Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "AppStore_Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "PlayStore_Link": {
+      "type": "string"
+    },
+    "AppStore_Link": {
+      "type": "string"
+    }
+  }
+}

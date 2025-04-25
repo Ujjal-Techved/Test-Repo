@@ -1,0 +1,94 @@
+{
+  "kind": "collectionType",
+  "collectionName": "about_uses",
+  "info": {
+    "singularName": "about-us",
+    "pluralName": "about-uses",
+    "displayName": "AboutUs",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PageUrl": {
+      "type": "string"
+    },
+    "PageTitle": {
+      "type": "string"
+    },
+    "PageDesc": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "InfoStrip": {
+      "displayName": "InfoStrip",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.info-strip"
+    },
+    "OurJourney": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.life-insurance"
+    },
+    "Partners": {
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.partners"
+    },
+    "Principles": {
+      "displayName": "Principles",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.principles"
+    },
+    "LeadersSection": {
+      "displayName": "LeadersSection",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.leaders-section"
+    },
+    "Reports": {
+      "displayName": "Reports",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.reports"
+    },
+    "Awards": {
+      "displayName": "Awards",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.awards"
+    },
+    "Milestone": {
+      "displayName": "Milestone",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.milestone"
+    },
+    "MediaCenter": {
+      "displayName": "MediaCenter",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.media-center"
+    },
+    "CorporateSocial": {
+      "displayName": "CorporateSocial",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.corporate-social"
+    },
+    "SecondaryDescription": {
+      "type": "text"
+    }
+  }
+}

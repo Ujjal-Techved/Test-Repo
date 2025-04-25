@@ -1,0 +1,99 @@
+{
+  "kind": "collectionType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "HomePage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PageUrl": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "WhatStage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.what-stage"
+    },
+    "LifeInsurance": {
+      "displayName": "LifeInsurance",
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.life-insurance"
+    },
+    "WhatIs": {
+      "displayName": "WhatIs",
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.what-is"
+    },
+    "WhyLife": {
+      "displayName": "WhyLife",
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.why-life"
+    },
+    "ChooseGoal": {
+      "displayName": "ChooseGoal",
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.choose-goal"
+    },
+    "TypeInsurance": {
+      "displayName": "TypeInsurance",
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.type-insurance"
+    },
+    "CallBack": {
+      "displayName": "CallBack",
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.call-back"
+    },
+    "CoverageOptions": {
+      "displayName": "CoverageOptions",
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.coverage-options"
+    },
+    "StartProtecting": {
+      "displayName": "StartProtecting",
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.start-protecting"
+    },
+    "ReviewSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.review-section"
+    },
+    "AppLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "contact-us.app-link"
+    },
+    "Faq_Section": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.faq-section"
+    },
+    "IrdaSection": {
+      "displayName": "IrdaSection",
+      "type": "component",
+      "repeatable": false,
+      "component": "common.irda-section"
+    }
+  }
+}

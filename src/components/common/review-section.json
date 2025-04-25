@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_common_review_sections",
+  "info": {
+    "displayName": "ReviewSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "ReviewCards": {
+      "displayName": "ReviewCards",
+      "type": "component",
+      "repeatable": true,
+      "component": "common.review-cards"
+    }
+  }
+}

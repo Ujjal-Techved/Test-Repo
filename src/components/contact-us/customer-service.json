@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_contact_us_customer_services",
+  "info": {
+    "displayName": "CustomerService",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "CategoryList": {
+      "type": "component",
+      "repeatable": true,
+      "component": "contact-us.cs-category"
+    }
+  }
+}

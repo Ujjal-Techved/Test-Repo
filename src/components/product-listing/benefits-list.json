@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_product_listing_benefits_lists",
+  "info": {
+    "displayName": "BenefitsList"
+  },
+  "options": {},
+  "attributes": {
+    "Description": {
+      "type": "text"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

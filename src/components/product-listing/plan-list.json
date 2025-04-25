@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_product_listing_plan_lists",
+  "info": {
+    "displayName": "PlanList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "DeathBenefits": {
+      "type": "boolean"
+    },
+    "MaturityBenefits": {
+      "type": "boolean"
+    },
+    "TaxBenefits": {
+      "type": "boolean"
+    },
+    "RiderLocations": {
+      "type": "boolean"
+    },
+    "IdealFor": {
+      "type": "text"
+    }
+  }
+}

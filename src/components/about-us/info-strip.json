@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_about_us_info_strips",
+  "info": {
+    "displayName": "InfoStrip",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}

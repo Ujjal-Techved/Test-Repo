@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_common_irda_sections",
+  "info": {
+    "displayName": "IrdaSection"
+  },
+  "options": {},
+  "attributes": {
+    "LeftText": {
+      "type": "blocks"
+    },
+    "RightText": {
+      "type": "blocks"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_common_faq_sections",
+  "info": {
+    "displayName": "FAQ_Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "FaqList": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.faq-items"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_branchcards_reach_us_cards",
+  "info": {
+    "displayName": "ReachUsCards",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "LinkText": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "string"
+    },
+    "QRImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

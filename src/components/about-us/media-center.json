@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_about_us_media_centers",
+  "info": {
+    "displayName": "MediaCenter"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "MediaCard": {
+      "displayName": "MediaCard",
+      "type": "component",
+      "repeatable": true,
+      "component": "about-us.media-card"
+    }
+  }
+}

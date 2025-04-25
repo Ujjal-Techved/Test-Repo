@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_about_us_milestones",
+  "info": {
+    "displayName": "Milestone"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "MilestoneList": {
+      "displayName": "MilestoneList",
+      "type": "component",
+      "repeatable": true,
+      "component": "about-us.milestone-list"
+    }
+  }
+}

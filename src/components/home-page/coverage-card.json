@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_home_page_coverage_cards",
+  "info": {
+    "displayName": "CoverageCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Brand": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Pointers": {
+      "type": "blocks"
+    },
+    "KnowMoreLink": {
+      "type": "string"
+    },
+    "TalkToAdvisorLink": {
+      "type": "string"
+    },
+    "MostPopular": {
+      "type": "boolean"
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Featured",
+        "Term",
+        "Saving",
+        "ULIP",
+        "Group",
+        "Retirement",
+        "Child"
+      ]
+    },
+    "BadgeText": {
+      "type": "string"
+    },
+    "ProductUIN": {
+      "type": "string"
+    }
+  }
+}

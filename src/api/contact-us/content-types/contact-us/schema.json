@@ -27,6 +27,24 @@
       "type": "component",
       "repeatable": false,
       "component": "contact-us.visit-us"
+    },
+    "CustomerService": {
+      "type": "component",
+      "repeatable": false,
+      "component": "contact-us.customer-service"
+    },
+    "AppLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "contact-us.app-link"
+    },
+    "Faqs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.faq-section"
+    },
+    "PageUrl": {
+      "type": "string"
     }
   }
 }

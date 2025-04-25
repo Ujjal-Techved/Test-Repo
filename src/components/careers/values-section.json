@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_careers_values_sections",
+  "info": {
+    "displayName": "ValuesSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "ValueCards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "careers.value-card-item"
+    }
+  }
+}

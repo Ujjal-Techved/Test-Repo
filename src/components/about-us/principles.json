@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_about_us_principles",
+  "info": {
+    "displayName": "Principles"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "PrincipleCard": {
+      "displayName": "PrincipleCard",
+      "type": "component",
+      "repeatable": true,
+      "component": "about-us.principle-card"
+    }
+  }
+}

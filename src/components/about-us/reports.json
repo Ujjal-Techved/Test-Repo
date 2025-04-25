@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_about_us_reports",
+  "info": {
+    "displayName": "Reports"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "ReportItems": {
+      "displayName": "ReportItems",
+      "type": "component",
+      "repeatable": true,
+      "component": "about-us.report-items"
+    }
+  }
+}

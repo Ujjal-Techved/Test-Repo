@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_careers_benefits",
+  "info": {
+    "displayName": "Benefits"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "BenefitsCards": {
+      "displayName": "BenefitsCards",
+      "type": "component",
+      "repeatable": true,
+      "component": "careers.benefits-cards"
+    }
+  }
+}
