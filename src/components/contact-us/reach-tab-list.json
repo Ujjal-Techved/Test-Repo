@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_contact_us_reach_tab_lists",
+  "info": {
+    "displayName": "ReachTabList"
+  },
+  "options": {},
+  "attributes": {
+    "OptionName": {
+      "type": "string"
+    },
+    "CardList": {
+      "type": "component",
+      "repeatable": true,
+      "component": "branchcards.reach-us-cards"
+    }
+  }
+}

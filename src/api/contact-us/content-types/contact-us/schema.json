@@ -18,16 +18,6 @@
     "PageDesc": {
       "type": "text"
     },
-    "Contact_Details_Cards": {
-      "type": "component",
-      "repeatable": true,
-      "component": "contact-us.contact-cards"
-    },
-    "VisitUs": {
-      "type": "component",
-      "repeatable": false,
-      "component": "contact-us.visit-us"
-    },
     "CustomerService": {
       "type": "component",
       "repeatable": false,
@@ -45,6 +35,23 @@
     },
     "PageUrl": {
       "type": "string"
+    },
+    "ConnectUs": {
+      "displayName": "ConnectSection",
+      "type": "component",
+      "repeatable": false,
+      "component": "contact-us.connect-section"
+    },
+    "ReachOutSection": {
+      "displayName": "ReachOutSection",
+      "type": "component",
+      "repeatable": false,
+      "component": "contact-us.reach-out-section"
+    },
+    "SeoSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.seo-section"
     }
   }
 }

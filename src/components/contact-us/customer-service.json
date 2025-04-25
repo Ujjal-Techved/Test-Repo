@@ -6,12 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "Title": {
-      "type": "string"
-    },
-    "Description": {
-      "type": "text"
-    },
     "CategoryList": {
       "type": "component",
       "repeatable": true,

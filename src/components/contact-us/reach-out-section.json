@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_contact_us_reach_out_sections",
+  "info": {
+    "displayName": "ReachOutSection"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "TabList": {
+      "displayName": "ReachTabList",
+      "type": "component",
+      "repeatable": true,
+      "component": "contact-us.reach-tab-list"
+    }
+  }
+}

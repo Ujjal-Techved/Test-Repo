@@ -624,10 +624,7 @@ export interface ApiContactUsContactUs extends Struct.CollectionTypeSchema {
   };
   attributes: {
     AppLink: Schema.Attribute.Component<'contact-us.app-link', false>;
-    Contact_Details_Cards: Schema.Attribute.Component<
-      'contact-us.contact-cards',
-      true
-    >;
+    ConnectUs: Schema.Attribute.Component<'contact-us.connect-section', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -646,10 +643,14 @@ export interface ApiContactUsContactUs extends Struct.CollectionTypeSchema {
     PageTitle: Schema.Attribute.String;
     PageUrl: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    ReachOutSection: Schema.Attribute.Component<
+      'contact-us.reach-out-section',
+      false
+    >;
+    SeoSection: Schema.Attribute.Component<'common.seo-section', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    VisitUs: Schema.Attribute.Component<'contact-us.visit-us', false>;
   };
 }
 

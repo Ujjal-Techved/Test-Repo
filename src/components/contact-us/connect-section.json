@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_contact_us_connect_sections",
+  "info": {
+    "displayName": "ConnectSection"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "ReachUsCards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "branchcards.reach-us-cards"
+    }
+  }
+}

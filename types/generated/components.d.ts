@@ -510,6 +510,21 @@ export interface ContactUsAppLink extends Struct.ComponentSchema {
   };
 }
 
+export interface ContactUsConnectSection extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_connect_sections';
+  info: {
+    displayName: 'ConnectSection';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    ReachUsCards: Schema.Attribute.Component<
+      'branchcards.reach-us-cards',
+      true
+    >;
+    Title: Schema.Attribute.Text;
+  };
+}
+
 export interface ContactUsContactCards extends Struct.ComponentSchema {
   collectionName: 'components_contact_us_contact_cards';
   info: {
@@ -558,23 +573,29 @@ export interface ContactUsCustomerService extends Struct.ComponentSchema {
   };
   attributes: {
     CategoryList: Schema.Attribute.Component<'contact-us.cs-category', true>;
-    Description: Schema.Attribute.Text;
-    Title: Schema.Attribute.String;
   };
 }
 
-export interface ContactUsVisitUs extends Struct.ComponentSchema {
-  collectionName: 'components_contact_us_visituses';
+export interface ContactUsReachOutSection extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_reach_out_sections';
   info: {
-    description: '';
-    displayName: 'VisitUs';
+    displayName: 'ReachOutSection';
   };
   attributes: {
     Description: Schema.Attribute.Text;
-    Image: Schema.Attribute.Media<'images'>;
-    LinkText: Schema.Attribute.String;
-    LinkUrl: Schema.Attribute.String;
-    Title: Schema.Attribute.String;
+    TabList: Schema.Attribute.Component<'contact-us.reach-tab-list', true>;
+    Title: Schema.Attribute.Text;
+  };
+}
+
+export interface ContactUsReachTabList extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_reach_tab_lists';
+  info: {
+    displayName: 'ReachTabList';
+  };
+  attributes: {
+    CardList: Schema.Attribute.Component<'branchcards.reach-us-cards', true>;
+    OptionName: Schema.Attribute.String;
   };
 }
 
@@ -878,11 +899,13 @@ declare module '@strapi/strapi' {
       'common.schema-tag': CommonSchemaTag;
       'common.seo-section': CommonSeoSection;
       'contact-us.app-link': ContactUsAppLink;
+      'contact-us.connect-section': ContactUsConnectSection;
       'contact-us.contact-cards': ContactUsContactCards;
       'contact-us.cs-category': ContactUsCsCategory;
       'contact-us.cs-item': ContactUsCsItem;
       'contact-us.customer-service': ContactUsCustomerService;
-      'contact-us.visit-us': ContactUsVisitUs;
+      'contact-us.reach-out-section': ContactUsReachOutSection;
+      'contact-us.reach-tab-list': ContactUsReachTabList;
       'home-page.call-back': HomePageCallBack;
       'home-page.card-list': HomePageCardList;
       'home-page.choose-goal': HomePageChooseGoal;
