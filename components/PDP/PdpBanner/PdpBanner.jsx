@@ -46,7 +46,7 @@ const PdpBanner = ({ bannerData }) => {
     };
 
     return (
-        <div className={styles.bannerMain + " pd-b"}>
+        <div className={styles.bannerMain}>
             <Container>
                 <Row>
                     {/* Left Section: Banner Content and Job Filter */}

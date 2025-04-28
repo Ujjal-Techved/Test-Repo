@@ -161,9 +161,9 @@ const index = () => {
     }
 
 
-      // Array of Dowanload Data
+    // Array of Dowanload Data
 
-      const downloadData = [
+    const downloadData = [
         {
             title: "Product Brochure",
             image: "/images/product-detail/ProductBrochure.png",
@@ -444,11 +444,13 @@ const index = () => {
     return (
         <LandingLayout>
             <div>
-                <Container>
-                    <Breadcrumbs values={breadcrumbs} />
-                </Container>
-                {/* PDP Main Banner Section */}
-                <PdpBanner />
+                <div className={styles.pdp_banner_background + ' mb-5'}>
+                    <Container>
+                        <Breadcrumbs values={breadcrumbs} />
+                    </Container>
+                    {/* PDP Main Banner Section */}
+                    <PdpBanner />
+                </div>
 
                 {/* Why long term plan section */}
                 <Whylongtermplan TermplanCardData={TermplanCardData} />
@@ -469,10 +471,10 @@ const index = () => {
                 <PolicySteps stepsData={stepsData} />
 
                 {/* Dowanload section */}
-                <Download downloadData={downloadData}/>
+                <Download downloadData={downloadData} />
 
                 {/* Importnat Information and Resources */}
-                <InfoResources/>
+                <InfoResources />
 
                 {/* Our Customer section */}
                 <OurCustomer teamMemberstabs={teamMemberstabs} teamMemberData={teamMemberData} />
