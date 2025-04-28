@@ -12,6 +12,7 @@ import Whyinsurancematter from '@/components/PLP/Whyinsurancematter/Whyinsurance
 import TypesOfPolicies from '@/components/PLP/TypesOfPolicies/TypesOfPolicies';
 import PlpCallback from '@/components/PLP/PlpCallback/PlpCallback';
 import ChooseGoal from '@/components/PLP/ChooseGoal/ChooseGoal';
+import IrdaSection from '@/components/ContactUs/IrdaSection/IrdaSection';
 const index = () => {
 
     // Create the breadcrumbs array
@@ -479,7 +480,7 @@ const index = () => {
             "BadgeText": null,
             "ProductUIN": null
         }
-    ]
+    ];
 
     // Array for coverage option Benefits
 
@@ -594,7 +595,7 @@ const index = () => {
                 }
             ]
         }
-    ]
+    ];
 
     // Array for Choose Goal Options 
     const ChoosegoalData = {
@@ -606,7 +607,7 @@ const index = () => {
                 {
                     "id": 165,
                     "Text": "Plan my dream vacation",
-                    "Description": null,
+                    "Description": "LoreLorem ipsum dolor sit amet, consectetur adipiscing elit.",
                     "Url": "/",
                     "Image": {
                         "id": 67,
@@ -620,7 +621,7 @@ const index = () => {
                 {
                     "id": 166,
                     "Text": "Buy a home",
-                    "Description": null,
+                    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                     "Url": "/",
                     "Image": {
                         "id": 68,
@@ -631,51 +632,10 @@ const index = () => {
                         "name": "Frame 1984078174 (5).svg"
                     }
                 },
-                {
-                    "id": 167,
-                    "Text": "Plan for child's education",
-                    "Description": null,
-                    "Url": "/",
-                    "Image": {
-                        "id": 66,
-                        "documentId": "sj2edo5m431bo95zoipc9s0n",
-                        "url": "/uploads/image_2_e4d28b431e.svg",
-                        "alternativeText": null,
-                        "caption": null,
-                        "name": "image (2).svg"
-                    }
-                },
-                {
-                    "id": 168,
-                    "Text": "Save for retirement",
-                    "Description": null,
-                    "Url": "/",
-                    "Image": {
-                        "id": 84,
-                        "documentId": "ux3m0e0fzgtvpuidosj33rxe",
-                        "url": "/uploads/Frame_1984078174_3_4d7437f891.png",
-                        "alternativeText": null,
-                        "caption": null,
-                        "name": "Frame 1984078174 (3).png"
-                    }
-                },
-                {
-                    "id": 169,
-                    "Text": "Other Goals Tell Me",
-                    "Description": null,
-                    "Url": "/",
-                    "Image": {
-                        "id": 65,
-                        "documentId": "xk85efz4k91fcwvo391vpwn1",
-                        "url": "/uploads/Frame_1984078174_6_e0810c81fa.svg",
-                        "alternativeText": null,
-                        "caption": null,
-                        "name": "Frame 1984078174 (6).svg"
-                    }
-                }
+
             ]
         }
-    }
+    };
 
     // Array for Data structure containing information about the term plan benefits
     const TermplanCardData = [
@@ -829,7 +789,7 @@ const index = () => {
                 "name": "Rectangle 39629.png"
             }
         }
-    ]
+    ];
 
     // Array for FAQ data
 
@@ -862,7 +822,7 @@ const index = () => {
                 }
             ]
         }
-    }
+    };
 
 
     const policyList = [
@@ -917,6 +877,78 @@ const index = () => {
         }
     ]
 
+    // Array for IRDA Section
+    const irdadata = {
+    "IrdaSection": {
+        "id": 9,
+        "LeftText": [
+            {
+                "type": "paragraph",
+                "children": [
+                    {
+                        "text": "IRDAI Registration No: ",
+                        "type": "text"
+                    },
+                    {
+                        "bold": true,
+                        "text": "133",
+                        "type": "text"
+                    }
+                ]
+            },
+            {
+                "type": "paragraph",
+                "children": [
+                    {
+                        "text": "(Validity 31st March 2025)",
+                        "type": "text"
+                    }
+                ]
+            }
+        ],
+        "RightText": [
+            {
+                "type": "paragraph",
+                "children": [
+                    {
+                        "text": "License Category: ",
+                        "type": "text"
+                    },
+                    {
+                        "bold": true,
+                        "text": "Life",
+                        "type": "text"
+                    }
+                ]
+            },
+            {
+                "type": "paragraph",
+                "children": [
+                    {
+                        "text": "CIN:- ",
+                        "type": "text"
+                    },
+                    {
+                        "bold": true,
+                        "text": "U66010MH2006PLC165288",
+                        "type": "text"
+                    }
+                ]
+            }
+        ],
+        "Image": {
+            "id": 91,
+            "documentId": "lx2iyo746m93924dyxz0spu5",
+            "url": "/uploads/Mask_group_c3f04650b2.png",
+            "alternativeText": null,
+            "caption": null,
+            "name": "Mask group.png"
+        }
+    }
+}
+
+
+
     return (
         <LandingLayout>
             <div>
@@ -928,7 +960,7 @@ const index = () => {
                 <PlpBanner />
 
                 {/* ChooseGoal section */}
-                <ChooseGoal choosegoalData={ChoosegoalData}/>
+                <ChooseGoal choosegoalData={ChoosegoalData} />
 
                 {/* CoverageOption section with static title and subtitle*/}
                 <CoverageOption coveragetabs={coveragetabs} CoverageBenefits={CoverageBenefits} coverageplansData={coverageplansData} />
@@ -957,6 +989,9 @@ const index = () => {
 
                 {/* PlpCallback section with static title and subtitle */}
                 <PlpCallback />
+
+                {/* IRDA Section */}
+                <IrdaSection irdaSectionData={irdadata}/>
 
             </div>
         </LandingLayout>

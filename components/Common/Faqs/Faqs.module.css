@@ -16,7 +16,7 @@
     border-radius: 4px !important;
     /* border: 1px solid var(--fgi-borderdarkgrey) !important; */
     border: none !important;
-    box-shadow: 0px 10px 20px 0px var(--fgi-faqShadow);
+    box-shadow: 0px 10px 40px var(--fgi-faqShadow);
 }
 
 .faqHead>button,
