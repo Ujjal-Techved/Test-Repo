@@ -121,10 +121,11 @@
     }
 
     .guide_title_main h2 {
-        font-size: 18px;
-        line-height: 26px;
-        font-family: 'Roboto-800';
-        text-align: center;
+        font-size: 28px;
+        line-height: 36px;
+        font-family: 'Roboto-300';
+        font-weight: 300;
+        text-align: left;
     }
 
     .guide_card_row {
@@ -191,19 +192,20 @@
     .insure_card {
         padding: 0px;
         border-radius: 0px;
-        box-shadow: none;
+        padding-bottom: 16px;
+        /* box-shadow: none; */
     }
 
     .guide_title_main p {
-        font-size: 16px;
-        line-height: 24px;
-        padding-top: 16px;
-        padding-bottom: 32px;
+        font-size: 14px;
+        line-height: 18px;
+        padding-top: 12px;
+        padding-bottom: 16px;
     }
 
     .guide_card{
-        border: 1px solid var(--timeline);
-        border-radius: 24px;
+        /* border: 1px solid var(--timeline);
+        border-radius: 24px; */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -213,11 +215,12 @@
     .guide_card h4 {
         font-size: 16px;
         line-height: 20px;
+        padding-top: 12px;
     }
     
     .guide_card p {
         font-size: 12px;
-        line-height: 16px;
+        line-height: 20px;
     }
 
     .hide {
@@ -233,7 +236,7 @@
 
       .show_more_btn a{
         background: transparent;
-        text-decoration: underline !important;
+        /* text-decoration: underline !important; */
         font-size: 14px;
         line-height: 20px;
         font-family: 'Roboto-700';

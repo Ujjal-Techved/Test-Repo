@@ -162,7 +162,7 @@
 
     .plan_card_wrapper .plan_card {
         box-shadow: 0px 4px 40px 0px #1822BD26;
-        border-radius: 24px;
+        border-radius: 4px;
     }
 
     .plan_card_title .plan_card_desc h5 {

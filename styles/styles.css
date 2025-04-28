@@ -612,14 +612,14 @@ body.over-hide {
 .plp-tabs-wrapper .nav-tabs {
     justify-content: flex-start;
     flex-wrap: nowrap;
-    overflow-x: auto; /* horizontal scroll */
+    overflow-x: auto; 
     overflow-y: hidden;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;     /* Firefox */
+    -ms-overflow-style: none; 
+    scrollbar-width: none;   
 }
 
 .plp-tabs-wrapper .nav-tabs::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
+    display: none; 
 }
 
 
@@ -913,6 +913,19 @@ body.over-hide {
 
     .common-tabs-wrapper .slick-list {
         padding: 0px;
+    }
+
+    .common-tabs-wrapper .nav-tabs {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto; 
+        overflow-y: hidden;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;   
+    }
+    
+    .common-tabs-wrapper .nav-tabs::-webkit-scrollbar {
+        display: none; 
     }
 
     .types-insurance-wrapper .slick-track .slick-slide {

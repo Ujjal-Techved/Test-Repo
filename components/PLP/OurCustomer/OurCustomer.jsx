@@ -96,7 +96,7 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
                     {/* Tabs Section */}
                     <div className='common-tabs-wrapper'>
 
-                        {/* Tabs for desktop view */}
+                        {/* Tabs for desktop view
                         {!isMobile ? (
                             <Nav tabs>
                                 {teamMemberstabs.map(({ id, tabtitle }) => (
@@ -126,7 +126,19 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
                                     ))}
                                 </DropdownMenu>
                             </Dropdown>
-                        )}
+                        )} */}
+
+                        <Nav tabs>
+                            {teamMemberstabs.map(({ id, tabtitle }) => (
+                                <NavItem
+                                    key={id}
+                                    className={teamactiveTab === tabtitle ? "active" : ""}
+                                    onClick={() => setTeamActiveTab(tabtitle)}
+                                >
+                                    <NavLink>{tabtitle}</NavLink>
+                                </NavItem>
+                            ))}
+                        </Nav>
 
                         {/* Tab content section */}
                         <TabContent activeTab={"1"} className='py-0'>

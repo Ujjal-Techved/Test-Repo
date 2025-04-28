@@ -138,7 +138,7 @@ const ComparePlan = () => {
         dots: false,
         infinite: false,
         speed: 500,
-        slidesToShow: isMobile ? 1 : PlanListData.length,
+        slidesToShow: isMobile ? 1.1: PlanListData.length,
         slidesToScroll: 1,
         arrows: false,
     };
