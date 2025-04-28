@@ -52,7 +52,6 @@ module.exports = (config, { strapi }) => {
               SchemaTag: true,
             }
           }
-
         };
       }
     }

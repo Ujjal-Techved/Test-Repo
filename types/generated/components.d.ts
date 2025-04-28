@@ -263,7 +263,8 @@ export interface BranchcardsReachUsCards extends Struct.ComponentSchema {
     displayName: 'ReachUsCards';
   };
   attributes: {
-    Description: Schema.Attribute.Text;
+    Description1Grey: Schema.Attribute.Text;
+    Description2Red: Schema.Attribute.String;
     Image: Schema.Attribute.Media<'images'>;
     Link: Schema.Attribute.String;
     LinkText: Schema.Attribute.String;

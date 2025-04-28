@@ -19,20 +19,6 @@ module.exports = (config, { strapi }) => {
       // Populate all nested components 
       if (!ctx.query.populate) {
         ctx.query.populate = {
-          Contact_Details_Cards: {
-            populate: {
-              Image: {
-                fields: ["url", "alternativeText", "caption", "name"]
-              },
-            }
-          },
-          VisitUs: {
-            populate: {
-              Image: {
-                fields: ["url", "alternativeText", "caption", "name"]
-              },
-            }
-          },
           CustomerService: {
             populate: {
               CategoryList: {
@@ -41,6 +27,35 @@ module.exports = (config, { strapi }) => {
                     fields: ["url", "alternativeText", "caption", "name"]
                   },
                   ListItem: true,
+                }
+              },
+            }
+          },
+          ConnectUs: {
+            populate: {
+              ReachUsCards: {
+                populate: {
+                  Image: {
+                    fields: ["url", "alternativeText", "caption", "name"]
+                  },
+                  QRImage: {
+                    fields: ["url", "alternativeText", "caption", "name"]
+                  },
+                }
+              }
+            }
+          },
+          ReachOutSection: {
+            populate: {
+              TabList: {
+                populate: {
+                  CardList: {
+                    populate: {
+                      Image: {
+                        fields: ["url", "alternativeText", "caption", "name"]
+                      },
+                    }
+                  }
                 }
               }
             }
@@ -61,6 +76,11 @@ module.exports = (config, { strapi }) => {
           Faqs: {
             populate: {
               FaqList: true,
+            }
+          },
+          SeoSection: {
+            populate: {
+              SchemaTag: true,
             }
           }
         };
