@@ -3,52 +3,12 @@ import styles from './ReachUsDigital.module.css';
 import { Col, Container, Row } from 'reactstrap';
 import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
 
-const ReachUsDigitalContact = ({ reachUsCard, AIcontactUs }) => {
+const ReachUsDigitalContact = ({ reachUsCard, title, subtitle }) => {
     return (
-        // <Container>
-        //     {/* Row for displaying reach us cards, with additional styling if AIcontactUs is true */}
-        //     {/* <Row className={`${styles.reach_cards_row} ${AIcontactUs && styles.ai_contactUs}`}> */}
-        //     <Row className={`${styles.reach_cards_row}`}>
-        //         {/* Loop through reachUsCard array and render each item */}
-        //         {reachUsCard?.map((item, index) => (
-        //             <Col className={"d-flex"} xs="12" lg="4" key={index}>
-        //                 <div className={styles.reach_cards}>
-        //                     <div className={styles.reach_us_text}>
-        //                         {/* Title with image inside */}
-        //                         <h3 className={styles.reach_us_title}>
-        //                             {item?.Title}
-        //                             <img 
-        //                                 className={styles.reach_us_img} 
-        //                                 src={process.env.NEXT_PUBLIC_APP_API + item?.Image?.url} 
-        //                                 alt="Reach Us" 
-        //                             />
-        //                         </h3>
-        //                         {/* Description with optional contact info */}
-        //                         <p className={styles.reach_us_desc}>
-        //                             {item?.Description}
-        //                             <span className={styles.reach_us_contact}>{item?.Description_Contact}</span>
-        //                         </p>
-        //                     </div>
-        //                     {/* Link section */}
-        //                     <div className={styles.reach_us_link}>
-        //                         <a href={item?.LinkUrl} className={styles.reach_us_linktext}>
-        //                             {item?.LinkText}
-        //                             <img 
-        //                                 className={styles.reach_us_arrow} 
-        //                                 src={'/images/reach-us/arrow-right.svg'} 
-        //                                 alt="Arrow"
-        //                             />
-        //                         </a>
-        //                     </div>
-        //                 </div>
-        //             </Col>
-        //         ))}
-        //     </Row>
-        // </Container>
         <Container>
             <TitleSubtitle
-                title="Reach us Digitally"
-                subtitle="Reach out through the channel that suits you best—we’re just a chat, call, or email away!"
+                title={title}
+                subtitle={subtitle}
             />
             <Row className={styles.reach_cards_row}>
                 {/* Card 1 */}
@@ -57,21 +17,20 @@ const ReachUsDigitalContact = ({ reachUsCard, AIcontactUs }) => {
                         <div className={styles.reach_cards}>
                             <div className={styles.reach_us_text}>
                                 <h3 className={styles.reach_us_title}>
-                                    Customer Support
+                                    {reachUsCard[0]?.Title}
                                     <img
                                         className={styles.reach_us_img}
-                                        src="/images/reach-us/support-icon.png"
-                                        alt="Support"
+                                        src={process.env.NEXT_PUBLIC_APP_API + reachUsCard[0]?.Image?.url}
+                                        alt={reachUsCard[0]?.Image?.alternativeText}
                                     />
                                 </h3>
                                 <p className={styles.reach_us_desc}>
-                                    Available 24*7 at
-                                    <span className={styles.reach_us_contact}>1800 102 2355</span>
+                                    {reachUsCard[0]?.Description}
                                 </p>
                             </div>
                             <div className={styles.reach_us_link}>
-                                <a href="#" className={styles.reach_us_linktext}>
-                                    <span>Call Us</span>
+                                <a href={reachUsCard[0]?.Link} className={styles.reach_us_linktext}>
+                                    <span>{reachUsCard[0]?.LinkText}</span>
                                     <img
                                         className={styles.reach_us_arrow}
                                         src="/images/reach-us/arrow-right.svg"
@@ -84,21 +43,20 @@ const ReachUsDigitalContact = ({ reachUsCard, AIcontactUs }) => {
                         <div className={styles.reach_cards}>
                             <div className={styles.reach_us_text}>
                                 <h3 className={styles.reach_us_title}>
-                                    Customer Portal
+                                    {reachUsCard[2]?.Title}
                                     <img
                                         className={styles.reach_us_img}
-                                        src="/images/reach-us/support-icon.png"
-                                        alt="Support"
+                                        src={process.env.NEXT_PUBLIC_APP_API + reachUsCard[2]?.Image?.url}
+                                        alt={reachUsCard[2]?.Image?.alternativeText}
                                     />
                                 </h3>
                                 <p className={styles.reach_us_desc}>
-                                    Access your policy anytime, anywhere.
-                                    <span className={styles.reach_us_contact}></span>
+                                    {reachUsCard[2]?.Description}
                                 </p>
                             </div>
                             <div className={styles.reach_us_link}>
-                                <a href="#" className={styles.reach_us_linktext}>
-                                    <span>Login</span>
+                                <a href={reachUsCard[2]?.Link} className={styles.reach_us_linktext}>
+                                    <span>{reachUsCard[2]?.LinkText}</span>
                                     <img
                                         className={styles.reach_us_arrow}
                                         src="/images/reach-us/arrow-right.svg"
@@ -117,21 +75,20 @@ const ReachUsDigitalContact = ({ reachUsCard, AIcontactUs }) => {
                         <div className={styles.reach_cards}>
                             <div className={styles.reach_us_text}>
                                 <h3 className={styles.reach_us_title}>
-                                    Drop Us an Email
+                                    {reachUsCard[1]?.Title}
                                     <img
                                         className={styles.reach_us_img}
-                                        src="/images/reach-us/support-icon.png"
-                                        alt="Support"
+                                        src={process.env.NEXT_PUBLIC_APP_API + reachUsCard[1]?.Image?.url}
+                                        alt={reachUsCard[1]?.Image?.alternativeText}
                                     />
                                 </h3>
                                 <p className={styles.reach_us_desc}>
-                                    Send your queries to:
-                                    <span className={styles.reach_us_contact}>care@futuregenerali.in</span>
+                                    {reachUsCard[1]?.Description}
                                 </p>
                             </div>
                             <div className={styles.reach_us_link}>
-                                <a href="#" className={styles.reach_us_linktext}>
-                                    <span>Email Us</span>
+                                <a href={reachUsCard[1]?.Link} className={styles.reach_us_linktext}>
+                                    <span>{reachUsCard[1]?.LinkText}</span>
                                     <img
                                         className={styles.reach_us_arrow}
                                         src="/images/reach-us/arrow-right.svg"
@@ -144,21 +101,20 @@ const ReachUsDigitalContact = ({ reachUsCard, AIcontactUs }) => {
                         <div className={styles.reach_cards}>
                             <div className={styles.reach_us_text}>
                                 <h3 className={styles.reach_us_title}>
-                                    Branch Locator
+                                    {reachUsCard[3]?.Title}
                                     <img
                                         className={styles.reach_us_img}
-                                        src="/images/reach-us/support-icon.png"
-                                        alt="Support"
+                                        src={process.env.NEXT_PUBLIC_APP_API + reachUsCard[3]?.Image?.url}
+                                        alt={reachUsCard[3]?.Image?.alternativeText}
                                     />
                                 </h3>
                                 <p className={styles.reach_us_desc}>
-                                    Find a branch near you easily.
-                                    <span className={styles.reach_us_contact}></span>
+                                    {reachUsCard[3]?.Description}
                                 </p>
                             </div>
                             <div className={styles.reach_us_link}>
-                                <a href="#" className={styles.reach_us_linktext}>
-                                    <span>Locate Now</span>
+                                <a href={reachUsCard[3]?.Link} className={styles.reach_us_linktext}>
+                                    <span>{reachUsCard[3]?.LinkText}</span>
                                     <img
                                         className={styles.reach_us_arrow}
                                         src="/images/reach-us/arrow-right.svg"
@@ -176,22 +132,24 @@ const ReachUsDigitalContact = ({ reachUsCard, AIcontactUs }) => {
                         <div className={styles.reach_cards}>
                             <div className={styles.reach_us_text}>
                                 <h3 className={styles.reach_us_title}>
-                                    WhatsApp Support
+                                    {reachUsCard[4]?.Title}
                                     <img
                                         className={styles.reach_us_img}
-                                        src="/images/reach-us/support-icon.png"
-                                        alt="Support"
+                                        src={process.env.NEXT_PUBLIC_APP_API + reachUsCard[4]?.Image?.url}
+                                        alt={reachUsCard[4]?.Image?.alternativeText}
                                     />
                                 </h3>
                                 <p className={styles.reach_us_desc}>
-                                    Scan this QR code or send ‘Hi’ on WhatsApp number
-                                    <span className={styles.reach_us_contact}> +91 7777777777</span>
+                                    {reachUsCard[4]?.Description}
                                 </p>
-                                <img className={styles.qr_code} src='/images/contact-us/qr.png' />
+                                <img className={styles.qr_code}
+                                    src={process.env.NEXT_PUBLIC_APP_API + reachUsCard[4]?.QRImage?.url}
+                                    alt={reachUsCard[4]?.QRImage?.alternativeText}
+                                />
                             </div>
                             <div className={styles.reach_us_link}>
-                                <a href="#" className={styles.reach_us_linktext}>
-                                    <span>Chat With Us</span>
+                                <a href={reachUsCard[4]?.Link} className={styles.reach_us_linktext}>
+                                    <span>{reachUsCard[4]?.LinkText}</span>
                                     <img
                                         className={styles.reach_us_arrow}
                                         src="/images/reach-us/arrow-right.svg"

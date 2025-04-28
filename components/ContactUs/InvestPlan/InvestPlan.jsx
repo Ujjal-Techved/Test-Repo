@@ -75,7 +75,6 @@ const InvestPlan = ({ investPlanData }) => {
 
                             <Formik
                                 initialValues={{
-                                    name: "",
                                     phone: ""
                                 }}
                                 validateOnBlur={false}

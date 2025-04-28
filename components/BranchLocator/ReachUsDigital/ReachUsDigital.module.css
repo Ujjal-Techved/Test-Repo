@@ -58,7 +58,7 @@
 .reach_cards{
     border: 1px solid var(--fgi-borderdarkgrey);
     border-radius: 4px;
-    padding: 24px;
+    padding: 16px 20px;
     margin-bottom: 32px;
     display: flex;
     width: 100%;
@@ -107,7 +107,7 @@
 
 .reach_us_img{
     margin-top: -44px;
-    margin-right: -16px;
+    margin-right: -10px;
 }
 
 
