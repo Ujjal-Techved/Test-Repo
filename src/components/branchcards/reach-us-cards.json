@@ -9,7 +9,7 @@
     "Title": {
       "type": "string"
     },
-    "Description1Grey": {
+    "Description": {
       "type": "text"
     },
     "Image": {
@@ -27,15 +27,11 @@
       "type": "string"
     },
     "QRImage": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
       "allowedTypes": [
         "images"
-      ]
-    },
-    "Description2Red": {
-      "type": "string"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

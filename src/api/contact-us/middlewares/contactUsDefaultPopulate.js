@@ -33,7 +33,7 @@ module.exports = (config, { strapi }) => {
           },
           ConnectUs: {
             populate: {
-              ReachUsCards: {
+              ConnectUsCards: {
                 populate: {
                   Image: {
                     fields: ["url", "alternativeText", "caption", "name"]
@@ -49,7 +49,7 @@ module.exports = (config, { strapi }) => {
             populate: {
               TabList: {
                 populate: {
-                  CardList: {
+                  ReachUsCards: {
                     populate: {
                       Image: {
                         fields: ["url", "alternativeText", "caption", "name"]

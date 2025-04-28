@@ -1,15 +1,16 @@
 {
   "collectionName": "components_contact_us_reach_out_sections",
   "info": {
-    "displayName": "ReachOutSection"
+    "displayName": "ReachOutSection",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Title": {
-      "type": "text"
+      "type": "string"
     },
-    "Description": {
-      "type": "text"
+    "SubTitle": {
+      "type": "string"
     },
     "TabList": {
       "displayName": "ReachTabList",

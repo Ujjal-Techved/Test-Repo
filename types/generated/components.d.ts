@@ -263,8 +263,7 @@ export interface BranchcardsReachUsCards extends Struct.ComponentSchema {
     displayName: 'ReachUsCards';
   };
   attributes: {
-    Description1Grey: Schema.Attribute.Text;
-    Description2Red: Schema.Attribute.String;
+    Description: Schema.Attribute.Text;
     Image: Schema.Attribute.Media<'images'>;
     Link: Schema.Attribute.String;
     LinkText: Schema.Attribute.String;
@@ -514,14 +513,15 @@ export interface ContactUsAppLink extends Struct.ComponentSchema {
 export interface ContactUsConnectSection extends Struct.ComponentSchema {
   collectionName: 'components_contact_us_connect_sections';
   info: {
+    description: '';
     displayName: 'ConnectSection';
   };
   attributes: {
-    Description: Schema.Attribute.Text;
-    ReachUsCards: Schema.Attribute.Component<
+    ConnectUsCards: Schema.Attribute.Component<
       'branchcards.reach-us-cards',
       true
     >;
+    Description: Schema.Attribute.Text;
     Title: Schema.Attribute.Text;
   };
 }
@@ -580,23 +580,40 @@ export interface ContactUsCustomerService extends Struct.ComponentSchema {
 export interface ContactUsReachOutSection extends Struct.ComponentSchema {
   collectionName: 'components_contact_us_reach_out_sections';
   info: {
+    description: '';
     displayName: 'ReachOutSection';
   };
   attributes: {
-    Description: Schema.Attribute.Text;
+    SubTitle: Schema.Attribute.String;
     TabList: Schema.Attribute.Component<'contact-us.reach-tab-list', true>;
-    Title: Schema.Attribute.Text;
+    Title: Schema.Attribute.String;
   };
 }
 
 export interface ContactUsReachTabList extends Struct.ComponentSchema {
   collectionName: 'components_contact_us_reach_tab_lists';
   info: {
+    description: '';
     displayName: 'ReachTabList';
   };
   attributes: {
-    CardList: Schema.Attribute.Component<'branchcards.reach-us-cards', true>;
     OptionName: Schema.Attribute.String;
+    ReachUsCards: Schema.Attribute.Component<'contact-us.reach-us-cards', true>;
+  };
+}
+
+export interface ContactUsReachUsCards extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_reach_us_cards';
+  info: {
+    displayName: 'ReachUsCards';
+  };
+  attributes: {
+    Description1Grey: Schema.Attribute.Text;
+    Description2Red: Schema.Attribute.String;
+    Image: Schema.Attribute.Media<'images'>;
+    LinkText: Schema.Attribute.String;
+    LinkUrl: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
   };
 }
 
@@ -907,6 +924,7 @@ declare module '@strapi/strapi' {
       'contact-us.customer-service': ContactUsCustomerService;
       'contact-us.reach-out-section': ContactUsReachOutSection;
       'contact-us.reach-tab-list': ContactUsReachTabList;
+      'contact-us.reach-us-cards': ContactUsReachUsCards;
       'home-page.call-back': HomePageCallBack;
       'home-page.card-list': HomePageCardList;
       'home-page.choose-goal': HomePageChooseGoal;
