@@ -1,42 +1,45 @@
 
-/* .best_stageoption_parent{
+.best_stageoption_parent{
     padding: 24px 0px 60px 0px;
-} */
+}
+
+.stageOption_centermode{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
 
 .stageOption_title{
-    font-size: 14px;
-    line-height: 18px;
-    font-family: 'Roboto-400';
+    font-size: 20px;
+    line-height: 28px;
+    font-family: 'Roboto-300';
     color: var(--fgi-black);
     text-align: center;
+    font-weight: 300;
 }
 
 .best_stageoption_section{
     padding: 13px;
-    width: 20%;
+    max-width: 286px;
 }
 
 .best_stageoption_card {
     display: flex !important;
     flex-direction: column;
-    border: 1px solid var(--fgi-borderlightgrey);
-    border-radius: 20px;
+    /* border: 1px solid var(--fgi-borderlightgrey); */
+    /* border-radius: 20px; */
     background: linear-gradient(to bottom, #ffffff, #ffecec);
     height: 176px;
     justify-content: flex-end;
     align-items: center;
-
+    box-shadow: 0px 10px 40px 0px #0000001A;
 }
 
-
-.best_stageoption_card .charct_img{
-    /* width: 160px; */
-    /* width: 100%; */
-}
 
 .best_stageoption_card .best_stageoption_main {
     background-color: #ffffff;
-    border-radius: 0px 0px 20px 20px;
+    /* border-radius: 0px 0px 20px 20px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,7 +74,7 @@
 }
 
 .best_stageoption_card:hover .best_stageoption_main {
-    /* min-height: 100px; */
+    min-height: 100px;
 }
 
 .protect_plan_linktext {
@@ -79,16 +82,15 @@
     display: flex;
     align-items: center;
     gap: 4px;
-    cursor: pointer;
 }
 
 .protect_plan_linktext span {
     font-size: 16px;
     line-height: 24px;
     font-family: 'Roboto-500';
-    color: var(--fgi-black);
+    color: var(--fgi-red);
     white-space: nowrap;
-    max-width: 190px;
+    max-width: 145px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -105,15 +107,29 @@
     background: -15px 99% / calc(100% + 30px) 80px no-repeat radial-gradient(#0000 70%, #FFFFFF 72%);
 }
 
+.best_stageoption_card .charct_img{
+    width: 190px;
+}
 
 @media screen and (max-width: 991.2px) and (min-width: 320px) {
 
-    .protect_plan_linktext span {
-        font-size: 11px;
+    .stageOption_centermode{
+        flex-wrap: wrap;
     }
 
-    .protect_plan_linktext img{
-        width: 10px;
+    .best_stageoption_section{
+        max-width: unset;
+        width: 50%;
+    }
+
+    .protect_plan_linktext span {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .stageOption_title{
+        font-size: 16px;
+        line-height: 24px;
     }
 
     .best_stageoption_card {
@@ -121,24 +137,20 @@
     }
 
     .best_stageoption_card .charct_img{
-        width: 90px !important;
-        width: 100%;
+        width: 150px;
     }
 
     .best_stageoption_card .best_stageoption_main::before {
         top: -28px;
     }
 
-    .best_stageoption_section {
-        width: 50%;
+    .best_stageoption_parent{
+        padding: 24px 0px 30px 0px;
     }
 
-    .best_stageoption_parent {
-        padding: 0px 0px 30px 0px;
-    }
-
-    .best_stageoption_section {
-        padding: 0px;
+    .protect_plan_linktext span{
+        max-width: 108px;
+        white-space:unset;
     }
 
 }

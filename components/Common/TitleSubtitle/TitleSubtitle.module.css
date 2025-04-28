@@ -33,9 +33,10 @@
 
 .titleContainer .subtitle {
     font-family: "Roboto-300";
+    font-weight: 300;
     font-size: 20px;
     line-height: 28px;
-    color: var(--fgi-black);
+    color: var(--text-grey2);
     font-weight: 300;
 }
 

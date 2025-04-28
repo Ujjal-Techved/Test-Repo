@@ -1,6 +1,6 @@
 .planSection {
     box-shadow: 0px 4px 40px 0px var(--fgi-faqShadow);
-    border-radius: 24px;
+    border-radius: 4px;
     overflow: hidden;
     margin-top: 8px;
 }
@@ -52,16 +52,26 @@
         display: none;
     }
     .dataRow {
-        text-align: center;
+        text-align: left;
         color: var(--text-grey2);
+        padding: 12px 16px;
+        font-size: 14px;
+        line-height: 20px;
     }
     .dataTitle {
-        justify-content: center;
+        justify-content:flex-start;
         font-family: "Roboto-700";
         text-align: left;
         margin-bottom: 8px;
     }
     .dataTitle > p{
-        max-width: 180px;
+        /* max-width: 180px; */
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .dataTitle>img {
+        margin-right: 12px;
+        width: 32px;
+        height: 32px;
     }
 }

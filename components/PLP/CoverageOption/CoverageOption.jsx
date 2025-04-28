@@ -108,9 +108,9 @@ const CoverageOption = ({ coveragetabs, CoverageBenefits, coverageplansData }) =
                 {/* Coverage Option Section */}
                 <div className={styles.CoverageOption_section}>
                     {/* Tabs Section */}
-                    <div className='common-tabs-wrapper'>
+                    <div className='common-tabs-wrapper plp-tabs-wrapper'>
                         {/* Render tabs for desktop view */}
-                        {!isMobile ? (
+                        {/* {!isMobile ? (
                             <Nav tabs>
                                 {coveragetabs.map(({ id, tabtitle }) => (
                                     <NavItem key={id} className={coverageactiveTab === tabtitle ? "active" : ""} onClick={() => {setCoverageActiveTab(tabtitle);setIsBenefitsVisible(false)}}>
@@ -119,7 +119,7 @@ const CoverageOption = ({ coveragetabs, CoverageBenefits, coverageplansData }) =
                                 ))}
                             </Nav>
                         ) : (
-                            // Render dropdown for mobile view
+
                             <Dropdown className='common-dropdown' isOpen={dropdownOpen} toggle={toggleDropdown}>
                                 <DropdownToggle caret>
                                     {coveragetabs.find(tab => tab.tabtitle === coverageactiveTab)?.tabtitle || "Select"}
@@ -132,7 +132,15 @@ const CoverageOption = ({ coveragetabs, CoverageBenefits, coverageplansData }) =
                                     ))}
                                 </DropdownMenu>
                             </Dropdown>
-                        )}
+                        )} */}
+
+                        <Nav tabs>
+                            {coveragetabs.map(({ id, tabtitle }) => (
+                                <NavItem key={id} className={coverageactiveTab === tabtitle ? "active" : ""} onClick={() => { setCoverageActiveTab(tabtitle); setIsBenefitsVisible(false) }}>
+                                    <NavLink>{tabtitle}</NavLink>
+                                </NavItem>
+                            ))}
+                        </Nav>
 
                         {/* Tab Content Section */}
                         <TabContent activeTab={"1"} className='pb-0'>
@@ -167,6 +175,7 @@ const CoverageOption = ({ coveragetabs, CoverageBenefits, coverageplansData }) =
                                                         </p>
                                                         <h4>{plan?.Title}</h4>
                                                         <h5>{plan?.Description}</h5>
+                                                        <p className={styles.Uin_number}>Product UIN: <span>133N090V03</span></p>
                                                     </div>
 
                                                     {/* Plan Benefits */}

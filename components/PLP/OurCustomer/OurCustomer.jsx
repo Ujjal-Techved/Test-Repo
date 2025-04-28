@@ -48,7 +48,7 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
         dots: false,
         infinite: false,
         speed: 500,
-        slidesToShow: 3.3,
+        slidesToShow: 3.14,
         slidesToScroll: 1,
         arrows: false,
         responsive: [
@@ -85,7 +85,7 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
 
     return (
         <div className='pd-t pd-b'>
-            <Container>
+            <Container fluid className={styles.plan_containerfluid + ' plan-container-fluid'}>
                 {/* Title and subtitle section */}
                 <TitleSubtitle
                     title="What Our Happy Customers Are Saying"
@@ -96,7 +96,7 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
                     {/* Tabs Section */}
                     <div className='common-tabs-wrapper'>
 
-                        {/* Tabs for desktop view */}
+                        {/* Tabs for desktop view
                         {!isMobile ? (
                             <Nav tabs>
                                 {teamMemberstabs.map(({ id, tabtitle }) => (
@@ -126,7 +126,19 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
                                     ))}
                                 </DropdownMenu>
                             </Dropdown>
-                        )}
+                        )} */}
+
+                        <Nav tabs>
+                            {teamMemberstabs.map(({ id, tabtitle }) => (
+                                <NavItem
+                                    key={id}
+                                    className={teamactiveTab === tabtitle ? "active" : ""}
+                                    onClick={() => setTeamActiveTab(tabtitle)}
+                                >
+                                    <NavLink>{tabtitle}</NavLink>
+                                </NavItem>
+                            ))}
+                        </Nav>
 
                         {/* Tab content section */}
                         <TabContent activeTab={"1"} className='py-0'>
@@ -135,10 +147,17 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
                                     {teamMemberData?.filter((member) =>
                                         member?.Category?.toLowerCase() === teamactiveTab?.toLowerCase()
                                     ).length > 0 ? (
-                                        <Slider {...sliderSettings}>
+                                        <Slider {...sliderSettings}
+                                            className={
+                                                teamMemberData?.filter((member) =>
+                                                    member?.Category?.toLowerCase() === teamactiveTab?.toLowerCase()
+                                                ).length === 1 ? 'single-slide' : ''
+                                            }
+                                        >
                                             {teamMemberData?.filter((member) =>
                                                 member?.Category?.toLowerCase() === teamactiveTab?.toLowerCase()
                                             ).map((eachmember, index) => (
+
                                                 <div key={index} className={styles.team_slider_parent}>
                                                     <div className={styles.team_slider}>
                                                         <img
@@ -167,7 +186,7 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
                                             ))}
                                         </Slider>
                                     ) : (
-                                        <div className={styles.no_reviews}>
+                                        <div className={styles.no_reviews + ' text-center pt-4'}>
                                             <p>No reviews available for this category.</p>
                                         </div>
                                     )}

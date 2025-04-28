@@ -72,7 +72,7 @@ const Whyinsurancematter = ({TermplanCardData}) => {
                     {isMobile && termplan.TermplanList.length > 4 && (
                       <div className={styles.show_more_btn}>
                         <a color="primary" onClick={() => setShowMore(!showMore)}>
-                          {showMore ? "See Less" : "Show More"}
+                          {showMore ? "See Less -" : "Show More +"}
                         </a>
                       </div>
                     )}

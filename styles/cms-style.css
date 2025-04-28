@@ -1,9 +1,9 @@
 
 .cms-data {
     font-size: 14px;
-    line-height: 20px;
+    line-height: 18px;
     font-family: 'Roboto-400';
-    color: var(--text-grey2);
+    color: var(--fgi-black);
 }
 
 .cms-data p,

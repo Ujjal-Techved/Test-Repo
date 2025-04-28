@@ -44,30 +44,32 @@ const ChooseGoal = ({ choosegoalData }) => {
                     subtitle={Description}
                 />
                 {/* Wrapper for the card list */}
-                <div className='best-stageoption-wrapper no-slickinit'>
-                    {/* Map through the CardList and render each card */}
-                    {CardList?.map((option) => (
-                        <div key={option.id} className={styles.best_stageoption_section}>
-                            <div className={styles.best_stageoption_card}>
-                                {/* Image for the card */}
-                                <img 
-                                    className={styles.charct_img} 
-                                    src={process.env.NEXT_PUBLIC_APP_API + option?.Image?.url} 
-                                    alt={option?.Image?.alternativeText}  
-                                />
-                                {/* Main content of the card */}
-                                <div className={styles.best_stageoption_main}>
-                                    {/* Link with text and arrow icon */}
-                                    <a href={option.linkhref} className={styles.protect_plan_linktext}>
-                                        <span>{option?.Text}</span>
-                                        <img src="/images/reach-us/arrow-right.svg" alt="arrow" />
-                                    </a>
-                                    {/* Description text */}
-                                    <p>{option?.Description}</p>
+                <div className='best-stageoption-wrapper'>
+                    <div className={styles.stageOption_centermode}>
+                        {/* Map through the CardList and render each card */}
+                        {CardList?.map((option) => (
+                            <div key={option.id} className={styles.best_stageoption_section}>
+                                <div className={styles.best_stageoption_card}>
+                                    {/* Image for the card */}
+                                    <img
+                                        className={styles.charct_img}
+                                        src={process.env.NEXT_PUBLIC_APP_API + option?.Image?.url}
+                                        alt={option?.Image?.alternativeText}
+                                    />
+                                    {/* Main content of the card */}
+                                    <div className={styles.best_stageoption_main}>
+                                        {/* Link with text and arrow icon */}
+                                        <a href={option.linkhref} className={styles.protect_plan_linktext}>
+                                            <span>{option?.Text}</span>
+                                            <img src="/images/reach-us/arrow-right.svg" alt="arrow" />
+                                        </a>
+                                        {/* Description text */}
+                                        <p>{option?.Description}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </Container>
         </div>
