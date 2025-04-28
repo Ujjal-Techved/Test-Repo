@@ -231,7 +231,7 @@ export async function getServerSideProps(context) {
 
         // Fetch the filtered branch list based on state and city
         const filterBranchList = await apiClient(
-            `/api/branch-lists?filters[State][$eqi]=${normalizedState}&filters[City][$eqi]=${normalizedCity}&filters[Pincode][$eqi]=${pincode}`
+            `/api/branch-lists?filters[State][$eqi]=${normalizedState}&filters[City][$eqi]=${normalizedCity}` + (pincode ? `&filters[Pincode][$eqi]=${pincode}` : "")
         );
 
         // Create dropdown options for cities and states
