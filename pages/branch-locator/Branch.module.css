@@ -55,6 +55,13 @@
     padding-top: 63px;
 }
 
+.branch_background {
+    position: relative;
+    background: url('/images/faqs/bg-left.svg'), url('/images/faqs/bg-right.svg');
+    background-repeat: no-repeat;
+    background-position: left 512px, right 55px, center;
+}
+
 @media screen and (max-width: 1024px) and (min-width: 767px) {
     .branch_img {
         width: 600px;
@@ -102,5 +109,9 @@
 
     .filterComponent .row .colbtn {
         width: 100%;
+    }
+
+    .branch_background {
+        background: none;
     }
 }

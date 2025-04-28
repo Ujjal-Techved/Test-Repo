@@ -34,10 +34,10 @@ const BranchLocator = (props) => {
         const stateValue = selectedState?.value?.toLowerCase().replace(/\s+/g, "-");
         const pincodeValue = selectedPincode?.value;
         // Redirect to the branch locator page for the selected city and state
-        if(pincodeValue){
+        if (pincodeValue) {
             window.location.href = `/branch-locator/${stateValue}/${cityValue}/${pincodeValue}`;
         }
-        else{
+        else {
             window.location.href = `/branch-locator/${stateValue}/${cityValue}`;
         }
 
@@ -74,124 +74,126 @@ const BranchLocator = (props) => {
                 )}
             </Head>
             <LandingLayout>
-                <Container>
-                    {/* Breadcrumb navigation */}
-                    <Breadcrumbs values={props?.breadcrumbs} />
+                <div className={styles.branch_background}>
+                    <Container>
+                        {/* Breadcrumb navigation */}
+                        <Breadcrumbs values={props?.breadcrumbs} />
 
-                    <TitleSubtitle
-                        title={props?.pageData?.Title}
-                        subtitle={props?.pageData?.SubTitle}
-                        extraClass="pageTitle"
-                    />
+                        <TitleSubtitle
+                            title={props?.pageData?.Title}
+                            subtitle={props?.pageData?.SubTitle}
+                            extraClass="pageTitle"
+                        />
 
-                    {/* Branch search filter section */}
-                    <div className={`${styles.listContainer} ${props.city && props.state ? styles.active : ""}`}>
-                        <div className={styles.filterComponent}>
-                            <Row className={styles.row}>
-                                <div className={styles.col + ' dropdown-arrow'}>
-                                    <label className='common-label'>Select City</label>
-                                    <Select
-                                        options={props.cityList}
-                                        value={selectedCity}
-                                        onChange={(option) => {
-                                            setSelectedCity(option);  // Update selected city
-                                            setSelectedState({ value: option.state, label: option.state }); // Automatically set state
-                                            setSelectedPincode("");
-                                        }}
-                                        onInputChange={(inputValue, { action }) => {
-                                            if (action === "input-change") {
-                                                // Allow only alphabetic characters and spaces, with a max length of 50
-                                                const sanitizedInput = inputValue.replace(/[^a-zA-Z\s]/g, "").slice(0, 50);
-                                                return sanitizedInput;
-                                            }
-                                        }}
-                                        placeholder="Select Your City"
-                                        className="react-select-container"
-                                        classNamePrefix="react-select"
-                                        components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Remove arrow and separator
-                                    />
-                                </div>
-                                <div className={styles.col + ' dropdown-arrow'}>
-                                    <label className='common-label'>Select State</label>
-                                    <Select
-                                        options={props.stateList}
-                                        value={selectedState}
-                                        onChange={(option) => { setSelectedState(option); }}
-                                        // onInputChange={(inputValue, { action }) => {
-                                        //     if (action === "input-change") {
-                                        //         // Allow only alphabetic characters and spaces, with a max length of 50
-                                        //         const sanitizedInput = inputValue.replace(/[^a-zA-Z\s]/g, "").slice(0, 50);
-                                        //         return sanitizedInput;
-                                        //     }
-                                        // }}
-                                        placeholder="Select Your State"
-                                        className="react-select-container"
-                                        classNamePrefix="react-select"
-                                        isSearchable={false}
-                                        menuIsOpen={false}
-                                        components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
-                                    />
-                                </div>
-                                <div className={styles.col}>
-                                    <label className='common-label'>Enter Pin Code</label>
-                                    <Select
-                                        options={props.pincodeList}
-                                        value={selectedPincode}
-                                        onChange={(option) => {
-                                            setSelectedPincode(option);
-                                            setSelectedCity({ value: option.city, label: option.city });  // Update selected city
-                                            setSelectedState({ value: option.state, label: option.state });
-                                        }}
-                                        onInputChange={(inputValue, { action }) => {
-                                            if (action === "input-change") {
-                                                // Allow only alphabetic characters and spaces, with a max length of 50
-                                                const sanitizedInput = inputValue.replace(/[^0-9]/g, "").slice(0, 6);
-                                                return sanitizedInput;
-                                            }
-                                        }}
-                                        placeholder="Enter Valid Pin Code"
-                                        className="react-select-container"
-                                        classNamePrefix="react-select"
-                                        components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
-                                    />
-                                </div>
-                                <div className={styles.colbtn}>
-                                    <button className="redBtn w-100" onClick={handleSubmit}
-                                        disabled={!selectedCity?.value && !selectedPincode?.value}>
-                                        Search
-                                    </button>
-                                </div>
-                            </Row>
+                        {/* Branch search filter section */}
+                        <div className={`${styles.listContainer} ${props.city && props.state ? styles.active : ""}`}>
+                            <div className={styles.filterComponent}>
+                                <Row className={styles.row}>
+                                    <div className={styles.col + ' dropdown-arrow'}>
+                                        <label className='common-label'>Select City</label>
+                                        <Select
+                                            options={props.cityList}
+                                            value={selectedCity}
+                                            onChange={(option) => {
+                                                setSelectedCity(option);  // Update selected city
+                                                setSelectedState({ value: option.state, label: option.state }); // Automatically set state
+                                                setSelectedPincode("");
+                                            }}
+                                            onInputChange={(inputValue, { action }) => {
+                                                if (action === "input-change") {
+                                                    // Allow only alphabetic characters and spaces, with a max length of 50
+                                                    const sanitizedInput = inputValue.replace(/[^a-zA-Z\s]/g, "").slice(0, 50);
+                                                    return sanitizedInput;
+                                                }
+                                            }}
+                                            placeholder="Select Your City"
+                                            className="react-select-container"
+                                            classNamePrefix="react-select"
+                                            components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Remove arrow and separator
+                                        />
+                                    </div>
+                                    <div className={styles.col + ' dropdown-arrow'}>
+                                        <label className='common-label'>Select State</label>
+                                        <Select
+                                            options={props.stateList}
+                                            value={selectedState}
+                                            onChange={(option) => { setSelectedState(option); }}
+                                            // onInputChange={(inputValue, { action }) => {
+                                            //     if (action === "input-change") {
+                                            //         // Allow only alphabetic characters and spaces, with a max length of 50
+                                            //         const sanitizedInput = inputValue.replace(/[^a-zA-Z\s]/g, "").slice(0, 50);
+                                            //         return sanitizedInput;
+                                            //     }
+                                            // }}
+                                            placeholder="Select Your State"
+                                            className="react-select-container"
+                                            classNamePrefix="react-select"
+                                            isSearchable={false}
+                                            menuIsOpen={false}
+                                            components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
+                                        />
+                                    </div>
+                                    <div className={styles.col}>
+                                        <label className='common-label'>Enter Pin Code</label>
+                                        <Select
+                                            options={props.pincodeList}
+                                            value={selectedPincode}
+                                            onChange={(option) => {
+                                                setSelectedPincode(option);
+                                                setSelectedCity({ value: option.city, label: option.city });  // Update selected city
+                                                setSelectedState({ value: option.state, label: option.state });
+                                            }}
+                                            onInputChange={(inputValue, { action }) => {
+                                                if (action === "input-change") {
+                                                    // Allow only alphabetic characters and spaces, with a max length of 50
+                                                    const sanitizedInput = inputValue.replace(/[^0-9]/g, "").slice(0, 6);
+                                                    return sanitizedInput;
+                                                }
+                                            }}
+                                            placeholder="Enter Valid Pin Code"
+                                            className="react-select-container"
+                                            classNamePrefix="react-select"
+                                            components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
+                                        />
+                                    </div>
+                                    <div className={styles.colbtn}>
+                                        <button className="redBtn w-100" onClick={handleSubmit}
+                                            disabled={!selectedCity?.value && !selectedPincode?.value}>
+                                            Search
+                                        </button>
+                                    </div>
+                                </Row>
+                            </div>
+
+                            {/* Conditionally render the Branch List or an image if no city/state */}
+                            {
+                                props.city && props.state ? (
+                                    <BranchList list={props.branchList} />  // Display the list of branches
+                                ) : (
+                                    <div className='d-flex align-items-center justify-content-center'>
+                                        <img className={styles.branch_img} src='/images/branch-locator/branch.webp' alt='branch' />
+                                    </div>
+                                )
+                            }
                         </div>
 
-                        {/* Conditionally render the Branch List or an image if no city/state */}
-                        {
-                            props.city && props.state ? (
-                                <BranchList list={props.branchList} />  // Display the list of branches
-                            ) : (
-                                <div className='d-flex align-items-center justify-content-center'>
-                                    <img className={styles.branch_img} src='/images/branch-locator/branch.webp' alt='branch' />
-                                </div>
-                            )
-                        }
-                    </div>
+                        {/* Display additional contact options */}
+                        {props?.pageData?.InfoCards ? (<InfoCard infoCardDetails={props?.pageData?.InfoCards} />) : null}
 
-                    {/* Display additional contact options */}
-                    {props?.pageData?.InfoCards ? (<InfoCard infoCardDetails={props?.pageData?.InfoCards} />) : null}
+                        {/* Digital Contact Section */}
+                        {props?.pageData?.ReachUsCards ? (
+                            <ReachUsDigitalContact
+                                title={props?.pageData?.ReachUsTitle}
+                                subtitle={props?.pageData?.ReachUsSubTitle}
+                                reachUsCard={props?.pageData?.ReachUsCards}
+                            />
+                        ) : null}
 
-                    {/* Digital Contact Section */}
-                    {props?.pageData?.ReachUsCards ? (
-                        <ReachUsDigitalContact
-                            title={props?.pageData?.ReachUsTitle}
-                            subtitle={props?.pageData?.ReachUsSubTitle}
-                            reachUsCard={props?.pageData?.ReachUsCards}
-                        />
-                    ) : null}
+                        {/* Invest Plan section */}
+                        {props?.pageData?.BottomBanner ? (<InvestPlan investPlanData={props?.pageData?.BottomBanner} />) : null}
 
-                    {/* Invest Plan section */}
-                    {props?.pageData?.BottomBanner ? (<InvestPlan investPlanData={props?.pageData?.BottomBanner} />) : null}
-
-                </Container>
+                    </Container>
+                </div>
                 <CommonPopup isOpen={locationPopup} toggle={toggleLocationPopup}>
                     <LocationPopup toggle={toggleLocationPopup} pageUrl="/branch-locator/" />
                 </CommonPopup>
