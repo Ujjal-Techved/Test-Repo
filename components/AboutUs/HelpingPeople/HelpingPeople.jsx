@@ -1,24 +1,39 @@
-import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle'
-import React, { useEffect, useState } from 'react'
-import { Col, Container, Row } from 'reactstrap'
-import styles from './HelpingPeople.module.css'
+import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
+import React, { useEffect, useState } from 'react';
+import { Col, Container, Row } from 'reactstrap';
+import styles from './HelpingPeople.module.css';
 
-const HelpingPeople = () => {
-
+const HelpingPeople = ({ helpingPeopleData }) => {
     const [isMobile, setIsMobile] = useState(false);
 
+    // Return nothing if data is not provided to avoid rendering errors
+    if (!helpingPeopleData) {
+        return null;
+    }
+
+    // Destructure the incoming API response for cleaner access
+    const {
+        Title,
+        Description,
+        CornerImage,
+        Image1,
+        Image2,
+        Image3,
+        FeatureList
+    } = helpingPeopleData?.HelpingPeople;
+
     useEffect(() => {
+        // Set `isMobile` based on current screen size
         const handleResize = () => {
-            if (window.innerWidth < 992) {
-                setIsMobile(true);
-            } else {
-                setIsMobile(false);
-            }
+            setIsMobile(window.innerWidth < 992);
         };
 
+        // Initial check
         handleResize();
+        // Attach listener to update on window resize
         window.addEventListener("resize", handleResize);
 
+        // Cleanup listener on component unmount
         return () => {
             window.removeEventListener("resize", handleResize);
         };
@@ -31,57 +46,55 @@ const HelpingPeople = () => {
                     <Row>
                         <Col lg="6" xs="12">
                             <div className={styles.helping_section}>
+                                {/* Section title with corner image */}
                                 <div className={styles.helping_title}>
-                                    {!isMobile ? (
-                                        <img src='/images/about-us/human-safety.png' alt='human-safety' />
-                                    ) : (
-                                        <img src='/images/about-us/human-safety-mb.png' alt='human-safety' />
-                                    )}
+                                    <img
+                                        src={process.env.NEXT_PUBLIC_APP_API + CornerImage?.url}
+                                        alt={CornerImage?.alternativeText}
+                                    />
+                                    <h2>{Title}</h2>
+                                </div>
 
-                                    <h2>A movement of people helping people</h2>
-                                </div>
-                                <p className={styles.helping_description}>When people come together, they carry the power to create meaningful change.We’re building a global movement that brings people and organizations together to support those who need it most. By connecting hearts and efforts across Europe, Asia, and South America, we aim to unlock the potential of individuals and communities facing vulnerability. We welcome collaboration with those who share our commitment to creating equal opportunities and making a lasting, positive impact on society.</p>
-                                <div className={styles.helping_contribute}>
-                                    <img src='/images/about-us/families.png' alt='families' />
-                                    <div className={styles.helping_subtitle}>
-                                        <h5>For Families</h5>
-                                        <p>We aim to support parents during the most important early years of their child’s life.</p>
+                                {/* Description paragraph */}
+                                <p className={styles.helping_description}>{Description}</p>
+
+                                {/* Feature list items (assumes 3 items) */}
+                                {FeatureList?.slice(0, 3).map((item, index) => (
+                                    <div className={styles.helping_contribute} key={index}>
+                                        <img
+                                            src={process.env.NEXT_PUBLIC_APP_API + item?.Image?.url}
+                                            alt={item?.Image?.alternativeText}
+                                        />
+                                        <div className={styles.helping_subtitle}>
+                                            <h5>{item?.Title}</h5>
+                                            <p>{item?.Description}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className={styles.helping_contribute}>
-                                    <img src='/images/about-us/families.png' alt='families' />
-                                    <div className={styles.helping_subtitle}>
-                                        <h5>Contributing to Early Childhood Development (ECD)</h5>
-                                        <p>Through THSN for Families, we offer parenting support and resources that help children grow and families thrive.</p>
-                                    </div>
-                                </div>
-                                <div className={styles.helping_contribute}>
-                                    <img src='/images/about-us/families.png' alt='families' />
-                                    <div className={styles.helping_subtitle}>
-                                        <h5>For Refugees</h5>
-                                        <p>We help refugees launch businesses and rebuild their lives in supportive new communities.</p>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         </Col>
+
                         <Col lg="6" xs="12">
                             <div className={styles.all_families}>
-                                {!isMobile ? (
-                                    <img src='/images/about-us/all-families.png' alt='all-families' />
-                                ) : (
-                                    <img src='/images/about-us/all-families-mb.png' alt='all-families' />
-                                )}
-
+                                {/* Supporting right-side image */}
+                                <img
+                                    src={process.env.NEXT_PUBLIC_APP_API + Image1?.url}
+                                    alt={Image1?.alternativeText}
+                                />
                             </div>
                         </Col>
                     </Row>
+
+                    {/* CTA Link to Learn More */}
                     <div className={styles.learn_more_link}>
-                        <a href="/life-insurance-made-simple/life-insurance" className="whiteBtn redborder">Learn More</a>
+                        <a href="/life-insurance-made-simple/life-insurance" className="whiteBtn redborder">
+                            Learn More
+                        </a>
                     </div>
                 </div>
             </Container>
         </div>
-    )
-}
+    );
+};
 
-export default HelpingPeople
+export default HelpingPeople;

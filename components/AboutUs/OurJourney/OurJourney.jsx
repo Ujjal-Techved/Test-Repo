@@ -4,37 +4,36 @@ import { Col, Container, Row } from 'reactstrap';
 import styles from './OurJourney.module.css';
 
 const OurJourney = ({ insuranceData }) => {
-
-    // Prevent rendering if `insuranceData` is missing
+    // Return null if data for 'OurJourney' is not available
     if (!insuranceData?.OurJourney) {
         return null;
     }
 
-    // Destructure API response data for cleaner code
-    const { Title, Description, FeatureList } = insuranceData?.OurJourney;
+    // Destructure necessary data from props for easier use
+    const { Title, Description, JourneyCards } = insuranceData?.OurJourney;
 
     return (
         <div className={styles.OurJourney_wrapper + ' pd-t pd-b'}>
             <Container>
-                {/* Title and subtitle section */}
+                {/* Section title and description */}
                 <TitleSubtitle
                     title={Title}
                     subtitle={Description}
                 />
 
-                {/* Display features in a responsive grid layout */}
+                {/* Journey cards displayed in a responsive grid */}
                 <Row className={styles.life_insure_row}>
-                    {FeatureList?.map((item, index) => (
+                    {JourneyCards?.map((item, index) => (
                         <Col
                             key={index}
-                            lg="3"  // Large screen: 4 columns (25% width each)
-                            xs="6"  // Small screen: 2 columns (50% width each)
+                            lg="3"  // 4 cards per row on large screens
+                            xs="6"  // 2 cards per row on extra small screens
                             className={styles.life_insure_col}
                         >
-                            {/* Feature card */}
+                            {/* Individual journey card */}
                             <div className={styles.life_insure_Card}>
                                 <div className={styles.life_insure_counts}>
-                                    {/* Display feature image */}
+                                    {/* Card image, if available */}
                                     {item?.Image?.url && (
                                         <img
                                             src={process.env.NEXT_PUBLIC_APP_API + item.Image.url}
@@ -42,12 +41,14 @@ const OurJourney = ({ insuranceData }) => {
                                         />
                                     )}
 
-                                    {/* Display feature title */}
+                                    {/* Card title */}
                                     <span>{item?.Title}</span>
 
-                                    {/* Display feature description */}
+                                    {/* Card description */}
                                     <p>{item?.Description}</p>
                                 </div>
+
+                                {/* Static financial year section - can be made dynamic if needed */}
                                 <div className={styles.life_insure_fy}>
                                     <p>FY 21-22 <span>1.2 Mn+</span></p>
                                     <p>FY 21-22 <span>1.2 Mn+</span></p>
@@ -59,6 +60,6 @@ const OurJourney = ({ insuranceData }) => {
             </Container>
         </div>
     );
-}
+};
 
 export default OurJourney;
