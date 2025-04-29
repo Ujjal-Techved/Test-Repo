@@ -21,7 +21,6 @@ const ContactUs = (props) => {
     { name: "Contact Us", url: "/contact-us", active: true },
   ];
 
-  console.log(props.pageData)
 
   return (
     <LandingLayout>
@@ -39,16 +38,15 @@ const ContactUs = (props) => {
         </Container>
 
         {/* Customer Service Section */}
-        <CustomerService csData={props?.pageData?.CustomerService} />
+        <CustomerService csData={props?.pageData} />
 
         {/* Digital Contact Section */}
-        <ReachUsDigitalContact reachUsCard={props?.pageData?.Contact_Details_Cards} AIcontactUs />
+        <ReachUsDigitalContact  title={props?.pageData?.ConnectUs?.Title}
+                            subtitle={props?.pageData?.ConnectUs?.Description}
+                            reachUsCard={props?.pageData?.ConnectUs?.ConnectUsCards} AIcontactUs />
 
         {/* Reach Out Section */}
-        <ReachOutcenter />
-
-        {/* Visit Us Section */}
-        {/* <VisitUs visitUsCard={props?.pageData?.VisitUs} /> */}
+        <ReachOutcenter reactOutData={props?.pageData?.ReachOutSection} />
 
         {/* Investment Plan Section */}
         <InvestPlan investPlanData={props?.pageData?.AppLink} />
@@ -58,7 +56,7 @@ const ContactUs = (props) => {
 
         {/* IRDA (Insurance Regulatory and Development Authority) Section */}
         <IrdaSection />
-        
+
       </div>
     </LandingLayout>
   );
@@ -69,7 +67,6 @@ export async function getServerSideProps(context) {
   try {
     // Fetch Contact Us page data from API based on Page URL filter
     const contactUsData = await apiClient('/api/contact-uses?filters[PageUrl][$eq]=/contact-us');
-
     return {
       props: {
         pageData: contactUsData?.data[0], // Passing API data to props
