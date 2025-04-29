@@ -1,7 +1,8 @@
 {
   "collectionName": "components_about_us_partners_cards",
   "info": {
-    "displayName": "PartnersCard"
+    "displayName": "PartnersCard",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,13 +10,17 @@
       "type": "text"
     },
     "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "LinkUrl": {
+      "type": "string"
+    },
+    "Title": {
       "type": "string"
     }
   }

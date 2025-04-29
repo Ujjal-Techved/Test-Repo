@@ -69,26 +69,25 @@
       "repeatable": false,
       "component": "about-us.awards"
     },
-    "Milestone": {
-      "displayName": "Milestone",
-      "type": "component",
-      "repeatable": false,
-      "component": "about-us.milestone"
-    },
     "MediaCenter": {
       "displayName": "MediaCenter",
       "type": "component",
       "repeatable": false,
       "component": "about-us.media-center"
     },
-    "CorporateSocial": {
-      "displayName": "CorporateSocial",
-      "type": "component",
-      "repeatable": false,
-      "component": "about-us.corporate-social"
-    },
     "SecondaryDescription": {
       "type": "text"
+    },
+    "HelpingPeople": {
+      "displayName": "HelpingPeople",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-us.helping-people"
+    },
+    "SeoSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.seo-section"
     }
   }
 }

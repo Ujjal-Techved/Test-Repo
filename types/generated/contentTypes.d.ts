@@ -382,13 +382,10 @@ export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Awards: Schema.Attribute.Component<'about-us.awards', false>;
-    CorporateSocial: Schema.Attribute.Component<
-      'about-us.corporate-social',
-      false
-    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    HelpingPeople: Schema.Attribute.Component<'about-us.helping-people', false>;
     Image: Schema.Attribute.Media<'images'>;
     InfoStrip: Schema.Attribute.Component<'about-us.info-strip', false>;
     LeadersSection: Schema.Attribute.Component<
@@ -402,7 +399,6 @@ export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     MediaCenter: Schema.Attribute.Component<'about-us.media-center', false>;
-    Milestone: Schema.Attribute.Component<'about-us.milestone', false>;
     OurJourney: Schema.Attribute.Component<'home-page.life-insurance', false>;
     PageDesc: Schema.Attribute.String;
     PageTitle: Schema.Attribute.String;
@@ -412,6 +408,7 @@ export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     Reports: Schema.Attribute.Component<'about-us.reports', false>;
     SecondaryDescription: Schema.Attribute.Text;
+    SeoSection: Schema.Attribute.Component<'common.seo-section', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

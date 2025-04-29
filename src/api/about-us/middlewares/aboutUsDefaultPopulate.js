@@ -32,34 +32,28 @@ module.exports = (config, { strapi }) => {
           },
           OurJourney: {
             populate: {
-              FeatureList: {
+              JourneyCards: {
                 populate: {
                   Image: {
                     fields: ["url", "alternativeText", "caption", "name"]
                   },
+                  YearList: true,
                 }
               }
             }
           },
           Partners: {
             populate: {
-              Image: {
+              CenterImage: {
                 fields: ["url", "alternativeText", "caption", "name"]
               },
-              PartnerCard1: {
+              PartnerCards: {
                 populate: {
                   Image: {
                     fields: ["url", "alternativeText", "caption", "name"]
                   },
                 }
-              },
-              PartnersCard2: {
-                populate: {
-                  Image: {
-                    fields: ["url", "alternativeText", "caption", "name"]
-                  },
-                }
-              },
+              }
             }
           },
           Principles: {
@@ -110,17 +104,6 @@ module.exports = (config, { strapi }) => {
               }
             }
           },
-          Milestone: {
-            populate: {
-              MilestoneList: {
-                populate: {
-                  Image: {
-                    fields: ["url", "alternativeText", "caption", "name"]
-                  },
-                }
-              }
-            }
-          },
           MediaCenter: {
             populate: {
               MediaCard: {
@@ -132,15 +115,32 @@ module.exports = (config, { strapi }) => {
               }
             }
           },
-          CorporateSocial: {
+          HelpingPeople: {
             populate: {
-              CorporateSocialCards: {
+              CornerImage: {
+                fields: ["url", "alternativeText", "caption", "name"]
+              },
+              Image1: {
+                fields: ["url", "alternativeText", "caption", "name"]
+              },
+              Image2: {
+                fields: ["url", "alternativeText", "caption", "name"]
+              },
+              Image3: {
+                fields: ["url", "alternativeText", "caption", "name"]
+              },
+              FeatureList: {
                 populate: {
                   Image: {
                     fields: ["url", "alternativeText", "caption", "name"]
                   },
                 }
               }
+            }
+          },
+          SeoSection: {
+            populate: {
+              SchemaTag: true,
             }
           },
         };

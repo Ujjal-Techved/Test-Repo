@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_about_us_helping_people",
+  "info": {
+    "displayName": "HelpingPeople"
+  },
+  "options": {},
+  "attributes": {
+    "CornerImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Title": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Image1": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Image2": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Image3": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "FeatureList": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home-page.feature-list"
+    },
+    "KnowMoreLink": {
+      "type": "text"
+    }
+  }
+}

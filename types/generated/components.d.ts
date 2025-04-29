@@ -55,6 +55,23 @@ export interface AboutUsCorporateSocialCards extends Struct.ComponentSchema {
   };
 }
 
+export interface AboutUsHelpingPeople extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_helping_people';
+  info: {
+    displayName: 'HelpingPeople';
+  };
+  attributes: {
+    CornerImage: Schema.Attribute.Media<'images'>;
+    Description: Schema.Attribute.Text;
+    FeatureList: Schema.Attribute.Component<'home-page.feature-list', true>;
+    Image1: Schema.Attribute.Media<'images'>;
+    Image2: Schema.Attribute.Media<'images'>;
+    Image3: Schema.Attribute.Media<'images'>;
+    KnowMoreLink: Schema.Attribute.Text;
+    Title: Schema.Attribute.Text;
+  };
+}
+
 export interface AboutUsInfoStrip extends Struct.ComponentSchema {
   collectionName: 'components_about_us_info_strips';
   info: {
@@ -64,6 +81,19 @@ export interface AboutUsInfoStrip extends Struct.ComponentSchema {
   attributes: {
     Description: Schema.Attribute.Text;
     Image: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface AboutUsJouneyCards extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_jouney_cards';
+  info: {
+    displayName: 'JouneyCards';
+  };
+  attributes: {
+    Image: Schema.Attribute.Media<'images'>;
+    SubTitle: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
+    YearList: Schema.Attribute.Component<'about-us.year-list', true>;
   };
 }
 
@@ -153,10 +183,9 @@ export interface AboutUsPartners extends Struct.ComponentSchema {
     displayName: 'Partners';
   };
   attributes: {
+    CenterImage: Schema.Attribute.Media<'images'>;
     Description: Schema.Attribute.Text;
-    Image: Schema.Attribute.Media<'images'>;
-    PartnerCard1: Schema.Attribute.Component<'about-us.partners-card', false>;
-    PartnersCard2: Schema.Attribute.Component<'about-us.partners-card', false>;
+    PartnerCards: Schema.Attribute.Component<'about-us.partners-card', true>;
     Title: Schema.Attribute.String;
   };
 }
@@ -164,24 +193,27 @@ export interface AboutUsPartners extends Struct.ComponentSchema {
 export interface AboutUsPartnersCard extends Struct.ComponentSchema {
   collectionName: 'components_about_us_partners_cards';
   info: {
+    description: '';
     displayName: 'PartnersCard';
   };
   attributes: {
     Description: Schema.Attribute.Text;
     Image: Schema.Attribute.Media<'images'>;
     LinkUrl: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
   };
 }
 
 export interface AboutUsPrincipleCard extends Struct.ComponentSchema {
   collectionName: 'components_about_us_principle_cards';
   info: {
+    description: '';
     displayName: 'PrincipleCard';
   };
   attributes: {
     Category: Schema.Attribute.String;
     PrincipleList: Schema.Attribute.Component<'about-us.principle-list', true>;
-    Title: Schema.Attribute.String;
+    Title: Schema.Attribute.Text;
   };
 }
 
@@ -230,6 +262,17 @@ export interface AboutUsReports extends Struct.ComponentSchema {
     Description: Schema.Attribute.Text;
     ReportItems: Schema.Attribute.Component<'about-us.report-items', true>;
     Title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsYearList extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_year_lists';
+  info: {
+    displayName: 'YearList';
+  };
+  attributes: {
+    BoldText: Schema.Attribute.String;
+    Text: Schema.Attribute.String;
   };
 }
 
@@ -398,6 +441,7 @@ export interface CareersValuesSection extends Struct.ComponentSchema {
 export interface CommonFaqItems extends Struct.ComponentSchema {
   collectionName: 'components_common_faq_items';
   info: {
+    description: '';
     displayName: 'FAQ_Items';
   };
   attributes: {
@@ -707,7 +751,7 @@ export interface HomePageLifeInsurance extends Struct.ComponentSchema {
   };
   attributes: {
     Description: Schema.Attribute.Text;
-    FeatureList: Schema.Attribute.Component<'home-page.feature-list', true>;
+    JourneyCards: Schema.Attribute.Component<'about-us.jouney-cards', true>;
     Title: Schema.Attribute.Text;
   };
 }
@@ -882,7 +926,9 @@ declare module '@strapi/strapi' {
       'about-us.awards-list': AboutUsAwardsList;
       'about-us.corporate-social': AboutUsCorporateSocial;
       'about-us.corporate-social-cards': AboutUsCorporateSocialCards;
+      'about-us.helping-people': AboutUsHelpingPeople;
       'about-us.info-strip': AboutUsInfoStrip;
+      'about-us.jouney-cards': AboutUsJouneyCards;
       'about-us.leaders-list': AboutUsLeadersList;
       'about-us.leaders-section': AboutUsLeadersSection;
       'about-us.media-card': AboutUsMediaCard;
@@ -896,6 +942,7 @@ declare module '@strapi/strapi' {
       'about-us.principles': AboutUsPrinciples;
       'about-us.report-items': AboutUsReportItems;
       'about-us.reports': AboutUsReports;
+      'about-us.year-list': AboutUsYearList;
       'branchcards.info-card': BranchcardsInfoCard;
       'branchcards.pointer-list': BranchcardsPointerList;
       'branchcards.reach-us-cards': BranchcardsReachUsCards;

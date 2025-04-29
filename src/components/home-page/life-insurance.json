@@ -12,11 +12,11 @@
     "Description": {
       "type": "text"
     },
-    "FeatureList": {
-      "displayName": "FeatureList",
+    "JourneyCards": {
+      "displayName": "JouneyCards",
       "type": "component",
       "repeatable": true,
-      "component": "home-page.feature-list"
+      "component": "about-us.jouney-cards"
     }
   }
 }

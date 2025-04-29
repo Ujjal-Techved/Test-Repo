@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_about_us_jouney_cards",
+  "info": {
+    "displayName": "JouneyCards"
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Title": {
+      "type": "string"
+    },
+    "SubTitle": {
+      "type": "string"
+    },
+    "YearList": {
+      "displayName": "YearList",
+      "type": "component",
+      "repeatable": true,
+      "component": "about-us.year-list"
+    }
+  }
+}

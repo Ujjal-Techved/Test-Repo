@@ -1,7 +1,8 @@
 {
   "collectionName": "components_about_us_principle_cards",
   "info": {
-    "displayName": "PrincipleCard"
+    "displayName": "PrincipleCard",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,7 +10,7 @@
       "type": "string"
     },
     "Title": {
-      "type": "string"
+      "type": "text"
     },
     "PrincipleList": {
       "displayName": "PrincipleList",
