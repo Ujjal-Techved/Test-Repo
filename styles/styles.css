@@ -480,8 +480,8 @@ body.over-hide {
 }
 
 .plan-container-fluid .slick-track {
-    padding-left: 132px;
-    padding-right: 132px;
+    padding-left: calc(100vw / 2 - (623px));
+    padding-right: calc(100vw / 2 - (623px));
 }
 
 .plan-container-fluid .single-slide .slick-track{
@@ -577,11 +577,11 @@ body.over-hide {
 }
 
 .types-insurance-wrapper .slick-arrow.slick-prev {
-    left: 122px;
+    left: calc(100vw / 2 - (634px));
 }
 
 .types-insurance-wrapper .slick-arrow.slick-next {
-    right: 122px;
+    right: calc(100vw / 2 - (634px));
 }
 
 .plp-tabs-wrapper .nav-tabs{

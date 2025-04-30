@@ -14,7 +14,7 @@ const BranchList = ({ list }) => {
     return (
         <div className={`${styles.BranchListMain} ${list.length < 1 ? styles.overflow_y : ''}`}>
             {/* Display the number of branches found */}
-            <p className={styles.listCount}>{list.length} Branches Found</p>
+            <p className={styles.listCount}>{list.length} Branch{list.length === 1 ? "" : "es"} Found</p>
 
             {/* Check if there are branches in the list */}
             {list.length > 0 ? (
