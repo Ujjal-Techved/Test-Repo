@@ -474,7 +474,7 @@ const index = () => {
                 <Download downloadData={downloadData} />
 
                 {/* Importnat Information and Resources */}
-                <InfoResources />
+                {/* <InfoResources /> */}
 
                 {/* Our Customer section */}
                 <OurCustomer teamMemberstabs={teamMemberstabs} teamMemberData={teamMemberData} />

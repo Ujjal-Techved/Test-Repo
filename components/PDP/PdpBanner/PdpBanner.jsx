@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styles from './PdpBanner.module.css';
 import { Col, Container, Row } from 'reactstrap';
 import Select from 'react-select';
+import { Formik, Form, Field } from "formik";
+import * as Yup from "yup";
 
 const PdpBanner = ({ bannerData }) => {
     // State for selected job role from dropdown
@@ -40,13 +42,16 @@ const PdpBanner = ({ bannerData }) => {
         { img: "/images/product-detail/stats-icon-3.png", title: "Long Term Income", desc: "for upto 50 years" },
     ]);
 
-    // Function to handle button click
-    const handleSubmit = () => {
+    // validation schema 
+    const validationSchema = Yup.object().shape({
+        age: Yup.string().required("Age is required"),
+        income: Yup.string().required("Income is required"),
+    });
 
-    };
+
 
     return (
-        <div className={styles.bannerMain}>
+        <div className={styles.bannerMain + ' pdp-bannermain'}>
             <Container>
                 <Row>
                     {/* Left Section: Banner Content and Job Filter */}
@@ -59,45 +64,79 @@ const PdpBanner = ({ bannerData }) => {
 
                         {/* Job Role Dropdown and Button */}
                         <div className={styles.filterComponent}>
-                            <Row className={styles.row}>
-                                {/* Dropdown for Selecting Job Role */}
-                                <Col lg="3" className={styles.col + ' dropdown-arrow'}>
-                                    <Select
-                                        options={ageList}
-                                        value={selectedAge}
-                                        onChange={setSelectedAge}
-                                        placeholder="Select Age"
-                                        className="react-select-container"
-                                        classNamePrefix="react-select"
-                                        components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Remove default dropdown arrow
-                                        isSearchable={false}
-                                    />
-                                </Col>
-                                <Col lg="9" className={styles.col + ' px-0'}>
-                                    <Row className={styles.innerRow + " m-0"}>
-                                        {/* Dropdown for Selecting Job Role */}
-                                        <Col lg="6" className={styles.col + ' dropdown-arrow'}>
-                                            <Select
-                                                options={incomeList}
-                                                value={selectedIncome}
-                                                onChange={setSelectedIncome}
-                                                placeholder="Select Annual Income"
-                                                className="react-select-container"
-                                                classNamePrefix="react-select"
-                                                components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Remove default dropdown arrow
-                                                isSearchable={false}
-                                            />
-                                        </Col>
+                            <Formik
+                                initialValues={{
+                                    age: "",
+                                    income: ""
+                                }}
+                                validateOnBlur={false}
+                                validateOnChange={false}
+                                validationSchema={validationSchema}
+                                onSubmit={(values) => {
+                                    console.log("Form submitted:", values);
+                                }}
+                            >
+                                {({ errors, setFieldValue, setFieldError }) => (
+                                    <Form>
+                                        <Row className={styles.row + ' lead-form'}>
+                                            {/* Dropdown for Selecting Job Role */}
+                                            <Col lg="3" className={styles.col + ' dropdown-arrow'}>
+                                                <div className={`form-group pb-lg-0 ${errors.age ? "error" : ""}`}>
+                                                    <label className='mb-0' for="name">Select Age</label>
+                                                    <Select
+                                                        options={ageList}
+                                                        value={selectedAge}
+                                                        onChange={(option) => {
+                                                            setSelectedAge(option);
+                                                            setFieldValue("age", option.value);
+                                                            setFieldError("age", "");
+                                                        }}
+                                                        placeholder="Select Age"
+                                                        className="react-select-container"
+                                                        classNamePrefix="react-select"
+                                                        components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Remove default dropdown arrow
+                                                        isSearchable={false}
+                                                    />
+                                                    <p class="error-msg">{errors.age}</p>
+                                                </div>
+                                            </Col>
+                                            <Col lg="9" className={styles.col + ' px-0'}>
+                                                <Row className={styles.innerRow + " m-0"}>
+                                                    {/* Dropdown for Selecting Job Role */}
+                                                    <Col lg="6" className={styles.col + ' dropdown-arrow'}>
+                                                        <div className={`form-group pb-lg-0 ${errors.income ? "error" : ""}`}>
+                                                            <label className='mb-0' for="name">Select Annual Income</label>
+                                                            <Select
+                                                                options={incomeList}
+                                                                value={selectedIncome}
+                                                                onChange={(option) => {
+                                                                    setSelectedIncome(option);
+                                                                    setFieldValue("income", option.value);
+                                                                    setFieldError("income", "");
 
-                                        {/* "View Openings" Button */}
-                                        <Col lg="6" className={styles.col}>
-                                            <button className="redBtn w-100" onClick={handleSubmit}>
-                                                Calculate Premium
-                                            </button>
-                                        </Col>
-                                    </Row>
-                                </Col>
-                            </Row>
+                                                                }}
+                                                                placeholder="Select Annual Income"
+                                                                className="react-select-container"
+                                                                classNamePrefix="react-select"
+                                                                components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Remove default dropdown arrow
+                                                                isSearchable={false}
+                                                            />
+                                                            <p class="error-msg">{errors.income}</p>
+                                                        </div>
+                                                    </Col>
+
+                                                    {/* "View Openings" Button */}
+                                                    <Col lg="6" className={styles.col}>
+                                                        <button type="submit" className="redBtn w-100 capitalize-text">
+                                                            Calculate Premium
+                                                        </button>
+                                                    </Col>
+                                                </Row>
+                                            </Col>
+                                        </Row>
+                                    </Form>
+                                )}
+                            </Formik>
                         </div>
                     </Col>
 

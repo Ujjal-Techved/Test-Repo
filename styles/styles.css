@@ -64,6 +64,14 @@ body.over-hide {
     letter-spacing: 1px;
 }
 
+.lowercase-text{
+    text-transform: lowercase;
+}
+
+.capitalize-text{
+    text-transform: capitalize;
+}
+
 .redBtn:disabled {
     background: linear-gradient(180deg, #ffbfba -40%, #C21B17 100%);
 }
@@ -269,6 +277,10 @@ body.over-hide {
     line-height: 24px;
     font-family: 'Roboto-400';
     color: var(--text-grey2);
+}
+
+.pdp-bannermain .react-select-container .react-select__control{
+    background: var(--background-lightpink);   
 }
 
 .react-select-container .react-select__control {
@@ -846,6 +858,12 @@ body.over-hide {
     .popupwhiteBtn,
     .popupredBtn {
         padding: 12px 24px;
+    }
+
+    /* Common links style css */
+
+    .pdp-bannermain .react-select-container .react-select__control{
+        background: transparent; 
     }
 
 
