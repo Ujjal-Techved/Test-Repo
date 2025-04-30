@@ -106,6 +106,7 @@ const BranchLocator = (props) => {
                                                     return sanitizedInput;
                                                 }
                                             }}
+                                            
                                             placeholder="Select Your City"
                                             className="react-select-container"
                                             classNamePrefix="react-select"

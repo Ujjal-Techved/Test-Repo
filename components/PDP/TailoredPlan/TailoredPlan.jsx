@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'reactstrap';
+import 'rsuite/dist/rsuite.min.css';
 import styles from './TailoredPlan.module.css';
 import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
 import SlickSlider from 'react-slick';
