@@ -5,60 +5,69 @@ import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
 
 const PartnerFuturegroup = ({ partnerFuturegroupData }) => {
 
-    // Prevent rendering if `partnerFuturegroupData` is missing
+    // Exit early if the expected data is missing
     if (!partnerFuturegroupData?.Partners) {
         return null;
     }
 
-    // Destructure API response data for cleaner code
-    const { Title, Description, PartnerCard1, PartnersCard2 } = partnerFuturegroupData?.Partners;
+    // Destructure necessary data for cleaner JSX
+    const { Title, Description, CenterImage, PartnerCards } = partnerFuturegroupData?.Partners;
 
     return (
-        <div className={styles.partner_wrapper + ' pd-t pd-b'}>
+        <div className={`${styles.partner_wrapper} pd-t pd-b`}>
             <Container>
-                {/* Section Title and Description */}
+                {/* Section heading and description */}
                 <TitleSubtitle
                     title={Title}
                     subtitle={Description}
                 />
 
-                {/* Wrapper for Partner Cards */}
+                {/* Partner cards layout */}
                 <div className={styles.futuregroup_wrapper}>
                     
-                    {/* First Partner Card (Future Group) */}
+                    {/* First Partner Card (e.g., Future Group) */}
                     <div className={`${styles.futuregroup_card} ${styles.start}`}>
                         <div>
-                            {/* Partner Logo */}
-                            <img src='images/about-us/futuregroup-logo.png' alt='Future Group Logo' />
-                            
-                            {/* Partner Description */}
-                            <p>{PartnerCard1?.Description}</p>
+                            {/* Partner logo image */}
+                            <img 
+                                src={process.env.NEXT_PUBLIC_APP_API + PartnerCards[0]?.Image?.url}
+                                alt={PartnerCards[0]?.Image?.alternativeText || 'Partner logo'}
+                            />
+
+                            {/* Partner description text */}
+                            <p>{PartnerCards[0]?.Description}</p>
                         </div>
 
-                        {/* Read More Link */}
-                        {PartnerCard1?.LinkUrl && (
-                            <a href={PartnerCard1.LinkUrl}>Read more +</a>
+                        {/* Optional read more link */}
+                        {PartnerCards[0]?.LinkUrl && (
+                            <a href={PartnerCards[0].LinkUrl}>Read more +</a>
                         )}
 
-                        {/* Middle Logo for Branding */}
+                        {/* Central branding image */}
                         <div className={styles.fgli_middle_content}>
-                            <img src='/images/header/fgli-logo.svg' alt='FGLI Logo' />
+                            <img 
+                                src={process.env.NEXT_PUBLIC_APP_API + CenterImage?.url}
+                                alt={CenterImage?.alternativeText || 'Center branding logo'}
+                            />
                         </div>
                     </div>
 
-                    {/* Second Partner Card (Generali) */}
+                    {/* Second Partner Card (e.g., Generali) */}
                     <div className={`${styles.futuregroup_card} ${styles.end}`}>
                         <div>
-                            {/* Partner Logo */}
-                            <img src='images/about-us/generrali.png' alt='Generali Logo' />
-                            
-                            {/* Partner Description */}
-                            <p>{PartnersCard2?.Description}</p>
+                            {/* Partner logo reused (center image) */}
+                            <img 
+                                src={process.env.NEXT_PUBLIC_APP_API + CenterImage?.url}
+                                alt={CenterImage?.alternativeText || 'Partner logo'}
+                            />
+
+                            {/* Partner description text */}
+                            <p>{PartnerCards[1]?.Description}</p>
                         </div>
 
-                        {/* Read More Link */}
-                        {PartnersCard2?.LinkUrl && (
-                            <a href={PartnersCard2.LinkUrl}>Read more +</a>
+                        {/* Optional read more link */}
+                        {PartnerCards[1]?.LinkUrl && (
+                            <a href={PartnerCards[1].LinkUrl}>Read more +</a>
                         )}
                     </div>
                 </div>

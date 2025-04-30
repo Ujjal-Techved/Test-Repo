@@ -15,6 +15,7 @@ import GuidePrinciple from '@/components/AboutUs/GuidePrinciple/GuidePrinciple'
 import Milestone from '@/components/AboutUs/Milestone/Milestone'
 import { apiClient } from '../../utils/apiClient';  // Ensure correct path
 import HelpingPeople from '@/components/AboutUs/HelpingPeople/HelpingPeople'
+import Head from 'next/head';
 
 const Aboutus = (props) => {
   // Breadcrumbs for navigation within the "About Us" page
@@ -23,48 +24,69 @@ const Aboutus = (props) => {
   ]
 
   return (
-    <LandingLayout>
-      <div className={styles.contactWrapper}>
-        <Container>
-          {/* Breadcrumb navigation */}
-          <Breadcrumbs values={breadcrumbs} />
-        </Container>
+    <>
+      <Head>
+        <title>{props?.aboutUsData?.SeoSection?.TitleTag}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="keywords" content={props?.aboutUsData?.SeoSection?.MetaKeyword} />
+        <meta name="description" content={props?.aboutUsData?.SeoSection?.MetaDescription} />
+        <link rel="canonical" href={props?.aboutUsData?.SeoSection?.CanonicalTag} key="canonical" />
+        {props?.aboutUsData?.SeoSection?.SchemaTag?.map(
+          (schemas) => {
+            return (
+              <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                  __html: schemas.Text,
+                }}
+              />
+            );
+          }
+        )}
+      </Head>
+      <LandingLayout>
+        <div className={styles.contactWrapper}>
+          <Container>
+            {/* Breadcrumb navigation */}
+            <Breadcrumbs values={breadcrumbs} />
+          </Container>
 
-        {/* Different sections of the About Us page, receiving data as props */}
-        <LegacyTrust legacyTrustrData={props?.aboutUsData} />
+          {/* Different sections of the About Us page, receiving data as props */}
+          <LegacyTrust legacyTrustrData={props?.aboutUsData} />
 
-        {/* PartnerFuturegroup Section */}
-        <PartnerFuturegroup partnerFuturegroupData={props?.aboutUsData} />
+          {/* PartnerFuturegroup Section */}
+          <PartnerFuturegroup partnerFuturegroupData={props?.aboutUsData} />
 
-        {/* Our journey Section */}
-        <OurJourney insuranceData={props?.aboutUsData} />
+          {/* Our journey Section */}
+          <OurJourney insuranceData={props?.aboutUsData} />
 
-        {/* GuidePrinciple Section */}
-        <GuidePrinciple guidePrincipleData={props?.aboutUsData} />
+          {/* GuidePrinciple Section */}
+          <GuidePrinciple guidePrincipleData={props?.aboutUsData} />
 
-        {/* Leaders Section */}
-        <Leaders leadersListData={props?.aboutUsData} />
+          {/* Leaders Section */}
+          <Leaders leadersListData={props?.aboutUsData} />
 
-        {/* Our journey Section */}
-        <ReportsDiscloser reportsData={props?.aboutUsData} />
+          {/* Our journey Section */}
+          <ReportsDiscloser reportsData={props?.aboutUsData} />
 
-        {/* Helping People Section */}
-        <HelpingPeople />
+          {/* Helping People Section */}
+          <HelpingPeople helpingPeopleData={props?.aboutUsData} />
 
-        {/* Awards Section */}
-        <Awards awardData={props?.aboutUsData} />
+          {/* Awards Section */}
+          <Awards awardData={props?.aboutUsData} />
 
-        {/* Milestone Section */}
-        {/* <Milestone milestoneList={props?.aboutUsData} /> */}
+          {/* Milestone Section */}
+          {/* <Milestone milestoneList={props?.aboutUsData} /> */}
 
-        {/* MediaCenter Section */}
-        <MediaCenter mediacenterData={props?.aboutUsData} />
+          {/* MediaCenter Section */}
+          <MediaCenter mediacenterData={props?.aboutUsData} />
 
-        {/* SocialResponsibility Section */}
-        {/* <SocialResponsibility socialResponsibility={props?.aboutUsData} /> */}
+          {/* SocialResponsibility Section */}
+          {/* <SocialResponsibility socialResponsibility={props?.aboutUsData} /> */}
 
-      </div>
-    </LandingLayout>
+        </div>
+      </LandingLayout>
+    </>
   )
 }
 
