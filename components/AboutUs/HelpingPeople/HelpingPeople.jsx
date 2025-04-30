@@ -16,9 +16,9 @@ const HelpingPeople = ({ helpingPeopleData }) => {
         Title,
         Description,
         CornerImage,
-        Image1,
-        Image2,
-        Image3,
+        CornerImageMobile,
+        ImageDesktop,
+        ImageMobile,
         FeatureList
     } = helpingPeopleData?.HelpingPeople;
 
@@ -78,8 +78,8 @@ const HelpingPeople = ({ helpingPeopleData }) => {
                             <div className={styles.all_families}>
                                 {/* Supporting right-side image */}
                                 <img
-                                    src={process.env.NEXT_PUBLIC_APP_API + Image1?.url}
-                                    alt={Image1?.alternativeText}
+                                    src={process.env.NEXT_PUBLIC_APP_API + ImageDesktop?.url}
+                                    alt={ImageDesktop?.alternativeText}
                                 />
                             </div>
                         </Col>

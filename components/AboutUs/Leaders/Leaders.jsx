@@ -5,14 +5,14 @@ import { Col, Container, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, N
 import styles from './Leaders.module.css'
 
 const Leaders = ({ leadersListData }) => {
-    
+
     // Prevent rendering if `leadersListData` is missing
     if (!leadersListData?.LeadersSection) {
         return null;
     }
 
     // Destructure API response data for cleaner code
-    const { Title, Description, LinkUrl, LeadersList } = leadersListData?.LeadersSection || {};
+    const { Title, Description, LinkUrl, LeadersList, Note } = leadersListData?.LeadersSection || {};
 
     // Ensure LeadersList exists before accessing its first element
     const [leadersactiveTab, setLeadersActiveTab] = useState(LeadersList?.length ? LeadersList[0].Category : "");
@@ -100,7 +100,7 @@ const Leaders = ({ leadersListData }) => {
                                 {/* Terms and conditions link */}
                                 {LinkUrl && (
                                     <div className={styles.terms_and_condition}>
-                                        <a href={LinkUrl}>T & C of Appointment of Independent Directors</a>
+                                        <a href={LinkUrl}>{Note}</a>
                                     </div>
                                 )}
                             </div>
