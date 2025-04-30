@@ -46,4 +46,8 @@
     --footer-grey:#3D4047;
     --footer-contact:#FFFFFF1A;
     --placeholder-gray:#C9C9C9;
+    --slider-border:rgba(22, 1, 67, 0.2);
+    --badge-border:rgba(52, 199, 89, 0.3);
+    --badge-bg:rgba(52, 199, 89, 0.15);
+    --badge-color:rgba(52, 199, 89, 1);
 }

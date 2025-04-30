@@ -1,0 +1,409 @@
+/* === General Container === */
+.pyramidWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 0px;
+}
+
+.pyramidRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+/* === Pyramid Row Pseudo-elements (Bottom Layer Borders) === */
+.pyramidRow1::after {
+    content: '';
+    height: 10px;
+    width: 211px;
+    background: linear-gradient(0deg, #ffa3a1, #e05d5a);
+    position: absolute;
+    bottom: -10px;
+    right: -15px;
+    left: 0;
+    margin: 0 auto;
+    -webkit-clip-path: polygon(0 0, 92% 0, 90% 100%, 2% 100%);
+    clip-path: polygon(0 0, 93% 0, 90% 100%, 3% 100%);
+}
+
+.pyramidRow2::after {
+    content: '';
+    height: 10px;
+    width: 396px;
+    background: linear-gradient(0deg, #ffa3a1, #e05d5a);
+    position: absolute;
+    bottom: -10px;
+    right: -32px;
+    left: 0;
+    margin: 0 auto;
+    -webkit-clip-path: polygon(0 0, 92% 0, 90% 100%, 2% 100%);
+    clip-path: polygon(0 0, 92% 0, 90% 100%, 2% 100%);
+}
+
+.pyramidRow3::after {
+    content: '';
+    height: 10px;
+    width: 530px;
+    background: linear-gradient(0deg, #ffa3a1, #e05d5a);
+    position: absolute;
+    bottom: -10px;
+    right: -42px;
+    left: 0;
+    margin: 0 auto;
+    -webkit-clip-path: polygon(0 0, 92% 0, 90% 100%, 2% 100%);
+    clip-path: polygon(0 0, 92% 0, 90% 100%, 2% 100%);
+}
+
+.pyramidRow4::after {
+    content: '';
+    height: 10px;
+    width: 710px;
+    background: linear-gradient(0deg, #ffa3a1, #e05d5a);
+    position: absolute;
+    bottom: -10px;
+    right: -54px;
+    left: 0;
+    margin: 0 auto;
+    clip-path: polygon(0 0, 92% 0, 90% 100%, 2% 100%);
+}
+
+.pyramidRow1 .right {
+    left: 60%;
+    top: 8px;
+}
+
+.pyramidRow3 .right {
+    left: 70%;
+    top: -65px;
+}
+
+.pyramidRow5 .right {
+    left: 78%;
+    top: -81px;
+    max-width: 248px;
+}
+
+.pyramidRow2 .left {
+    left: 6%;
+    top: -16px;
+    flex-direction: row-reverse;
+}
+
+.pyramidRow2 .left .connector {
+    transform: rotate(180deg);
+}
+
+.pyramidRow4 .left {
+    left: 0%;
+    top: -45px;
+    flex-direction: row-reverse;
+}
+
+.pyramidRow4 .left .connector {
+    transform: rotate(180deg);
+}
+
+.pyramid_side_content {
+    margin-top: -4px;
+}
+
+.pyramid_side_content span {
+    font-size: 16px;
+    line-height: 20px;
+    font-family: 'Roboto-500';
+    font-weight: 500;
+    color: var(--fgi-black);
+}
+
+.pyramid_side_content p {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: 'Roboto-400';
+    font-weight: 400;
+    color: var(--text-grey2);
+}
+
+/* === Trapezoid Shapes === */
+.trapezoid {
+    background: linear-gradient(360deg, #ffacac -321.67%, #ffb1b1 82.32%);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.trapezoid p {
+    font-size: 16px;
+    line-height: 20px;
+    font-family: 'Roboto-500';
+    font-weight: 500;
+    color: var(--fgi-black);
+}
+
+.trapezoid1 {
+    -webkit-clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(49% 0, 50% 0, 100% 100%, 0% 100%);
+    height: 130px;
+    width: 195px;
+    align-items: flex-end;
+    padding: 0px 50px 20px 50px;
+}
+
+.trapezoid2,
+.trapezoid3,
+.trapezoid4,
+.trapezoid5 {
+    align-items: center;
+    padding: 20px 50px 20px 50px;
+}
+
+.trapezoid2 {
+    -webkit-clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(22% 0, 78% 0, 100% 100%, 0% 100%);
+    height: 100px;
+    width: 365px;
+}
+
+.trapezoid3 {
+    -webkit-clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(12% 0, 88% 0, 100% 100%, 0% 100%);
+    height: 75px;
+    width: 487px;
+}
+
+.trapezoid4 {
+    -webkit-clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(12% 0, 88% 0, 100% 100%, 0% 100%);
+    height: 102px;
+    width: 653px;
+}
+
+.trapezoid5 {
+    -webkit-clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(9% 0, 91% 0, 100% 100%, 0% 100%);
+    height: 88px;
+    width: 800px;
+}
+
+/* === Labels and Arrows === */
+.labelBox {
+    width: 300px;
+    font-size: 14px;
+    line-height: 1.4;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    position: absolute;
+}
+
+.left {
+    justify-content: flex-end;
+    text-align: right;
+    left: 0px;
+}
+
+.right {
+    justify-content: flex-start;
+    text-align: left;
+    right: 0px;
+}
+
+/* .arrowLeft,
+.arrowRight {
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+
+.arrowLeft {
+    border-right: 12px solid #000;
+}
+
+.arrowRight {
+    border-left: 12px solid #000;
+} */
+
+.pyramidRow .connector {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.pyramidRow .line {
+    width: 20px;
+    height: 1px;
+    background: #AF2219;
+    position: relative;
+}
+
+.pyramidRow .line::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 75px;
+    background: #AF2219;
+    left: -69px;
+    transform: rotate(327deg);
+    top: 21px;
+}
+
+.pyramidRow3 .line::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 80px;
+    background: #AF2219;
+    left: -56px;
+    transform: rotate(295deg);
+    top: 36px;
+}
+
+.pyramidRow5 .line::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 83px;
+    background: #AF2219;
+    left: -45px;
+    transform: rotate(275deg);
+    top: 42px;
+}
+
+.pyramidRow2 .line::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 90px;
+    background: #AF2219;
+    left: -75px;
+    transform: rotate(49deg);
+    top: -34px;
+}
+
+.pyramidRow4 .line::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 75px;
+    background: #AF2219;
+    left: -54px;
+    transform: rotate(65deg);
+    top: -33px;
+}
+
+.arrowhead {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1px solid #AF2219;
+    /* border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 10px solid black;
+    margin-left: -1px; */
+}
+
+@media screen and (max-width:1108px) and (min-width:992px) {
+    .labelBox {
+        display: none;
+    }
+}
+
+@media screen and (max-width:991.2px) and (min-width:320px) {
+
+    .trapezoid1 p{
+        padding-top: 24px !important;
+    }
+
+    .trapezoid p {
+        font-size: 13px;
+        line-height: 17px;
+        padding: 0px 20px;
+    }
+
+    .pyramidWrapper {
+        gap: 6px;
+    }
+
+    .labelBox {
+        display: none;
+    }
+
+    .pyramidRow1::after,
+    .pyramidRow2::after,
+    .pyramidRow3::after,
+    .pyramidRow4::after,
+    .pyramidRow5::after,
+    .trapezoid1,
+    .trapezoid2,
+    .trapezoid3,
+    .trapezoid4,
+    .trapezoid5 {
+        width: 100%;
+        right: 0px;
+        align-items: center;
+        padding: 0;
+
+    }
+
+    .trapezoid1,
+    .trapezoid2,
+    .trapezoid3,
+    .trapezoid4,
+    .trapezoid5 {
+        max-height: 80px;
+    }
+
+    .trapezoid1 {
+        max-width: 78px;
+        clip-path: polygon(49% 0, 52% 0, 100% 100%, 0% 100%);
+    }
+
+    .trapezoid2 {
+        max-width: 146px;
+        clip-path: polygon(23% 0, 77% 0, 100% 100%, 0% 100%);
+    }
+
+    .trapezoid3 {
+        max-width: 200px;
+        clip-path: polygon(13% 0, 87% 0, 100% 100%, 0% 100%);
+    }
+
+    .trapezoid4 {
+        max-width: 268px;
+    }
+
+    .trapezoid5 {
+        max-width: 336px;
+        clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
+    }
+
+    .pyramidRow1::after {
+        max-width: 82px;
+        right: -3px;
+        clip-path: polygon(0 0, 96% 0, 90% 100%, 8% 100%);
+    }
+
+    .pyramidRow2::after {
+        max-width: 156px;
+        right: -10px;
+        clip-path: polygon(0 0, 94% 0, 90% 100%, 4% 100%);
+    }
+
+    .pyramidRow3::after {
+        max-width: 212px;
+        right: -12px;
+        clip-path: polygon(0 0, 94% 0, 90% 100%, 4% 100%);
+    }
+
+    .pyramidRow4::after {
+        max-width: 285px;
+        right: -18px;
+        clip-path: polygon(0 0, 94% 0, 90% 100%, 4% 100%);
+    }
+}

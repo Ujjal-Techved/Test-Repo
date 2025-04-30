@@ -16,6 +16,8 @@ import LandingLayout from "@/components/Layouts/LandingLayout";
 import { apiClient } from '../utils/apiClient'; // ✅ Ensure correct import path
 import PartnerFuturegroup from "@/components/Home/PartnerFuturegroup/PartnerFuturegroup";
 import WhylifeInsurancenew from "@/components/Home/WhylifeInsurancenew/WhylifeInsurancenew";
+import Pyramid from "@/components/Home/Pyramid/Pyramid";
+import FreshOfferings from "@/components/Home/FreshOfferings/FreshOfferings";
 
 export default function Home(props) {
 
@@ -129,6 +131,9 @@ export default function Home(props) {
             
             {/* Choose Goal section */}
             {/* <ChooseGoal choosegoalData={props?.homePageData} /> */}
+
+            {/* Pyramid Section */}
+            <Pyramid/>
             
             {/* Types of Insurance section */}
             <TypesofInsurance insurancetypesData={props?.homePageData} />
@@ -147,6 +152,8 @@ export default function Home(props) {
             
             {/* Invest Plan section */}
             <InvestPlan investPlanData={props?.homePageData?.AppLink} />
+
+            <FreshOfferings />
             
             {/* FAQ section with static title and subtitle */}
             <Faqs faqData={props?.homePageData?.Faq_Section} />
