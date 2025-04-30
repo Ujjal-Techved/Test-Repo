@@ -32,7 +32,7 @@ module.exports = (config, { strapi }) => {
           },
           LifeInsurance: {
             populate: {
-              FeatureList: {
+              JourneyCards : {
                 populate: {
                   Image: {
                     fields: ["url", "alternativeText", "caption", "name"]

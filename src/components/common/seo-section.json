@@ -13,7 +13,7 @@
       "type": "text"
     },
     "MetaKeyword": {
-      "type": "string"
+      "type": "text"
     },
     "MetaDescription": {
       "type": "text"

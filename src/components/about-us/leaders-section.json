@@ -1,7 +1,8 @@
 {
   "collectionName": "components_about_us_leaders_sections",
   "info": {
-    "displayName": "LeadersSection"
+    "displayName": "LeadersSection",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -19,6 +20,9 @@
     },
     "LinkUrl": {
       "type": "string"
+    },
+    "Note": {
+      "type": "text"
     }
   }
 }

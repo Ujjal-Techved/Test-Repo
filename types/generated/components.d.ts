@@ -117,12 +117,14 @@ export interface AboutUsLeadersList extends Struct.ComponentSchema {
 export interface AboutUsLeadersSection extends Struct.ComponentSchema {
   collectionName: 'components_about_us_leaders_sections';
   info: {
+    description: '';
     displayName: 'LeadersSection';
   };
   attributes: {
     Description: Schema.Attribute.Text;
     LeadersList: Schema.Attribute.Component<'about-us.leaders-list', true>;
     LinkUrl: Schema.Attribute.String;
+    Note: Schema.Attribute.Text;
     Title: Schema.Attribute.String;
   };
 }
@@ -531,7 +533,7 @@ export interface CommonSeoSection extends Struct.ComponentSchema {
   attributes: {
     CanonicalTag: Schema.Attribute.Text;
     MetaDescription: Schema.Attribute.Text;
-    MetaKeyword: Schema.Attribute.String;
+    MetaKeyword: Schema.Attribute.Text;
     SchemaTag: Schema.Attribute.Component<'common.schema-tag', true>;
     TitleTag: Schema.Attribute.Text;
   };
@@ -734,10 +736,11 @@ export interface HomePageCoverageOptions extends Struct.ComponentSchema {
 export interface HomePageFeatureList extends Struct.ComponentSchema {
   collectionName: 'components_home_page_feature_lists';
   info: {
+    description: '';
     displayName: 'FeatureList';
   };
   attributes: {
-    Description: Schema.Attribute.String;
+    Description: Schema.Attribute.Text;
     Image: Schema.Attribute.Media<'images'>;
     Title: Schema.Attribute.String;
   };
