@@ -16,6 +16,7 @@ import LandingLayout from "@/components/Layouts/LandingLayout";
 import { apiClient } from '../utils/apiClient'; // ✅ Ensure correct import path
 import PartnerFuturegroup from "@/components/Home/PartnerFuturegroup/PartnerFuturegroup";
 import WhylifeInsurancenew from "@/components/Home/WhylifeInsurancenew/WhylifeInsurancenew";
+import Pyramid from "@/components/Home/Pyramid/Pyramid";
 
 export default function Home(props) {
 
@@ -129,6 +130,9 @@ export default function Home(props) {
             
             {/* Choose Goal section */}
             {/* <ChooseGoal choosegoalData={props?.homePageData} /> */}
+
+            {/* Pyramid Section */}
+            <Pyramid/>
             
             {/* Types of Insurance section */}
             <TypesofInsurance insurancetypesData={props?.homePageData} />
