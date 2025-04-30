@@ -8,20 +8,14 @@
     position: relative;
     /* margin-top: 62px; */
     /* margin-bottom: 80px; */
-    padding: 40px 16px 8px;
+    padding: 48px;
     text-align: center;
 }
 
-.leadForm {
-    display: flex;
-    width: 100%;
-    gap: 24px;
-    align-items: flex-start;
-    justify-content: center;
-}
+.leadForm {}
 
 .inputField {
-    font-family: "Roboto-300";
+    font-family: "Roboto-500";
     font-size: 20px;
     line-height: 24px;
     border: none;
@@ -29,9 +23,31 @@
     color: var(--background-color);
     padding: 2px 0;
     outline: none;
-    width: 334px;
+    width: 100%;
     background: none;
-    font-weight: 400;
+    font-weight: 500;
+    text-align: left;
+}
+
+.inputField.drop {
+    position: relative;
+    padding-right: 16px;
+}
+
+.inputField.drop::after {
+    content: "";
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    background: url('../../../public/images/home/dropArrowWhite.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 10px;
+    right: 0px;
+}
+
+.inputField.drop.active::after {
+    transform: rotateX(180deg);
 }
 
 .inputField:focus {
@@ -41,11 +57,13 @@
 
 .inputField::placeholder {
     color: var(--placeholder-gray);
+    font-family: "Roboto-300";
+    font-weight: 300;
 }
 
 .formGroup {
     position: relative;
-    padding-bottom: 16px;
+    padding-bottom: 26px;
 }
 
 .formGroup label {
@@ -72,15 +90,28 @@
     display: block;
 }
 
+.footNoteContainer {
+    position: relative;
+    text-align: center;
+}
+
 .footNote {
     font-family: "Roboto-300";
     font-weight: 300;
     font-style: italic;
     font-size: 12px;
     line-height: 18px;
-    text-align: right;
+    text-align: left;
     color: var(--background-color);
-    margin-top: 20px;
+    width: calc(50% - 144px);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.dropMenu {
+    width: 100%;
+    margin-top: 4px;
 }
 
 @media screen and (max-width: 1024px) and (min-width: 992px) {
@@ -96,6 +127,13 @@
 
     .inputField {
         width: 100%;
+    }
+
+    .footNote {
+        text-align: left;
+        position: static;
+        width: 100%;
+        margin-top: 8px;
     }
 }
 
@@ -132,6 +170,9 @@
 
     .footNote {
         text-align: left;
+        position: static;
+        width: 100%;
+        margin-top: 8px;
     }
 
 }

@@ -135,7 +135,7 @@ export default function Home(props) {
             <TypesofInsurance insurancetypesData={props?.homePageData} />
             
             {/* Request Callback section */}
-            <RequestCallback requestCallbackData={props?.homePageData} />
+            <RequestCallback requestCallbackData={props?.homePageData?.CallBack} />
             
             {/* Coverage Option section */}
             {/* <CoverageOption coveragetabs={coveragetabs} coverageplansData={props?.homePageData} /> */}
@@ -154,7 +154,7 @@ export default function Home(props) {
             {/* FAQ section with static title and subtitle */}
             <Faqs faqData={props?.homePageData?.Faq_Section} />
 
-            <RequestCallback requestCallbackData={props?.homePageData} />
+            <RequestCallback requestCallbackData={props?.homePageData?.CallBack} />
 
             {/* IRDA Section */}
             <IrdaSection irdaSectionData={props?.homePageData} />
