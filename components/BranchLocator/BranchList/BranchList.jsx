@@ -28,18 +28,18 @@ const BranchList = ({ list }) => {
 
                         {/* Phone Number with Call Icon */}
                         <div className={styles.BranchList_phone}>
-                            <a className='d-flex align-items-center'>
+                            <a className='d-flex align-items-center' href={"tel:"+data?.Phone_Number}>
                                 <img src='/images/branch-locator/call-icon.svg' alt='call' />
                                <p>{data?.Phone_Number}</p>
                             </a>
-                            <a className='d-flex align-items-center'>
+                            {/* <a className='d-flex align-items-center'>
                                 <img src='/images/branch-locator/direction.svg' alt='call' />
                                <p>{data?.Phone_Number}</p>
                             </a>
                             <a className='d-flex align-items-center'>
                                 <img src='/images/branch-locator/share.svg' alt='call' />
                                <p>{data?.Phone_Number}</p>
-                            </a>
+                            </a> */}
                         </div>
                     </div>
                 ))
