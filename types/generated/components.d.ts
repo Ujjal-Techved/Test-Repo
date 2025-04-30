@@ -58,15 +58,16 @@ export interface AboutUsCorporateSocialCards extends Struct.ComponentSchema {
 export interface AboutUsHelpingPeople extends Struct.ComponentSchema {
   collectionName: 'components_about_us_helping_people';
   info: {
+    description: '';
     displayName: 'HelpingPeople';
   };
   attributes: {
     CornerImage: Schema.Attribute.Media<'images'>;
+    CornerImageMobile: Schema.Attribute.Media<'images'>;
     Description: Schema.Attribute.Text;
     FeatureList: Schema.Attribute.Component<'home-page.feature-list', true>;
-    Image1: Schema.Attribute.Media<'images'>;
-    Image2: Schema.Attribute.Media<'images'>;
-    Image3: Schema.Attribute.Media<'images'>;
+    ImageDesktop: Schema.Attribute.Media<'images'>;
+    ImageMobile: Schema.Attribute.Media<'images'>;
     KnowMoreLink: Schema.Attribute.Text;
     Title: Schema.Attribute.Text;
   };

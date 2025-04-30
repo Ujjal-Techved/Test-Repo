@@ -1,16 +1,18 @@
 {
   "collectionName": "components_about_us_helping_people",
   "info": {
-    "displayName": "HelpingPeople"
+    "displayName": "HelpingPeople",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "CornerImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "Title": {
       "type": "text"
@@ -18,26 +20,29 @@
     "Description": {
       "type": "text"
     },
-    "Image1": {
+    "ImageDesktop": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
-    "Image2": {
+    "ImageMobile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
-    "Image3": {
+    "CornerImageMobile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "FeatureList": {
       "type": "component",

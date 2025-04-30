@@ -120,6 +120,9 @@ module.exports = (config, { strapi }) => {
               CornerImage: {
                 fields: ["url", "alternativeText", "caption", "name"]
               },
+              CornerImageMobile: {
+                fields: ["url", "alternativeText", "caption", "name"]
+              },
               ImageDesktop: {
                 fields: ["url", "alternativeText", "caption", "name"]
               },
