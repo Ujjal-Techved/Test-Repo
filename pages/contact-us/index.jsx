@@ -13,6 +13,7 @@ import VisitUs from '@/components/ContactUs/VisitUs/VisitUs';
 import IrdaSection from '@/components/ContactUs/IrdaSection/IrdaSection';
 import { apiClient } from '../../utils/apiClient';  // Ensure correct path
 import ReachOutcenter from '@/components/ContactUs/ReachOutcenter/ReachOutcenter';
+import Head from 'next/head';
 
 const ContactUs = (props) => {
 
@@ -21,46 +22,65 @@ const ContactUs = (props) => {
     { name: "Contact Us", url: "/contact-us", active: true },
   ];
 
-  console.log(props.pageData)
 
   return (
-    <LandingLayout>
-      <div className={styles.contactWrapper}>
-        <Container>
-          {/* Breadcrumb Navigation */}
-          <Breadcrumbs values={breadcrumbs} />
+    <>
+      <Head>
+        <title>{props?.pageData?.SeoSection?.TitleTag}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="keywords" content={props?.pageData?.SeoSection?.MetaKeyword} />
+        <meta name="description" content={props?.pageData?.SeoSection?.MetaDescription} />
+        <link rel="canonical" href={props?.pageData?.SeoSection?.CanonicalTag} key="canonical" />
+        {props?.pageData?.SeoSection?.SchemaTag?.map(
+          (schemas) => {
+            return (
+              <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                  __html: schemas.Text,
+                }}
+              />
+            );
+          }
+        )}
+      </Head>
+      <LandingLayout>
+        <div className={styles.contactWrapper}>
+          <Container>
+            {/* Breadcrumb Navigation */}
+            <Breadcrumbs values={breadcrumbs} />
 
-          {/* Page Title and Description */}
-          {/* <TitleSubtitle
+            {/* Page Title and Description */}
+            {/* <TitleSubtitle
             title={props?.pageData?.PageTitle}
             subtitle={props?.pageData?.PageDesc}
             extraClass="desc-max-60 pageTitle"
           /> */}
-        </Container>
+          </Container>
 
-        {/* Customer Service Section */}
-        <CustomerService csData={props?.pageData?.CustomerService} />
+          {/* Customer Service Section */}
+          <CustomerService csData={props?.pageData} />
 
-        {/* Digital Contact Section */}
-        <ReachUsDigitalContact reachUsCard={props?.pageData?.Contact_Details_Cards} AIcontactUs />
+          {/* Digital Contact Section */}
+          <ReachUsDigitalContact title={props?.pageData?.ConnectUs?.Title}
+            subtitle={props?.pageData?.ConnectUs?.Description}
+            reachUsCard={props?.pageData?.ConnectUs?.ConnectUsCards} AIcontactUs />
 
-        {/* Reach Out Section */}
-        <ReachOutcenter />
+          {/* Reach Out Section */}
+          <ReachOutcenter reactOutData={props?.pageData?.ReachOutSection} />
 
-        {/* Visit Us Section */}
-        {/* <VisitUs visitUsCard={props?.pageData?.VisitUs} /> */}
+          {/* Investment Plan Section */}
+          <InvestPlan investPlanData={props?.pageData?.AppLink} />
 
-        {/* Investment Plan Section */}
-        <InvestPlan investPlanData={props?.pageData?.AppLink} />
+          {/* Frequently Asked Questions (FAQs) Section */}
+          <Faqs faqData={props?.pageData?.Faqs} />
 
-        {/* Frequently Asked Questions (FAQs) Section */}
-        <Faqs faqData={props?.pageData?.Faqs} />
+          {/* IRDA (Insurance Regulatory and Development Authority) Section */}
+          <IrdaSection />
 
-        {/* IRDA (Insurance Regulatory and Development Authority) Section */}
-        <IrdaSection />
-        
-      </div>
-    </LandingLayout>
+        </div>
+      </LandingLayout>
+    </>
   );
 };
 
@@ -69,7 +89,6 @@ export async function getServerSideProps(context) {
   try {
     // Fetch Contact Us page data from API based on Page URL filter
     const contactUsData = await apiClient('/api/contact-uses?filters[PageUrl][$eq]=/contact-us');
-
     return {
       props: {
         pageData: contactUsData?.data[0], // Passing API data to props
