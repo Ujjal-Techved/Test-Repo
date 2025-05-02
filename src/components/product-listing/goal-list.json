@@ -1,13 +1,10 @@
 {
-  "collectionName": "components_about_us_milestone_lists",
+  "collectionName": "components_product_listing_goal_lists",
   "info": {
-    "displayName": "MilestoneList"
+    "displayName": "GoalList"
   },
   "options": {},
   "attributes": {
-    "Year": {
-      "type": "string"
-    },
     "Image": {
       "allowedTypes": [
         "images"
@@ -15,7 +12,10 @@
       "type": "media",
       "multiple": false
     },
-    "Description": {
+    "LinkText": {
+      "type": "string"
+    },
+    "LinkUrl": {
       "type": "text"
     }
   }

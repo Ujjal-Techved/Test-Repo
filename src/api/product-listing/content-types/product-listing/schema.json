@@ -29,27 +29,11 @@
         "images"
       ]
     },
-    "TopSellingProducts": {
-      "type": "component",
-      "repeatable": false,
-      "component": "home-page.coverage-options"
-    },
     "PolicyTypes": {
       "displayName": "PolicyTypes",
       "type": "component",
       "repeatable": false,
       "component": "product-listing.policy-types"
-    },
-    "CoverageOptions": {
-      "type": "component",
-      "repeatable": false,
-      "component": "home-page.coverage-options"
-    },
-    "CoverageBenefits": {
-      "displayName": "CoverageBenefits",
-      "type": "component",
-      "repeatable": true,
-      "component": "product-listing.coverage-benefits"
     },
     "ComparePlans": {
       "displayName": "ComparePlans",
@@ -66,6 +50,34 @@
       "type": "component",
       "repeatable": false,
       "component": "common.faq-section"
+    },
+    "InsuranceMatter": {
+      "displayName": "InsuranceMatter",
+      "type": "component",
+      "repeatable": false,
+      "component": "product-listing.insurance-matter"
+    },
+    "ChooseGoal": {
+      "displayName": "ChooseGoal",
+      "type": "component",
+      "repeatable": false,
+      "component": "product-listing.choose-goal"
+    },
+    "CoverageSection": {
+      "displayName": "CoverageOption",
+      "type": "component",
+      "repeatable": false,
+      "component": "product-listing.coverage-option"
+    },
+    "CallBack": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.call-back"
+    },
+    "SeoSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.seo-section"
     }
   }
 }

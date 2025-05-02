@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_product_listing_coverage_lists",
+  "info": {
+    "displayName": "CoverageList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "TabTitle": {
+      "type": "string"
+    },
+    "TabDescription": {
+      "type": "text"
+    },
+    "BenefitList": {
+      "displayName": "BenefitList",
+      "type": "component",
+      "repeatable": true,
+      "component": "product-listing.benefit-list"
+    },
+    "PlanCards": {
+      "displayName": "PlanCards",
+      "type": "component",
+      "repeatable": true,
+      "component": "product-listing.plan-cards"
+    }
+  }
+}

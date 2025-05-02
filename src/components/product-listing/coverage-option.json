@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_product_listing_coverage_options",
+  "info": {
+    "displayName": "CoverageOption"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "text"
+    },
+    "CoverageList": {
+      "displayName": "CoverageList",
+      "type": "component",
+      "repeatable": true,
+      "component": "product-listing.coverage-list"
+    }
+  }
+}

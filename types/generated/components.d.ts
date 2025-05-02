@@ -25,36 +25,6 @@ export interface AboutUsAwardsList extends Struct.ComponentSchema {
   };
 }
 
-export interface AboutUsCorporateSocial extends Struct.ComponentSchema {
-  collectionName: 'components_about_us_corporate_socials';
-  info: {
-    displayName: 'CorporateSocial';
-  };
-  attributes: {
-    CorporateSocialCards: Schema.Attribute.Component<
-      'about-us.corporate-social-cards',
-      true
-    >;
-    Description: Schema.Attribute.Text;
-    Title: Schema.Attribute.String;
-  };
-}
-
-export interface AboutUsCorporateSocialCards extends Struct.ComponentSchema {
-  collectionName: 'components_about_us_corporate_social_cards';
-  info: {
-    description: '';
-    displayName: 'CorporateSocialCards';
-  };
-  attributes: {
-    Description: Schema.Attribute.Text;
-    Image: Schema.Attribute.Media<'images'>;
-    LinkText: Schema.Attribute.String;
-    LinkUrl: Schema.Attribute.String;
-    Title: Schema.Attribute.Text;
-  };
-}
-
 export interface AboutUsHelpingPeople extends Struct.ComponentSchema {
   collectionName: 'components_about_us_helping_people';
   info: {
@@ -152,30 +122,6 @@ export interface AboutUsMediaCenter extends Struct.ComponentSchema {
     Description: Schema.Attribute.Text;
     MediaCard: Schema.Attribute.Component<'about-us.media-card', true>;
     Title: Schema.Attribute.String;
-  };
-}
-
-export interface AboutUsMilestone extends Struct.ComponentSchema {
-  collectionName: 'components_about_us_milestones';
-  info: {
-    displayName: 'Milestone';
-  };
-  attributes: {
-    Description: Schema.Attribute.Text;
-    MilestoneList: Schema.Attribute.Component<'about-us.milestone-list', true>;
-    Title: Schema.Attribute.String;
-  };
-}
-
-export interface AboutUsMilestoneList extends Struct.ComponentSchema {
-  collectionName: 'components_about_us_milestone_lists';
-  info: {
-    displayName: 'MilestoneList';
-  };
-  attributes: {
-    Description: Schema.Attribute.Text;
-    Image: Schema.Attribute.Media<'images'>;
-    Year: Schema.Attribute.String;
   };
 }
 
@@ -448,7 +394,7 @@ export interface CommonFaqItems extends Struct.ComponentSchema {
     displayName: 'FAQ_Items';
   };
   attributes: {
-    Answer: Schema.Attribute.Text;
+    Answer: Schema.Attribute.Blocks;
     Question: Schema.Attribute.String;
   };
 }
@@ -573,55 +519,13 @@ export interface ContactUsConnectSection extends Struct.ComponentSchema {
   };
 }
 
-export interface ContactUsContactCards extends Struct.ComponentSchema {
-  collectionName: 'components_contact_us_contact_cards';
-  info: {
-    description: '';
-    displayName: 'ContactCards';
-  };
-  attributes: {
-    Description: Schema.Attribute.Text;
-    Description_Contact: Schema.Attribute.String;
-    Image: Schema.Attribute.Media<'images'>;
-    LinkText: Schema.Attribute.String;
-    LinkUrl: Schema.Attribute.String;
-    Title: Schema.Attribute.String;
-  };
-}
-
-export interface ContactUsCsCategory extends Struct.ComponentSchema {
-  collectionName: 'components_contact_us_cs_categories';
-  info: {
-    description: '';
-    displayName: 'CS_Category';
-  };
-  attributes: {
-    Image: Schema.Attribute.Media<'images'>;
-    ListItem: Schema.Attribute.Component<'contact-us.cs-item', true>;
-    Title: Schema.Attribute.String;
-  };
-}
-
-export interface ContactUsCsItem extends Struct.ComponentSchema {
-  collectionName: 'components_contact_us_cs_items';
-  info: {
-    displayName: 'CS_Item';
-  };
-  attributes: {
-    LinkText: Schema.Attribute.String;
-    LinkUrl: Schema.Attribute.String;
-  };
-}
-
 export interface ContactUsCustomerService extends Struct.ComponentSchema {
   collectionName: 'components_contact_us_customer_services';
   info: {
     description: '';
     displayName: 'CustomerService';
   };
-  attributes: {
-    CategoryList: Schema.Attribute.Component<'contact-us.cs-category', true>;
-  };
+  attributes: {};
 }
 
 export interface ContactUsReachOutSection extends Struct.ComponentSchema {
@@ -667,11 +571,13 @@ export interface ContactUsReachUsCards extends Struct.ComponentSchema {
 export interface HomePageCallBack extends Struct.ComponentSchema {
   collectionName: 'components_home_page_call_backs';
   info: {
+    description: '';
     displayName: 'CallBack';
   };
   attributes: {
     Description: Schema.Attribute.Text;
-    Title: Schema.Attribute.String;
+    Note: Schema.Attribute.Text;
+    Title: Schema.Attribute.Text;
   };
 }
 
@@ -840,14 +746,26 @@ export interface HomePageWhyLife extends Struct.ComponentSchema {
   };
 }
 
-export interface ProductListingBenefitsList extends Struct.ComponentSchema {
-  collectionName: 'components_product_listing_benefits_lists';
+export interface ProductListingBenefitList extends Struct.ComponentSchema {
+  collectionName: 'components_product_listing_benefit_lists';
   info: {
-    displayName: 'BenefitsList';
+    displayName: 'BenefitList';
   };
   attributes: {
     Description: Schema.Attribute.Text;
-    Image: Schema.Attribute.Media<'images'>;
+    Icon: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface ProductListingChooseGoal extends Struct.ComponentSchema {
+  collectionName: 'components_product_listing_choose_goals';
+  info: {
+    displayName: 'ChooseGoal';
+  };
+  attributes: {
+    GoalList: Schema.Attribute.Component<'product-listing.goal-list', true>;
+    SubTitle: Schema.Attribute.Text;
+    Title: Schema.Attribute.Text;
   };
 }
 
@@ -863,20 +781,92 @@ export interface ProductListingComparePlans extends Struct.ComponentSchema {
   };
 }
 
-export interface ProductListingCoverageBenefits extends Struct.ComponentSchema {
-  collectionName: 'components_product_listing_coverage_benefits';
+export interface ProductListingCoverageList extends Struct.ComponentSchema {
+  collectionName: 'components_product_listing_coverage_lists';
   info: {
-    displayName: 'CoverageBenefits';
+    description: '';
+    displayName: 'CoverageList';
   };
   attributes: {
-    BenefitsList: Schema.Attribute.Component<
-      'product-listing.benefits-list',
+    BenefitList: Schema.Attribute.Component<
+      'product-listing.benefit-list',
       true
     >;
-    Category: Schema.Attribute.Enumeration<
-      ['Featured', 'Term', 'Saving', 'ULIP', 'Group', 'Retirement', 'Child']
+    PlanCards: Schema.Attribute.Component<'product-listing.plan-cards', true>;
+    TabDescription: Schema.Attribute.Text;
+    TabTitle: Schema.Attribute.String;
+  };
+}
+
+export interface ProductListingCoverageOption extends Struct.ComponentSchema {
+  collectionName: 'components_product_listing_coverage_options';
+  info: {
+    displayName: 'CoverageOption';
+  };
+  attributes: {
+    CoverageList: Schema.Attribute.Component<
+      'product-listing.coverage-list',
+      true
     >;
+    Title: Schema.Attribute.Text;
+  };
+}
+
+export interface ProductListingFeatureList extends Struct.ComponentSchema {
+  collectionName: 'components_product_listing_feature_lists';
+  info: {
+    displayName: 'FeatureList';
+  };
+  attributes: {
     Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images'>;
+    Title: Schema.Attribute.Text;
+  };
+}
+
+export interface ProductListingGoalList extends Struct.ComponentSchema {
+  collectionName: 'components_product_listing_goal_lists';
+  info: {
+    displayName: 'GoalList';
+  };
+  attributes: {
+    Image: Schema.Attribute.Media<'images'>;
+    LinkText: Schema.Attribute.String;
+    LinkUrl: Schema.Attribute.Text;
+  };
+}
+
+export interface ProductListingInsuranceMatter extends Struct.ComponentSchema {
+  collectionName: 'components_product_listing_insurance_matters';
+  info: {
+    description: '';
+    displayName: 'InsuranceMatter';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    FeatureList: Schema.Attribute.Component<
+      'product-listing.feature-list',
+      true
+    >;
+    Title: Schema.Attribute.Text;
+  };
+}
+
+export interface ProductListingPlanCards extends Struct.ComponentSchema {
+  collectionName: 'components_product_listing_plan_cards';
+  info: {
+    description: '';
+    displayName: 'PlanCards';
+  };
+  attributes: {
+    AdvisorLink: Schema.Attribute.Text;
+    Description: Schema.Attribute.Text;
+    GreenText: Schema.Attribute.String;
+    KnowMoreLink: Schema.Attribute.Text;
+    RichText: Schema.Attribute.Blocks;
+    SubTitle: Schema.Attribute.Text;
+    Title: Schema.Attribute.String;
+    UINText: Schema.Attribute.String;
   };
 }
 
@@ -928,8 +918,6 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'about-us.awards': AboutUsAwards;
       'about-us.awards-list': AboutUsAwardsList;
-      'about-us.corporate-social': AboutUsCorporateSocial;
-      'about-us.corporate-social-cards': AboutUsCorporateSocialCards;
       'about-us.helping-people': AboutUsHelpingPeople;
       'about-us.info-strip': AboutUsInfoStrip;
       'about-us.jouney-cards': AboutUsJouneyCards;
@@ -937,8 +925,6 @@ declare module '@strapi/strapi' {
       'about-us.leaders-section': AboutUsLeadersSection;
       'about-us.media-card': AboutUsMediaCard;
       'about-us.media-center': AboutUsMediaCenter;
-      'about-us.milestone': AboutUsMilestone;
-      'about-us.milestone-list': AboutUsMilestoneList;
       'about-us.partners': AboutUsPartners;
       'about-us.partners-card': AboutUsPartnersCard;
       'about-us.principle-card': AboutUsPrincipleCard;
@@ -969,9 +955,6 @@ declare module '@strapi/strapi' {
       'common.seo-section': CommonSeoSection;
       'contact-us.app-link': ContactUsAppLink;
       'contact-us.connect-section': ContactUsConnectSection;
-      'contact-us.contact-cards': ContactUsContactCards;
-      'contact-us.cs-category': ContactUsCsCategory;
-      'contact-us.cs-item': ContactUsCsItem;
       'contact-us.customer-service': ContactUsCustomerService;
       'contact-us.reach-out-section': ContactUsReachOutSection;
       'contact-us.reach-tab-list': ContactUsReachTabList;
@@ -989,9 +972,15 @@ declare module '@strapi/strapi' {
       'home-page.what-is': HomePageWhatIs;
       'home-page.what-stage': HomePageWhatStage;
       'home-page.why-life': HomePageWhyLife;
-      'product-listing.benefits-list': ProductListingBenefitsList;
+      'product-listing.benefit-list': ProductListingBenefitList;
+      'product-listing.choose-goal': ProductListingChooseGoal;
       'product-listing.compare-plans': ProductListingComparePlans;
-      'product-listing.coverage-benefits': ProductListingCoverageBenefits;
+      'product-listing.coverage-list': ProductListingCoverageList;
+      'product-listing.coverage-option': ProductListingCoverageOption;
+      'product-listing.feature-list': ProductListingFeatureList;
+      'product-listing.goal-list': ProductListingGoalList;
+      'product-listing.insurance-matter': ProductListingInsuranceMatter;
+      'product-listing.plan-cards': ProductListingPlanCards;
       'product-listing.plan-list': ProductListingPlanList;
       'product-listing.policy-list': ProductListingPolicyList;
       'product-listing.policy-types': ProductListingPolicyTypes;

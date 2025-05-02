@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_product_listing_plan_cards",
+  "info": {
+    "displayName": "PlanCards",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "SubTitle": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "UINText": {
+      "type": "string"
+    },
+    "RichText": {
+      "type": "blocks"
+    },
+    "GreenText": {
+      "type": "string"
+    },
+    "KnowMoreLink": {
+      "type": "text"
+    },
+    "AdvisorLink": {
+      "type": "text"
+    }
+  }
+}

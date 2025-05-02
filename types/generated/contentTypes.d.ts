@@ -720,16 +720,17 @@ export interface ApiProductListingProductListing
     draftAndPublish: true;
   };
   attributes: {
+    CallBack: Schema.Attribute.Component<'home-page.call-back', false>;
+    ChooseGoal: Schema.Attribute.Component<
+      'product-listing.choose-goal',
+      false
+    >;
     ComparePlans: Schema.Attribute.Component<
       'product-listing.compare-plans',
       false
     >;
-    CoverageBenefits: Schema.Attribute.Component<
-      'product-listing.coverage-benefits',
-      true
-    >;
-    CoverageOptions: Schema.Attribute.Component<
-      'home-page.coverage-options',
+    CoverageSection: Schema.Attribute.Component<
+      'product-listing.coverage-option',
       false
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -737,6 +738,10 @@ export interface ApiProductListingProductListing
       Schema.Attribute.Private;
     Faq_Section: Schema.Attribute.Component<'common.faq-section', false>;
     Image: Schema.Attribute.Media<'images'>;
+    InsuranceMatter: Schema.Attribute.Component<
+      'product-listing.insurance-matter',
+      false
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -752,10 +757,7 @@ export interface ApiProductListingProductListing
     >;
     publishedAt: Schema.Attribute.DateTime;
     ReviewSection: Schema.Attribute.Component<'common.review-section', false>;
-    TopSellingProducts: Schema.Attribute.Component<
-      'home-page.coverage-options',
-      false
-    >;
+    SeoSection: Schema.Attribute.Component<'common.seo-section', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

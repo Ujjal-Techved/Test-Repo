@@ -22,30 +22,48 @@ module.exports = (config, { strapi }) => {
           Image: {
             fields: ["url", "alternativeText", "caption", "name"]
           },
-          TopSellingProducts: {
+          InsuranceMatter: {
             populate: {
-              CoverageCard: true,
-            }
-          },
-          PolicyTypes: {
-            populate: {
-              PolicyList: {
+              FeatureList: {
                 populate: {
                   Image: {
                     fields: ["url", "alternativeText", "caption", "name"]
-                  },
+                  }
                 }
               }
             }
           },
-          CoverageOptions: {
+          ChooseGoal: {
             populate: {
-              CoverageCard: true,
+              GoalList: {
+                populate: {
+                  Image: {
+                    fields: ["url", "alternativeText", "caption", "name"]
+                  }
+                }
+              }
             }
           },
-          CoverageBenefits: {
+          CoverageSection: {
             populate: {
-              BenefitsList: {
+              CoverageList: {
+                populate: {
+                  BenefitList: {
+                    populate: {
+                      Icon: {
+                        fields: ["url", "alternativeText", "caption", "name"]
+                      }
+                    }
+                  },
+                  PlanCards: true,
+                }
+              }
+            }
+          },
+          CallBack: true,
+          PolicyTypes: {
+            populate: {
+              PolicyList: {
                 populate: {
                   Image: {
                     fields: ["url", "alternativeText", "caption", "name"]
@@ -81,7 +99,12 @@ module.exports = (config, { strapi }) => {
               FaqList: true,
             }
           },
-        };
+          SeoSection: {
+            populate: {
+              SchemaTag: true,
+            }
+          },
+        }
       }
     }
 

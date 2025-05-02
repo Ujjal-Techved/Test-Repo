@@ -1,19 +1,19 @@
 {
-  "collectionName": "components_product_listing_benefits_lists",
+  "collectionName": "components_product_listing_benefit_lists",
   "info": {
-    "displayName": "BenefitsList"
+    "displayName": "BenefitList"
   },
   "options": {},
   "attributes": {
-    "Description": {
-      "type": "text"
-    },
-    "Image": {
+    "Icon": {
       "allowedTypes": [
         "images"
       ],
       "type": "media",
       "multiple": false
+    },
+    "Description": {
+      "type": "text"
     }
   }
 }

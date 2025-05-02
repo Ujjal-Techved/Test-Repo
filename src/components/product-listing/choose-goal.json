@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_product_listing_choose_goals",
+  "info": {
+    "displayName": "ChooseGoal"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "text"
+    },
+    "SubTitle": {
+      "type": "text"
+    },
+    "GoalList": {
+      "displayName": "GoalList",
+      "type": "component",
+      "repeatable": true,
+      "component": "product-listing.goal-list"
+    }
+  }
+}

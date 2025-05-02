@@ -5,11 +5,5 @@
     "description": ""
   },
   "options": {},
-  "attributes": {
-    "CategoryList": {
-      "type": "component",
-      "repeatable": true,
-      "component": "contact-us.cs-category"
-    }
-  }
+  "attributes": {}
 }

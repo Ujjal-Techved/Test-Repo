@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_product_listing_insurance_matters",
+  "info": {
+    "displayName": "InsuranceMatter",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "FeatureList": {
+      "displayName": "FeatureList",
+      "type": "component",
+      "repeatable": true,
+      "component": "product-listing.feature-list"
+    }
+  }
+}
