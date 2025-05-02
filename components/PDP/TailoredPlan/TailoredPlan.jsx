@@ -101,7 +101,7 @@ const TailoredPlan = () => {
                         </div>
                         <div className={`${styles.detail_box} premium`}>
                             <span>Premium Amount</span>
-                            <p>Minimum:</p>
+                            <p className={styles.min_bold}>Minimum:</p>
                             {/* Rsuit slider main section */}
                             <div className="rsuit-main-wrapper">
                                 <div className='ages-and-value'>
@@ -184,7 +184,7 @@ const TailoredPlan = () => {
                         </div>
                         <div className={`${styles.detail_box} premium`}>
                             <span>Premium Amount</span>
-                            <p>Minimum:</p>
+                            <p className={styles.min_bold}>Minimum:</p>
                             {/* Rsuit slider main section */}
                             <div className="rsuit-main-wrapper">
                                 <div className='ages-and-value'>

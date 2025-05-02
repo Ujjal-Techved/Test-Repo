@@ -9,10 +9,10 @@
 }
 
 .growth_plan_card {
-    border: 1px solid #16014333;
-    box-shadow: 0px 0px 25px 0px #1822BD26;
-    border-radius: 24px;
-    padding: 24px;
+    /* border: 1px solid #16014333; */
+    box-shadow: 0px 10px 40px 0px var(--fgi-boxshadowgrey);
+    border-radius: 4px;
+    padding: 8px 24px 24px;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -29,7 +29,8 @@
 .growth_plan_quote h5 {
     font-size: 24px;
     line-height: 32px;
-    font-family: 'Roboto-700';
+    font-family: 'Roboto-600';
+    font-weight: 600;
     color: var(--fgi-black);
 }
 
@@ -85,7 +86,7 @@
 .detail_box p {
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Roboto-500';
+    font-family: 'Roboto-400';
     color: var(--fgi-black);
     margin-top: 16px;
 }
@@ -94,6 +95,9 @@
     font-family: 'Roboto-300';
 }
 
+.min_bold{
+    font-family: 'Roboto-500' !important;
+}
 
 
 
@@ -107,10 +111,10 @@
 
 
 .common_point_wrapper {
-    border: 1px solid var(--fgi-borderdarkgrey);
-    box-shadow: 0px 0px 25px 0px var(--fgi-faqShadow);
+    /* border: 1px solid var(--fgi-borderdarkgrey); */
+    box-shadow: 0px 10px 40px 0px var(--fgi-boxshadowgrey);
     padding: 32px 24px;
-    border-radius: 24px;
+    border-radius: 4px;
 }
 
 .common_point_row {
@@ -120,7 +124,7 @@
 .common_point_wrapper p {
     font-size: 14px;
     line-height: 20px;
-    font-family: 'Roboto-500';
+    font-family: 'Roboto-400';
     color: var(--text-grey2);
     display: flex;
     align-items: center;

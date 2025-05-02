@@ -11,11 +11,11 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
     const [teamactiveTab, setTeamActiveTab] = useState(teamMemberstabs[0].tabtitle);
 
     // State to manage mobile screen detection
-    const [isMobile, setIsMobile] = useState(false);
+    // const [isMobile, setIsMobile] = useState(false);
 
     // State to manage dropdown for mobile view
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-    const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
+    // const [dropdownOpen, setDropdownOpen] = useState(false);
+    // const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
     // Prevent rendering if `teamMemberData` is missing
     if (!teamMemberData?.ReviewSection) {
@@ -25,23 +25,24 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
     // Destructure API response data for cleaner code
     const { Title, Description, ReviewCards } = teamMemberData?.ReviewSection;
 
+
     // Detect if the screen width is below 992px
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth < 992) {
-                setIsMobile(true);
-            } else {
-                setIsMobile(false);
-            }
-        };
+    // useEffect(() => {
+    //     const handleResize = () => {
+    //         if (window.innerWidth < 992) {
+    //             setIsMobile(true);
+    //         } else {
+    //             setIsMobile(false);
+    //         }
+    //     };
 
-        handleResize(); // Initial check
-        window.addEventListener("resize", handleResize); // Add event listener for resize detection
+    //     handleResize(); // Initial check
+    //     window.addEventListener("resize", handleResize); // Add event listener for resize detection
 
-        return () => {
-            window.removeEventListener("resize", handleResize); // Cleanup event listener on component unmount
-        };
-    }, []);
+    //     return () => {
+    //         window.removeEventListener("resize", handleResize); // Cleanup event listener on component unmount
+    //     };
+    // }, []);
 
     // Slider settings for team member reviews
     const sliderSettings = {
@@ -97,7 +98,7 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
                     <div className='common-tabs-wrapper'>
 
                         {/* Tabs for desktop view */}
-                        {!isMobile ? (
+                        {/* {!isMobile ? (
                             <Nav tabs>
                                 {teamMemberstabs.map(({ id, tabtitle }) => (
                                     <NavItem
@@ -126,49 +127,75 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
                                     ))}
                                 </DropdownMenu>
                             </Dropdown>
-                        )}
+                        )} */}
+
+                        <Nav tabs>
+                            {teamMemberstabs.map(({ id, tabtitle }) => (
+                                <NavItem
+                                    key={id}
+                                    className={teamactiveTab === tabtitle ? "active" : ""}
+                                    onClick={() => setTeamActiveTab(tabtitle)}
+                                >
+                                    <NavLink>{tabtitle}</NavLink>
+                                </NavItem>
+                            ))}
+                        </Nav>
 
                         {/* Tab content section */}
                         <TabContent activeTab={"1"} className='py-0'>
                             <TabPane tabId="1">
                                 <div className={styles.team_member_wrapper}>
-                                    <Slider {...sliderSettings}>
-                                        {/* Filtering reviews based on active tab category */}
-                                        {ReviewCards?.filter((member) =>
-                                            member?.Category?.toLowerCase() === teamactiveTab?.toLowerCase()
-                                        ).map((eachmember, index) => (
-                                            <div key={index} className={styles.team_slider_parent}>
-                                                <div  className={styles.team_slider}>
-                                                    {/* Reviewer's Image */}
-                                                    <img
-                                                        src={process.env.NEXT_PUBLIC_APP_API + eachmember?.Image?.url}
-                                                        alt={eachmember?.Image?.alternativeText || 'Review Image'}
-                                                    />
+                                    {ReviewCards?.filter((member) =>
+                                        member?.Category?.toLowerCase() === teamactiveTab?.toLowerCase()
+                                    ).length > 0 ? (
+                                        <Slider {...sliderSettings}
+                                            className={
+                                                ReviewCards?.filter((member) =>
+                                                    member?.Category?.toLowerCase() === teamactiveTab?.toLowerCase()
+                                                ).length === 1 ? 'single-slide' : ''
+                                            }
+                                        >
+                                            {/* Filtering reviews based on active tab category */}
+                                            {ReviewCards?.filter((member) =>
+                                                member?.Category?.toLowerCase() === teamactiveTab?.toLowerCase()
+                                            ).map((eachmember, index) => (
+                                                <div key={index} className={styles.team_slider_parent}>
+                                                    <div className={styles.team_slider}>
+                                                        {/* Reviewer's Image */}
+                                                        <img
+                                                            src={process.env.NEXT_PUBLIC_APP_API + eachmember?.Image?.url}
+                                                            alt={eachmember?.Image?.alternativeText || 'Review Image'}
+                                                        />
 
-                                                    {/* Review content */}
-                                                    <p className={styles.team_feedback}>{eachmember?.Review}</p>
+                                                        {/* Review content */}
+                                                        <p className={styles.team_feedback}>{eachmember?.Review}</p>
 
-                                                    {/* Reviewer's name and rating */}
-                                                    <div className={styles.member_name}>
-                                                        <label>{eachmember?.Name}</label>
-                                                        <p className="date">
-                                                            <Rating
-                                                                initialValue={eachmember?.Rating}
-                                                                iconsCount={5}
-                                                                readonly
-                                                                size={16}
-                                                                allowFraction
-                                                                fillColor={"rgba(255, 195, 41, 1)"}
-                                                                emptyColor={"#FFF"}
-                                                                SVGstrokeColor={"rgba(255, 195, 41, 1)"}
-                                                                SVGstrokeWidth={"2"}
-                                                            />
-                                                        </p>
+                                                        {/* Reviewer's name and rating */}
+                                                        <div className={styles.member_name}>
+                                                            <label>{eachmember?.Name}</label>
+                                                            <p className="date">
+                                                                <Rating
+                                                                    initialValue={eachmember?.Rating}
+                                                                    iconsCount={5}
+                                                                    readonly
+                                                                    size={16}
+                                                                    allowFraction
+                                                                    fillColor={"rgba(255, 195, 41, 1)"}
+                                                                    emptyColor={"#FFF"}
+                                                                    SVGstrokeColor={"rgba(255, 195, 41, 1)"}
+                                                                    SVGstrokeWidth={"2"}
+                                                                />
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        ))}
-                                    </Slider>
+                                            ))}
+                                        </Slider>
+                                    ) : (
+                                        <div className={styles.no_reviews + ' text-center pt-4'}>
+                                            <p>No reviews available for this category.</p>
+                                        </div>
+                                    )}
                                 </div>
                             </TabPane>
 

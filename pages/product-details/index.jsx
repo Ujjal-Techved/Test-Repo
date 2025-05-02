@@ -14,6 +14,7 @@ import PdpBanner from '@/components/PDP/PdpBanner/PdpBanner'
 import PolicySteps from '@/components/PDP/PolicySteps/PolicySteps'
 import Download from '@/components/PDP/Download/Download'
 import InfoResources from '@/components/PDP/InfoResources/InfoResources'
+import BenefitPlan from '@/components/PDP/BenefitPlan/BenefitPlan'
 
 const index = () => {
 
@@ -161,9 +162,9 @@ const index = () => {
     }
 
 
-      // Array of Dowanload Data
+    // Array of Dowanload Data
 
-      const downloadData = [
+    const downloadData = [
         {
             title: "Product Brochure",
             image: "/images/product-detail/ProductBrochure.png",
@@ -444,11 +445,13 @@ const index = () => {
     return (
         <LandingLayout>
             <div>
-                <Container>
-                    <Breadcrumbs values={breadcrumbs} />
-                </Container>
-                {/* PDP Main Banner Section */}
-                <PdpBanner />
+                <div className={styles.pdp_banner_background + ' mb-5'}>
+                    <Container>
+                        <Breadcrumbs values={breadcrumbs} />
+                    </Container>
+                    {/* PDP Main Banner Section */}
+                    <PdpBanner />
+                </div>
 
                 {/* Why long term plan section */}
                 <Whylongtermplan TermplanCardData={TermplanCardData} />
@@ -465,14 +468,17 @@ const index = () => {
                 {/* Life Insurance section */}
                 <LifeInsurance lifeInsurData={lifeInsurData} />
 
+                {/* Benifits Plan Section */}
+                <BenefitPlan/>
+
                 {/* Policy steps section */}
                 <PolicySteps stepsData={stepsData} />
 
                 {/* Dowanload section */}
-                <Download downloadData={downloadData}/>
+                <Download downloadData={downloadData} />
 
                 {/* Importnat Information and Resources */}
-                <InfoResources/>
+                {/* <InfoResources /> */}
 
                 {/* Our Customer section */}
                 <OurCustomer teamMemberstabs={teamMemberstabs} teamMemberData={teamMemberData} />

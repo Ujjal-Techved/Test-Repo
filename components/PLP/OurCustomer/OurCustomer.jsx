@@ -11,11 +11,11 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
     const [teamactiveTab, setTeamActiveTab] = useState(teamMemberstabs[0].tabtitle);
 
     // State to manage mobile screen detection
-    const [isMobile, setIsMobile] = useState(false);
+    // const [isMobile, setIsMobile] = useState(false);
 
     // State to manage dropdown for mobile view
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-    const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
+    // const [dropdownOpen, setDropdownOpen] = useState(false);
+    // const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
     // Prevent rendering if `teamMemberData` is missing
     // if (!teamMemberData?.ReviewSection) {
@@ -26,22 +26,22 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
     // const { Title, Description, ReviewCards } = teamMemberData?.ReviewSection;
 
     // Detect if the screen width is below 992px
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth < 992) {
-                setIsMobile(true);
-            } else {
-                setIsMobile(false);
-            }
-        };
+    // useEffect(() => {
+    //     const handleResize = () => {
+    //         if (window.innerWidth < 992) {
+    //             setIsMobile(true);
+    //         } else {
+    //             setIsMobile(false);
+    //         }
+    //     };
 
-        handleResize(); // Initial check
-        window.addEventListener("resize", handleResize); // Add event listener for resize detection
+    //     handleResize(); // Initial check
+    //     window.addEventListener("resize", handleResize); // Add event listener for resize detection
 
-        return () => {
-            window.removeEventListener("resize", handleResize); // Cleanup event listener on component unmount
-        };
-    }, []);
+    //     return () => {
+    //         window.removeEventListener("resize", handleResize); // Cleanup event listener on component unmount
+    //     };
+    // }, []);
 
     // Slider settings for team member reviews
     const sliderSettings = {
@@ -88,8 +88,8 @@ const OurCustomer = ({ teamMemberstabs, teamMemberData }) => {
             <Container fluid className={styles.plan_containerfluid + ' plan-container-fluid'}>
                 {/* Title and subtitle section */}
                 <TitleSubtitle
-                    title="What Our Happy Customers Are Saying"
-                    subtitle="Real stories, real people - hear from those who’ve taken the step towards securing their future with us."
+                       title="What Our Customers Are Saying"
+                       subtitle="Discover how Future Generali has secured peace of mind for families across the nation"
                 />
 
                 <div className={styles.CoverageOption_section}>

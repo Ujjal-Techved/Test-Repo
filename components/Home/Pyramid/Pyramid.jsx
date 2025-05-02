@@ -32,7 +32,7 @@ const pyramidData = [
         label: "Protection: The Foundation",
         description: "The first step in financial planning is protection, and a life insurance company in India provides the foundation to secure your loved ones.",
         position: "right",
-    }
+    },
 ];
 
 const Pyramid = () => {

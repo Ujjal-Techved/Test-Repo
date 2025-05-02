@@ -64,6 +64,14 @@ body.over-hide {
     letter-spacing: 1px;
 }
 
+.lowercase-text{
+    text-transform: lowercase;
+}
+
+.capitalize-text{
+    text-transform: capitalize;
+}
+
 .redBtn:disabled {
     background: linear-gradient(180deg, #ffbfba -40%, #C21B17 100%);
 }
@@ -269,6 +277,10 @@ body.over-hide {
     line-height: 24px;
     font-family: 'Roboto-400';
     color: var(--text-grey2);
+}
+
+.pdp-bannermain .react-select-container .react-select__control{
+    background: var(--background-lightpink);   
 }
 
 .react-select-container .react-select__control {
@@ -773,6 +785,79 @@ body.over-hide {
 }
 
 
+/* Common Policy table css for PDP */
+ 
+.policy-table-header {
+     
+    border-radius: 24px;
+    display: flex;
+    align-items: center; 
+    height: 80px;
+}
+
+.policy-table-title {
+    background-color: var(--fgi-pink);
+    font-size: 18px;
+    line-height: 26px;
+    font-family: 'Helvetica-800';
+    color: var(--fgi-black);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+
+}
+
+.policy-table-title:not(:first-child), .policy-table-title:not(:last-child){
+    margin: 0px 0.5px;
+}
+
+.policy-table-title:first-child{
+    border-top-left-radius: 24px;
+}
+
+.policy-table-title:last-child{
+    border-top-right-radius: 24px;
+}
+
+.policy-table-subtitle{
+    text-align: center;
+}
+
+.policy-table-subtitle span{
+    font-size: 12px;
+    line-height: 16px;
+    font-family: 'Helvetica-400';
+    color: var(--fgi-black);
+}
+
+.policy-income-loyalty-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--fgi-pink);
+    border-radius: 24px 24px 0px 0px;
+}
+
+.policy-income-loyalty-wrapper .policy-income-loyalty-main{
+    width: 75%;
+    border-left: 0.5px solid var(--background-color);
+    border-bottom: 0.5px solid var(--background-color);
+}
+
+.policy-income-loyalty-main p{
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica-500';
+    color: var(--fgi-black);
+    text-align: center;
+    padding-top: 16px;
+    padding-bottom: 12px;
+}
+
+
 @media screen and (max-width: 991.2px) and (min-width: 320px) {
 
     /* common padding */
@@ -846,6 +931,12 @@ body.over-hide {
     .popupwhiteBtn,
     .popupredBtn {
         padding: 12px 24px;
+    }
+
+    /* Common links style css */
+
+    .pdp-bannermain .react-select-container .react-select__control{
+        background: transparent; 
     }
 
 
