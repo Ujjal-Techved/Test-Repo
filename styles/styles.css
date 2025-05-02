@@ -291,12 +291,20 @@ body.over-hide {
     border-bottom: 1px solid var(--border-grey);
     box-shadow: none;
     font-family: "Roboto-400";
+    font-weight: 400;
     font-size: 16px;
     line-height: 22.4px;
     padding: 12px 16px 0px 0px;
     padding-right: 32px;
+    background: none;
+    color:var(--text-grey2);
 }
 
+.react-select__placeholder {
+    font-family: "Roboto-300";
+    font-weight: 300;
+    color: var(--placeholder-gray);
+  }
 
 .react-select-container .react-select__control:hover {
     border-top: 0px;

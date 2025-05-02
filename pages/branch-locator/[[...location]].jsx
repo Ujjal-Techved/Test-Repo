@@ -23,9 +23,11 @@ const BranchLocator = (props) => {
     const [locationPopup, setLocationPopup] = useState(false);
     const toggleLocationPopup = () => { setLocationPopup(!locationPopup) }
     // State for selected city and state (from props or default values)
-    const [selectedCity, setSelectedCity] = useState(props.city ? { value: props.city, label: props.city, state: props.state } : "");
+    const [selectedCity, setSelectedCity] = useState(props.city ? { value: props.city, label: props.city } : "");
     const [selectedState, setSelectedState] = useState(props.state ? { value: props.state, label: props.state } : "");
-    const [selectedPincode, setSelectedPincode] = useState(props.pincode ? { value: props.pincode, label: props.pincode, city: props.city, state: props.state } : "");
+    const [selectedPincode, setSelectedPincode] = useState(props.pincode ? { value: props.pincode, label: props.pincode } : "");
+
+    const [cityList, setCityList] = useState([]);
 
     // Handle the "Search" button click, redirecting to the selected city/state page
     const handleSubmit = () => {
@@ -35,7 +37,7 @@ const BranchLocator = (props) => {
         const pincodeValue = selectedPincode?.value;
         // Redirect to the branch locator page for the selected city and state
         if (pincodeValue) {
-            window.location.href = `/branch-locator/${stateValue}/${cityValue}/${pincodeValue}`;
+            window.location.href = `/branch-locator/${pincodeValue}`;
         }
         else {
             window.location.href = `/branch-locator/${stateValue}/${cityValue}`;
@@ -44,13 +46,34 @@ const BranchLocator = (props) => {
     };
 
     useEffect(() => {
-        if (!props.city && !props.pincode) {
+        if ((!props.state || !props.city) && !props.pincode) {
             toggleLocationPopup();
         }
         return () => {
             toggleLocationPopup();
         }
     }, [])
+
+    const fetchCityList = async (state) => {
+        const branchList = await apiClient(`/api/branch-lists?filters[State][$eqi]=${state}&fields[0]=City`);
+        const seenCity = new Set();
+        const cityData = branchList.data.filter(item => {
+            if (seenCity.has(item.City)) {
+                return false;
+            } else {
+                seenCity.add(item.City);
+                return true;
+            }
+        }).map(data => ({ value: data.City, label: data.City }));
+        setCityList(cityData);
+    }
+
+    useEffect(() => {
+        if (props.state) {
+            fetchCityList(props.state);
+        }
+    }, [])
+
 
     return (
         <>
@@ -61,9 +84,10 @@ const BranchLocator = (props) => {
                 <meta name="description" content={props?.pageData?.SeoSection?.MetaDescription} />
                 <link rel="canonical" href={props?.pageData?.SeoSection?.CanonicalTag} key="canonical" />
                 {props?.pageData?.SeoSection?.SchemaTag?.map(
-                    (schemas) => {
+                    (schemas, index) => {
                         return (
                             <script
+                                key={index}
                                 type="application/ld+json"
                                 dangerouslySetInnerHTML={{
                                     __html: schemas.Text,
@@ -86,17 +110,17 @@ const BranchLocator = (props) => {
                         />
 
                         {/* Branch search filter section */}
-                        <div className={`${styles.listContainer} ${props.city && props.state ? styles.active : ""}`}>
+                        <div className={`${styles.listContainer} ${(props.city && props.state) || props.pincode ? styles.active : ""}`}>
                             <div className={styles.filterComponent}>
                                 <Row className={styles.row}>
                                     <div className={styles.col + ' dropdown-arrow'}>
-                                        <label className='common-label'>Select City</label>
+                                        <label className='common-label'>Select State</label>
                                         <Select
-                                            options={props.cityList}
-                                            value={selectedCity}
+                                            options={props.stateList}
+                                            value={selectedState}
                                             onChange={(option) => {
-                                                setSelectedCity(option);  // Update selected city
-                                                setSelectedState({ value: option.state, label: option.state }); // Automatically set state
+                                                setSelectedState(option);
+                                                fetchCityList(option.value);
                                                 setSelectedPincode("");
                                             }}
                                             onInputChange={(inputValue, { action }) => {
@@ -106,32 +130,37 @@ const BranchLocator = (props) => {
                                                     return sanitizedInput;
                                                 }
                                             }}
-                                            
+                                            placeholder="Select Your State"
+                                            className="react-select-container"
+                                            classNamePrefix="react-select"
+                                            // isSearchable={false}
+                                            // menuIsOpen={false}
+                                            components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
+                                        />
+                                    </div>
+                                    <div className={styles.col + ' dropdown-arrow'}>
+                                        <label className='common-label'>Select City</label>
+                                        <Select
+                                            options={cityList}
+                                            value={selectedCity}
+                                            onChange={(option) => {
+                                                setSelectedCity(option);  // Update selected city
+                                                // setSelectedState({ value: option.state, label: option.state }); // Automatically set state
+                                                setSelectedPincode("");
+                                            }}
+                                            onInputChange={(inputValue, { action }) => {
+                                                if (action === "input-change") {
+                                                    // Allow only alphabetic characters and spaces, with a max length of 50
+                                                    const sanitizedInput = inputValue.replace(/[^a-zA-Z\s]/g, "").slice(0, 50);
+                                                    return sanitizedInput;
+                                                }
+                                            }}
+                                            isSearchable={selectedState?.value ? true : false}
+                                            isDisabled={selectedState?.value ? false : true}
                                             placeholder="Select Your City"
                                             className="react-select-container"
                                             classNamePrefix="react-select"
                                             components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Remove arrow and separator
-                                        />
-                                    </div>
-                                    <div className={styles.col + ' dropdown-arrow'}>
-                                        <label className='common-label'>Select State</label>
-                                        <Select
-                                            options={props.stateList}
-                                            value={selectedState}
-                                            onChange={(option) => { setSelectedState(option); }}
-                                            // onInputChange={(inputValue, { action }) => {
-                                            //     if (action === "input-change") {
-                                            //         // Allow only alphabetic characters and spaces, with a max length of 50
-                                            //         const sanitizedInput = inputValue.replace(/[^a-zA-Z\s]/g, "").slice(0, 50);
-                                            //         return sanitizedInput;
-                                            //     }
-                                            // }}
-                                            placeholder="Select Your State"
-                                            className="react-select-container"
-                                            classNamePrefix="react-select"
-                                            isSearchable={false}
-                                            menuIsOpen={false}
-                                            components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
                                         />
                                     </div>
                                     <div className={styles.col}>
@@ -141,11 +170,13 @@ const BranchLocator = (props) => {
                                             value={selectedPincode}
                                             onChange={(option) => {
                                                 setSelectedPincode(option);
-                                                setSelectedCity({ value: option.city, label: option.city });  // Update selected city
-                                                setSelectedState({ value: option.state, label: option.state });
+                                                setSelectedCity("");  // Update selected city
+                                                setSelectedState("");
                                             }}
                                             onInputChange={(inputValue, { action }) => {
                                                 if (action === "input-change") {
+                                                    setSelectedCity("");  // Update selected city
+                                                    setSelectedState("");
                                                     // Allow only alphabetic characters and spaces, with a max length of 50
                                                     const sanitizedInput = inputValue.replace(/[^0-9]/g, "").slice(0, 6);
                                                     return sanitizedInput;
@@ -168,7 +199,7 @@ const BranchLocator = (props) => {
 
                             {/* Conditionally render the Branch List or an image if no city/state */}
                             {
-                                props.city && props.state ? (
+                                (props.city && props.state) || props.pincode ? (
                                     <BranchList list={props.branchList} />  // Display the list of branches
                                 ) : (
                                     <div className='d-flex align-items-center justify-content-center'>
@@ -207,9 +238,17 @@ const BranchLocator = (props) => {
 // **Server-side Props for SEO**
 export async function getServerSideProps(context) {
     const { location } = context.params;
-    let state = location?.[0] || "";
-    let city = location?.[1] || "";
-    let pincode = location?.[2] || "";
+    let firstParam = location?.[0] ?? "";
+    let state = "";
+    let city = location?.[1] ?? "";
+    let pincode = "";
+
+    // Check if first value is a number (pincode)
+    if (!isNaN(firstParam) && firstParam !== "") {
+        pincode = firstParam;
+    } else {
+        state = firstParam;
+    }
 
     // Convert state and city to proper format (capitalize first letters)
     const toNormalForm = (str) => str
@@ -224,23 +263,43 @@ export async function getServerSideProps(context) {
         { name: "Branch Locator", url: "/branch-locator", active: true },
         state ? { name: normalizedState, url: `/branch-locator/${state}/${city}`, active: true } : null,
         city ? { name: normalizedCity, url: `/branch-locator/${state}/${city}`, active: true } : null,
-        pincode ? { name: pincode, url: `/branch-locator/${state}/${city}/${pincode}`, active: true } : null,
+        pincode ? { name: pincode, url: `/branch-locator/${pincode}`, active: true } : null,
     ].filter(Boolean); // Remove null values
 
 
     try {
         // Fetch the list of branches (cities and states)
-        const branchList = await apiClient('/api/branch-lists?fields[0]=State&fields[1]=City&fields[2]=Pincode');
+        const branchList = await apiClient('/api/branch-lists?fields[0]=State&fields[1]=Pincode');
 
         // Fetch the filtered branch list based on state and city
         const filterBranchList = await apiClient(
-            `/api/branch-lists?filters[State][$eqi]=${normalizedState}&filters[City][$eqi]=${normalizedCity}` + (pincode ? `&filters[Pincode][$eqi]=${pincode}` : "")
+            `/api/branch-lists?` + (pincode ? `filters[Pincode][$eqi]=${pincode}` : `filters[State][$eqi]=${normalizedState}&filters[City][$eqi]=${normalizedCity}`)
         );
 
+        console.log(filterBranchList)
+
+        // unique array
+        const seenStates = new Set();
+        const seenPincodes = new Set();
+
         // Create dropdown options for cities and states
-        const cityList = branchList.data.map(data => ({ value: data.City, label: data.City, state: data.State }));
-        const stateList = branchList.data.map(data => ({ value: data.State, label: data.State }));
-        const pincodeList = branchList.data.map(data => ({ value: data.Pincode, label: data.Pincode, state: data.State, city: data.City }));
+        const stateList = branchList.data.filter(item => {
+            if (seenStates.has(item.State)) {
+                return false;
+            } else {
+                seenStates.add(item.State);
+                return true;
+            }
+        }).map(data => ({ value: data.State, label: data.State }));
+
+        const pincodeList = branchList.data.filter(item => {
+            if (seenPincodes.has(item.Pincode)) {
+                return false;
+            } else {
+                seenPincodes.add(item.Pincode);
+                return true;
+            }
+        }).map(data => ({ value: data.Pincode, label: data.Pincode }));
 
         const pageData = await apiClient('/api/branch-list-banners');
 
@@ -253,7 +312,7 @@ export async function getServerSideProps(context) {
                 cityUrl: city,   // Keep original city for URL 
                 breadcrumbs: breadcrumbs,
                 branchList: filterBranchList?.data ?? [], // Default value if no branches found
-                cityList, stateList, pincodeList,
+                stateList, pincodeList,
                 pageData: pageData?.data[0],
             }
         };
