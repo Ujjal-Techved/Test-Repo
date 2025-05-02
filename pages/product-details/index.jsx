@@ -14,6 +14,7 @@ import PdpBanner from '@/components/PDP/PdpBanner/PdpBanner'
 import PolicySteps from '@/components/PDP/PolicySteps/PolicySteps'
 import Download from '@/components/PDP/Download/Download'
 import InfoResources from '@/components/PDP/InfoResources/InfoResources'
+import BenefitPlan from '@/components/PDP/BenefitPlan/BenefitPlan'
 
 const index = () => {
 
@@ -466,6 +467,9 @@ const index = () => {
 
                 {/* Life Insurance section */}
                 <LifeInsurance lifeInsurData={lifeInsurData} />
+
+                {/* Benifits Plan Section */}
+                <BenefitPlan/>
 
                 {/* Policy steps section */}
                 <PolicySteps stepsData={stepsData} />
