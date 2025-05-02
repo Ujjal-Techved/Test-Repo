@@ -23,7 +23,7 @@ const BenefitPlan = () => {
             setIsMobile(window.innerWidth < 992);
         };
 
-        handleResize(); 
+        handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
@@ -38,7 +38,7 @@ const BenefitPlan = () => {
 
                 <div className={styles.CoverageOption_section}>
                     <div className='common-tabs-wrapper'>
-                        {!isMobile ? (
+                        {/* {!isMobile ? (
                             <Nav tabs>
                                 {teamMemberstabs.map(({ id, tabtitle }) => (
                                     <NavItem key={id} className={teamactiveTab === id ? "active" : ""}>
@@ -59,17 +59,25 @@ const BenefitPlan = () => {
                                     ))}
                                 </DropdownMenu>
                             </Dropdown>
-                        )}
+                        )} */}
+
+                        <Nav tabs>
+                            {teamMemberstabs.map(({ id, tabtitle }) => (
+                                <NavItem key={id} className={teamactiveTab === id ? "active" : ""}>
+                                    <NavLink onClick={() => setTeamActiveTab(id)}>{tabtitle}</NavLink>
+                                </NavItem>
+                            ))}
+                        </Nav>
 
                         <TabContent activeTab={teamactiveTab} className='py-0'>
                             <TabPane tabId="1">
-                                <SurvivalbenefitPlan/>
+                                <SurvivalbenefitPlan />
                             </TabPane>
                             <TabPane tabId="2">
-                                <MaturitybenefitPlan/>
+                                <MaturitybenefitPlan />
                             </TabPane>
                             <TabPane tabId="3">
-                                <DeathbenefitPlan/>
+                                <DeathbenefitPlan />
                             </TabPane>
                         </TabContent>
                     </div>
