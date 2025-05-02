@@ -540,8 +540,6 @@ export interface ContactUsCustomerService extends Struct.ComponentSchema {
   };
   attributes: {
     CategoryList: Schema.Attribute.Component<'contact-us.category-list', true>;
-    Description: Schema.Attribute.Text;
-    Title: Schema.Attribute.Text;
   };
 }
 

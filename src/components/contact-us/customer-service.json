@@ -6,12 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "Title": {
-      "type": "text"
-    },
-    "Description": {
-      "type": "text"
-    },
     "CategoryList": {
       "displayName": "CategoryList",
       "type": "component",
