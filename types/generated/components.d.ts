@@ -503,6 +503,19 @@ export interface ContactUsAppLink extends Struct.ComponentSchema {
   };
 }
 
+export interface ContactUsCategoryList extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_category_lists';
+  info: {
+    description: '';
+    displayName: 'CategoryList';
+  };
+  attributes: {
+    Image: Schema.Attribute.Media<'images'>;
+    ListItem: Schema.Attribute.Component<'contact-us.list-item', true>;
+    Title: Schema.Attribute.String;
+  };
+}
+
 export interface ContactUsConnectSection extends Struct.ComponentSchema {
   collectionName: 'components_contact_us_connect_sections';
   info: {
@@ -525,7 +538,22 @@ export interface ContactUsCustomerService extends Struct.ComponentSchema {
     description: '';
     displayName: 'CustomerService';
   };
-  attributes: {};
+  attributes: {
+    CategoryList: Schema.Attribute.Component<'contact-us.category-list', true>;
+    Description: Schema.Attribute.Text;
+    Title: Schema.Attribute.Text;
+  };
+}
+
+export interface ContactUsListItem extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_list_items';
+  info: {
+    displayName: 'ListItem';
+  };
+  attributes: {
+    LinkText: Schema.Attribute.String;
+    LinkUrl: Schema.Attribute.Text;
+  };
 }
 
 export interface ContactUsReachOutSection extends Struct.ComponentSchema {
@@ -954,8 +982,10 @@ declare module '@strapi/strapi' {
       'common.schema-tag': CommonSchemaTag;
       'common.seo-section': CommonSeoSection;
       'contact-us.app-link': ContactUsAppLink;
+      'contact-us.category-list': ContactUsCategoryList;
       'contact-us.connect-section': ContactUsConnectSection;
       'contact-us.customer-service': ContactUsCustomerService;
+      'contact-us.list-item': ContactUsListItem;
       'contact-us.reach-out-section': ContactUsReachOutSection;
       'contact-us.reach-tab-list': ContactUsReachTabList;
       'contact-us.reach-us-cards': ContactUsReachUsCards;

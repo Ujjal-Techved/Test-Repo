@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_contact_us_list_items",
+  "info": {
+    "displayName": "ListItem"
+  },
+  "options": {},
+  "attributes": {
+    "LinkText": {
+      "type": "string"
+    },
+    "LinkUrl": {
+      "type": "text"
+    }
+  }
+}

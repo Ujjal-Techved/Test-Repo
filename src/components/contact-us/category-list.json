@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_contact_us_category_lists",
+  "info": {
+    "displayName": "CategoryList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "ListItem": {
+      "type": "component",
+      "repeatable": true,
+      "component": "contact-us.list-item"
+    }
+  }
+}

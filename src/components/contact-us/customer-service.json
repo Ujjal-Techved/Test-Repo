@@ -5,5 +5,18 @@
     "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "Title": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "CategoryList": {
+      "displayName": "CategoryList",
+      "type": "component",
+      "repeatable": true,
+      "component": "contact-us.category-list"
+    }
+  }
 }
