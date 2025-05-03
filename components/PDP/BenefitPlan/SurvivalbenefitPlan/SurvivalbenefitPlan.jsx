@@ -48,10 +48,25 @@ const SurvivalbenefitPlan = () => {
         },
         {
             id: 2,
-            title: "Guaranteed Income",
-            description: "The Guaranteed Income varies based on Annualized Premium (excluding applicable taxes, rider premiums, loadings for modal premium and underwriting extra premiums, if any), Plan Option, Income Option, Entry age of Life Assured, Policy Term, Premium Payment Term, and Death Benefit Multiple Option."
+            title: "Income Loyalty Addition",
+            description: "The Income Loyalty Addition shall enhance the Survival Benefit payable starting from the 11th policy year till the end of the Policy Term, subject to payment of all due premiums. The Income Loyalty Addition is defined as a percentage of Guaranteed Income as mentioned below in Table 1."
         }
     ];
+
+    // Policy Table Array inner Data
+
+    const policyData = [
+        { yearRange: "1-10", "30": "0%", "40": "0%", "50": "0%" },
+        { yearRange: "11-15", "30": "50%", "40": "50%", "50": "50%" },
+        { yearRange: "16-20", "30": "100%", "40": "100%", "50": "100%" },
+        { yearRange: "21-25", "30": "150%", "40": "150%", "50": "150%" },
+        { yearRange: "26-30", "30": "200%", "40": "200%", "50": "200%" },
+        { yearRange: "31-35", "30": "", "40": "250%", "50": "250%" },
+        { yearRange: "36-40", "30": "", "40": "300%", "50": "300%" },
+        { yearRange: "41-45", "30": "", "40": "", "50": "350%" },
+        { yearRange: "46-50", "30": "", "40": "", "50": "400%" },
+    ];
+
 
 
     return (
@@ -62,7 +77,7 @@ const SurvivalbenefitPlan = () => {
             </div>
 
             <div className={styles.benefit_wrapper}>
-                <p className={styles.option_text}>Income Options to Choose From</p>
+                <p className={styles.option_text + ' text-center text-md-start'}>Income Options to Choose From</p>
 
                 {/* Income Options to Choose From */}
                 {incomeOptionsData.map((option) => (
@@ -96,7 +111,7 @@ const SurvivalbenefitPlan = () => {
                 ))}
 
                 {/* Guaranteed Income */}
-                <div>
+                <div className={styles.guranted_main}>
                     {guaranteedIncomeOptions.map((option) => (
                         <div key={option.id} className={styles.guranted_income + ' pt-md'}>
                             <p className={styles.option_text}>{option.title}</p>
@@ -140,10 +155,16 @@ const SurvivalbenefitPlan = () => {
                     </div>
 
                     <div className='policy-table-data'>
-                        <div className="policy-table-details">
-                            
-                        </div>
+                        {policyData.map((row, index) => (
+                            <div className="policy-table-details" key={index}>
+                                <div className="policy-table-cell">{row.yearRange}</div>
+                                <div className="policy-table-cell">{row["30"]}</div>
+                                <div className="policy-table-cell">{row["40"]}</div>
+                                <div className="policy-table-cell">{row["50"]}</div>
+                            </div>
+                        ))}
                     </div>
+
 
                 </div>
 

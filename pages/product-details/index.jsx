@@ -445,7 +445,7 @@ const index = () => {
     return (
         <LandingLayout>
             <div>
-                <div className={styles.pdp_banner_background + ' mb-5'}>
+                <div className={styles.pdp_banner_background + ' mb-lg-5 mb-0'}>
                     <Container>
                         <Breadcrumbs values={breadcrumbs} />
                     </Container>
