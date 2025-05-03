@@ -25,14 +25,17 @@ const HelpingPeople = ({ helpingPeopleData }) => {
     useEffect(() => {
         // Set `isMobile` based on current screen size
         const handleResize = () => {
+            if (window.innerWidth < 992) {
+                setIsMobile(true);
+            } else {
+                setIsMobile(false);
+            }
             setIsMobile(window.innerWidth < 992);
         };
-
         // Initial check
         handleResize();
         // Attach listener to update on window resize
         window.addEventListener("resize", handleResize);
-
         // Cleanup listener on component unmount
         return () => {
             window.removeEventListener("resize", handleResize);
@@ -48,10 +51,17 @@ const HelpingPeople = ({ helpingPeopleData }) => {
                             <div className={styles.helping_section}>
                                 {/* Section title with corner image */}
                                 <div className={styles.helping_title}>
-                                    <img
-                                        src={process.env.NEXT_PUBLIC_APP_API + CornerImage?.url}
-                                        alt={CornerImage?.alternativeText}
-                                    />
+                                    {isMobile ? (
+                                        <img
+                                            src={process.env.NEXT_PUBLIC_APP_API + CornerImageMobile?.url}
+                                            alt={CornerImageMobile?.alternativeText}
+                                        />
+                                    ) : (
+                                        <img
+                                            src={process.env.NEXT_PUBLIC_APP_API + CornerImage?.url}
+                                            alt={CornerImage?.alternativeText}
+                                        />
+                                    )} 
                                     <h2>{Title}</h2>
                                 </div>
 
@@ -77,10 +87,17 @@ const HelpingPeople = ({ helpingPeopleData }) => {
                         <Col lg="6" xs="12">
                             <div className={styles.all_families}>
                                 {/* Supporting right-side image */}
-                                <img
-                                    src={process.env.NEXT_PUBLIC_APP_API + ImageDesktop?.url}
-                                    alt={ImageDesktop?.alternativeText}
-                                />
+                                {isMobile ? (
+                                    <img
+                                        src={process.env.NEXT_PUBLIC_APP_API + ImageMobile?.url}
+                                        alt={ImageMobile?.alternativeText}
+                                    />
+                                ) : (
+                                    <img
+                                        src={process.env.NEXT_PUBLIC_APP_API + ImageDesktop?.url}
+                                        alt={ImageDesktop?.alternativeText}
+                                    />
+                                )}:
                             </div>
                         </Col>
                     </Row>

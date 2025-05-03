@@ -61,7 +61,7 @@ const ReachOutcenter = ({ reactOutData }) => {
                         <div className={styles.career_content_section}>
                           <span>{TabList[0]?.ReachUsCards[i]?.Title}</span>
                           <p>{TabList[0]?.ReachUsCards[i]?.Description1Grey}</p>
-                          <button className='redBtn'>{TabList[0]?.ReachUsCards[i]?.LinkText}</button>
+                          <a href={TabList[0]?.ReachUsCards[i]?.LinkUrl}><button className='redBtn'>{TabList[0]?.ReachUsCards[i]?.LinkText}</button></a>
                         </div>
                         <div className={styles.capmus_section}>
                           <img
@@ -96,7 +96,7 @@ const ReachOutcenter = ({ reactOutData }) => {
                           </p>
                         </div>
                         <div className={styles.reach_us_link}>
-                          <a href='#' className={styles.reach_us_linktext}>
+                          <a href={TabList[1]?.ReachUsCards[i]?.LinkUrl} className={styles.reach_us_linktext}>
                             <span>{TabList[1]?.ReachUsCards[i]?.LinkText}</span>
                           </a>
                         </div>
@@ -120,7 +120,7 @@ const ReachOutcenter = ({ reactOutData }) => {
                           alt={TabList[2]?.ReachUsCards[i]?.Image?.alternativeText}
                         />
                         <a
-                          href=''
+                          href={TabList[2]?.ReachUsCards[i]?.LinkUrl}
                           className={styles.protect_plan_linktext}
                           target='_blank'
                           rel='noopener noreferrer'

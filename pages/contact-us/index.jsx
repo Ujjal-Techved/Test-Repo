@@ -19,7 +19,7 @@ const ContactUs = (props) => {
 
   // Define breadcrumbs for navigation
   const breadcrumbs = [
-    { name: "Contact Us", url: "/contact-us", active: true },
+    { name: "Contact Us", url: props?.pageData?.PageUrl, active: true },
   ];
 
 

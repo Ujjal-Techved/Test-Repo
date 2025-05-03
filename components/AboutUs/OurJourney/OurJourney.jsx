@@ -45,7 +45,7 @@ const OurJourney = ({ insuranceData }) => {
                                     <span>{item?.Title}</span>
 
                                     {/* Card description */}
-                                    <p>{item?.Description}</p>
+                                    <p>{item?.SubTitle}</p>
                                 </div>
 
                                 {/* Static financial year section - can be made dynamic if needed */}

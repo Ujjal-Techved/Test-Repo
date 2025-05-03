@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TitleSubtitle from '../TitleSubtitle/TitleSubtitle';
 import { Accordion, AccordionBody, AccordionHeader, AccordionItem, Container } from 'reactstrap';
 import styles from './Faqs.module.css';
+import { richTextToHtml } from '../../../utils/richTextToHtml';
 
 const Faqs = ({ faqData }) => {
 
@@ -56,7 +57,7 @@ const Faqs = ({ faqData }) => {
                                 className={styles.faqBody} 
                                 accordionId={index.toString()}
                             >
-                                {item?.Answer}
+                                {richTextToHtml(item?.Answer)}
                             </AccordionBody>
                         </AccordionItem>
                     ))}                                                                     
