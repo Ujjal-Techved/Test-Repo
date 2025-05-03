@@ -13,7 +13,8 @@
 /* Common style for texting  */
 
 .option_text{
-    font-family: "Helvetica-800";
+    font-family: "Helvetica-700";
+    font-weight: 700;
     font-size: 18px;
     line-height: 26px;
     color: var(--fgi-black);
@@ -65,9 +66,9 @@
 
 .income_option{
     border: 1px solid var(--border-lightgrey2);
-    border-radius: 24px;
+    border-radius: 4px;
     padding: 16px;
-    margin-top: 16px;
+    margin: 16px 0px 0px 0px;
 }
 
 .income_option_flex{
@@ -83,11 +84,15 @@
     gap: 12px;
 }
 
+.main_option > img {
+    width: 64px;
+}
+
 .income_option_list{
     font-size: 16px;
     line-height: 24px;
     font-family: 'Helvetica-400';
-    color: var(--text-grey2);
+    color: var(--fgi-black);
 }
 
 .income_option_list ul {
@@ -115,7 +120,15 @@
 .example_option{
     padding: 24px;
     background: var(--background-grey1);
-    border-radius: 16px;
+    border-radius: 4px;
+}
+
+.guranted_main{
+    padding: 32px 0px;
+}
+
+.guranted_main .guranted_income:last-child{
+    padding-top: 32px;
 }
 
 /* ends common style texting */
@@ -130,6 +143,7 @@
     .option_list_greytext{
         font-size: 14px;
         line-height: 18px;
+        padding-top: 0px !important;
     }
 
     .income_option_flex{
@@ -139,19 +153,62 @@
     }
 
     .main_option{
-        flex-direction: column;
+        /* flex-direction: column; */
         padding: 0px;
         align-items: flex-start;
     }
 
+    .main_option_detail .income_option_list{
+        margin-left: -76px;
+    }
+
+    .main_option > img{
+        width: 56px;
+    }
+
+    .option_smalltext_red{
+        line-height: 20px;
+        padding-bottom: 0px !important;
+    }
+
+    .income_option_list ul{
+        padding-top: 8px;
+        margin-bottom: 0px;
+    }
+
     .income_option_list{
         font-size: 14px;
-        line-height: 18px;
+        line-height: 20px;
     }
 
     .example_option{
         padding: 16px;
     }
+
+    .benefit_title{
+        padding: 16px 0px 24px 0px;
+    }
+
+    .benefit_title p{
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .option_text{
+        font-size: 18px;
+        line-height: 24px;
+        font-family: "Helvetica-500";
+        font-weight: 500;
+    }
+
+    .guranted_main{
+        padding: 24px 0px;
+    }
+
+    .guranted_main .guranted_income:last-child {
+        padding-top: 24px;
+    }
+
 
     /* ends common style texting */
 

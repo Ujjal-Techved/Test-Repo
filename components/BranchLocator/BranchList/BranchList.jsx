@@ -17,6 +17,7 @@ const BranchList = ({ list }) => {
             <p className={styles.listCount}>{list.length} Branch{list.length === 1 ? "" : "es"} Found</p>
 
             {/* Check if there are branches in the list */}
+            <div className={styles.BranchList_Container}>
             {list.length > 0 ? (
                 list.map((data, index) => (
                     <div className={styles.BranchList_section} key={index}>
@@ -49,6 +50,7 @@ const BranchList = ({ list }) => {
                     <img src='/images/branch-locator/no-location.webp' alt='no location' />
                 </div>
             )}
+            </div>
         </div>
     );
 };

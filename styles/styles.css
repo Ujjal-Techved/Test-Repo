@@ -64,11 +64,11 @@ body.over-hide {
     letter-spacing: 1px;
 }
 
-.lowercase-text{
+.lowercase-text {
     text-transform: lowercase;
 }
 
-.capitalize-text{
+.capitalize-text {
     text-transform: capitalize;
 }
 
@@ -279,8 +279,8 @@ body.over-hide {
     color: var(--text-grey2);
 }
 
-.pdp-bannermain .react-select-container .react-select__control{
-    background: var(--background-lightpink);   
+.pdp-bannermain .react-select-container .react-select__control {
+    background: var(--background-lightpink);
 }
 
 .react-select-container .react-select__control {
@@ -504,7 +504,7 @@ body.over-hide {
     padding-right: calc(100vw / 2 - (623px));
 }
 
-.plan-container-fluid .single-slide .slick-track{
+.plan-container-fluid .single-slide .slick-track {
     padding-left: 32px;
     padding-right: 32px;
 }
@@ -604,14 +604,14 @@ body.over-hide {
     right: calc(100vw / 2 - (634px));
 }
 
-.plp-tabs-wrapper .nav-tabs{
+.plp-tabs-wrapper .nav-tabs {
     max-width: 904px;
     width: 100%;
     margin: 0 auto;
     flex-wrap: nowrap;
 }
 
-.plp-tabs-wrapper .nav-item{
+.plp-tabs-wrapper .nav-item {
     width: 100%;
     text-align: center;
 }
@@ -632,14 +632,14 @@ body.over-hide {
 .plp-tabs-wrapper .nav-tabs {
     justify-content: flex-start;
     flex-wrap: nowrap;
-    overflow-x: auto; 
+    overflow-x: auto;
     overflow-y: hidden;
-    -ms-overflow-style: none; 
-    scrollbar-width: none;   
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .plp-tabs-wrapper .nav-tabs::-webkit-scrollbar {
-    display: none; 
+    display: none;
 }
 
 
@@ -794,12 +794,17 @@ body.over-hide {
 
 
 /* Common Policy table css for PDP */
- 
+
+.policy-table {
+    box-shadow: 0px 0px 22px 0px #1822BD12;
+    border: 1px solid #D0CCD9;
+}
+
 .policy-table-header {
-     
-    border-radius: 24px;
+
+    border-radius: 4px;
     display: flex;
-    align-items: center; 
+    align-items: center;
     height: 80px;
 }
 
@@ -807,7 +812,8 @@ body.over-hide {
     background-color: var(--fgi-pink);
     font-size: 18px;
     line-height: 26px;
-    font-family: 'Helvetica-800';
+    font-family: 'Roboto-700';
+    font-weight: 700;
     color: var(--fgi-black);
     padding: 8px;
     display: flex;
@@ -815,54 +821,127 @@ body.over-hide {
     height: 100%;
     width: 100%;
     justify-content: center;
-
+    text-align: center;
+    align-items: flex-start;
 }
 
-.policy-table-title:not(:first-child), .policy-table-title:not(:last-child){
+.policy-table-title:not(:first-child),
+.policy-table-title:not(:last-child) {
     margin: 0px 0.5px;
 }
 
-.policy-table-title:first-child{
+.policy-table-title:first-child {
     border-top-left-radius: 24px;
 }
 
-.policy-table-title:last-child{
+.policy-table-title:last-child {
     border-top-right-radius: 24px;
 }
 
-.policy-table-subtitle{
+.policy-table-subtitle {
     text-align: center;
 }
 
-.policy-table-subtitle span{
+.policy-table-subtitle span {
     font-size: 12px;
     line-height: 16px;
-    font-family: 'Helvetica-400';
+    font-family: 'Roboto-400';
     color: var(--fgi-black);
 }
 
-.policy-income-loyalty-wrapper{
+.policy-income-loyalty-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: var(--fgi-pink);
-    border-radius: 24px 24px 0px 0px;
+    border-radius: 4px 4px 0px 0px;
 }
 
-.policy-income-loyalty-wrapper .policy-income-loyalty-main{
+.policy-income-loyalty-wrapper .policy-income-loyalty-main {
     width: 75%;
     border-left: 0.5px solid var(--background-color);
     border-bottom: 0.5px solid var(--background-color);
 }
 
-.policy-income-loyalty-main p{
+.policy-income-loyalty-main p {
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Helvetica-500';
+    font-family: 'Roboto-500';
     color: var(--fgi-black);
     text-align: center;
     padding-top: 16px;
     padding-bottom: 12px;
+}
+
+
+.policy-table-data {
+    width: 100%;
+}
+
+.policy-table-details {
+    display: flex;
+    text-align: center;
+}
+
+.policy-table-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 16px 10px;
+    border-right: 1px solid #F6F6F6;
+    font-size: 14px;
+    line-height: 18px;
+    font-family: 'Roboto-400';
+    font-weight: 400;
+    color: var(--fgi-black);
+}
+
+.policy-table-cell:last-child {
+    border-right: none;
+}
+
+/* Maturity Policy Table Css */
+
+  .maturity-policy-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .maturity-policy-table::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
+.maturity-policy-table .policy-table-header .policy-table-title:first-child{
+    margin-top: 0px;
+    height: 100%;
+}
+
+.maturity-policy-table .policy-table-header .policy-table-title{
+    align-items: flex-start;
+}
+
+/* Title Wrapper */
+/* .policy-income-loyalty-wrapper {
+    display: flex;
+    background-color: #fff0f0;
+  } */
+
+.policy-income-blank {
+    flex: 1;
+}
+
+.policy-income-loyalty-main {
+    /* flex: 3; */
+    padding: 12px;
+    font-weight: bold;
+    text-align: center;
+    color: #aa0000;
+}
+
+.policy-table-data .policy-table-details:nth-child(odd) {
+    background-color: #F6F6F6;
 }
 
 
@@ -943,8 +1022,8 @@ body.over-hide {
 
     /* Common links style css */
 
-    .pdp-bannermain .react-select-container .react-select__control{
-        background: transparent; 
+    .pdp-bannermain .react-select-container .react-select__control {
+        background: transparent;
     }
 
 
@@ -1017,14 +1096,20 @@ body.over-hide {
     .common-tabs-wrapper .nav-tabs {
         justify-content: flex-start;
         flex-wrap: nowrap;
-        overflow-x: auto; 
+        overflow-x: auto;
         overflow-y: hidden;
-        -ms-overflow-style: none; 
-        scrollbar-width: none;   
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
-    
+
+    .common-tabs-wrapper .nav-item {
+        padding: 10px 4px;
+        width: 100%;
+        text-align: center;
+    }
+
     .common-tabs-wrapper .nav-tabs::-webkit-scrollbar {
-        display: none; 
+        display: none;
     }
 
     .types-insurance-wrapper .slick-track .slick-slide {
@@ -1083,7 +1168,7 @@ body.over-hide {
         padding-right: 0px;
     }
 
-    .plan-container-fluid .single-slide .slick-track{
+    .plan-container-fluid .single-slide .slick-track {
         padding-left: 0px;
         padding-right: 0px;
     }
@@ -1114,8 +1199,63 @@ body.over-hide {
         gap: 0px;
     }
 
-    .form-group{
+    .form-group {
         width: 100%;
     }
+
+    /* Common Policy table css for PDP */
+
+    /* .policy-income-loyalty-wrapper .policy-income-loyalty-main{
+        width: 63.8%;
+    } */
+
+    .policy-table-header .policy-table-title:first-child {
+        margin-top: -40px;
+        height: 120px;
+        text-align: center;
+    }
+
+    .policy-table-title {
+        font-size: 14px;
+        line-height: 20px;
+        font-family: 'Roboto-500';
+        font-weight: 500;
+    }
+
+    .policy-table-subtitle span {
+        font-size: 12px;
+        line-height: 16px;
+        font-family: 'Roboto-400';
+    }
+
+    .policy-income-loyalty-main p {
+        font-size: 14px;
+        line-height: 20px;
+        font-family: 'Roboto-500';
+        font-weight: 500;
+    }
+
+    /* Policy Table CSS */
+
+    .policy-table-cell {
+        font-size: 14px;
+        line-height: 20px;
+        font-family: 'Roboto-400';
+    }
+
+    /* .policy-table-details {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .policy-table-cell:first-child {
+        flex: 2;
+    }
+
+    .policy-table-cell:not(:first-child) {
+        flex: 1;
+       
+    } */
+
 
 }
