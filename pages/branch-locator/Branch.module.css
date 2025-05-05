@@ -45,6 +45,10 @@
     width: 208px;
 }
 
+.filterComponent .row .col.disabled label {
+    color: var(--border-grey1);
+}
+
 .filterComponent .row .colbtn {
     padding: 0;
     width: 99px;
@@ -124,5 +128,10 @@
 
     .branch_background {
         background: none;
+    }
+
+    .filterComponent .orTxt {
+        width: 100%;
+        text-align: center;
     }
 }

@@ -164,7 +164,8 @@ const BranchLocator = (props) => {
                                             components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }} // Removes the arrow and separator
                                         />
                                     </div>
-                                    <div className={styles.col + ' dropdown-arrow'}>
+                                    <div className={styles.col + ' dropdown-arrow ' + 
+                                        (!selectedState?.value ? (styles.disabled + " disabled") : "")}>
                                         <label className='common-label'>Select City</label>
                                         <Select
                                             options={cityList}
@@ -264,9 +265,9 @@ export async function getServerSideProps(context) {
     // Generate breadcrumbs dynamically based on state and city
     const breadcrumbs = [
         { name: "Branch Locator", url: "/branch-locator", active: true },
-        state ? { name: normalizedState, url: `/branch-locator/${state}/${city}`, active: true } : null,
-        city ? { name: normalizedCity, url: `/branch-locator/${state}/${city}`, active: true } : null,
-        pincode ? { name: pincode, url: `/branch-locator/${pincode}`, active: true } : null,
+        // state ? { name: normalizedState, url: `/branch-locator/${state}/${city}`, active: true } : null,
+        // city ? { name: normalizedCity, url: `/branch-locator/${state}/${city}`, active: true } : null,
+        // pincode ? { name: pincode, url: `/branch-locator/${pincode}`, active: true } : null,
     ].filter(Boolean); // Remove null values
 
 
