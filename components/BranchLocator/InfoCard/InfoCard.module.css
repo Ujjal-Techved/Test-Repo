@@ -1,4 +1,4 @@
-.info_cards_row{
+.info_cards_row {
     padding: 48px 0px;
     /* margin-bottom: 48px; */
 }
@@ -8,51 +8,148 @@
 }
 
 .info_cards {
-    border: 1px solid var(--fgi-redcard);
-    background-color: #ffcaca4d;
-    backdrop-filter: blur(10px);
+    /* border: 1px solid var(--fgi-redcard); */
+    background-color: var(--background-white);
+    /* backdrop-filter: blur(10px); */
+    box-shadow: 0px 10px 40px 0px #0000001A;
     padding: 20px;
-    border-radius: 24px;
+    border-radius: 4px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 10px;
+    gap: 12px;
     width: 100%;
     margin-bottom: 26px;
 }
 
 .info_cards_title {
-    font-size: 24px;
-    line-height: 36px;
-    font-family: 'Roboto-800';
+    font-size: 20px;
+    line-height: 28px;
+    font-family: 'Roboto-700';
+    font-weight: 700;
+    color: var(--fgi-black);
 }
 
 .info_cards_subtitle {
     font-size: 14px;
-    line-height: 21px;
+    line-height: 20px;
     color: var(--fgi-black);
 }
 
+.income_option_list ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.income_option_list ul li {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.income_option_list ul li a {
+    font-family: 'Roboto-700';
+    font-weight: 700;
+}
+
+
+.hover_content {
+    display: inline-block;
+    margin-bottom: 0px !important;
+    position: relative;
+}
+
+.hover_wrapper {
+    display: none;
+    border: 1px solid var(--border-lightgrey2);
+    box-shadow: 0px 8px 20px 0px var(--fgi-boxshadowgrey);
+    padding: 12px;
+    margin-bottom: 0px !important;
+    background: var(--background-color);
+    position: absolute;
+    z-index: 1;
+    width: 289px;
+    top: -75px;
+    left: -8px;
+}
+
+.hover_content:hover .hover_wrapper {
+    display: block;
+}
+
+.hover_wrapper::after {
+    position: absolute;
+    content: '';
+    background-image: url('/images/branch-locator/polygon.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    bottom: -8px;
+    left: 10px;
+    width: 10px;
+    height: 10px;
+}
+
+.hover_wrapper p {
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--fgi-black);
+    margin-bottom: 0px;
+}
+
+
+
+
 @media screen and (max-width: 991.2px) and (min-width: 320px) {
-    .info_cards_row{
+    .info_cards_row {
         padding: 16px 0px 32px 0px;
         margin-bottom: 0px;
     }
+
     .info_cards_section {
         flex: auto;
     }
-    .info_cards{
-        min-height: 221px;
+
+    .info_cards {
+        /* min-height: 221px; */
         margin-bottom: 16px;
+        gap: 9px;
     }
 
-    .info_cards_section:last-child .info_cards{
+    .info_cards_section:last-child .info_cards {
         margin-bottom: 0px;
     }
 
     .info_cards_title {
         font-size: 18px;
         line-height: 27px;
+    }
+
+    .income_option_list ul li {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .hover_wrapper {
+        width: 296px;
+        left: unset;
+        right: -95px;
+    }
+
+    .hover_wrapper::after {
+        bottom: -8px;
+        right: -44px;
+        left: 44px;
+        margin: 0 auto;
+    }
+
+    .hover_content{
+        display: flex;
     }
 
 }

@@ -211,9 +211,6 @@ const BranchLocator = (props) => {
                             }
                         </div>
 
-                        {/* Display additional contact options */}
-                        {props?.pageData?.InfoCards ? (<InfoCard infoCardDetails={props?.pageData?.InfoCards} />) : null}
-
                         {/* Digital Contact Section */}
                         {props?.pageData?.ReachUsCards ? (
                             <ReachUsDigitalContact
@@ -222,6 +219,9 @@ const BranchLocator = (props) => {
                                 reachUsCard={props?.pageData?.ReachUsCards}
                             />
                         ) : null}
+
+                         {/* Display additional contact options */}
+                         {props?.pageData?.InfoCards ? (<InfoCard infoCardDetails={props?.pageData?.InfoCards} />) : null}
 
                         {/* Invest Plan section */}
                         {props?.pageData?.BottomBanner ? (<InvestPlan investPlanData={props?.pageData?.BottomBanner} />) : null}

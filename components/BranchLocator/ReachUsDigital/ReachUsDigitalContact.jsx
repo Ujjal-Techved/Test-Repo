@@ -5,7 +5,7 @@ import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle';
 
 const ReachUsDigitalContact = ({ reachUsCard, title, subtitle }) => {
     return (
-        <Container>
+        <Container className='pd-t'>
             <TitleSubtitle
                 title={title}
                 subtitle={subtitle}
