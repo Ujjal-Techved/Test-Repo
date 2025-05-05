@@ -4,9 +4,23 @@ import styles from './PlpBanner.module.css'
 import TitleSubtitle from '@/components/Common/TitleSubtitle/TitleSubtitle'
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { leadFormAPICall } from '../../../utils/apiClient';  // Ensure correct path
 
 
-const PlpBanner = () => {
+const PlpBanner = ({bannerData}) => {
+
+      // Return nothing if data is missing to avoid runtime errors
+      if (!bannerData) {
+        return null;
+    }
+
+    // Destructure response data for clarity
+    const {
+        PageTitle,
+        PageDesc,
+        Image,
+    } = bannerData;
+
 
 
     const validationSchema = Yup.object().shape({
@@ -17,7 +31,7 @@ const PlpBanner = () => {
             .min(10, "Enter a valid 10-digit mobile no.")
             .max(10, "Enter a valid 10-digit mobile no.")
             .required("Phone number is required"),
-    });
+    });   
 
     return (
         <div className='pd-b'>
@@ -28,8 +42,8 @@ const PlpBanner = () => {
                         <Col lg="7" className={styles.insure_description}>
                             {/* Title and subtitle rendered using the TitleSubtitle component */}
                             <TitleSubtitle
-                                title={"What is a life insurance policy?"}
-                                subtitle={"Life insurance provides financial security for your loved ones, helps you plan for future goals, and ensures peace of mind during uncertain times. It’s a vital step in protecting your family and building a secure financial foundation."}
+                                title={PageTitle}
+                                subtitle={PageDesc}
                                 extraClass={"leftAligned text-start pageTitle descPlp"} // Custom class for left-aligned content
                             />
                             <div className={styles.formComponent}>
@@ -89,8 +103,19 @@ const PlpBanner = () => {
                                     validateOnBlur={false}
                                     validateOnChange={false}
                                     validationSchema={validationSchema}
-                                    onSubmit={(values) => {
+                                    onSubmit={async(values) => {
                                         console.log("Form submitted:", values);
+                                        const payload = {
+                                            firstname: values.name || "",
+                                            lastname: values.name || "", // You may split this if required
+                                            mobilephone: values.phone || "",
+                                            age__c: " ", // You may add a field in form for this
+                                            email: "", // Also add in form if required
+                                            postalcode: "", // Also from form or default
+                                            product_pitched__c: "" // Can be dynamic
+                                        };
+                                        //Lead Form API function
+                                        await leadFormAPICall( payload);
                                     }}
                                 >
                                     {({ errors, setFieldValue, setFieldError }) => (
@@ -127,7 +152,7 @@ const PlpBanner = () => {
                                             </div>
 
                                             <button type="submit" className={styles.red_btn + ' redBtn px-4 w-sm-100'}>
-                                            Schedule a Call
+                                            Request A Call Back
                                             </button>
                                         </Form>
                                     )}
@@ -137,7 +162,10 @@ const PlpBanner = () => {
                         </Col>
                         {/* Right side: Image */}
                         <Col lg="5" className={styles.insure_imgsrc}>
-                            <img src='images/product-landing/banner-fg.webp' alt='life-insurance' className='img-fluid' />
+                            <img className='img-fluid'
+                                src={process.env.NEXT_PUBLIC_APP_API + Image?.url}
+                                alt={Image?.alternativeText }
+                            />
                         </Col>
                     </Row>
                 </div>

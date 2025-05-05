@@ -13,11 +13,13 @@ import TypesOfPolicies from '@/components/PLP/TypesOfPolicies/TypesOfPolicies';
 import PlpCallback from '@/components/PLP/PlpCallback/PlpCallback';
 import ChooseGoal from '@/components/PLP/ChooseGoal/ChooseGoal';
 import IrdaSection from '@/components/ContactUs/IrdaSection/IrdaSection';
-const index = () => {
+import { apiClient } from '../../utils/apiClient';  // Ensure correct path
+
+const index = (props) => {
 
     // Create the breadcrumbs array
     const breadcrumbs = [
-        { name: "Life Insurance", url: "/product-landing", active: true },
+        { name: "Life Insurance", url: props?.aboutUsData?.PageUrl, active: true },
     ]
 
     // Array of coverage tabs data, used to dynamically create tab navigation
@@ -879,75 +881,75 @@ const index = () => {
 
     // Array for IRDA Section
     const irdadata = {
-    "IrdaSection": {
-        "id": 9,
-        "LeftText": [
-            {
-                "type": "paragraph",
-                "children": [
-                    {
-                        "text": "IRDAI Registration No: ",
-                        "type": "text"
-                    },
-                    {
-                        "bold": true,
-                        "text": "133",
-                        "type": "text"
-                    }
-                ]
-            },
-            {
-                "type": "paragraph",
-                "children": [
-                    {
-                        "text": "(Validity 31st March 2025)",
-                        "type": "text"
-                    }
-                ]
+        "IrdaSection": {
+            "id": 9,
+            "LeftText": [
+                {
+                    "type": "paragraph",
+                    "children": [
+                        {
+                            "text": "IRDAI Registration No: ",
+                            "type": "text"
+                        },
+                        {
+                            "bold": true,
+                            "text": "133",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "children": [
+                        {
+                            "text": "(Validity 31st March 2025)",
+                            "type": "text"
+                        }
+                    ]
+                }
+            ],
+            "RightText": [
+                {
+                    "type": "paragraph",
+                    "children": [
+                        {
+                            "text": "License Category: ",
+                            "type": "text"
+                        },
+                        {
+                            "bold": true,
+                            "text": "Life",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "children": [
+                        {
+                            "text": "CIN:- ",
+                            "type": "text"
+                        },
+                        {
+                            "bold": true,
+                            "text": "U66010MH2006PLC165288",
+                            "type": "text"
+                        }
+                    ]
+                }
+            ],
+            "Image": {
+                "id": 91,
+                "documentId": "lx2iyo746m93924dyxz0spu5",
+                "url": "/uploads/Mask_group_c3f04650b2.png",
+                "alternativeText": null,
+                "caption": null,
+                "name": "Mask group.png"
             }
-        ],
-        "RightText": [
-            {
-                "type": "paragraph",
-                "children": [
-                    {
-                        "text": "License Category: ",
-                        "type": "text"
-                    },
-                    {
-                        "bold": true,
-                        "text": "Life",
-                        "type": "text"
-                    }
-                ]
-            },
-            {
-                "type": "paragraph",
-                "children": [
-                    {
-                        "text": "CIN:- ",
-                        "type": "text"
-                    },
-                    {
-                        "bold": true,
-                        "text": "U66010MH2006PLC165288",
-                        "type": "text"
-                    }
-                ]
-            }
-        ],
-        "Image": {
-            "id": 91,
-            "documentId": "lx2iyo746m93924dyxz0spu5",
-            "url": "/uploads/Mask_group_c3f04650b2.png",
-            "alternativeText": null,
-            "caption": null,
-            "name": "Mask group.png"
         }
     }
-}
 
-
+    console.log(props?.productLisData)
 
     return (
         <LandingLayout>
@@ -957,16 +959,16 @@ const index = () => {
                 </Container>
 
                 {/* FAQ section with static title and subtitle */}
-                <PlpBanner />
+                <PlpBanner bannerData={props?.productLisData} />
+
+                {/* Whyinsurancematter section with static title and subtitle */}
+                <Whyinsurancematter whyInsMatterData={props?.productLisData} />
 
                 {/* ChooseGoal section */}
-                <ChooseGoal choosegoalData={ChoosegoalData} />
+                <ChooseGoal choosegoalData={props?.productLisData} />
 
                 {/* CoverageOption section with static title and subtitle*/}
                 <CoverageOption coveragetabs={coveragetabs} CoverageBenefits={CoverageBenefits} coverageplansData={coverageplansData} />
-
-                {/* Whyinsurancematter section with static title and subtitle */}
-                <Whyinsurancematter TermplanCardData={TermplanCardData} />
 
                 {/* PlpCallback section with static title and subtitle */}
                 <PlpCallback />
@@ -991,11 +993,34 @@ const index = () => {
                 <PlpCallback />
 
                 {/* IRDA Section */}
-                <IrdaSection irdaSectionData={irdadata}/>
+                <IrdaSection irdaSectionData={irdadata} />
 
             </div>
         </LandingLayout>
     )
+}
+
+
+// ✅ Fetch data from API using getServerSideProps to ensure fresh data on each request
+export async function getServerSideProps(context) {
+    try {
+        // 🔹 Fetch About Us page data from the API
+        const response = await apiClient('/api/product-listings?filters[PageUrl][$eq]=/life-insurance');
+        return {
+            props: {
+                productLisData: response?.data?.[0] || {}, // ✅ Ensure aboutUsData is not undefined
+            },
+        };
+    } catch (error) {
+        console.error("Error fetching About Us page data:", error);
+
+        // ✅ Return an empty object to prevent the page from crashing in case of an error
+        return {
+            props: {
+                productLisData: {}, // Safely return empty data
+            },
+        };
+    }
 }
 
 export default index

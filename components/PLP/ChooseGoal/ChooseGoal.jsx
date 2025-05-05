@@ -12,7 +12,7 @@ const ChooseGoal = ({ choosegoalData }) => {
     }
 
     // Destructure API response data for cleaner code
-    const { Title, Description, CardList } = choosegoalData?.ChooseGoal;
+    const { Title, SubTitle, GoalList } = choosegoalData?.ChooseGoal;
 
     // Slider settings for stageOptions (commented out for now)
     // const sliderSettings = {
@@ -41,13 +41,13 @@ const ChooseGoal = ({ choosegoalData }) => {
                 {/* Title and Subtitle component */}
                 <TitleSubtitle
                     title={Title}
-                    subtitle={Description}
+                    subtitle={SubTitle}
                 />
                 {/* Wrapper for the card list */}
                 <div className='best-stageoption-wrapper'>
                     <div className={styles.stageOption_centermode}>
                         {/* Map through the CardList and render each card */}
-                        {CardList?.map((option) => (
+                        {GoalList?.map((option) => (
                             <div key={option.id} className={styles.best_stageoption_section}>
                                 <div className={styles.best_stageoption_card}>
                                     {/* Image for the card */}
@@ -59,8 +59,8 @@ const ChooseGoal = ({ choosegoalData }) => {
                                     {/* Main content of the card */}
                                     <div className={styles.best_stageoption_main}>
                                         {/* Link with text and arrow icon */}
-                                        <a href={option.linkhref} className={styles.protect_plan_linktext}>
-                                            <span>{option?.Text}</span>
+                                        <a href={option.LinkUrl} className={styles.protect_plan_linktext}>
+                                            <span>{option?.LinkText}</span>
                                             <img src="/images/reach-us/arrow-right.svg" alt="arrow" />
                                         </a>
                                         {/* Description text */}

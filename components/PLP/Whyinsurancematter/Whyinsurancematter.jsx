@@ -2,12 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { Col, Container, Row, TabContent, TabPane, Button } from 'reactstrap';
 import styles from './Whyinsurancematter.module.css';
 
-const Whyinsurancematter = ({TermplanCardData}) => {
+const Whyinsurancematter = ({whyInsMatterData}) => {
   // State to toggle 'Show More' feature
   const [showMore, setShowMore] = useState(false);
 
   // State to check if the viewport is mobile-sized
   const [isMobile, setIsMobile] = useState(false);
+
+    // Return nothing if data is missing to avoid runtime errors
+    if (!whyInsMatterData) {
+      return null;
+  }
+
+  // Destructure response data for clarity
+  const {
+      Title,
+      Description,
+      FeatureList,
+  } = whyInsMatterData?.InsuranceMatter;
+
 
   // Effect to detect screen size changes
   useEffect(() => {
@@ -31,14 +44,13 @@ const Whyinsurancematter = ({TermplanCardData}) => {
           <TabPane tabId="1"></TabPane>
           
           {/* Loop through the term plan data to render UI */}
-          {TermplanCardData.map((termplan, index) => (
-            <div className={styles.insure_wrapper} key={index}>
+            <div className={styles.insure_wrapper}>
               <Row className={styles.insure_main}>
                 {/* Left side - Description section */}
                 <Col lg="5" className={styles.insure_description}>
                   <div className={styles.guide_title_main}>
-                    <h2>{termplan.Title}</h2>
-                    <p>{termplan.Subtitle}</p>
+                    <h2>{Title}</h2>
+                    <p>{Description}</p>
                   </div>
                 </Col>
 
@@ -47,7 +59,7 @@ const Whyinsurancematter = ({TermplanCardData}) => {
                   <div className={styles.insure_card}>
                     <Row className={styles.guide_card_row}>
                       {/* Mapping through the TermplanList to render each benefit card */}
-                      {termplan.TermplanList.map((item, i) => (
+                      {FeatureList.map((item, i) => (
                         <Col
                           lg="4"
                           md="6"
@@ -60,16 +72,19 @@ const Whyinsurancematter = ({TermplanCardData}) => {
                           `}
                         >
                           <div className={styles.guide_card}>
-                            <img src={item.Image.url} alt={item.Title} className={styles.termplan_image} />
-                            <h4>{item.Title}</h4>
-                            <p>{item.Description}</p>
+                          <img className='img-fluid'
+                                src={process.env.NEXT_PUBLIC_APP_API + item?.Image?.url}
+                                alt={item?.Image?.alternativeText }
+                            />
+                            <h4>{item?.Title}</h4>
+                            <p>{item?.Description}</p>
                           </div>
                         </Col>
                       ))}
                     </Row>
 
                     {/* Show More / See Less button for mobile view */}
-                    {isMobile && termplan.TermplanList.length > 4 && (
+                    {isMobile && FeatureList?.length > 4 && (
                       <div className={styles.show_more_btn}>
                         <a color="primary" onClick={() => setShowMore(!showMore)}>
                           {showMore ? "See Less -" : "Show More +"}
@@ -80,7 +95,6 @@ const Whyinsurancematter = ({TermplanCardData}) => {
                 </Col>
               </Row>
             </div>
-          ))}
         </TabContent>
       </Container>
     </div>
