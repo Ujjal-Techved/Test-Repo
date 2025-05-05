@@ -11,6 +11,7 @@
 .BranchList_Container{
     display: flex;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 .BranchList_section{
@@ -20,7 +21,7 @@
     border-bottom: 1px solid var(--fgi-borderlightgrey);
     padding: 16px;
     margin-right: 20px;
-    width: 50%;
+    width: calc(50% - 20px);
 }
 
 .BranchList_section:last-child{

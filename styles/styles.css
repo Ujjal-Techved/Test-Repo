@@ -290,19 +290,19 @@ body.over-hide {
     border-left: 0px;
     border-bottom: 1px solid var(--border-grey);
     box-shadow: none;
-    font-family: "Roboto-400";
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 22.4px;
+    font-family: "Roboto-500";
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26.4px;
     padding: 12px 16px 0px 0px;
     padding-right: 32px;
     background: none;
-    color:var(--text-grey2);
+    color:var(--fgi-black);
 }
 
 .react-select__placeholder {
-    font-family: "Roboto-300";
-    font-weight: 300;
+    font-family: "Roboto-200";
+    font-weight: 200;
     color: var(--placeholder-gray);
   }
 
@@ -378,6 +378,10 @@ body.over-hide {
     right: 16px;
     transform: rotate(-45deg);
     transition: 0.2s;
+}
+
+.dropdown-arrow.disabled .react-select-container .react-select__control::after {
+    border-color: var(--border-grey1);
 }
 
 .dropdown-arrow .react-select-container .react-select__control.react-select__control--menu-is-open::after {
