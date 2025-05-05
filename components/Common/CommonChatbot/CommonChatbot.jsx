@@ -10,7 +10,7 @@ const CommonChatbot = ({ showChatbot }) => {
                 <a href="/">
                     <div className={styles.main_whatsapp}>
                         <div className={styles.Home_banner_whatsapp}>
-                            <img src="images/home/whatsapp.png" alt="whatsapp" />
+                            <img src="/images/home/whatsapp.png" alt="whatsapp" />
                         </div>
                     </div>
                 </a>
@@ -20,11 +20,11 @@ const CommonChatbot = ({ showChatbot }) => {
                 <div className={styles.main_chatbot}>
                     <div className={styles.Home_banner_chatbot}>
                         <div className={styles.Home_banner_innerbot}>
-                            <img src="images/home/chatbot.gif" alt="chatbot" />
+                            <img src="/images/home/chatbot.gif" alt="chatbot" />
                             <div className={styles.chabot_title}>
                                 <p>Have questions?</p>
                                 <a href="/">
-                                    Let’s Chat <img src="images/home/chatarrow.png" alt="arrow" />
+                                    Let’s Chat <img src="/images/home/chatarrow.png" alt="arrow" />
                                 </a>
                             </div>
                         </div>
