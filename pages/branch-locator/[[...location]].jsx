@@ -220,13 +220,14 @@ const BranchLocator = (props) => {
                             />
                         ) : null}
 
-                         {/* Display additional contact options */}
-                         {props?.pageData?.InfoCards ? (<InfoCard infoCardDetails={props?.pageData?.InfoCards} />) : null}
-
-                        {/* Invest Plan section */}
-                        {props?.pageData?.BottomBanner ? (<InvestPlan investPlanData={props?.pageData?.BottomBanner} />) : null}
+                        {/* Display additional contact options */}
+                        {props?.pageData?.InfoCards ? (<InfoCard infoCardDetails={props?.pageData?.InfoCards} />) : null}
 
                     </Container>
+                    
+                    {/* Invest Plan section */}
+                    {props?.pageData?.BottomBanner ? (<InvestPlan investPlanData={props?.pageData?.BottomBanner} />) : null}
+
                 </div>
                 <CommonPopup isOpen={locationPopup} toggle={toggleLocationPopup}>
                     <LocationPopup toggle={toggleLocationPopup} pageUrl="/branch-locator/" />

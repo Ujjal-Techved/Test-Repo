@@ -114,11 +114,13 @@ const InvestPlan = ({ investPlanData }) => {
                         {/* Section for displaying QR code and download links */}
                         <div className={styles.scanner_links}>
                             {/* QR Code Image for scanning */}
-                            <div>
+                            <div className={styles.scanner_links_main}>
+                                
                                 <img
                                     src={process.env.NEXT_PUBLIC_APP_API + QR_Code_Image?.url}
                                     alt={QR_Code_Image?.alternativeText}
                                 />
+                                <p>Scan QR Code</p>
                             </div>
 
                             {/* Download buttons for Play Store and App Store */}

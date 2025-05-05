@@ -43,6 +43,9 @@
 
 .qr_code{
     margin-top: 16px;
+    width: 180px;
+    height: 180px;
+    border-radius: 16px;
 }
 
 .reach_us_link{

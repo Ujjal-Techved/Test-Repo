@@ -87,6 +87,19 @@
     gap: 24px;
 }
 
+.scanner_links_main img{
+    width: 88px;
+    border-radius: 4px;
+}
+
+.scanner_links_main p{
+    font-family: "Roboto-500";
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 8px;
+    color: var(--background-color);
+}
+
 .links_btn {
     background: transparent;
     border: none;
@@ -182,6 +195,8 @@
         /* background: url('/images/contact-us/bg-invest-mob.png'), var(--fgi-red);
         background-position: right;
         background-repeat: no-repeat; */
+        min-height: unset;
+        padding-bottom: 50px;
         background: url('/images/faqs/bg-left.svg'), url('/images/faqs/bg-right.svg'), var(--fgi-red);
         background-repeat: no-repeat;
         background-position: left 30px, right 390px, center;
@@ -202,6 +217,15 @@
         font-weight: 300;
         font-size: 24px;
         line-height: 28px;
+    }
+
+    .scanner_links_main img{
+        width: 52px !important;
+    }
+
+    .scanner_links_main p{
+        font-size: 8px;
+        margin-top: 5px;
     }
 
     .form_applink {
@@ -233,9 +257,9 @@
     .investPlan_bg::after {
         position: absolute;
         content: url('/images/contact-us/bg-phone-mob.png');
-        top: 250px;
+        top: auto;
+        bottom: -108px;
         right: 0px;
-        z-index: -1;
     }
 
     .scanner_links>div>img {
